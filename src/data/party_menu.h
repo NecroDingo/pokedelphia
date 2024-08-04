@@ -663,6 +663,8 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_NO_POKEMON]             = COMPOUND_STRING("You have no POKéMON."),
     [PARTY_MSG_CHOOSE_MON_FOR_BOX]     = gText_SendWhichMonToPC,
     [PARTY_MSG_MOVE_ITEM_WHERE]        = gText_MoveItemWhere,
+    [PARTY_MSG_MON_FOLLOWING]          = gText_MonFollowing,
+    [PARTY_MSG_MON_NOT_FOLLOWING]      = gText_MonNotFollowing,
 };
 
 static const u8 *const sDescriptionStringTable[] =
@@ -700,6 +702,8 @@ struct
 {
     [MENU_SUMMARY]         = {COMPOUND_STRING("SUMMARY"),         CursorCb_Summary},
     [MENU_SWITCH]          = {COMPOUND_STRING("SWITCH"),          CursorCb_Switch},
+    [MENU_FOLLOW_ME]       = {gText_FollowMe,                     CursorCb_FollowMe},
+    [MENU_UNFOLLOW_ME]     = {gText_UnfollowMe,                   CursorCb_FollowMe},
     [MENU_CANCEL1]         = {gText_Cancel2,                      CursorCb_Cancel1},
     [MENU_ITEM]            = {COMPOUND_STRING("ITEM"),            CursorCb_Item},
     [MENU_GIVE]            = {gMenuText_Give,                     CursorCb_Give},
