@@ -284,59 +284,58 @@ LittlerootTown_BrendansHouse_1F_Movement_BrendanGoUpstairs2:
 	step_end
 
 PlayersHouse_1F_Text_IsntItNiceInHere:
-	.string "MOM: See, {PLAYER}?\n"
-	.string "Isn't it nice in here, too?$"
+	.string "MOM: See, Charlie?\n"
+	.string "The floor only smells a little like pee.\p"
+	.string "That’s nice, right?$"
 
 PlayersHouse_1F_Text_MoversPokemonGoSetClock:
-	.string "The mover's POKéMON do all the work\n"
-	.string "of moving us in and cleaning up after.\l"
-	.string "This is so convenient!\p"
-	.string "{PLAYER}, your room is upstairs.\n"
-	.string "Go check it out, dear!\p"
-	.string "DAD bought you a new clock to mark\n"
-	.string "our move here.\l"
-	.string "Don't forget to set it!$"
+	.string "The mover’s POKéMON did all the work.\n"
+	.string "Frank paid ‘em in meat scraps.\p"
+	.string "Your room’s upstairs. It's got a window,\n"
+	.string "some walls, and I think a bucket.\p"
+	.string "Frank left you a busted clock to\n"
+	.string "stare at. You should go set it.$"
 
 PlayersHouse_1F_Text_ArentYouInterestedInRoom:
-	.string "MOM: Well, {PLAYER}?\p"
-	.string "Aren't you interested in seeing your\n"
-	.string "very own room?$"
+	.string "MOM: Well, Charlie?\p"
+	.string "Aren’t you excited to see your own room?\n"
+	.string "I think I saw, like, two baby rats!$"
 
 PlayersHouse_1F_Text_GoSetTheClock:
-	.string "MOM: {PLAYER}.\p"
-	.string "Go set the clock in your room, honey.$"
+	.string "MOM: Charlie.\p"
+	.string "Go set that stupid clock Frank left.\n"
+	.string "He said it's important for legal reasons.$"
 
 PlayersHouse_1F_Text_OhComeQuickly:
-	.string "MOM: Oh! {PLAYER}, {PLAYER}!\n"
-	.string "Quick! Come quickly!$"
+	.string "MOM: Charlie, get in here!\n"
+	.string "Something’s happening on the TV!$"
 
 PlayersHouse_1F_Text_MaybeDadWillBeOn:
-	.string "MOM: Look! It's PETALBURG GYM!\n"
-	.string "Maybe DAD will be on!$"
+	.string "MOM: Look! It's a guy who kinda looks like\n"
+	.string "your father. I think. Maybe?$"
 
 PlayersHouse_1F_Text_ItsOverWeMissedHim:
-	.string "MOM: Oh… It's over.\p"
-	.string "I think DAD was on, but we missed him.\n"
-	.string "Too bad.$"
+	.string "MOM: Oh… well It's over..$"
 
 PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor:
-	.string "Oh, yes.\n"
-	.string "One of DAD's friends lives in town.\p"
-	.string "PROF. BIRCH is his name.\p"
-	.string "He lives right next door, so you should\n"
-	.string "go over and introduce yourself.$"
+	.string "Oh, yeah.\n" 
+	.string "Some weirdos moved in next door.\p"
+	.string "Not sure who they are.\n"
+	.string "They smell like milk and stare a lot.\p"
+	.string "Why don’t you go over and introduce\n"
+	.string "yourself? Wear shoes this time.$"
 
 PlayersHouse_1F_Text_SeeYouHoney:
-	.string "MOM: See you, honey!$"
+	.string "MOM: Bye, Charlie.\n"
+	.string "Try not to get arrested or eaten.$"
 
 PlayersHouse_1F_Text_DidYouMeetProfBirch:
-	.string "MOM: Did you introduce yourself to\n"
-	.string "PROF. BIRCH?$"
+	.string "MOM: Did you meet up with Frank again?\n"
+	.string "Tell him not to use the tub for experiments.$"
 
 PlayersHouse_1F_Text_YouShouldRestABit:
-	.string "MOM: How are you doing, {PLAYER}?\n"
-	.string "You look a little tired.\p"
-	.string "I think you should rest a bit.$"
+	.string "MOM: You look kinda twitchy, Charlie.\n"
+	.string "Maybe lie down for a bit.$"
 
 PlayersHouse_1F_Text_TakeCareHoney:
 	.string "MOM: Take care, honey!$"
