@@ -362,8 +362,8 @@ RivalsHouse_1F_Text_MayWhoAreYou:
 	.string "… … … … … … … …\p"
 	.string "(She doesn't speak, she doesn’t\n"
 	.string "blink. You feel observed.)\p"
-	.string "(She is holding a milk carton\n"
-	.string "and licks her lips while staring.)\p"
+	.string "(She is licking her lips\n"
+	.string "while staring into your soul.)\p"
 	.string "(She goes around you… silently.\n"
 	.string "Time feels slower in this room.)$"
 

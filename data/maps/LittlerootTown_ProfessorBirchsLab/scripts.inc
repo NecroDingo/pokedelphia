@@ -657,128 +657,98 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
 	end
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork:
-	.string "Hunh? PROF. FRANK?\p"
-	.string "The PROF's away on fieldwork.\n"
-	.string "Ergo, he isn't here.\p"
-	.string "Oh, let me explain what fieldwork is.\p"
-	.string "It is to study things in the natural\n"
-	.string "environment, like fields and mountains,\l"
-	.string "instead of a laboratory.\p"
-	.string "The PROF isn't one for doing desk work.\n"
-	.string "He's the type of person who would\l"
-	.string "rather go outside and experience\l"
-	.string "things than read about them here.$"
+	.string "Huh? PROF. FRANK?\p"
+	.string "Yeah, he said something about 'rat research'\n"
+	.string "and ran off into the woods with a trash bag.\p"
+	.string "Fieldwork, I guess. That’s what he calls it.\p"
+	.string "He hates desk stuff. Says it gives him 'mind cramps.'$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork:
-	.string "The PROF isn't one for doing desk work.\n"
-	.string "He's the type of person who would\l"
-	.string "rather go outside and experience\l"
-	.string "things than read about them here.$"
+	.string "The PROF hates sitting still.\n"
+	.string "He says desks are a 'trap by the man.'\p"
+	.string "He'd rather be out dumpster diving for data.\n"
+	.string "Calls it his 'natural habitat.'$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
-	.string "PROF. FRANK is studying the habitats\n"
-	.string "and distribution of POKéMON.\p"
-	.string "The PROF enjoys {RIVAL}'s help, too.\n"
-	.string "There's a lot of love there.$"
+	.string "PROF. FRANK says Margaret helps sometimes.\p"
+	.string "Mostly just stares, but he claims it 'opens up the mind.'\n"
+	.string "Says her energy calms the squirrels in his head.\p"
+	.string "That man has donkey brains for sure.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon:
 	.string "PROF. FRANK: So, {PLAYER}{KUN}.\p"
-	.string "I've heard so much about you from\n"
-	.string "your father.\p"
-	.string "I've heard that you don't have your\n"
-	.string "own POKéMON yet.\p"
-	.string "But the way you battled earlier,\n"
-	.string "you pulled it off with aplomb!\p"
-	.string "I guess you have your father's blood\n"
-	.string "in your veins after all!\p"
-	.string "Oh, yes. As thanks for rescuing me,\n"
-	.string "I'd like you to have the POKéMON you\l"
-	.string "used earlier.\p"
+	.string "Word is you’re weird, and honestly,\n"
+	.string "that’s a plus.\p"
+	.string "You handled that RATTATA like a champ.\n"
+	.string "Didn’t even scream. That’s rare.\p"
+	.string "So here. Take the POKéMON you used.\n"
+	.string "No refunds, no warranties.\l"
+	.string "You have a connection.\p"
 	.string "{PLAYER} received the {STR_VAR_1}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon:
-	.string "PROF. FRANK: While you're at it, why not\n"
-	.string "give a nickname to that {STR_VAR_1}?$"
+	.string "PROF. FRANK: Wanna give it a nickname?\n"
+	.string "Named mine ‘Tooth Knife’ once.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
-	.string "PROF. FRANK: If you work at POKéMON\n"
-	.string "and gain experience, I think you'll make\l"
-	.string "an extremely good TRAINER.\p"
-	.string "My kid, {RIVAL}, is also studying\n"
-	.string "POKéMON while helping me out.\p"
-	.string "{PLAYER}{KUN}, don't you think it might be\n"
-	.string "a good idea to go see {RIVAL}?$"
+	.string "PROF. FRANK: You wanna train?\n" 
+	.string "Go find Margaret.\p"
+	.string "She’s got the eyes of a hawk that’s seen\n"
+	.string "war. Silence is her language. Violence\n"
+	.string "is her dialect.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou:
-	.string "PROF. FRANK: Great!\n"
-	.string "{RIVAL} should be happy, too.\p"
-	.string "Get {RIVAL} to teach you what it\n"
-	.string "means to be a TRAINER.$"
+	.string "PROF. FRANK: Yeah, let Margaret show you \n"
+	.string "the ropes. She teaches mostly through \n"
+	.string "glaring, and occasionally throwing dirt.\l"
+	.string "It’s a method.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_DontBeThatWay:
-	.string "PROF. FRANK: Oh, don't be that way.\n"
-	.string "You should go meet my kid.$"
+	.string "PROF. FRANK: What, nervous?\n"
+	.string "Don’t be. Margaret rarely mauls people on.\n"
+	.string "weekdays Just keep eye contact and never blink.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
-	.string "PROF. FRANK: {RIVAL}?\n"
-	.string "Gone home, I think.\p"
-	.string "Or margaretbe that kid's scrabbling around\n"
-	.string "in tall grass again somewhere…\p"
-	.string "If you or your POKéMON get tired,\n"
-	.string "you should get some rest at home.$"
+	.string "PROF. FRANK: Margaret? Probably lurking somewhere.\p"
+	.string "Last I saw her, she was staring at a tree stump.\p"
+	.string "Head north. Or don’t. Life’s about choices.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex:
-	.string "PROF. FRANK: Oh, hi, {PLAYER}{KUN}!\p"
-	.string "I heard you beat {RIVAL} on\n"
-	.string "your first try. That's excellent!\p"
-	.string "{RIVAL}'s been helping with my research\n"
-	.string "for a long time.\p"
-	.string "{RIVAL} has an extensive history as\n"
-	.string "a TRAINER already.\p"
-	.string "Here, {PLAYER}{KUN}, I ordered this for my\n"
-	.string "research, but I think you should have\l"
-	.string "this POKéDEX.$"
+	.string "PROF. FRANK: You beat Margaret? Impressive.\p"
+	.string "She once stared down a Tauros into submission.\p"
+	.string "Here, take this POKéDEX.\n"
+	.string "It’s not booby-trapped. Probably.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex:
 	.string "{PLAYER} received the POKéDEX!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex:
-	.string "PROF. FRANK: The POKéDEX is a high-tech\n"
-	.string "tool that automatically makes a record\l"
-	.string "of any POKéMON you meet or catch.\p"
-	.string "My kid, {RIVAL}, goes everywhere\n"
-	.string "with it.\p"
-	.string "Whenever my kid catches a rare POKéMON\n"
-	.string "and records its data in the POKéDEX,\l"
-	.string "why, {RIVAL} looks for me while I'm out\l"
-	.string "doing fieldwork, and shows me.$"
+	.string "PROF. FRANK: That thing records POKéMON.\n"
+	.string "Also glows in the dark. Don’t ask why.\p"
+	.string "Margaret uses hers like a mirror.\n"
+	.string "For what, I can’t say. She’s an enigma.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait:
-	.string "PROF. FRANK: Countless POKéMON\n"
-	.string "await you!\p"
-	.string "Argh, I'm getting the itch to get out\n"
-	.string "and do fieldwork again!$"
+	.string "PROF. FRANK: There’s a whole world of POKéMON.\p"
+	.string "Most bite. Some explode. All magical.\n"
+	.string "Go roll around in the weirdness, kid.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayGotPokedexTooTakeThese:
-	.string "MAY: Oh, wow, {PLAYER}{KUN}!\n"
-	.string "You got a POKéDEX, too!\p"
-	.string "That's great! Just like me!\n"
-	.string "I've got something for you, too!$"
+	.string "MARGARET stares into your soul.\p"
+	.string "She hands you POKé BALLS without blinking.\n"
+	.string "You feel judged and strangely empowered.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CatchCutePokemonWithPokeBalls:
-	.string "MAY: It's fun if you can get a lot of\n"
-	.string "POKéMON!\p"
-	.string "I'm going to look all over the place\n"
-	.string "because I want different POKéMON.\p"
-	.string "If I find any cute POKéMON, I'll catch\n"
-	.string "them with POKé BALLS!$"
+	.string "Margaret raises an eyebrow.\n"
+	.string "Points at her POKé BALLS. It’s either a warning...\n"
+	.string "Or an invitation to a duel. Interpret freely.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_OhYourBagsFull:
 	.string "Oh? Your BAG's full.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayWhereShouldIGoNext:
-	.string "MAY: I wonder where I should go look\n"
-	.string "for POKéMON next?$"
+	.string "Margaret nods slightly at the horizon.\n"
+	.string "You suddenly feel the weight of destiny.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BrendanGotPokedexTooTakeThese:
 	.string "BRENDAN: Huh…\n"
