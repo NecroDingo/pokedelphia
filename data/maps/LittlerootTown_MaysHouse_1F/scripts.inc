@@ -318,30 +318,30 @@ LittlerootTown_MaysHouse_1F_Movement_MayGoUpstairs2:
 
 RivalsHouse_1F_Text_OhYoureTheNewNeighbor:
 	.string "Oh… hello.\p"
+	.string "Who are you and why are you here?\p"
 	.string "… … … … … … … … …\n"
 	.string "… … … … … … … … …\p"
-	.string "Who are you and why are you here?\p"
-	.string "Oh..... {PLAYER}.....\n"
-	.string "The one who moved in next door.\p"
+	.string "Oh..... {PLAYER}...\n"
+	.string "You just moved in next door?\p"
 	.string "We weren’t told about new neighbors.\n"
 	.string "We don’t like surprises.\p"
-	.string "Our daughter Margaret is upstairs.\n"
-	.string "She doesn't talk,\l" 
+	.string "Our daughter Margaret is upstairs.\p"
+	.string "She doesn't talk,\n"
 	.string "but she sees everything.$"
 
 RivalsHouse_1F_Text_LikeChildLikeFather:
-	.string "Like daughter, like father.\p"
-	.string "He speaks to the milk.\n"
-	.string "She listens to the silence.\p"
-	.string "We try not to interfere.\n"
-	.string "The Pokémon understand them both.$"
+	.string "Ah, just like her brothers.\p"
+	.string "They speak to the milk.\n"
+	.string "She listens in silence.\p"
+	.string "We try not to interfere.\p"
+	.string "The Pokémon understand her.$"
 
 RivalsHouse_1F_Text_TooBusyToNoticeVisit:
 	.string "That Margaret.\p"
 	.string "So focused… always watching\n"
 	.string "things that aren't there.\p"
 	.string "She probably knew you were here\n"
-	.string "before you even knocked, {PLAYER}{KUN}.$"
+	.string "before you even knocked, {PLAYER}.$"
 
 RivalsHouse_1F_Text_WentOutToRoute103:
 	.string "Margaret wandered off to ROUTE 103.\p"
@@ -351,21 +351,22 @@ RivalsHouse_1F_Text_WentOutToRoute103:
 RivalsHouse_1F_Text_ShouldGoHomeEverySoOften:
 	.string "Traveling with Pokémon is dangerous.\n"
 	.string "But that’s the way of things.\p"
-	.string "You should visit your mother often.\n"
+	.string "You should visit your mother often.\p"
 	.string "She might not say it, but I'm sure she\n"
-	.string "worries about you, {PLAYER}{KUN}.$"
+	.string "worries about you, {PLAYER}.$"
 
 RivalsHouse_1F_Text_MayWhoAreYou:
-	.string "… … …\n"
-	.string "(The girl stares blankly at you.)\p"
+	.string "… … …\p"
+	.string "The girl stares blankly at you.\p"
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
-	.string "(She doesn't speak, she doesn’t\n"
-	.string "blink. You feel observed.)\p"
-	.string "(She is licking her lips\n"
-	.string "while staring into your soul.)\p"
-	.string "(She goes around you… silently.\n"
-	.string "Time feels slower in this room.)$"
+	.string "She doesn't speak, she doesn’t\n"
+	.string "blink.\l"
+	.string "You feel observed.\p"
+	.string "She is licking her lips\n"
+	.string "while staring into your soul.\p"
+	.string "She goes around you… silently.\p"
+	.string "Time feels slower in this room.$"
 
 RivalsHouse_1F_Text_BrendanWhoAreYou:
 	.string "Hey!\n"
@@ -391,5 +392,5 @@ RivalsHouse_1F_Text_DoYouHavePokemon:
 	.string "… … … … … … … …\p"
 	.string "I want to be just like my sister\n"
 	.string "when I grow up!\p"
-	.string "(She smiles and licks her lips)\n"
+	.string "She smiles and licks her lips\n"
 	.string "… … … … … … … …$"

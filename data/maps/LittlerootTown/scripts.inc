@@ -912,7 +912,7 @@ LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "Let's go. I wanna sit down.$"
 
 LittlerootTown_Text_WaitPlayer:
-	.string "MOM: Oh Charlie, wait!$"
+	.string "MOM: Oh {PLAYER}, wait!$"
 
 LittlerootTown_Text_WearTheseRunningShoes:
 	.string "MOM: {PLAYER}! Frank said you were\n"
@@ -921,7 +921,8 @@ LittlerootTown_Text_WearTheseRunningShoes:
 	.string "You're really leaning into this whole\n"
 	.string "‘feral trash boy’ image.\p"
 	.string "Anyway, here are some running shoes.\n"
-	.string "Not that you ever run from your problems.\p"
+	.string "Not that you ever run from\l"
+	.string "your problems...$"
 
 
 LittlerootTown_Text_SwitchShoesWithRunningShoes:
@@ -932,19 +933,17 @@ LittlerootTown_Text_ExplainRunningShoes:
 	.string "MOM: {PLAYER}, those shoes came with\n"
 	.string "instructions.\p"
 	.string "I think I've lost them though.\p"
-	.string "Thats ok, you'll figure it out!\p"
-	.string "$"
+	.string "Thats ok, you'll figure it out!$"
 
 LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
-	.string "To think you’ve got your own Pokémon now…\n"
-	.string "Frank really gave you one, huh?\p"
+	.string "To think you’ve got your own Pokémon\n"
+	.string "now. Frank really gave you one, huh?\p"
 	.string "I think I'm feeling very proud.\n"
 	.string "Or disgusted. Who knows.\p"
-	.string "If you die, I guess come home.\n"
-	.string "If not, don’t call.\p"
-	.string "Alright, go have fun with your friends.\p"
+	.string "If you die, I guess come home.\p"
+	.string "Alright, go have fun with your friends.\n$"
 
 
 LittlerootTown_Text_CanUsePCToStoreItems:
@@ -1010,12 +1009,17 @@ LittlerootTown_Text_ProfBirchsHouse:
 
 LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "PROF. Frank: Well, well, {PLAYER}!\n"
-	.string "That was some top-tier Pokémon handling!\p"
-	.string "I knew you had that... weird spark in you\n"
-	.string "when I first saw you diggin’ through trash.\p"
-	.string "Hey, do you still got that Pokédex I gave you?\n"
+	.string "That was some top-tier\l"
+	.string "Pokémon handling!\p"
+	.string "I knew you had that... weird spark\n"
+	.string "in you when I first saw you diggin’\l"
+	.string "through trash.\p"
+	.string "Hey, do you still got that Pokédex I\n"
+	.string "gave you?\p"
 	.string "Try not to trade it for glue.\p"
 	.string "C’mon, I got somethin’ to show you\n"
-	.string "back at the lab. Bring snacks.$"
+	.string "back at the lab.\p"
+	.string "Bring snacks!$"
+
 
 

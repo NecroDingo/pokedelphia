@@ -309,24 +309,26 @@ LittlerootTown_MaysHouse_2F_EventScript_TurnOffPlayerPC::
 	end
 
 RivalsHouse_2F_Text_MayWhoAreYou:
-	.string "(You try to leave the room.\n"
-	.string "She blocks you and stares at you.)\p"
-	.string "(She doesn’t speak.\n"
-	.string "She doesn’t blink.)\p"
-	.string "(There’s a carton of milk on the floor.\n"
-	.string "It’s... warm.)\p"
-	.string "(You feel like she’s already judged\n"
-	.string "your entire existence.)\p"
-	.string "(A long, awkward silence hangs in the air.\n"
-	.string "Then she turns around... slowly.)\p"
-	.string "(No words. Just vibes.\n"
-	.string "You should probably leave.)$"
+	.string "You go to leave the room.\n"
+	.string "She blocks you and stares at you.\p"
+	.string "She doesn’t speak.\n"
+	.string "She doesn’t blink.\p"
+	.string "There’s a carton of milk on the floor.\n"
+	.string "It’s... warm.\p"
+	.string "You feel like she’s already judged\n"
+	.string "your entire existence.\p"
+	.string "A long, awkward silence hangs in the air.\p"
+	.string "... ... ...\p"
+	.string "... ... ...\p"
+	.string "She turns around...slowly.\n"
+	.string "No words. Just vibes.\p"
+	.string "You should probably leave.$"
 
 RivalsHouse_2F_Text_MayGettingReady:
-	.string "(Margaret is carefully organizing items\n"
-	.string "with surgical precision.)\p"
-	.string "(She sets down a piece of cheese,\n"
-	.string "then nods to no one.)$"
+	.string "Margaret is carefully organizing items\n"
+	.string "with surgical precision.\p"
+	.string "She sets down a piece of cheese,\n"
+	.string "then nods to no one.$"
 
 RivalsHouse_2F_Text_BrendanWhoAreYou:
 	.string "Hey!\n"
@@ -357,21 +359,21 @@ RivalsHouse_2F_Text_ItsRivalsPokeBall:
 	.string "Better leave it right where it is.$"
 
 RivalsHouse_2F_Text_MayJustCheckingMyPokedex:
-	.string "(Margaret is scribbling strange symbols\n"
-	.string "into a Pokédex.)\p"
-	.string "(None of them are legible.\n"
-	.string "She smiles without showing teeth.)\p"
-	.string "(She licks her lips while looking\n"
-	.string "into your soul.)\p"
-	.string "(The milk jug is now open.\n"
-	.string "You feel unwelcome.)$"
+	.string "Margaret is scribbling strange symbols\n"
+	.string "into a Pokédex.\p"
+	.string "None of them are legible.\p"
+	.string "She smiles without showing teeth,\n"
+	.string "and licks her lips while looking\l"
+	.string "into your soul.\p"
+	.string "The milk jug is now open on her desk.\p"
+	.string "You feel unwelcome.$"
 
 RivalsHouse_2F_Text_MayWhereShouldIGoNext:
-	.string "(Margaret points at a location on a map\n"
-	.string "you can’t see.)\p"
-	.string "(Her eyes giggle, but her mouth\n"
-	.string "doesn’t move.)\p"
-	.string "(Better not ask questions.)$"
+	.string "Margaret points at a location on a map\n"
+	.string "you can’t see.\p"
+	.string "Her eyes giggle, but her mouth\n"
+	.string "doesn’t move.\p"
+	.string "Better not ask questions.$"
 
 RivalsHouse_2F_Text_BrendanJustCheckingMyPokedex:
 	.string "BRENDAN: Hey, it's {PLAYER}.\p"

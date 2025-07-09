@@ -285,8 +285,8 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 	.string "Frank left something sticky on it.$"
 
 PlayersHouse_2F_Text_Notebook:
-	.string "{PLAYER} opened a crusty old notebook.\p"
-	.string "ADVENTURE RULE NO. 1:\n"
+	.string "{PLAYER} opened a crusty old notebook.\n"
+	.string "ADVENTURE RULE NO. 1:\l"
 	.string "Press START. Hope for the best.\p"
 	.string "RULE NO. 2:\n"
 	.string "SAVE a lot. Trust nothing.\p"

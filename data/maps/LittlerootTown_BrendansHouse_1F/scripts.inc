@@ -294,7 +294,8 @@ PlayersHouse_1F_Text_MoversPokemonGoSetClock:
 	.string "Your room’s upstairs. It's got a window,\n"
 	.string "some walls, and I think a bucket.\p"
 	.string "Frank left you a busted clock to\n"
-	.string "stare at. You should go set it.$"
+	.string "stare at.\l"
+	.string "You should go set it.$"
 
 PlayersHouse_1F_Text_ArentYouInterestedInRoom:
 	.string "MOM: Well, Charlie?\p"
@@ -311,27 +312,31 @@ PlayersHouse_1F_Text_OhComeQuickly:
 	.string "Something’s happening on the TV!$"
 
 PlayersHouse_1F_Text_MaybeDadWillBeOn:
-	.string "MOM: Look! It's a guy who kinda looks like\n"
-	.string "your father. I think. Maybe?$"
+	.string "MOM: Look! It's a guy who kinda looks\n"
+	.string "like Uncle Jack!\p"
+	.string "The hands look a bit too big though.$"
 
 PlayersHouse_1F_Text_ItsOverWeMissedHim:
 	.string "MOM: Oh… well It's over..$"
 
 PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor:
-	.string "Oh, yeah.\n" 
-	.string "Some weirdos moved in next door.\p"
-	.string "Not sure who they are.\n"
-	.string "They smell like milk and stare a lot.\p"
+	.string "Oh, yeah.\n"
+	.string "I heard some weirdos moved in next door\l"
+	.string "not too long ago too.\p"
+	.string "Not sure who they are.\p"
+	.string "I heard they smell like milk and\n"
+	.string "stare a lot.\p"
 	.string "Why don’t you go over and introduce\n"
-	.string "yourself? Wear shoes this time.$"
+	.string "yourself?$"
 
 PlayersHouse_1F_Text_SeeYouHoney:
 	.string "MOM: Bye, Charlie.\n"
 	.string "Try not to get arrested or eaten.$"
 
 PlayersHouse_1F_Text_DidYouMeetProfBirch:
-	.string "MOM: Did you meet up with Frank again?\n"
-	.string "Tell him not to use the tub for experiments.$"
+	.string "MOM: Did you meet up with Frank again?\p"
+	.string "Tell him not to use the tub for\n"
+	.string "experiments.$"
 
 PlayersHouse_1F_Text_YouShouldRestABit:
 	.string "MOM: You look kinda twitchy, Charlie.\n"
@@ -341,7 +346,8 @@ PlayersHouse_1F_Text_TakeCareHoney:
 	.string "MOM: Take care, honey!$"
 
 PlayersHouse_1F_Text_GotDadsBadgeHeresSomethingFromMom:
-	.string "MOM: Oh? Did DAD give you that BADGE?\p"
+	.string "MOM: Oh? Did UNCLE JACK give you\n"
+	.string "that BADGE?\p"
 	.string "Then here's something from your MOM!$"
 
 PlayersHouse_1F_Text_DontPushYourselfTooHard:

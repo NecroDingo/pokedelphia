@@ -263,8 +263,8 @@ Route101_Text_HelpMe:
 Route101_Text_PleaseHelp:
 	.string "Hey! You! Rat-lover!\n"
 	.string "Get over here and do something!\p"
-	.string "In my BAG!\n"
-	.string "Grab a POKé BALL before it gets my throat!$"
+	.string "In my BAG! Grab a POKé BALL\n"
+	.string "before it gets my throat!$"
 
 Route101_Text_DontLeaveMe:
 	.string "Are you just gonna walk away?!\n"
@@ -281,12 +281,12 @@ Route101_Text_YouSavedMe:
 
 Route101_Text_TakeTiredPokemonToPokeCenter:
 	.string "Yeah, the grass here? Full of freaks.\p"
-	.string "You want ‘em? Go wading in.\n"
+	.string "You want ‘em? Go wading in.\p"
 	.string "Get bit. It builds character.\p"
 	.string "There's a nice nurse in the next\n"
 	.string "town over. If your POKéMON get tired,\l"
-	.string "you can take them there. She's not\l"
-	.string "too bad lookin' herself.$"
+	.string "you can take them there.\p"
+	.string "She's not too bad lookin' herself.$"
 
 Route101_Text_WildPokemonInTallGrass:
 	.string "Saw a rat take down a bird in here once.\n"
