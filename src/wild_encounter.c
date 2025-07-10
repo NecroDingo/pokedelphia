@@ -24,6 +24,21 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "constants/pokemon.h"
+#include "rtc.h"
+#include "caps.h"
+
+// Evolution method constants (define these if not present elsewhere)
+#define EVO_LEVEL_DAY     0x1001
+#define EVO_LEVEL_NIGHT   0x1002
+#define EVO_LEVEL_MALE    0x1003
+#define EVO_LEVEL_FEMALE  0x1004
+
+// Time of day constants (define these if not present elsewhere)
+#define TIME_OF_DAY_DAY     0
+#define TIME_OF_DAY_NIGHT   1
+
+static u16 GetWildEvolvedSpecies(u16 species, u8 level, u8 gender, enum TimeOfDay timeOfDay);
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -47,7 +62,6 @@ static void UpdateChainFishingStreak();
 static bool8 IsWildLevelAllowedByRepel(u8 level);
 static void ApplyFluteEncounterRateMod(u32 *encRate);
 static void ApplyCleanseTagEncounterRateMod(u32 *encRate);
-static u8 GetMaxLevelOfSpeciesInWildTable(const struct WildPokemon *wildMon, u16 species, enum WildPokemonArea area);
 #ifdef BUGFIX
 static bool8 TryGetAbilityInfluencedWildMonIndex(const struct WildPokemon *wildMon, u8 type, u16 ability, u8 *monIndex, u32 size);
 #else
@@ -297,53 +311,76 @@ static u8 ChooseWildMonIndex_Fishing(u8 rod)
     return wildMonIndex;
 }
 
-static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex, enum WildPokemonArea area)
+u8 GetAveragePartyLevel(void)
 {
-    u8 min;
-    u8 max;
-    u8 range;
-    u8 rand;
-
-    if (LURE_STEP_COUNT == 0)
+    u8 i, count = 0, totalLevel = 0;
+    for (i = 0; i < PARTY_SIZE; i++)
     {
-        // Make sure minimum level is less than maximum level
-        if (wildPokemon[wildMonIndex].maxLevel >= wildPokemon[wildMonIndex].minLevel)
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG))
         {
-            min = wildPokemon[wildMonIndex].minLevel;
-            max = wildPokemon[wildMonIndex].maxLevel;
-        }
-        else
-        {
-            min = wildPokemon[wildMonIndex].maxLevel;
-            max = wildPokemon[wildMonIndex].minLevel;
-        }
-        range = max - min + 1;
-        rand = Random() % range;
-
-        // check ability for max level mon
-        if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
-        {
-            u16 ability = GetMonAbility(&gPlayerParty[0]);
-            if (ability == ABILITY_HUSTLE || ability == ABILITY_VITAL_SPIRIT || ability == ABILITY_PRESSURE)
+            u8 level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            if (level > 0)
             {
-                if (Random() % 2 == 0)
-                    return max;
-
-                if (rand != 0)
-                    rand--;
+                totalLevel += level;
+                count++;
             }
         }
-        return min + rand;
     }
-    else
+    if (count == 0)
+        return 2; // Failsafe: minimum wild level
+    return (totalLevel + count / 2) / count; // Rounded average
+}
+
+u8 GetHighestPartyLevel(void)
+{
+    u8 i, highest = 0;
+    for (i = 0; i < PARTY_SIZE; i++)
     {
-        // Looks for the max level of all slots that share the same species as the selected slot.
-        max = GetMaxLevelOfSpeciesInWildTable(wildPokemon, wildPokemon[wildMonIndex].species, area);
-        if (max > 0)
-            return max + 1;
-        else // Failsafe
-            return wildPokemon[wildMonIndex].maxLevel + 1;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG))
+        {
+            u8 level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            if (level > highest)
+                highest = level;
+        }
     }
+    return highest;
+}
+
+static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex, u8 area)
+{
+    u8 avgLevel = GetAveragePartyLevel();
+    u8 highestLevel = GetHighestPartyLevel();
+    u8 wildMin = 2, wildMax = 100;
+    u8 minLevel, maxLevel;
+    u32 levelCap = GetCurrentLevelCap();
+    u8 x = 2; // Wilds can't be more than 2 below your highest
+
+    // Main scaling logic
+    minLevel = avgLevel > 1 ? avgLevel - 1 : wildMin;
+        if (highestLevel <= 10) 
+        {
+        maxLevel = avgLevel + 0;
+        minLevel = avgLevel - 2;} 
+        else {
+        maxLevel = avgLevel + 3;
+        }
+    // Enforce the "not more than X below highest" rule
+    u8 minAllowed = highestLevel > x ? highestLevel - x : wildMin;
+    if (minLevel < minAllowed)
+        minLevel = minAllowed;
+
+    // Clamp to absolute bounds and level cap
+    if (minLevel < wildMin)
+        minLevel = wildMin;
+    if (maxLevel > wildMax)
+        maxLevel = wildMax;
+    if (maxLevel > levelCap)
+        maxLevel = levelCap;
+    if (minLevel > maxLevel)
+        minLevel = maxLevel;
+
+    u8 wildLevel = minLevel + (Random() % (maxLevel - minLevel + 1));
+    return wildLevel;
 }
 
 u16 GetCurrentMapWildMonHeaderId(void)
@@ -484,7 +521,26 @@ void CreateWildMon(u16 species, u8 level)
         return;
     }
 
-    CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
+    // Determine gender for wild mon (randomly, or use Cute Charm logic if needed)
+    u8 gender = MON_MALE;
+    u8 genderRatio = gSpeciesInfo[species].genderRatio;
+    if (genderRatio == MON_MALE)
+        gender = MON_MALE;
+    else if (genderRatio == MON_FEMALE)
+        gender = MON_FEMALE;
+    else if (genderRatio == MON_GENDERLESS)
+        gender = MON_GENDERLESS;
+    else
+        gender = (Random() % 254 < genderRatio) ? MON_FEMALE : MON_MALE;
+
+    // Get time of day for wild encounter
+    enum TimeOfDay timeOfDay = GetTimeOfDay();
+
+    // Evolve the wild species if possible
+    u16 evolvedSpecies = GetWildEvolvedSpecies(species, level, gender, timeOfDay);
+
+    // Now create the wild mon as usual
+    CreateMonWithNature(&gEnemyParty[0], evolvedSpecies, level, USE_RANDOM_IVS, PickWildMonNature());
 }
 #ifdef BUGFIX
 #define TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildPokemon, type, ability, ptr, count) TryGetAbilityInfluencedWildMonIndex(wildPokemon, type, ability, ptr, count)
@@ -1135,36 +1191,6 @@ static bool8 TryGetRandomWildMonIndexByType(const struct WildPokemon *wildMon, u
 
 #include "data.h"
 
-static u8 GetMaxLevelOfSpeciesInWildTable(const struct WildPokemon *wildMon, u16 species, enum WildPokemonArea area)
-{
-    u8 i, maxLevel = 0, numMon = 0;
-
-    switch (area)
-    {
-    case WILD_AREA_LAND:
-        numMon = LAND_WILD_COUNT;
-        break;
-    case WILD_AREA_WATER:
-        numMon = WATER_WILD_COUNT;
-        break;
-    case WILD_AREA_ROCKS:
-        numMon = ROCK_WILD_COUNT;
-        break;
-    default:
-    case WILD_AREA_FISHING:
-    case WILD_AREA_HIDDEN:
-        break;
-    }
-
-    for (i = 0; i < numMon; i++)
-    {
-        if (wildMon[i].species == species && wildMon[i].maxLevel > maxLevel)
-            maxLevel = wildMon[i].maxLevel;
-    }
-
-    return maxLevel;
-}
-
 #ifdef BUGFIX
 static bool8 TryGetAbilityInfluencedWildMonIndex(const struct WildPokemon *wildMon, u8 type, u16 ability, u8 *monIndex, u32 size)
 #else
@@ -1245,4 +1271,91 @@ u8 ChooseHiddenMonIndex(void)
 bool32 MapHasNoEncounterData(void)
 {
     return (GetCurrentMapWildMonHeaderId() == HEADER_NONE);
+}
+
+// Returns TRUE if the species is banned from wild evolution (see WILD_MON_EVO_BANS).
+static bool8 IsSpeciesBannedFromWildEvo(u16 species)
+{
+    static const u16 bans[] = WILD_MON_EVO_BANS;
+    int i;
+    for (i = 0; bans[i] != SPECIES_NONE; i++)
+    {
+        if (species == bans[i])
+            return TRUE;
+    }
+    return FALSE;
+}
+
+// Returns TRUE if the wild mon meets the requirements for this evolution method.
+static bool8 CanWildMonEvolveByMethod(const struct Evolution *evo, u8 level, u8 gender, enum TimeOfDay timeOfDay)
+{
+    switch (evo->method)
+    {
+    case EVO_LEVEL:
+        return level >= evo->param;
+    case EVO_LEVEL_DAY:
+        #if WILD_MON_EVO_TIME_OF_DAY_REQUIRED
+        return level >= evo->param && timeOfDay == TIME_OF_DAY_DAY;
+        #else
+        return level >= evo->param;
+        #endif
+    case EVO_LEVEL_NIGHT:
+        #if WILD_MON_EVO_TIME_OF_DAY_REQUIRED
+        return level >= evo->param && timeOfDay == TIME_OF_DAY_NIGHT;
+        #else
+        return level >= evo->param;
+        #endif
+    case EVO_LEVEL_MALE:
+        return level >= evo->param && gender == MON_MALE;
+    case EVO_LEVEL_FEMALE:
+        return level >= evo->param && gender == MON_FEMALE;
+    // Add more cases as needed for your project (e.g. item, trade, etc.)
+    default:
+        return FALSE;
+    }
+}
+
+// Returns the final evolved species for a wild mon, or the original if no evolution occurs.
+// Applies chance per evolution step, checks bans, and supports time/gender-based evolutions.
+static u16 GetWildEvolvedSpecies(u16 species, u8 level, u8 gender, enum TimeOfDay timeOfDay)
+{
+    const struct Evolution *evolutions;
+    u16 evolvedSpecies = species;
+    bool8 evolved = FALSE;
+    int i;
+
+    // Check for per-species bans
+    if (IsSpeciesBannedFromWildEvo(species))
+        return species;
+
+    // Loop: try to evolve as far as possible, but apply chance at each step
+    while (TRUE)
+    {
+        evolutions = GetSpeciesEvolutions(evolvedSpecies);
+        bool8 found = FALSE;
+
+        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+        {
+            // Skip if this evolution is banned (add per-evo ban logic if needed)
+            // if (IsEvolutionBannedFromWildEvo(evolvedSpecies, evolutions[i].targetSpecies))
+            //     continue;
+
+            // Check if this evolution method is satisfied
+            if (CanWildMonEvolveByMethod(&evolutions[i], level, gender, timeOfDay))
+            {
+                // Apply random chance (e.g. 50%)
+                if ((Random() & 0xFF) < WILD_MON_EVO_CHANCE)
+                {
+                    evolvedSpecies = evolutions[i].targetSpecies;
+                    evolved = TRUE;
+                    found = TRUE;
+                    break; // Only evolve one step per loop
+                }
+            }
+        }
+        if (!found)
+            break; // No further evolution possible
+    }
+
+    return evolved ? evolvedSpecies : species;
 }
