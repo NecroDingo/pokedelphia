@@ -688,8 +688,8 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
 
 LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon:
 	.string "PROF. FRANK: So, {PLAYER}\p"
-	.string "Word is you’re weird, and honestly,\n"
-	.string "that’s a plus.\p"
+	.string "You’re weird, and honestly, that’s\n"
+	.string "a plus.\p"
 	.string "You handled that rat like a champ.\n"
 	.string "Didn’t even scream. That’s rare.\p"
 	.string "So here.\n"

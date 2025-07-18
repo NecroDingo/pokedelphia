@@ -21,8 +21,8 @@ Route101_EventScript_StartBirchRescue::
 	playbgm MUS_HELP, TRUE
 	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
 	closemessage
-	setobjectxy LOCALID_ROUTE101_BIRCH, 0, 15
-	setobjectxy LOCALID_ROUTE101_ZIGZAGOON, 0, 16
+	setobjectxy LOCALID_ROUTE101_BIRCH, 0, 45
+	setobjectxy LOCALID_ROUTE101_ZIGZAGOON, 0, 46
 	applymovement LOCALID_PLAYER, Route101_Movement_EnterScene
 	applymovement LOCALID_ROUTE101_BIRCH, Route101_Movement_BirchRunAway1
 	applymovement LOCALID_ROUTE101_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
@@ -215,6 +215,10 @@ Route101_EventScript_RouteSign::
 	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
 	end
 
+Route101_EventScript_RouteSign2::
+	msgbox Route101_Text_RouteSign2, MSGBOX_SIGN
+	end
+
 Route101_EventScript_BirchsBag::
 	lock
 	faceplayer
@@ -222,7 +226,7 @@ Route101_EventScript_BirchsBag::
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ROUTE101_ZIGZAGOON
-	setobjectxy LOCALID_PLAYER, 6, 13
+	setobjectxy LOCALID_PLAYER, 6, 43
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	special ChooseStarter
@@ -267,7 +271,8 @@ Route101_Text_PleaseHelp:
 	.string "before it gets my throat!$"
 
 Route101_Text_DontLeaveMe:
-	.string "Are you just gonna walk away?!\n"
+	.string "What the hell!\n"
+	.string "Go to the bag and grab a POKé BALL!\p"
 	.string "It’s chewing my sock, man! HELP!$"
 
 Route101_Text_YouSavedMe:
@@ -296,5 +301,9 @@ Route101_Text_WildPokemonInTallGrass:
 
 Route101_Text_RouteSign:
 	.string "ROUTE 101 {UP_ARROW} OLDALE TOWN\n"
-	.string " Now with 30% less infestation!$"
+	.string "Now with 30% less infestation!$"
 
+Route101_Text_RouteSign2:
+	.string "The message is crossed out with a\n"
+	.string "permanent marker.\p"
+	.string "'Your mom' is written over it.$"

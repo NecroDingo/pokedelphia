@@ -59,32 +59,32 @@ Route103_EventScript_RivalBrendan::
 	end
 
 Route103_EventScript_StartMayBattleTreecko::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, Route103_Text_MayDefeated
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_SHROOMISH, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 
 Route103_EventScript_StartMayBattleTorchic::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, Route103_Text_MayDefeated
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_HOUNDOUR, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 
 Route103_EventScript_StartMayBattleMudkip::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, Route103_Text_MayDefeated
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_BUIZEL, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 
 Route103_EventScript_StartBrendanBattleTreecko::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, Route103_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_SHROOMISH, Route103_Text_BrendanDefeated
 	goto Route103_EventScript_AfterBrendanBattle
 	end
 
 Route103_EventScript_StartBrendanBattleTorchic::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, Route103_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_HOUNDOUR, Route103_Text_BrendanDefeated
 	goto Route103_EventScript_AfterBrendanBattle
 	end
 
 Route103_EventScript_StartBrendanBattleMudkip::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, Route103_Text_BrendanDefeated
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_BUIZEL, Route103_Text_BrendanDefeated
 	goto Route103_EventScript_AfterBrendanBattle
 	end
 
@@ -287,31 +287,34 @@ Route103_EventScript_Isabelle::
 	end
 
 Route103_Text_MayRoute103Pokemon:
-	.string "MAY: Let's see… The POKéMON found\n"
-	.string "on ROUTE 103 include…$"
+	.string "She squints at a wild POKéMON.\p"
+	.string "Pulls out a notebook. Doodles something.\n"
+	.string "It’s… not accurate. But she nods anyway.\p"
+	.string "Then looks at you and smiles.$"
 
 Route103_Text_MayLetsBattle:
-	.string "Oh, hi, {PLAYER}{KUN}!\p"
-	.string "…Oh, I see, my dad gave you\n"
-	.string "a POKéMON as a gift.\p"
-	.string "Since we're here, let's have a quick\n"
-	.string "battle!\p"
-	.string "I'll give you a taste of what being\n"
-	.string "a TRAINER is like.$"
+	.string "She points at the POKéMON\n"
+	.string "following you.\p"
+	.string "Smirks. Shrugs. Cracks her neck\n"
+	.string "like she's ready to scrap.\p"
+	.string "She reaches into her pocket,\n"
+	.string "pulls out a half-eaten granola bar,\l"
+	.string "stares at it...\l"
+	.string "then throws it over her shoulder.\p"
+	.string "Battle time!$"
 
 Route103_Text_MayDefeated:
-	.string "Wow! That's great!\n"
-	.string "{PLAYER}{KUN}, you're pretty good!$"
+	.string "She looks at you and nods,\n"
+	.string "but with a 'don’t get cocky' face.\p"
+	.string "Then jots something in her notebook.\p"
+	.string "You swear she writes 'Charlie cheats'.$"
 
 Route103_Text_MayTimeToHeadBack:
-	.string "MAY: I think I know why my dad has\n"
-	.string "an eye out for you now.\p"
-	.string "I mean, you just got that POKéMON,\n"
-	.string "but it already likes you.\p"
-	.string "You might be able to befriend any\n"
-	.string "kind of POKéMON easily.\p"
-	.string "Well, it's time to head back to\n"
-	.string "the LAB.$"
+	.string "She points at you. Then at her head.\n"
+	.string "Then gives a thumbs-up.\p"
+	.string "Your POKéMON like you.\n"
+	.string "That annoys her, visibly\p"
+	.string "She shrugs, then slowly walks away.$"
 
 Route103_Text_BrendanRoute103Pokemon:
 	.string "BRENDAN: Okay, so it's this one and\n"
@@ -339,15 +342,17 @@ Route103_Text_BrendanTimeToHeadBack:
 	.string "We should head back to the LAB.$"
 
 Route103_Text_ShouldHaveBroughtPotion:
-	.string "My POKéMON is staggeringly tired…\n"
-	.string "I should have brought a POTION…$"
+	.string "Yo, my POKéMON’s runnin’ on fumes...\p"
+	.string "Shoulda copped a POTION at the\n"
+	.string "corner store.\p"
+	.string "Now I’m out here lookin’ dumb.$"
 
 Route103_Text_ShortcutToOldale:
-	.string "If you cross the sea from here,\n"
-	.string "it'll be a shortcut to OLDALE TOWN.\p"
-	.string "Fufufu, that's useful, isn't it?$"
+	.string "Cross that water right there?\n"
+	.string "Boom! Shortcut straight to OLD SCUMPORT.\p"
+	.string "Yeah, f'real. That’s the move. Pro tip, kid.\n$"
 
 Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
-	.string "{DOWN_ARROW} OLDALE TOWN$"
+	.string "{DOWN_ARROW} OLD SCUMPORT$"
 
