@@ -368,7 +368,7 @@ enum EvoSpinDirections {
 #endif
 
 // Wild evolution: 50% chance per eligible evolution step (0-255)
-#define WILD_MON_EVO_CHANCE 127
+#define WILD_MON_EVO_CHANCE 192
 
 // If defined, require time of day to match for time-based evolutions
 #define WILD_MON_EVO_TIME_OF_DAY_REQUIRED TRUE
