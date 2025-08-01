@@ -353,16 +353,16 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
     u8 wildMin = 2, wildMax = 100;
     u8 minLevel, maxLevel;
     u32 levelCap = GetCurrentLevelCap();
-    u8 x = 2; // Wilds can't be more than 2 below your highest
+    u8 x = 4; // Wilds can't be more than 4 below your highest
 
     // Main scaling logic
     minLevel = avgLevel > 1 ? avgLevel - 1 : wildMin;
         if (highestLevel <= 10) 
         {
         maxLevel = avgLevel + 0;
-        minLevel = avgLevel - 2;} 
+        minLevel = avgLevel - 3;} 
         else {
-        maxLevel = avgLevel + 3;
+        maxLevel = avgLevel + 2;
         }
     // Enforce the "not more than X below highest" rule
     u8 minAllowed = highestLevel > x ? highestLevel - x : wildMin;

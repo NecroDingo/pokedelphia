@@ -12,11 +12,12 @@ gText_IllTakeYourPkmn::
 gText_RestoredPkmnToFullHealth::
 	.string "There. They’re better.\p"
 	.string "No, that doesn't mean we’re friends.\n"
-	.string "Please leave me alone for a while.$"
+	.string "Please leave me alone for a while.\p"
+	.string "$"
 
 gText_WeHopeToSeeYouAgain::
-	.string "Actually, I hope I don’t see you again,\n"
-	.string "Charlie.$"
+	.string "Actually,\n" 
+	.string "I hope I don’t see you again.$"
 
 gText_WelcomeCutShort::
 	.string "WAITRESS: Charlie, seriously?\n"

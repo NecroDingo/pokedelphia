@@ -1007,7 +1007,7 @@ LittlerootTown_ProfessorBirchsLab_Text_CharlieEgg:
 	.string "into somethin’ weird.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg:
-	.string "{PLAYER} received a smelly EGG from\n"
+	.string "Charlie received a smelly EGG from\n"
 	.string "PROF. FRANK!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_NoRoomForEgg:
@@ -1026,16 +1026,14 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveCharlieEgg::
 
 LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToParty::
 	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg
-	waitmessage
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg, MSGBOX_DEFAULT
 	waitfanfare
 	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToPC::
 	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg
-	waitmessage
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg, MSGBOX_DEFAULT
 	waitfanfare
 	call Common_EventScript_TransferredToPC
 	release

@@ -120,20 +120,20 @@ OldaleTown_Movement_PlayerMart:
 	delay_16
 	delay_16
 	delay_16
-	walk_left
-	walk_left
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
 	walk_up
 	walk_left
 	walk_left
+	walk_left
 	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
 	walk_up
 	walk_up
 	walk_up
@@ -356,9 +356,9 @@ OldaleTown_Movement_PlayerStepRight:
 	step_end
 
 OldaleTown_Text_SavingMyProgress:
-	.string "Yo, I’mma crash for a bit.\p"
-	.string "Gotta conserve the juice..\n"
-	.string "and the info.$"
+	.string "Yo, I’mma crash behind this\n"
+	.string "house for a bit.\p"
+	.string "Gotta conserve the juice..$"
 
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Yo!\n"
@@ -368,7 +368,7 @@ OldaleTown_Text_IWorkAtPokemonMart:
 OldaleTown_Text_ThisIsAPokemonMart:
 	.string "This? It’s a POKéMART.\n"
 	.string "The blue roof means 'Buy shit.'\p"
-	.string "We’ve got BALLS, meds, junk…\n"
+	.string "We’ve got balls, meds, junk…\n"
 	.string "you know, all you need out here.\p"
 	.string "Here, free sample.\n"
 	.string "Don’t ask questions.$"

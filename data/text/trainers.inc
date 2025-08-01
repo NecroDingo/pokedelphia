@@ -1,73 +1,151 @@
 Route102_Text_CalvinIntro:
-	.string "If you have POKéMON with you, then\n"
-	.string "you're an official POKéMON TRAINER!\l"
-	.string "You can't say no to my challenge!$"
+	.string "Yo, you got Pokémon?\n"
+	.string "That’s cute.\p"
+	.string "Listen, I’m from Philly, so I\n"
+	.string "don’t back down from a fight.\p"
+	.string "Let’s see if you can handle this\n"
+	.string "jawn.\p"
+	.string "You’re goin’ down, jabroni!$"
 
 Route102_Text_CalvinDefeated:
-	.string "Arrgh, I lost…\n"
-	.string "I should have trained mine more…$"
+	.string "Yo, what the hell?!\n"
+	.string "I lost?\p"
+	.string "Nah, this is rigged.\p"
+	.string "My Pokémon were just takin'\n"
+	.string "a nap or somethin...$"
 
 Route102_Text_CalvinPostBattle:
-	.string "Listen, you. If you're strong,\n"
-	.string "you should have told me before!$"
+	.string "Yo, if you’re this good,\n"
+	.string "why didn’t you say somethin’?\p"
+	.string "I could’ve saved myself the\n"
+	.string "embarrassment.\p"
+	.string "Next time, I’m bringin’ my\n"
+	.string "A game, ya hear me?$"
 
 Route102_Text_CalvinRegister:
-	.string "I've been working hard at this since\n"
-	.string "I saw you before.\p"
-	.string "I'd like to battle you again, so can\n"
-	.string "you register me in your POKéNAV?$"
+	.string "Yo, I’ve been trainin’ non-stop\n"
+	.string "since I saw you last.\p"
+	.string "I’m comin’ back stronger, so you\n"
+	.string "better register me in your PokéNav.\p"
+	.string "Don’t make me come find you.$"
 
 Route102_Text_CalvinRegisterShort:
-	.string "I'd like to battle you again, so can\n"
-	.string "you register me in your POKéNAV?$"
+	.string "Yo, register me in your PokéNav.\p"
+	.string "I’m comin’ back for round two,\n"
+	.string "and this time, I’m winnin’.$"
 
 Route102_Text_CalvinRematchIntro:
-	.string "Ever since I lost to you, I desperately\n"
-	.string "trained my POKéMON.\l"
-	.string "You can't say no to my challenge!$"
+	.string "Yo, I’ve been trainin’ like crazy\n"
+	.string "since you beat me.\p"
+	.string "You ain’t gettin’ away this time.\n"
+	.string "Let’s go, jabroni!$"
 
 Route102_Text_CalvinRematchDefeated:
-	.string "Arrgh, I lost…\n"
-	.string "Is my training method not right?$"
+	.string "Yo, what the hell?!\n"
+	.string "I trained so hard!\p"
+	.string "Did I skip leg day or somethin’?\n"
+	.string "This is bull!$"
 
 Route102_Text_CalvinRematchPostBattle:
-	.string "If you're going to get stronger,\n"
-	.string "I'll get stronger, too.$"
+	.string "Yo, you’re gettin’ stronger?\n"
+	.string "Fine. I’ll just train harder.\p"
+	.string "Next time, I’m bringin’ the pain.\n"
+	.string "You’re goin’ down!$"
 
 Route102_Text_AllenIntro:
-	.string "Did you just become a TRAINER?\n"
-	.string "We're both beginners!$"
+	.string "Yo, you new to this?\n"
+	.string "Me too!\p"
+	.string "Let’s see who’s the bigger noob.\p"
+	.string "Spoiler: it’s you.$"
 
 Route102_Text_AllenDefeated:
-	.string "I called you because I thought\n"
-	.string "I could beat you…$"
+	.string "Yo, I thought I had this in the\n"
+	.string "bag.\p"
+	.string "Guess I’m still a noob.\n"
+	.string "Damn it.$"
 
 Route102_Text_AllenPostBattle:
-	.string "I haven't won once yet…\n"
-	.string "I wish I would win soon…$"
+	.string "Yo, I ain’t won a single battle yet.\p"
+	.string "This is embarrassin’.\n"
+	.string "I need to step my game up.$"
 
 Route102_Text_RickIntro:
-	.string "Hahah! Our eyes met!\n"
-	.string "I'll take you on with my BUG POKéMON!$"
+	.string "Yo, you lookin’ at me?\n"
+	.string "That’s it, we’re battlin’.\p"
+	.string "My Bug Pokémon are gonna wreck you.\p"
+	.string "Let’s go!\n$"
 
 Route102_Text_RickDefeated:
-	.string "Ow! Down and out!$"
+	.string "Yo, my bugs dipped on me!\n"
+	.string "What the hell?!$"
 
 Route102_Text_RickPostBattle:
-	.string "If you lock eyes with a TRAINER,\n"
-	.string "you have to challenge! It's a rule!$"
+	.string "Yo, if you make eye contact with a\n"
+	.string "trainer, you gotta battle.\p"
+	.string "That’s the way.\n"
+	.string "No exceptions.$"
 
 Route102_Text_TianaIntro:
-	.string "I'm going to keep winning and aim\n"
-	.string "to be the best TRAINER.\p"
-	.string "Help me further my career!$"
+	.string "I’m climbin’ the ranks to be the best.\p"
+	.string "You’re just another step on my ladder.\n"
+	.string "Let’s do this.$"
 
 Route102_Text_TianaDefeated:
-	.string "I ended up furthering your career…$"
+	.string "I was supposed to win this.\p"
+	.string "Guess I’m still at the bottom of the\n"
+	.string "ladder.$"
 
 Route102_Text_TianaPostBattle:
-	.string "To keep winning my way up, I see that\n"
-	.string "I have to catch more POKéMON.$"
+	.string "If I wanna keep winnin’,\n"
+	.string "I need more Pokémon.\p"
+	.string "This ain’t workin’ out for me.\n$"
+
+	Route102_Text_MeghanIntro:
+	.string "The fog whispered to me…\n"
+	.string "it told me you'd be here.$"
+
+Route102_Text_MeghanDefeated:
+	.string "The mist… it got in your head too, huh?$"
+
+Route102_Text_MeghanPostBattle:
+	.string "You feel that?\p"
+	.string "Like... the mist is breathin’\n"
+	.string "on your neck or somethin’$"
+
+	Route102_Text_ZachIntro:
+	.string "Ayo! My bugs LOVE this fog.\n"
+	.string "You ain't even gonna see ‘em comin’!$"
+
+Route102_Text_ZachDefeated:
+	.string "Aww shit! They dipped on me again!$"
+
+Route102_Text_ZachPostBattle:
+	.string "I swear somethin’ crawled up ya\n"
+	.string "pants leg. Just sayin’$"
+
+	Route102_Text_HikaruIntro:
+	.string "I train in all kinds’a weather.\n"
+	.string "Fog, rain.. doesn’t matter.$"
+
+Route102_Text_HikaruDefeated:
+	.string "Damn... you got hands like you\n"
+	.string "grew up fightin’ in alleyways.$"
+
+Route102_Text_HikaruPostBattle:
+	.string "Next time I spar in the fog,\n"
+	.string "I’m bringin’ goggles or somethin’.\p"
+	.string "Can’t see nothin’.$"
+
+	Route102_Text_ChazIntro:
+	.string "Ugh. This fog is, like, totally gross.\n"
+	.string "Let's get this over with, aight?$"
+
+Route102_Text_ChazDefeated:
+	.string "Psh... whatever...$"
+
+Route102_Text_ChazPostBattle:
+	.string "If I lose my Gucci belt in this weather,\n"
+	.string "I'm suing nature.$"
 
 Route103_Text_DaisyIntro:
 	.string "Did you feel the tug of our\n"

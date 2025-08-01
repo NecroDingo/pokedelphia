@@ -386,4 +386,5 @@ bool32 HadMoreThanHalfHpNowDoesnt(u32 battler);
 void UpdateStallMons(void);
 bool32 TryRestoreHPBerries(u32 battler, enum ItemCaseId caseId);
 
+u8 ChooseScaledTrainerMonLevel(void);
 #endif // GUARD_BATTLE_UTIL_H
