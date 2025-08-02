@@ -8,6 +8,121 @@ OldaleTown_PokemonCenter_1F_OnTransition:
 	call Common_EventScript_UpdateBrineyLocation
 	end
 
+OldaleTown_PokemonCenter_EventScript_NurseIntro0::
+    lock
+	setvar VAR_0x8008, 0
+    goto OldaleTown_PokemonCenter_EventScript_NurseIntro
+	end
+
+OldaleTown_PokemonCenter_EventScript_NurseIntro1::
+    lock
+	setvar VAR_0x8008, 1
+    goto OldaleTown_PokemonCenter_EventScript_NurseIntro
+	end
+
+OldaleTown_PokemonCenter_EventScript_NurseIntro2::
+    lock
+	setvar VAR_0x8008, 2
+    goto OldaleTown_PokemonCenter_EventScript_NurseIntro
+	end
+
+
+OldaleTown_PokemonCenter_EventScript_NurseIntro::
+	goto_if_set FLAG_OLDALE_NURSE_INTRO_DONE, SkipIntro
+	msgbox OldaleTown_PokemonCenter_Text_NurseIntro1, MSGBOX_DEFAULT
+	closemessage
+	call_if_eq VAR_0x8008, 0, OldaleTown_PokemonCenter_EventScript_NurseIntroMovement0
+	call_if_eq VAR_0x8008, 1, OldaleTown_PokemonCenter_EventScript_NurseIntroMovement1
+	call_if_eq VAR_0x8008, 2, OldaleTown_PokemonCenter_EventScript_NurseIntroMovement2
+	msgbox OldaleTown_PokemonCenter_Text_NurseIntro2, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_OLDALE_NURSE, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	delay 180
+	applymovement LOCALID_OLDALE_NURSE, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	msgbox OldaleTown_PokemonCenter_Text_NurseIntro3, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_OLDALE_NURSE, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
+	waitmovement 0
+	applymovement LOCALID_OLDALE_NURSE, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	applymovement LOCALID_OLDALE_NURSE, Movement_PkmnCenterNurse_Bow
+	waitmovement 0
+	msgbox gText_WeHopeToSeeYouAgain2, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_OLDALE_NURSE_INTRO_DONE
+	release
+	end
+
+OldaleTown_PokemonCenter_Text_NurseIntro1:
+	.string "......\n"
+	.string "Oh my god. No...\p"
+	.string "Charlie? Are you serious right now?$"
+
+OldaleTown_PokemonCenter_EventScript_NurseIntroMovement0:
+	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement0
+	waitmovement 0
+	return
+
+OldaleTown_PokemonCenter_EventScript_NurseIntroMovement1:
+	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement1
+	waitmovement 0
+	return
+
+OldaleTown_PokemonCenter_EventScript_NurseIntroMovement2:
+	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement2
+	waitmovement 0
+	return
+
+OldaleTown_PokemonCenter_Movement_NurseIntroMovement0:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+OldaleTown_PokemonCenter_Movement_NurseIntroMovement1:
+	walk_up
+	walk_up
+	walk_right
+	walk_up
+	walk_up
+	step_end
+
+OldaleTown_PokemonCenter_Movement_NurseIntroMovement2:
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	walk_up
+	step_end
+
+
+OldaleTown_PokemonCenter_Text_NurseIntro2:
+	.string "WAITRESS: You followed me here?\n"
+	.string "You moved to TRASHBURG?!?\p"
+	.string "This is harassment!\n"
+	.string "I moved to a whole new region to get\l"
+	.string "away from you.\p"
+	.string "...... ...... ......\p"
+	.string "WAITRESS: No.. Don’t say anything.\n"
+	.string "I know what you’re gonna say...\p"
+	.string "This is what you do, this is exactly it.\p"
+	.string "You 'accidentally' run into me, then\n"
+	.string "suddenly you’re in my POKéCENTER\l"
+	.string "every day...\p"
+	.string "I’m just here for the POKéMON. I've\n"
+	.string "changed careers, I'm a Nurse now.\p"
+	.string "And NO!\n"
+	.string "You are NEVER getting a Pokémon\l"
+	.string "physical from me... Ever!$"
+
+OldaleTown_PokemonCenter_Text_NurseIntro3:
+	.string "Well, come on. I have a job to do.\n"
+	.string "Your POKéMON are more important...$"
+
 OldaleTown_PokemonCenter_1F_EventScript_Nurse::
 	setvar VAR_0x800B, LOCALID_OLDALE_NURSE
 	call Common_EventScript_PkmnCenterNurse

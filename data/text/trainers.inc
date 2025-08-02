@@ -1,8 +1,8 @@
 Route102_Text_CalvinIntro:
 	.string "Yo, you got Pokémon?\n"
 	.string "That’s cute.\p"
-	.string "Listen, I’m from Philly, so I\n"
-	.string "don’t back down from a fight.\p"
+	.string "Listen, I’m from around here, so I\n"
+	.string "don’t back down from a fight.$"
 	.string "Let’s see if you can handle this\n"
 	.string "jawn.\p"
 	.string "You’re goin’ down, jabroni!$"

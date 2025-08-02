@@ -95,20 +95,24 @@ Route102_EventScript_Hikaru::
 	end
 
 Route102_Text_WatchMeCatchPokemon:
-	.string "WALLY: {PLAYER}…\n"
-	.string "POKéMON hide in tall grass like this,\l"
-	.string "don't they?\p"
-	.string "Please watch me and see if I can\n"
-	.string "catch one properly.\p"
-	.string "…Whoa!$"
+	.string "Matthew: Thanks, {PLAYER}…\p"
+	.string "Pokémon usually hang out in tall\n"
+	.string "grass like this, right? Alright.\p"
+	.string "Watch me snag one real quick.\n"
+	.string "Just gotta be calm, confident…\p"
+	.string "…Wait, whoa, oh my goodness?!\p"
+	.string "That thing’s not supposed to be here!\n"
+	.string "Is this even legal!?$"
 
 Route102_Text_WallyIDidIt:
-	.string "WALLY: I did it… It's my…\n"
-	.string "My POKéMON!$"
+	.string "Matthew: I actually did it…\p"
+	.string "This is my Pokémon now!\n"
+	.string "For real! My own partner!$"
 
 Route102_Text_LetsGoBack:
-	.string "{PLAYER}, thank you!\n"
-	.string "Let's go back to the GYM!$"
+	.string "Matthew: {PLAYER}, you’re the real MVP.\n"
+	.string "For real.\p"
+	.string "Let’s head back to the Gym!\n$"
 
 Route102_Text_ImNotVeryTall:
 	.string "Yo... what street even is this?\p"
@@ -130,4 +134,4 @@ Route102_Text_RouteSignOldale:
 
 Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
-	.string "{LEFT_ARROW} PETALBURG CITY$"
+	.string "{LEFT_ARROW} GIANT'S REACH$"
