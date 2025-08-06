@@ -62,6 +62,7 @@ SECTIONS {
         *libc.a:*.o(.text*);
         *libnosys.a:*.o(.text*);
         asm/*.o(.text*);
+        src/quests.o(.text);
         KEEP(*.o(.text.consts));
         *.o(.text*);
         *.o(.eh_frame);
@@ -77,6 +78,7 @@ SECTIONS {
     ALIGN(4)
     {
         *.o(.rodata*);
+        src/quests.o(.rodata);
         *libgcc.a:*.o(.rodata*);
         *libc.a:*.o(.rodata*);
         *libc.a:*.o(.data*);
