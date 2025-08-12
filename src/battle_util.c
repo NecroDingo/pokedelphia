@@ -52,6 +52,11 @@
 #include "constants/weather.h"
 #include "constants/pokemon.h"
 
+// Prototypes for caps.c functions
+u32 GetCurrentLevelCap(void);
+u32 GetSoftLevelCapExpValue(u32 level, u32 expValue);
+u32 GetCurrentEVCap(void);
+
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
 are actually part of battle_main.c. They needed to be moved to this file in order to
@@ -927,20 +932,26 @@ u8 ChooseScaledTrainerMonLevel(void)
     u8 wildMin = 2, wildMax = 100;
     u8 minLevel, maxLevel;
     u32 levelCap = GetCurrentLevelCap();
-    u8 x = 5; // Trainers can't be more than 5 below your highest
+    u8 difficultyBuffer = 3; // Trainers can be up to 3 above average, and 5 below highest
 
-    minLevel = avgLevel > 1 ? avgLevel - 1 : wildMin;
-    if (highestLevel <= 10)
+    // Handle early-game balance
+    if (highestLevel <= 15)
     {
-        maxLevel = avgLevel + 0;
-        minLevel = avgLevel - 3;
+        minLevel = avgLevel > 2 ? avgLevel - 2 : wildMin;
+        maxLevel = avgLevel + 1;
     }
-    else {
-        maxLevel = avgLevel + 3;
+    else
+    {
+        minLevel = avgLevel > 3 ? avgLevel - 3 : wildMin;
+        maxLevel = avgLevel + difficultyBuffer;
     }
-    u8 minAllowed = highestLevel > x ? highestLevel - x : wildMin;
+
+    // Clamp so that trainers aren't more than 5 below your highest level
+    u8 minAllowed = highestLevel > 5 ? highestLevel - 5 : wildMin;
     if (minLevel < minAllowed)
         minLevel = minAllowed;
+
+    // Final clamping to bounds and level cap
     if (minLevel < wildMin)
         minLevel = wildMin;
     if (maxLevel > wildMax)
@@ -949,8 +960,8 @@ u8 ChooseScaledTrainerMonLevel(void)
         maxLevel = levelCap;
     if (minLevel > maxLevel)
         minLevel = maxLevel;
-    u8 trainerLevel = minLevel + (Random() % (maxLevel - minLevel + 1));
-    return trainerLevel;
+
+    return minLevel + (Random() % (maxLevel - minLevel + 1));
 }
 
 ARM_FUNC NOINLINE static uq4_12_t PercentToUQ4_12(u32 percent)
@@ -7611,22 +7622,8 @@ u8 GetAttackerObedienceForAction()
     if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
         return OBEYS;
 
-    obedienceLevel = 10;
-
-    if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge
-        obedienceLevel = 20;
-    if (FlagGet(FLAG_BADGE02_GET)) // Knuckle Badge
-        obedienceLevel = 30;
-    if (FlagGet(FLAG_BADGE03_GET)) // Dynamo Badge
-        obedienceLevel = 40;
-    if (FlagGet(FLAG_BADGE04_GET)) // Heat Badge
-        obedienceLevel = 50;
-    if (FlagGet(FLAG_BADGE05_GET)) // Balance Badge
-        obedienceLevel = 60;
-    if (FlagGet(FLAG_BADGE06_GET)) // Feather Badge
-        obedienceLevel = 70;
-    if (FlagGet(FLAG_BADGE07_GET)) // Mind Badge
-        obedienceLevel = 80;
+    // Use the level cap from caps.c for obedience
+    obedienceLevel = GetCurrentLevelCap();
 
     if (B_OBEDIENCE_MECHANICS >= GEN_8
      && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
