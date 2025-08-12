@@ -353,23 +353,26 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
     u8 wildMin = 2, wildMax = 100;
     u8 minLevel, maxLevel;
     u32 levelCap = GetCurrentLevelCap();
-    u8 x = 4; // Wilds can't be more than 4 below your highest
+    u8 difficultyBuffer = 3; // Wilds can be up to 3 above average, and 5 below highest
 
-    // Main scaling logic
-    minLevel = avgLevel > 1 ? avgLevel - 1 : wildMin;
-        if (highestLevel <= 10) 
-        {
-        maxLevel = avgLevel + 0;
-        minLevel = avgLevel - 3;} 
-        else {
-        maxLevel = avgLevel + 2;
-        }
-    // Enforce the "not more than X below highest" rule
-    u8 minAllowed = highestLevel > x ? highestLevel - x : wildMin;
+    // Handle early-game balance
+    if (highestLevel <= 15)
+    {
+        minLevel = avgLevel > 2 ? avgLevel - 2 : wildMin;
+        maxLevel = avgLevel + 1;
+    }
+    else
+    {
+        minLevel = avgLevel > 3 ? avgLevel - 3 : wildMin;
+        maxLevel = avgLevel + difficultyBuffer;
+    }
+
+    // Clamp so that wilds aren't more than 5 below your highest level
+    u8 minAllowed = highestLevel > 5 ? highestLevel - 5 : wildMin;
     if (minLevel < minAllowed)
         minLevel = minAllowed;
 
-    // Clamp to absolute bounds and level cap
+    // Final clamping to bounds and level cap
     if (minLevel < wildMin)
         minLevel = wildMin;
     if (maxLevel > wildMax)
@@ -379,8 +382,7 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
     if (minLevel > maxLevel)
         minLevel = maxLevel;
 
-    u8 wildLevel = minLevel + (Random() % (maxLevel - minLevel + 1));
-    return wildLevel;
+    return minLevel + (Random() % (maxLevel - minLevel + 1));
 }
 
 u16 GetCurrentMapWildMonHeaderId(void)
@@ -536,8 +538,12 @@ void CreateWildMon(u16 species, u8 level)
     // Get time of day for wild encounter
     enum TimeOfDay timeOfDay = GetTimeOfDay();
 
-    // Evolve the wild species if possible
-    u16 evolvedSpecies = GetWildEvolvedSpecies(species, level, gender, timeOfDay);
+    // Determine chance to evolve wild Pokémon
+    u16 evolvedSpecies = species;
+        if (Random() % 100 < 90) // 90% chance
+    {
+        evolvedSpecies = GetWildEvolvedSpecies(species, level, gender, timeOfDay);
+    }
 
     // Now create the wild mon as usual
     CreateMonWithNature(&gEnemyParty[0], evolvedSpecies, level, USE_RANDOM_IVS, PickWildMonNature());

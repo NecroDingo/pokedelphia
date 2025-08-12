@@ -656,11 +656,16 @@
 #define FLAG_HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH           (FLAG_HIDDEN_ITEMS_START + 0x6D)
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
+#define FLAG_HIDDEN_ITEM_ROUTE_104_REPEL                     (FLAG_HIDDEN_ITEMS_START + 0x70)
+#define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_DUSK_BALL           (FLAG_HIDDEN_ITEMS_START + 0x71)
+#define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_PEARL               (FLAG_HIDDEN_ITEMS_START + 0x72)
+#define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_TM_DOUBLE_TEAM      (FLAG_HIDDEN_ITEMS_START + 0x73)
+#define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_REPEL               (FLAG_HIDDEN_ITEMS_START + 0x74)
 
 #define FLAG_PETALBURG_NURSE_INTRO_DONE                      0x264 // Petalburg Nurse intro
 #define FLAG_OLDALE_NURSE_INTRO_DONE                         0x265 // Oldale Nurse intro
 
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
+#define FLAG_EXP_SHARE_TOGGLE                                0x266 // Toggles Exp. Share on/off
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag

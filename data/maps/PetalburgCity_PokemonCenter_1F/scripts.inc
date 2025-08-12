@@ -151,22 +151,22 @@ PetalburgCity_PokemonCenter_1F_EventScript_Woman::
 	end
 
 PetalburgCity_PokemonCenter_1F_EventScript_SayStarterTypeInfo::
-	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayRaltsType
-	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayAronType
-	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayTrapinchType
+	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayBulbasaurType
+	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayGibleType
+	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayAronType
 	release
 	end
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayRaltsType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_RaltsIsPsychicType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayBulbasaurType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_BulbasaurIsGrassType, MSGBOX_DEFAULT
+	return
+
+PetalburgCity_PokemonCenter_1F_EventScript_SayGibleType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_GibleIsDragonType, MSGBOX_DEFAULT
 	return
 
 PetalburgCity_PokemonCenter_1F_EventScript_SayAronType::
 	msgbox PetalburgCity_PokemonCenter_1F_Text_AronIsSteelType, MSGBOX_DEFAULT
-	return
-
-PetalburgCity_PokemonCenter_1F_EventScript_SayTrapinchType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_TrapinchIsGroundType, MSGBOX_DEFAULT
 	return
 
 PetalburgCity_PokemonCenter_1F_Text_PCStorageSystem:
@@ -191,30 +191,33 @@ PetalburgCity_PokemonCenter_1F_Text_ManyTypesOfPokemon:
 	.string "Depending on the types of POKéMON,\n"
 	.string "a battle could be easy or hard.$"
 
-PetalburgCity_PokemonCenter_1F_Text_RaltsIsPsychicType:
-	.string "For example, your RALTS\n"
-	.string "is a PSYCHIC and FAIRY type.\p"
-	.string "It’s strong against FIGHTING and\n"
-	.string "DARK types, and ignores DRAGON moves.\p"
-	.string "But it's weak to STEEL, GHOST,\n"
-	.string "and POISON-type POKéMON.$"
+PetalburgCity_PokemonCenter_1F_Text_BulbasaurIsGrassType:
+	.string "For example, your BULBASAUR is a\n"
+	.string "GRASS and POISON type.\p"
+	.string "It’s strong against WATER, ROCK, and\n"
+	.string "GROUND types.\p"
+	.string "But it’s weak to FIRE, FLYING, and\n"
+	.string "ICE-type POKéMON.$"
+
+
+PetalburgCity_PokemonCenter_1F_Text_GibleIsDragonType:
+	.string "For example, your GIBLE is a DRAGON\n"
+	.string "and GROUND type.\p"
+	.string "It’s strong against FIRE, ELECTRIC,\n"
+	.string "POISON, ROCK, and STEEL types.\p"
+	.string "But it’s weak to ICE, DRAGON, and\n"
+	.string "FAIRY-type POKéMON.$"
 
 
 PetalburgCity_PokemonCenter_1F_Text_AronIsSteelType:
-	.string "For example, your ARON\n"
-	.string "is a STEEL and ROCK type.\p"
-	.string "It resists many attacks, especially\n"
-	.string "from NORMAL and PSYCHIC moves.\p"
-	.string "But it's weak to WATER, GROUND,\n"
-	.string "and FIGHTING-type POKéMON.$"
+	.string "For example, your ARON is a STEEL and\n"
+	.string "ROCK type.\p"
+	.string "It’s strong against NORMAL, FLYING,\n"
+	.string "ROCK, BUG, STEEL, GRASS, and ICE types.\p"
+	.string "But it’s weak to FIGHTING, GROUND,\n"
+	.string "WATER, and FIRE-type POKéMON.$"
 
+ 
 
-PetalburgCity_PokemonCenter_1F_Text_TrapinchIsGroundType:
-	.string "For example, your TRAPINCH\n"
-	.string "is a GROUND type.\p"
-	.string "It’s strong against FIRE, ELECTRIC,\n"
-	.string "POISON, ROCK, and STEEL types.\p"
-	.string "But it's weak to ICE, WATER,\n"
-	.string "and GRASS-type POKéMON.$"
 
 

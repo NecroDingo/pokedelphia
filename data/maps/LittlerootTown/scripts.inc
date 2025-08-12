@@ -895,36 +895,42 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	waitfanfare
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	msgbox LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_TakeThisToo, MSGBOX_DEFAULT
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_EXP_SHARE
+	waitfanfare
+	msgbox LittlerootTown_Text_EXPShare, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_ComeHomeIfAnythingHappens, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	return
 
 LittlerootTown_Text_OurNewHomeLetsGoInside:
-	.string "MOM: Oh, good. You're still alive.\p"
-	.string "I told Frank tying you to the furniture\n"
-	.string "wasn’t safe in a moving truck.\l"
-	.string "I was so worried for my Charlie.\p"
+	.string "MOM: Oh good, you're still alive.\p"
+	.string "Frank swore tying you down was safe,\n"
+	.string "but I had a FEELING, Charlie.\p"
+	.string "You could've died. I had a dream.\p"
 	.string "Anyway, this is our new place.\n"
-	.string "I hope it's better than the last one.\p"
-	.string "It's always raining in this town.\p"
-	.string "I think there's a mattress inside\n"
-	.string "and some towels to dry off with.\l"
-	.string "I know you’ll figure it out.\p"
-	.string "Let's go. I wanna sit down.$"
+	.string "It’s not full of mold. Yet.\p"
+	.string "It rains constantly. That’s not good.\p"
+	.string "I think there's a mattress inside, but\n"
+	.string "don’t touch the corners.\p"
+	.string "Let’s just go. I need to sit down before\n"
+	.string "my heart gives out.$"
 
 LittlerootTown_Text_WaitPlayer:
-	.string "MOM: Oh {PLAYER}, wait!$"
+	.string "MOM: Oh, my Charlie, WAIT!$"
 
 LittlerootTown_Text_WearTheseRunningShoes:
-	.string "MOM: {PLAYER}! Frank said you were\n"
-	.string "out catching garbage animals.\p"
-	.string "You got one, huh? I guess that’s cute.\p"
-	.string "You're really leaning into this whole\n"
-	.string "‘feral trash boy’ image.\p"
-	.string "Anyway, here are some running shoes.\n"
-	.string "Not that you ever run from\l"
-	.string "your problems...$"
+	.string "MOM: There you are, my sweet boy.\p"
+	.string "Frank said you were outside again\n"
+	.string "touching wild garbage animals.\p"
+	.string "You caught one? Oh God.\n"
+	.string "Did it bite you?\p"
+	.string "Anyway, here. New shoes!\n"
+	.string "For running away, I hope.\p"
+	.string "They’re clean. I wiped them down.\n"
+	.string "Twice. Just to be safe.$"
 
 
 LittlerootTown_Text_SwitchShoesWithRunningShoes:
@@ -932,20 +938,26 @@ LittlerootTown_Text_SwitchShoesWithRunningShoes:
 	.string "RUNNING SHOES.$"
 
 LittlerootTown_Text_ExplainRunningShoes:
-	.string "MOM: {PLAYER}, those shoes came with\n"
-	.string "instructions.\p"
-	.string "I think I've lost them though.\p"
-	.string "Thats ok, you'll figure it out!$"
+	.string "MOM: The shoes came with paper but I\n"
+	.string "threw it out. It had a smell.\p"
+	.string "It’s probably fine.\n"
+	.string "Just be careful, okay?\p"
+	.string "Running’s dangerous.\n"
+	.string "So is standing still. Just… be alert.$"
 
 LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
-	.string "To think you’ve got your own Pokémon\n"
-	.string "now. Frank really gave you one, huh?\p"
-	.string "I think I'm feeling very proud.\n"
-	.string "Or disgusted. Who knows.\p"
-	.string "If you die, I guess come home.\p"
-	.string "Alright, go have fun with your friends.\n$"
+	.string "MOM: My Charlie has a Pokémon now...\n"
+	.string "Frank actually gave you one.\p"
+	.string "It’s happening. You’re leaving me.\n"
+	.string "Ohh Charlie!\p"
+	.string "I’m so proud. And terrified.\p"
+	.string "If you get hurt, or arrested, just\n"
+	.string "come home. Right away!\p"
+	.string "I’ll go in, light a candle, and spin\n"
+	.string "around.\p"
+	.string "You’ll be safe that way.$"
 
 
 LittlerootTown_Text_CanUsePCToStoreItems:
@@ -1024,5 +1036,24 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "back at the lab.\p"
 	.string "Bring snacks!$"
 
+LittlerootTown_Text_TakeThisToo:
+	.string "Oh, and Charlie!\n"
+	.string "I got you a little gift.$"
 
+
+LittlerootTown_Text_EXPShare:
+	.string "It’s called an EXP SHARE.\p"
+	.string "I don’t really know how it works.\n"
+	.string "I think it’s magic.\p"
+	.string "It makes your little creatures…\n"
+	.string "smarter!\p"
+	.string "The man at the Mart says it's a new\n"
+	.string "version too!\p"
+	.string "It goes in a special pocket in your\n"
+	.string "backpack, and all you have to do is turn\l"
+	.string "it on!\p"
+	.string "The old ones only helped one Pokémon.\n"
+	.string "This one helps them all!\p"
+	.string "You just turn it on and suddenly\n"
+	.string "they’re all winners! You could use that.$"
 

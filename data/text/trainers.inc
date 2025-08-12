@@ -373,17 +373,27 @@ Route104_Text_IvanPostBattle:
 	.string "I forgot I had to raise my POKéMON…$"
 
 Route104_Text_BillyIntro:
-	.string "Leaving footprints in the sand is\n"
-	.string "so fun!$"
+	.string "Yo, you headin’ into SCRAPPLE HOLLOW?\p"
+	.string "That place is a straight-up pretzel,\n"
+	.string "dude.\p"
+	.string "You turn around once and BOOM, you're\n"
+	.string "lost.\p"
+	.string "Lemme check if you’re even tough enough\n"
+	.string "to make it.$"
 
 Route104_Text_BillyDefeat:
-	.string "Waah! I got sand in my runners!\n"
-	.string "They're all gritty!$"
+	.string "Alright, alright, you got skills.\p"
+	.string "Still, the Hollow eats people alive,\n"
+	.string "bro.$"
 
 Route104_Text_BillyPostBattle:
-	.string "I want to leave my footprints in\n"
-	.string "the sand everywhere, but they\l"
-	.string "disappear quickly…$"
+	.string "Listen... SCRAPPLE HOLLOW?\n"
+	.string "It’s like every tree’s got an\l"
+	.string "identical twin.\p"
+	.string "You think you’re makin’ progress,\n"
+	.string "but nah, you’re walkin’ in circles.\p"
+	.string "Keep track of where you been,\n"
+	.string "or the forest’s gonna clown you hard.$"
 
 Route104_Text_HaleyIntro:
 	.string "Should I…\n"
@@ -4872,3 +4882,64 @@ VSSeeker_Text_TrainersNotReady::
 	.string "The other Trainers don't appear\n"
 	.string "to be ready for battle.\p"
 	.string "Let's wait till later.{PAUSE_UNTIL_PRESS}$"
+
+Route104Beach_Text_EliseIntro:
+	.string "Ugh, I just finished tanning and now\n"
+	.string "I gotta deal with you?\p"
+	.string "Don’t mess up my vibe.$"
+
+Route104Beach_Text_EliseDefeat:
+	.string "You're lucky I didn’t have my good team.\n"
+	.string "Or my good bronzer.$"
+
+Route104Beach_Text_ElisePostBattle:
+	.string "Not bad, not bad at all.\p"
+	.string "You got the moves and the swag.\n"
+	.string "Keep it tight, aight?$"
+
+Route104Beach_Text_IslaIntro:
+	.string "Yo, listen up!\p"
+	.string "Cool ain’t just a look, it’s a\n"
+	.string "whole vibe.\p"
+	.string "You ready to roll with the big dogs?$"
+
+Route104Beach_Text_IslaDefeat:
+	.string "Aight, you schooled me good.\p"
+	.string "I’ll be back cooler than a fresh slice\n"
+	.string "on a hot block.$"
+
+Route104Beach_Text_IslaPostBattle:
+	.string "Not bad, not bad at all.\p"
+	.string "You got the moves and the swag.\n"
+	.string "Keep it tight, aight?$"
+
+Route104Beach_Text_HugoIntro:
+	.string "Ayo! You tryna square up on the beach,\n"
+	.string "pal?\p"
+	.string "Let’s rock!$"
+
+Route104Beach_Text_HugoDefeat:
+	.string "Yoooo okay! Okay! You got me!\n"
+	.string "Relax!$"
+
+Route104Beach_Text_HugoPostBattle:
+	.string "My anchor’s stuck in the dunes.\n"
+	.string "Don’t suppose you got a tow line?$"
+
+Route104Beach_Text_OscarIntro:
+	.string "You ever light a bonfire so big the cops\n"
+	.string "show up?\p"
+	.string "No?\n"
+	.string "Let me educate you.$"
+
+Route104Beach_Text_OscarDefeat:
+	.string "Agh!\p"
+	.string "Snuffed out like my Fourth of July\n"
+	.string "dreams...$"
+
+Route104Beach_Text_OscarPostBattle:
+	.string "You ever roasted a Magikarp over an\n"
+	.string "open flame?\p"
+	.string "No?\n"
+	.string "Don’t.$"
+

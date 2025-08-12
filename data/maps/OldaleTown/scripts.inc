@@ -53,7 +53,7 @@ OldaleTown_EventScript_GoToMart::
 
 OldaleTown_EventScript_ExplainPokemonMart::
 	msgbox OldaleTown_Text_ThisIsAPokemonMart, MSGBOX_DEFAULT
-	giveitem ITEM_POTION
+	giveitem ITEM_POTION, 10
 	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
 	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_POTION_OLDALE
@@ -356,8 +356,8 @@ OldaleTown_Movement_PlayerStepRight:
 	step_end
 
 OldaleTown_Text_SavingMyProgress:
-	.string "Yo, I’mma crash behind this\n"
-	.string "house for a bit.\p"
+	.string "Yo, I’mma crash behind this house for\n"
+	.string "a bit.\p"
 	.string "Gotta conserve the juice..$"
 
 OldaleTown_Text_IWorkAtPokemonMart:
@@ -370,13 +370,14 @@ OldaleTown_Text_ThisIsAPokemonMart:
 	.string "The blue roof means 'Buy shit.'\p"
 	.string "We’ve got balls, meds, junk…\n"
 	.string "you know, all you need out here.\p"
-	.string "Here, free sample.\n"
-	.string "Don’t ask questions.$"
+	.string "Here, I've got free samples.\p"
+	.string "Don’t you even ask any questions.\n"
+	.string "They fell off the truck...$"
 
 OldaleTown_Text_PotionExplanation:
-	.string "POTIONS got that magic juice.\n"
-	.string "Drink that shit and you feelin'\l"
-	.string "good for a while.$"
+	.string "POTIONS got that magic juice.\p"
+	.string "Drink that shit and you feelin' good\n"
+	.string "for a while.$"
 
 OldaleTown_Text_WaitDontComeInHere:
 	.string "Yo! Yo! Back it up, bro.\n"

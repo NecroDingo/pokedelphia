@@ -17,8 +17,7 @@ OldaleTown_House2_Text_PokemonLevelUp:
 
 OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon:
 	.string "Yeah, so apparently when POKéMON fight,\n"
-	.string "they get stronger or evolve or\l"
-	.string "mutate or something.\p"
-	.string "It’s like puberty,\n"
-	.string "but with more lasers.$"
+	.string "they get stronger and evolve or mutate\l"
+	.string "or something.\p"
+	.string "It’s like puberty, but with more lasers.$"
 

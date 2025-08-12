@@ -291,7 +291,7 @@ Route101_Text_TakeTiredPokemonToPokeCenter:
 	.string "There's a nice nurse in the next\n"
 	.string "town over. If your POKéMON get tired,\l"
 	.string "you can take them there.\p"
-	.string "She's not too bad lookin' herself.$"
+	.string "She's not too bad lookin' either.$"
 
 Route101_Text_WildPokemonInTallGrass:
 	.string "Saw a rat take down a bird in here once.\n"
@@ -306,4 +306,4 @@ Route101_Text_RouteSign:
 Route101_Text_RouteSign2:
 	.string "The message is crossed out with a\n"
 	.string "permanent marker.\p"
-	.string "'Your mom' is written over it.$"
+	.string "“Your mom” is written over it.$"

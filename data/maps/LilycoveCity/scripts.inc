@@ -241,9 +241,9 @@ LilycoveCity_EventScript_May::
 	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_DeclineMayBattle
 	msgbox LilycoveCity_Text_MayWontBeBeaten, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, LilycoveCity_EventScript_BattleMayRalts
-	case 1, LilycoveCity_EventScript_BattleMayAron
-	case 2, LilycoveCity_EventScript_BattleMayTrapinch
+	case 0, LilycoveCity_EventScript_BattleMayBulbasaur
+	case 1, LilycoveCity_EventScript_BattleMayGible
+	case 2, LilycoveCity_EventScript_BattleMayAron
 	end
 
 LilycoveCity_EventScript_MayAskToBattleAgain::
@@ -262,18 +262,18 @@ LilycoveCity_EventScript_DeclineMayBattle::
 	release
 	end
 
-LilycoveCity_EventScript_BattleMayRalts::
-	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_RALTS, LilycoveCity_Text_MayDefeat
+LilycoveCity_EventScript_BattleMayBulbasaur::
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_BULBASAUR, LilycoveCity_Text_MayDefeat
+	goto LilycoveCity_EventScript_DefeatedMay
+	end
+
+LilycoveCity_EventScript_BattleMayGible::
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_GIBLE, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
 LilycoveCity_EventScript_BattleMayAron::
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_ARON, LilycoveCity_Text_MayDefeat
-	goto LilycoveCity_EventScript_DefeatedMay
-	end
-
-LilycoveCity_EventScript_BattleMayTrapinch::
-	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TRAPINCH, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 

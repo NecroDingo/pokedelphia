@@ -67,23 +67,23 @@ Route119_EventScript_PlayMayMusic::
 Route119_EventScript_BattleMay::
 	msgbox Route119_Text_MayIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route119_EventScript_BattleMayRalts
-	case 1, Route119_EventScript_BattleMayAron
-	case 2, Route119_EventScript_BattleMayTrapinch
+	case 0, Route119_EventScript_BattleMayBulbasaur
+	case 1, Route119_EventScript_BattleMayGible
+	case 2, Route119_EventScript_BattleMayAron
 	end
 
-Route119_EventScript_BattleMayRalts::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_RALTS, Route119_Text_MayDefeat
+Route119_EventScript_BattleMayBulbasaur::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_BULBASAUR, Route119_Text_MayDefeat
+	goto Route119_EventScript_DefeatedMay
+	end
+
+Route119_EventScript_BattleMayGible::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_GIBLE, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
 Route119_EventScript_BattleMayAron::
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_ARON, Route119_Text_MayDefeat
-	goto Route119_EventScript_DefeatedMay
-	end
-
-Route119_EventScript_BattleMayTrapinch::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TRAPINCH, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 

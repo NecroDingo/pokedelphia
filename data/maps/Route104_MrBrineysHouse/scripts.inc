@@ -95,64 +95,70 @@ Route104_MrBrineysHouse_EventScript_Peeko::
 	end
 
 Route104_MrBrineysHouse_Text_WaitUpPeeko:
-	.string "MR. BRINEY: Hold on, lass!\n"
-	.string "Wait up, PEEKO!$"
+	.string "ARTEMIS: Hold up, baby!\p"
+	.string "Wait up, SKYLAR!\n"
+	.string "Your mother’s still adjusting her\l"
+	.string "stance.$"
+
 
 Route104_MrBrineysHouse_Text_ItsYouLetsSailToDewford:
-	.string "Hm? You're {PLAYER}{KUN}!\n"
-	.string "You saved my darling PEEKO!\l"
-	.string "We owe so much to you!\p"
-	.string "What's that?\n"
-	.string "You want to sail with me?\p"
-	.string "Hmhm…\p"
-	.string "You have a LETTER bound for DEWFORD\n"
-	.string "and a package for SLATEPORT, then?\p"
-	.string "Quite the busy life you must lead!\p"
-	.string "But, certainly, what you're asking is\n"
-	.string "no problem at all.\p"
-	.string "You've come to the right man!\n"
-	.string "We'll set sail for DEWFORD.$"
+	.string "Hm? Ohhh, it’s {PLAYER}!\n"
+	.string "The hero who saved my precious SKYLAR!\p"
+	.string "Oh, he used to be “PEEKO,”\n"
+	.string "but I renamed him after my first crush\l"
+	.string "from mime school.\p"
+	.string "Skylar had big dreams, and an even\n"
+	.string "bigger relationship with the wind.\p"
+	.string "Anyway, you need a ride?\p"
+	.string "....... ....... ....... .......\p"
+	.string "A LETTER to DEWFORD and a package for SLATEPORT?\p"
+	.string "I love a multi-stop voyage. It’s like a\n"
+	.string "progressive dinner, but saltier.\p"
+	.string "You’ve come to the right woman.\n"
+	.string "Let’s set sail, baby!$"
 
 Route104_MrBrineysHouse_Text_SetSailForDewford:
-	.string "MR. BRINEY: DEWFORD it is, then!\p"
-	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "ARTEMIS: DEWFORD, here we come!\n"
+	.string "Anchors aweigh, and bras off!\p"
+	.string "SKYLAR, let’s show ‘em what a wind\n"
+	.string "child can do!$"
 
 Route104_MrBrineysHouse_Text_DeclineDeliverySail:
-	.string "MR. BRINEY: Is that so?\n"
+	.string "ARTEMIS: Ohhh, playing hard to get, huh?\p"
 	.string "Your deliveries can wait?\p"
-	.string "You just go on and tell me whenever\n"
-	.string "you want to set sail!$"
+	.string "Fine, but don’t tease a woman who\n"
+	.string "has a boat, a SKYLAR, and zero\l"
+	.string "boundaries.$"
 
 Route104_MrBrineysHouse_Text_NeedToMakeDeliveriesSailToDewford:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "I know exactly what you want to say!\p"
-	.string "You're to deliver a LETTER to DEWFORD\n"
-	.string "and a package to SLATEPORT.\p"
-	.string "What you need me to do is no problem\n"
-	.string "at all--I'm the man for the job!\p"
-	.string "First, we'll set sail for DEWFORD.$"
+	.string "ARTEMIS: Ahoy baby!\p"
+	.string "I can smell a mission from a mile away.\p"
+	.string "Letter for DEWFORD, package for\n"
+	.string "SLATEPORT? This is how legends are\l"
+	.string "made, baby.\p"
+	.string "No problem. First stop DEWFORD.\n"
+	.string "SKYLAR will catch the wind for us.$"
 
 Route104_MrBrineysHouse_Text_NeedToDeliverPackageSailToDewford:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "I know exactly what you want to say!\p"
-	.string "You're to deliver a package to\n"
-	.string "CAPT. STERN in SLATEPORT.\p"
-	.string "What you need me to do is no problem\n"
-	.string "at all--I'm the man for the job!\p"
-	.string "First, we'll set sail for DEWFORD.$"
+	.string "ARTEMIS: Ahoy baby!\p"
+	.string "Package to CAPT. STERN in SLATEPORT?\n"
+	.string "I’ve done stranger deliveries… much stranger.\p"
+	.string "Once with SKYLAR in a hat..\n"
+	.string "Don’t ask.\p"
+	.string "First stop, DEWFORD.$"
 
 Route104_MrBrineysHouse_Text_WhereAreWeBound:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "For you, I'll go out to sea anytime!\p"
-	.string "Now, my friend, where are we bound?$"
+	.string "ARTEMIS: Ahoy, baby!\p"
+	.string "For you, I’ll hit the open sea anytime.\p"
+	.string "Where we going? SKYLAR’s ready to fly.$"
 
 Route104_MrBrineysHouse_Text_TellMeWheneverYouWantToSail:
-	.string "MR. BRINEY: Is that so?\n"
-	.string "Well, PEEKO owes her life to you.\p"
-	.string "You just go on and tell me whenever\n"
-	.string "you want to set sail!$"
+	.string "ARTEMIS: Is that so?\p"
+	.string "Well, SKYLAR owes you everything…\n"
+	.string "and I mean everything.\p"
+	.string "You just say the word, sailor, and\n"
+	.string "we’ll make the tide blush.$"
 
 Route104_MrBrineysHouse_Text_Peeko:
-	.string "PEEKO: Pii piihyoro!$"
+	.string "SKYLAR: Pii piihyoro!$"
 

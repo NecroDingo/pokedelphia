@@ -138,9 +138,9 @@ Route104_EventScript_MayAskToBattle::
 Route104_EventScript_BattleMay::
 	msgbox Route104_Text_MayIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route104_EventScript_BattleMayRalts
-	case 1, Route104_EventScript_BattleMayAron
-	case 2, Route104_EventScript_BattleMayTrapinch
+	case 0, Route104_EventScript_BattleMayBulbasaur
+	case 1, Route104_EventScript_BattleMayGible
+	case 2, Route104_EventScript_BattleMayAron
 	end
 
 Route104_EventScript_MayDefeated::
@@ -154,20 +154,20 @@ Route104_EventScript_RestoreMusic::
 	fadedefaultbgm
 	return
 
-Route104_EventScript_BattleMayRalts::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_RALTS, Route104_Text_MayDefeat
+Route104_EventScript_BattleMayBulbasaur::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_BULBASAUR, Route104_Text_MayDefeat
+	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	goto Route104_EventScript_MayDefeated
+	end
+
+Route104_EventScript_BattleMayGible::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_GIBLE, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end
 
 Route104_EventScript_BattleMayAron::
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_ARON, Route104_Text_MayDefeat
-	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
-	goto Route104_EventScript_MayDefeated
-	end
-
-Route104_EventScript_BattleMayTrapinch::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TRAPINCH, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end
@@ -244,11 +244,11 @@ Route104_EventScript_TrainerTipsDoubleBattles::
 	end
 
 Route104_EventScript_Boy1::
-	msgbox Route104_Text_ThrowBallAtWeakenedPokemon, MSGBOX_NPC
+	msgbox Route104_Text_StealingPokemonFromTrainers, MSGBOX_NPC
 	end
 
 Route104_EventScript_Woman::
-	msgbox Route104_Text_OnlyThrowBallAtWildPokemon, MSGBOX_NPC
+	msgbox Route104_Text_JumpFromLedges, MSGBOX_NPC
 	end
 
 Route104_EventScript_Boy2::
@@ -924,131 +924,137 @@ Route104_EventScript_Darian::
 	end
 
 Route104_Text_BrineyLivesInSeasideCottage:
-	.string "That seaside cottage is where\n"
-	.string "MR. BRINEY lives.\p"
-	.string "He was once a mighty sailor who never\n"
-	.string "feared the sea, however stormy.$"
+	.string "That shabby cottage on the shore?\n"
+	.string "That’s where Artemis lives.\p"
+	.string "Total art school dropout turned “sea whisperer.”\p"
+	.string "She says she reads tides like\n"
+	.string "tarot cards.\p"
+	.string "I don’t buy it, but she scares the gulls.$"
 
 Route104_Text_WhatsItLikeAtBottomOfSea:
-	.string "The sea, huh?\p"
-	.string "I wonder what it's like at the bottom\n"
-	.string "of the sea?$"
+	.string "What’s at the bottom of the sea, anyway?\p"
+	.string "Maybe lost paintings?\n"
+	.string "A rusted trumpet?\l"
+	.string "I dunno.\p"
+	.string "Artemis talks to it...like it's\n"
+	.string "listening.... Creepy.$"
 
-Route104_Text_ThrowBallAtWeakenedPokemon:
-	.string "If you're going to throw a POKé BALL,\n"
-	.string "weaken the wild POKéMON first.\p"
-	.string "It will be easier to catch if it's been\n"
-	.string "poisoned, burned, or lulled to sleep.$"
+Route104_Text_StealingPokemonFromTrainers:
+	.string "You think you can snatch another\n"
+	.string "Trainer’s Pokémon?\p"
+	.string "You’d be sleeping with the fishes, pal.\p"
+	.string "Stick to wild ones, they don’t\n"
+	.string "press charges.$"
 
-Route104_Text_OnlyThrowBallAtWildPokemon:
-	.string "You're a thief if you try to steal\n"
-	.string "someone else's POKéMON.\p"
-	.string "You should throw POKé BALLS only at\n"
-	.string "wild POKéMON.$"
+Route104_Text_JumpFromLedges:
+	.string "Those big ledges? Totally jumpable.\p"
+	.string "They look high, but they’re safe.\n"
+	.string "Just hop down, no biggie.\p"
+	.string "If you see one with less tall grass\n"
+	.string "around the edge, that’s your best shot.\p"
+	.string "We all do it. Just aim low.\n"
+	.string "No one’s even broken a leg...yet.$"
 
 Route104_Text_ImNotATrainer:
-	.string "Oh, no, I'm not a TRAINER.\p"
-	.string "But that's right, if TRAINERS lock eyes,\n"
-	.string "it's a challenge to battle.\p"
-	.string "If you don't want to battle, stay out\n"
-	.string "of their sight.$"
+	.string "Nope, I ain’t a Trainer.\p"
+	.string "If one stares you down, you better stare\n"
+	.string "back. It's go time!\p"
+	.string "Avoid eye contact, or you might get\n"
+	.string "dragged into a fight.$"
 
 Route104_Text_LikeFillingMouthWithSeedsTakeThis:
-	.string "I like filling my mouth with seeds,\n"
-	.string "then spitting them out fast!\p"
-	.string "You can have this, so you try it out!\p"
-	.string "Use it on a POKéMON, and it will learn\n"
-	.string "a move for firing seeds rapidly.$"
+	.string "Ever cram seeds in your mouth and\n"
+	.string "blast ‘em out hard?\p"
+	.string "Here, use this. It teaches\n"
+	.string "seed-slinging.\p"
+	.string "Seriously. Try not to choke.$"
 
 Route104_Text_TMsAreOneTimeUse:
-	.string "A word of advice!\p"
-	.string "A TM, TECHNICAL MACHINE, is good only\n"
-	.string "for one-time use.\p"
-	.string "Once you use it, it's gone.\n"
-	.string "Think twice before using it!$"
+	.string "Heads-up: TMs vanish after one use.\p"
+	.string "Poof.\p"
+	.string "Choose wisely.\p"
+	.string "Maybe just don’t waste it on that rat\n"
+	.string "you caught.$"
 
 Route104_Text_DontNeedThisTakeIt:
-	.string "This FLOWER SHOP started selling\n"
-	.string "saplings recently.\p"
-	.string "It made me so happy, I went overboard\n"
-	.string "shopping.\p"
-	.string "I don't need this WHITE HERB anymore.\n"
-	.string "Would you take it, please?$"
+	.string "Went nuts at the flower shop.\n"
+	.string "Seriously, I bought everything.\p"
+	.string "Don’t need this WHITE HERB,\n"
+	.string "it’s all yours, kid.$"
 
 Route104_Text_FlowerShopSellingSaplings:
-	.string "This FLOWER SHOP started selling\n"
-	.string "saplings recently.\p"
-	.string "It made me so happy, I went overboard\n"
-	.string "shopping. Where should I put them?$"
+	.string "Flower shop’s sprouting saplings now.\n"
+	.string "Spent way too much.\p"
+	.string "Now I’m stuck with plants and a bill.\n"
+	.string "Send help!$"
 
 Route104_Text_MrBrineysCottage:
-	.string "MR. BRINEY'S COTTAGE$"
+	.string "ARTEMIS’S “SEA HOUSE”\n$"
 
 Route104_Text_RouteSignPetalburg:
 	.string "ROUTE 1O4\n"
-	.string "{RIGHT_ARROW} PETALBURG CITY$"
+	.string "{RIGHT_ARROW} GIANT'S REACH\l"
+	.string "{LEFT_ARROW} ARTEMIS’S “SEA HOUSE”\l"
+	.string "{UP_ARROW} SCRAPPLE HOLLOW\l"
+	.string "{DOWN_ARROW} ROUTE 104 BEACH$"
 
 Route104_Text_RouteSignRustboro:
 	.string "ROUTE 1O4\n"
-	.string "{UP_ARROW} RUSTBORO CITY$"
+	.string "{UP_ARROW} RUSTBORO CITY\l"
+	.string "{DOWN_ARROW} SCRAPPLE HOLLOW$"
+
 
 Route104_Text_PrettyPetalFlowShop:
 	.string "PRETTY PETAL FLOWER SHOP$"
 
 Route104_Text_TrainerTipsDoubleBattles:
-	.string "TRAINER TIPS\p"
-	.string "In the HOENN region there are pairs\n"
-	.string "of TRAINERS who challenge others\l"
-	.string "for 2-on-2 POKéMON battles called\l"
-	.string "DOUBLE BATTLES.\p"
-	.string "In a DOUBLE BATTLE, the TRAINER must\n"
-	.string "send out two POKéMON, the one at the\l"
-	.string "left of the list and the top one.\l"
-	.string "Watch how POKéMON are lined up.$"
+	.string "TRAINER TIP:\p"
+	.string "If two Trainers spot you at once…\n"
+	.string "That’s a double battle!\p"
+	.string "You’ll send out two Pokémon at once.\p"
+	.string "Double the trouble,\n"
+	.string "Double the fun!$"
 
 Route104_Text_MayWeShouldRegister:
-	.string "MAY: Oh, hi, {PLAYER}{KUN}!\p"
-	.string "DEVON upgraded your POKéNAV with\n"
-	.string "the MATCH CALL system, huh?\p"
-	.string "We should register each other so we\n"
-	.string "can get in contact anytime.$"
+	.string "MARGARET glares and clacks her\n"
+	.string "PokéNav…\p"
+	.string "You’re now registered.$"
 
 Route104_Text_RegisteredMay:
-	.string "{PLAYER} registered MAY\n"
+	.string "{PLAYER} registered MARGARET\n"
 	.string "in the POKéNAV.$"
 
 Route104_Text_MayHowsYourPokedex:
-	.string "MAY: Oh, by the way, {PLAYER}{KUN},\n"
-	.string "how's your POKéDEX coming along?$"
+	.string "MARGARET raises an eyebrow as she\n"
+	.string "glances down at your Pokédex.$"
 
 Route104_Text_MayMinesDecentLetsBattle:
-	.string "Mine's looking pretty decent.\n"
-	.string "So…\l"
-	.string "How about a little battle?$"
+	.string "She tilts her screen toward you.\n"
+	.string "Her Pokédex is… stacked.\p"
+	.string "She licks her lips and smirks.\n"
+	.string "Time to battle?$"
 
 Route104_Text_MayHaventRaisedPokemon:
-	.string "MAY: Oh, what's the matter?\p"
-	.string "Haven't you caught or raised your\n"
-	.string "POKéMON very much?\p"
-	.string "That's not very good for a TRAINER!$"
+	.string "MARGARET frowns, then shrugs.\p"
+	.string "She seems to be looking straight\n"
+	.string "through you.$"
 
 Route104_Text_MayLetsBattle:
-	.string "MAY: So, what do you think?\n"
-	.string "How about a little battle here?$"
+	.string "She stands real still, then nods once.\p"
+	.string "She slowly takes out a Poké Ball.\p"
+	.string "Oh yeah, she’s serious.$"
 
 Route104_Text_MayIntro:
-	.string "MAY: You just became a TRAINER,\n"
-	.string "{PLAYER}{KUN}. I'm not going to lose!$"
+	.string "MARGARET freezes mid-step.\n"
+	.string "She takes a deep breath,\p"
+	.string "then exhales through her nose.$"
 
 Route104_Text_MayDefeat:
-	.string "Yikes!\n"
-	.string "You're better than I expected!$"
+	.string "Her eyes widen slightly.\n"
+	.string "She raises her eyebrows, impressed.$"
 
 Route104_Text_MayPostBattle:
-	.string "MAY: I can tell you've gotten pretty\n"
-	.string "good with the way you handle POKéMON.\p"
-	.string "But instead of only making them\n"
-	.string "battle, you should be like MR. BRINEY.\p"
-	.string "It's important to become friends with\n"
-	.string "POKéMON, too.$"
+	.string "She gives your team a long look…\n"
+	.string "then gestures into the ocean.\p"
+	.string "What does that mean?$"
 
