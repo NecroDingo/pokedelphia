@@ -18,11 +18,11 @@ PetalburgWoods_EventScript_NurseWaitressHeal::
 PetalburgWoods_EventScript_HealPkmn::
 	closemessage
     incrementgamestat GAME_STAT_USED_POKECENTER
-    fadescreen FADE_TO_BLACK
+    fadescreenswapbuffers FADE_TO_BLACK
     delay 20
     specialvar VAR_RESULT, HealPlayerParty
     delay 20
-    fadescreen FADE_FROM_BLACK
+    fadescreenswapbuffers FADE_FROM_BLACK
 	delay 20
     msgbox PetalburgWoods_Text_PayingMe, MSGBOX_NPC
     waitmessage
@@ -163,6 +163,10 @@ PetalburgWoods_EventScript_RemoveDevonResearcher::
 	end
 
 PetalburgWoods_Movement_DevonResearcherLookAround:
+	walk_left
+	walk_left
+	walk_left
+	delay_16
 	face_up
 	delay_16
 	delay_4
@@ -449,61 +453,60 @@ PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Not a one to be found…$"
 
 PetalburgWoods_Text_HaveYouSeenShroomish:
-	.string "Hello, have you seen any POKéMON\n"
-	.string "called SHROOMISH around here?\p"
-	.string "I really love that POKéMON.$"
+	.string "Yo, you seen a SHROOMISH lurkin'\n"
+	.string "around here?\p"
+	.string "I got a soft spot for the lil' dude.$"
 
 PetalburgWoods_Text_IWasGoingToAmbushYou:
-	.string "I was going to ambush you, but you\n"
-	.string "had to dawdle in SCRAPPLE HOLLOW\l"
-	.string "forever, didn't you?\p"
-	.string "I got sick of waiting, so here I am!$"
+	.string "I was gonna jump ya, but you been\n"
+	.string "strollin' through SCRAPPLE HOLLOW\l"
+	.string "like it's a damn park.\p"
+	.string "I got bored waitin', so let's go!$"
 
 PetalburgWoods_Text_HandOverThosePapers:
-	.string "You! DEVON RESEARCHER!\p"
-	.string "Hand over those papers!$"
+	.string "Hey! WAWA SUIT!\p"
+	.string "Fork over them papers before I make\n"
+	.string "a scene, pal!$"
 
 PetalburgWoods_Text_YouHaveToHelpMe:
-	.string "Aiyeeeh!\p"
-	.string "You're a POKéMON TRAINER, aren't you?\n"
-	.string "You've got to help me, please!$"
+	.string "Ayo! Help me out!\p"
+	.string "You look like you got a squad of\n"
+	.string "POKéMON. Lend a hand, please!$"
 
 PetalburgWoods_Text_NoOneCrossesTeamAqua:
-	.string "Hunh? What do you think you're doing?\n"
-	.string "What, you're going to protect him?\p"
-	.string "No one who crosses TEAM AQUA\n"
-	.string "gets any mercy, not even a kid!\p"
-	.string "Come on and battle me!$"
+	.string "Yo, what's your problem, kid?\n"
+	.string "You runnin' security for this guy?\p"
+	.string "Nobody crosses THE JERSEY MIKE BOYS\n"
+	.string "and walks away smilin'.\p"
+	.string "Square up, punk!$"
 
 PetalburgWoods_Text_YoureKiddingMe:
-	.string "You're kidding me! You're tough!$"
+	.string "What?! You ain't playin' around!$"
 
 PetalburgWoods_Text_YouveGotSomeNerve:
-	.string "Grrr… You've got some nerve\n"
-	.string "meddling with TEAM AQUA!\l"
-	.string "Come on and battle me again!\p"
-	.string "I wish I could say that, but I'm out of\n"
-	.string "POKéMON…\p"
-	.string "And, hey, we of TEAM AQUA are also\n"
-	.string "after something in RUSTBORO.\p"
-	.string "I'll let you go today!$"
+	.string "Tch... You got guts, messin' with\n"
+	.string "THE JERSEY MIKE BOYS.\p"
+	.string "I'd run it back, but I’m fresh outta\n"
+	.string "POKéMON...\p"
+	.string "Whatever. We’re hittin’ RUSTBORO next.\p"
+	.string "Count ya blessings, kid.\n$"
 
 PetalburgWoods_Text_ThatWasAwfullyClose:
-	.string "Whew…\n"
-	.string "That was awfully close!\p"
-	.string "Thanks to you, he didn't rob me of\n"
-	.string "these important papers.\p"
-	.string "I know, I'll give you a GREAT BALL as\n"
-	.string "my thanks!$"
+	.string "Sheesh...\n"
+	.string "That was way too close!\p"
+	.string "Thanks, or that meathead would've\n"
+	.string "jacked my important papers.\p"
+	.string "Here, take this GREAT BALL. Least\n"
+	.string "I can do.$"
 
 PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro:
-	.string "Didn't that TEAM AQUA thug say\n"
-	.string "they were after something in\l"
-	.string "RUSTBORO, too?$"
+	.string "Didn't that JERSEY MIKE goon say\n"
+	.string "they’re plannin’ somethin' in\l"
+	.string "RUSTBORO?$"
 
 PetalburgWoods_Text_ICantBeWastingTime:
-	.string "Uh-oh! It's a crisis!\n"
-	.string "I can't be wasting time!$"
+	.string "Crap! This is bad!\n"
+	.string "No time to waste!$"
 
 PetalburgWoods_Text_YoureLoadedWithItems:
 	.string "You're loaded with items.\n"
@@ -633,7 +636,7 @@ PetalburgWoods_Text_Conditions:
 	.string "you a major advantage in battle.\p"
 	.string "Even if they deal no direct damage,\n"
 	.string "status moves can weaken or disrupt an\l"
-	.string "opponent,making victory easier.$"
+	.string "opponent, making victory easier.$"
 
 PetalburgWoods_Text_Advantages:
 	.string "TRAINER TIPS\p"
