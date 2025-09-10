@@ -312,9 +312,8 @@ PlayersHouse_1F_Text_OhComeQuickly:
 	.string "Something’s happening on the TV!$"
 
 PlayersHouse_1F_Text_MaybeDadWillBeOn:
-	.string "MOM: Look! It's a guy who kinda looks\n"
-	.string "like Uncle Jack!\p"
-	.string "The hands look a bit too big though.$"
+	.string "MOM: Look! It's Uncle Jack!\p"
+	.string "Why are his hands so big?$"
 
 PlayersHouse_1F_Text_ItsOverWeMissedHim:
 	.string "MOM: Oh… well It's over..$"
@@ -327,7 +326,9 @@ PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor:
 	.string "I heard they smell like milk and\n"
 	.string "stare a lot.\p"
 	.string "Why don’t you go over and introduce\n"
-	.string "yourself?$"
+	.string "yourself?\p"
+	.string "Then, head up north to go find\n"
+	.string "FRANK!$"
 
 PlayersHouse_1F_Text_SeeYouHoney:
 	.string "MOM: Bye, Charlie.\n"
