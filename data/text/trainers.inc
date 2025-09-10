@@ -98,22 +98,23 @@ Route102_Text_TianaDefeated:
 Route102_Text_TianaPostBattle:
 	.string "If I wanna keep winnin’,\n"
 	.string "I need more Pokémon.\p"
-	.string "This ain’t workin’ out for me.\n$"
+	.string "This ain’t workin’ out for me.$"
 
 	Route102_Text_MeghanIntro:
-	.string "The fog whispered to me…\n"
-	.string "it told me you'd be here.$"
+	.string "The shadows whisper to me…\n"
+	.string "They told me you'd be here.$"
 
 Route102_Text_MeghanDefeated:
-	.string "The mist… it got in your head too, huh?$"
+	.string "The shadows….\n"
+	.string "they got in your head too, huh?$"
 
 Route102_Text_MeghanPostBattle:
 	.string "You feel that?\p"
-	.string "Like... the mist is breathin’\n"
-	.string "on your neck or somethin’$"
+	.string "Like... the shadows are breathin’\n"
+	.string "on your neck or somethin’...$"
 
 	Route102_Text_ZachIntro:
-	.string "Ayo! My bugs LOVE this fog.\n"
+	.string "Ayo! My bugs LOVE this place.\n"
 	.string "You ain't even gonna see ‘em comin’!$"
 
 Route102_Text_ZachDefeated:
@@ -124,28 +125,29 @@ Route102_Text_ZachPostBattle:
 	.string "pants leg. Just sayin’$"
 
 	Route102_Text_HikaruIntro:
-	.string "I train in all kinds’a weather.\n"
-	.string "Fog, rain.. doesn’t matter.$"
+	.string "I train in all kinds’a places.\n"
+	.string "The woods, rivers, bars...\n"
+	.string "doesn’t matter to me.$"
 
 Route102_Text_HikaruDefeated:
 	.string "Damn... you got hands like you\n"
 	.string "grew up fightin’ in alleyways.$"
 
 Route102_Text_HikaruPostBattle:
-	.string "Next time I spar in the fog,\n"
-	.string "I’m bringin’ goggles or somethin’.\p"
-	.string "Can’t see nothin’.$"
+	.string "Next time I spar out here,\n"
+	.string "I’m bringin’ a flashlight or somethin’.\p"
+	.string "Can’t see nothin’\n$"
 
 	Route102_Text_ChazIntro:
-	.string "Ugh. This fog is, like, totally gross.\n"
+	.string "Ugh. This place is, like, totally gross.\n"
 	.string "Let's get this over with, aight?$"
 
 Route102_Text_ChazDefeated:
 	.string "Psh... whatever...$"
 
 Route102_Text_ChazPostBattle:
-	.string "If I lose my Gucci belt in this weather,\n"
-	.string "I'm suing nature.$"
+	.string "If I lose my Gucci belt out here,\n"
+	.string "I'm suing the sun.$"
 
 Route103_Text_DaisyIntro:
 	.string "Did you feel the tug of our\n"

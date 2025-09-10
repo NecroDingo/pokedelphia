@@ -118,14 +118,13 @@ Route102_Text_ImNotVeryTall:
 	.string "Yo... what street even is this?\p"
 	.string "I been walkin' in circles\n"
 	.string "for like, an hour now.\p"
-	.string "This fog’s got me all turned around bro.$"
+	.string "I'm all turned around bro.$"
 
 Route102_Text_CatchWholeBunchOfPokemon:
 	.string "Hey bro, you goin' in there?\p"
-	.string "The fog is thick as hell.\p"
+	.string "This place is scary as hell.\p"
 	.string "I heard some wild Pokémon\n"
-	.string "been actin’ real funny since\l"
-	.string "it rolled in.\p"
+	.string "been actin’ real funny.\p"
 	.string "Keep ya eyes peeled, a'ight?$"
 
 Route102_Text_RouteSignOldale:
