@@ -1212,7 +1212,7 @@ PetalburgCity_Gym_Text_WallyThankYouAndDadGivesPokeBall:
 	.string "UNCLE JACK: And here’s a Poké Ball.\n"
 	.string "Grip it tight. Real tight and snug.\p"
 	.string "MATTHEW: Uh… yeah, okay. Thanks?\p"
-	.string "This feels… spiritual.\n$"
+	.string "This feels… spiritual.$"
 
 PetalburgCity_Gym_Text_WallyOhWowThankYou:
 	.string "MATTHEW: Oh wow, thank you so much!\n"
@@ -1243,7 +1243,7 @@ PetalburgCity_Gym_Text_WallyThankYouBye:
 	.string "Like… maybe I’ve got a calling after\n"
 	.string "all!\p"
 	.string "Anyway, I gotta go.\p"
-	.string "Bye, {PLAYER}!\n$"
+	.string "Bye, {PLAYER}!$"
 
 PetalburgCity_Gym_Text_DadGoCollectBadges:
 	.string "UNCLE JACK: Alright, {PLAYER}.\p"

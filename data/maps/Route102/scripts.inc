@@ -112,7 +112,7 @@ Route102_Text_WallyIDidIt:
 Route102_Text_LetsGoBack:
 	.string "Matthew: {PLAYER}, you’re the real MVP.\n"
 	.string "For real.\p"
-	.string "Let’s head back to the Gym!\n$"
+	.string "Let’s head back to the Gym!$"
 
 Route102_Text_ImNotVeryTall:
 	.string "Yo... what street even is this?\p"

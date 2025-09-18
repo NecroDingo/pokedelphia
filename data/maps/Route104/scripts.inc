@@ -989,7 +989,7 @@ Route104_Text_FlowerShopSellingSaplings:
 	.string "Send help!$"
 
 Route104_Text_MrBrineysCottage:
-	.string "ARTEMIS’S “SEA HOUSE”\n$"
+	.string "ARTEMIS’S “SEA HOUSE”$"
 
 Route104_Text_RouteSignPetalburg:
 	.string "ROUTE 1O4\n"
@@ -1005,7 +1005,7 @@ Route104_Text_RouteSignRustboro:
 
 
 Route104_Text_PrettyPetalFlowShop:
-	.string "PRETTY PETAL FLOWER SHOP$"
+	.string "WAWA BLOOM MART$"
 
 Route104_Text_TrainerTipsDoubleBattles:
 	.string "TRAINER TIP:\p"
