@@ -29,6 +29,8 @@ OldaleTown_PokemonCenter_EventScript_NurseIntro2::
 
 OldaleTown_PokemonCenter_EventScript_NurseIntro::
 	goto_if_set FLAG_OLDALE_NURSE_INTRO_DONE, SkipIntro
+	playbgm MUS_CONTEST_WINNER, TRUE
+	waitse
 	msgbox OldaleTown_PokemonCenter_Text_NurseIntro1, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_0x8008, 0, OldaleTown_PokemonCenter_EventScript_NurseIntroMovement0
@@ -54,6 +56,7 @@ OldaleTown_PokemonCenter_EventScript_NurseIntro::
 	msgbox gText_WeHopeToSeeYouAgain2, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_OLDALE_NURSE_INTRO_DONE
+	fadedefaultbgm
 	release
 	end
 

@@ -16,8 +16,8 @@
 
 // quest number defines
 #define QUEST_NONE                      0xFFFF
-#define QUEST_1         0
-#define QUEST_2         1
+#define QUEST_1_FIND_CHESTO             0
+#define QUEST_2_EGG_SCAM                1
 #define QUEST_3         2
 #define QUEST_4         3
 #define QUEST_5         4

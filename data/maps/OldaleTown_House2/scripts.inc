@@ -11,7 +11,8 @@ OldaleTown_House2_EventScript_Man::
 
 OldaleTown_House2_Text_PokemonLevelUp:
 	.string "The stronger your guys get, the less\n"
-	.string "likely they are to get absolutely smoked.\p"
+	.string "likely they are to get absolutely\l" 
+	.string "smoked.$"
 	.string "Plus, you might even survive outside\n"
 	.string "this dump of a town.$"
 

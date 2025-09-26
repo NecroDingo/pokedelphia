@@ -400,7 +400,7 @@ Route104_Text_BillyPostBattle:
 
 Route104_Text_HaleyIntro:
 	.string "HALEY: Should I… shouldn’t I…?\n"
-	.string "Eh, screw it—let’s battle!$"
+	.string "Eh, screw it...let’s battle!$"
 
 Route104_Text_HaleyDefeat:
 	.string "HALEY: Ugh, should’ve trusted my gut...\n"
