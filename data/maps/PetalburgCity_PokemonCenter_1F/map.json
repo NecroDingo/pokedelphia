@@ -104,34 +104,6 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 7,
-      "elevation": 0,
-      "var": "FLAG_PETALBURG_NURSE_INTRO_DONE",
-      "var_value": "0",
-      "script": "PetalburgCity_PokemonCenter_EventScript_NurseIntro0"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 8,
-      "elevation": 0,
-      "var": "FLAG_PETALBURG_NURSE_INTRO_DONE",
-      "var_value": "0",
-      "script": "PetalburgCity_PokemonCenter_EventScript_NurseIntro1"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 8,
-      "elevation": 0,
-      "var": "FLAG_PETALBURG_NURSE_INTRO_DONE",
-      "var_value": "0",
-      "script": "PetalburgCity_PokemonCenter_EventScript_NurseIntro2"
-    }
-  ],
+  "coord_events": [],
   "bg_events": []
 }

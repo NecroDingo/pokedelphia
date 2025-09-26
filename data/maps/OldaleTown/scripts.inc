@@ -178,6 +178,7 @@ OldaleTown_EventScript_NotBlockingPath::
 OldaleTown_EventScript_MartEmployeeCall1::
 	lockall
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_OLDALE_MART_EMPLOYEE, Common_Movement_ExclamationMark
 	msgbox OldaleTown_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerStepRight
@@ -191,6 +192,7 @@ OldaleTown_EventScript_MartEmployeeCall1::
 	OldaleTown_EventScript_MartEmployeeCall2::
 	lockall
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_OLDALE_MART_EMPLOYEE, Common_Movement_ExclamationMark
 	msgbox OldaleTown_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerStepRight
@@ -206,6 +208,7 @@ OldaleTown_EventScript_MartEmployeeCall1::
 	OldaleTown_EventScript_MartEmployeeCall3::
 	lockall
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_OLDALE_MART_EMPLOYEE, Common_Movement_ExclamationMark
 	msgbox OldaleTown_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerStepRight

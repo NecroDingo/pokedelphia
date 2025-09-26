@@ -948,8 +948,7 @@ LittlerootTown_Text_ExplainRunningShoes:
 LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
-	.string "MOM: My Charlie has a Pokémon now...\n"
-	.string "Frank actually gave you one.\p"
+	.string "MOM: My Charlie has a Pokémon now...\p"
 	.string "It’s happening. You’re leaving me.\n"
 	.string "Ohh Charlie!\p"
 	.string "I’m so proud. And terrified.\p"
