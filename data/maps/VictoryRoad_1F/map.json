@@ -54,8 +54,8 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_VICTORY_ROAD_ENTRANCE_WALLY",
-      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "local_id": "LOCALID_VICTORY_ROAD_ENTRANCE_MATTHEW",
+      "graphics_id": "OBJ_EVENT_GFX_MATTHEW",
       "x": 12,
       "y": 25,
       "elevation": 4,
@@ -64,8 +64,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VictoryRoad_1F_EventScript_EntranceWally",
-      "flag": "FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY"
+      "script": "VictoryRoad_1F_EventScript_EntranceMatthew",
+      "flag": "FLAG_HIDE_VICTORY_ROAD_ENTRANCE_MATTHEW"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -94,7 +94,7 @@
       "flag": "FLAG_ITEM_VICTORY_ROAD_1F_PP_UP"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "graphics_id": "OBJ_EVENT_GFX_MATTHEW",
       "x": 31,
       "y": 9,
       "elevation": 3,
@@ -103,8 +103,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VictoryRoad_1F_EventScript_ExitWally",
-      "flag": "FLAG_HIDE_VICTORY_ROAD_EXIT_WALLY"
+      "script": "VictoryRoad_1F_EventScript_ExitMatthew",
+      "flag": "FLAG_HIDE_VICTORY_ROAD_EXIT_MATTHEW"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
@@ -178,7 +178,7 @@
       "elevation": 4,
       "var": "VAR_VICTORY_ROAD_1F_STATE",
       "var_value": "0",
-      "script": "VictoryRoad_1F_EventScript_WallyBattleTrigger1"
+      "script": "VictoryRoad_1F_EventScript_MatthewBattleTrigger1"
     },
     {
       "type": "trigger",
@@ -187,7 +187,7 @@
       "elevation": 4,
       "var": "VAR_VICTORY_ROAD_1F_STATE",
       "var_value": "0",
-      "script": "VictoryRoad_1F_EventScript_WallyBattleTrigger2"
+      "script": "VictoryRoad_1F_EventScript_MatthewBattleTrigger2"
     }
   ],
   "bg_events": [

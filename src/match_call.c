@@ -3,7 +3,7 @@
 #include "battle.h"
 #include "battle_setup.h"
 #include "bg.h"
-#include "birch_pc.h"
+#include "frank_pc.h"
 #include "data.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -1023,9 +1023,9 @@ static const struct MatchCallText *const sMatchCallGeneralTopics[] =
     [GEN_TOPIC_B_PYRAMID - 1]     = sMatchCallBattlePyramidTexts,
 };
 
-extern const u8 gBirchDexRatingText_AreYouCurious[];
-extern const u8 gBirchDexRatingText_SoYouveSeenAndCaught[];
-extern const u8 gBirchDexRatingText_OnANationwideBasis[];
+extern const u8 gFrankDexRatingText_AreYouCurious[];
+extern const u8 gFrankDexRatingText_SoYouveSeenAndCaught[];
+extern const u8 gFrankDexRatingText_OnANationwideBasis[];
 
 void InitMatchCallCounters(void)
 {
@@ -1115,7 +1115,7 @@ static bool32 SelectMatchCallTrainer(void)
     return TRUE;
 }
 
-// Ignores registrable non-trainer NPCs, and special trainers like Wally and the gym leaders.
+// Ignores registrable non-trainer NPCs, and special trainers like Matthew and the gym leaders.
 static u32 GetNumRegisteredTrainers(void)
 {
     u32 i, count;
@@ -1981,9 +1981,9 @@ void BufferPokedexRatingForMatchCall(u8 *destStr)
     numCaught = GetHoennPokedexCount(FLAG_GET_CAUGHT);
     ConvertIntToDecimalStringN(gStringVar1, numSeen, STR_CONV_MODE_LEFT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar2, numCaught, STR_CONV_MODE_LEFT_ALIGN, 3);
-    str = StringCopy(buffer, gBirchDexRatingText_AreYouCurious);
+    str = StringCopy(buffer, gFrankDexRatingText_AreYouCurious);
     *(str++) = CHAR_PROMPT_CLEAR;
-    str = StringCopy(str, gBirchDexRatingText_SoYouveSeenAndCaught);
+    str = StringCopy(str, gFrankDexRatingText_SoYouveSeenAndCaught);
     *(str++) = CHAR_PROMPT_CLEAR;
     StringCopy(str, GetPokedexRatingText(numCaught));
     str = StringExpandPlaceholders(destStr, buffer);
@@ -1995,7 +1995,7 @@ void BufferPokedexRatingForMatchCall(u8 *destStr)
         numCaught = GetNationalPokedexCount(FLAG_GET_CAUGHT);
         ConvertIntToDecimalStringN(gStringVar1, numSeen, STR_CONV_MODE_LEFT_ALIGN, 4);
         ConvertIntToDecimalStringN(gStringVar2, numCaught, STR_CONV_MODE_LEFT_ALIGN, 4);
-        StringExpandPlaceholders(str, gBirchDexRatingText_OnANationwideBasis);
+        StringExpandPlaceholders(str, gFrankDexRatingText_OnANationwideBasis);
     }
 
     Free(buffer);

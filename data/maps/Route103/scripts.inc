@@ -5,7 +5,7 @@ Route103_MapScripts::
 
 Route103_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
-	call ProfBirch_EventScript_UpdateLocation
+	call ProfFrank_EventScript_UpdateLocation
 	end
 
 Route103_OnLoad:
@@ -70,6 +70,7 @@ Route103_EventScript_RivalExit::
 	case DIR_NORTH, Route103_EventScript_RivalExitFacingNorth
 	case DIR_WEST, Route103_EventScript_RivalExitFacingEastOrWest
 	case DIR_EAST, Route103_EventScript_RivalExitFacingEastOrWest
+	waitmessage
 	end
 
 Route103_EventScript_RivalExitFacingNorth::
@@ -103,13 +104,14 @@ Route103_EventScript_RivalExitFacingSouth::
 
 Route103_EventScript_RivalEnd::
 	removeobject LOCALID_ROUTE103_RIVAL
-	setvar VAR_BIRCH_LAB_STATE, 4
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL
+	setvar VAR_FRANK_LAB_STATE, 4
+	clearflag FLAG_HIDE_TRASHBURG_FRANKS_LAB_RIVAL
 	setflag FLAG_DEFEATED_RIVAL_ROUTE103
-	setvar VAR_OLDALE_RIVAL_STATE, 1
-	clearflag FLAG_HIDE_OLDALE_TOWN_RIVAL
+	setvar VAR_OLD_SCUMPORT_RIVAL_STATE, 1
+	clearflag FLAG_HIDE_OLD_SCUMPORT_RIVAL
 	savebgm MUS_DUMMY
 	fadedefaultbgm
+	msgbox Route103_Text_BetterGoBack, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -293,6 +295,9 @@ Route103_Text_MayTimeToHeadBack:
 	.string "That annoys her, visibly\p"
 	.string "She shrugs, then slowly walks away.$"
 
+Route103_Text_BetterGoBack:
+	.string "We better head back to PROF. Frank\n"
+	.string "and let him know what happened.$"
 
 Route103_Text_ShouldHaveBroughtPotion:
 	.string "Yo, my POKéMON’s runnin’ on fumes...\p"

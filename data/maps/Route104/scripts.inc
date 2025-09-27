@@ -47,8 +47,8 @@ Route104_EventScript_Rival::
 
 Route104_EventScript_RivalTrigger::
 	lockall
-	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
-	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setflag FLAG_HIDE_WAWA_PARK_RIVAL
+	setvar VAR_WAWA_PARK_CITY_STATE, 8
 	setvar VAR_ROUTE104_STATE, 2
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
@@ -61,7 +61,7 @@ Route104_EventScript_RivalTrigger::
 	waitmovement 0
 	delay 20
 	setvar VAR_0x8008, 0
-	call RustboroCity_EventScript_PlayRivalMusic
+	call WawaPark_EventScript_PlayRivalMusic
 	playse SE_PIN
 	applymovement LOCALID_ROUTE104_RIVAL, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -1000,7 +1000,7 @@ Route104_Text_RouteSignPetalburg:
 
 Route104_Text_RouteSignRustboro:
 	.string "ROUTE 1O4\n"
-	.string "{UP_ARROW} RUSTBORO CITY\l"
+	.string "{UP_ARROW} WAWA PARK\l"
 	.string "{DOWN_ARROW} SCRAPPLE HOLLOW$"
 
 

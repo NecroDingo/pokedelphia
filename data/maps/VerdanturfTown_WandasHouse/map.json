@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "graphics_id": "OBJ_EVENT_GFX_MATTHEW",
       "x": 14,
       "y": 5,
       "elevation": 3,
@@ -24,8 +24,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VerdanturfTown_WandasHouse_EventScript_Wally",
-      "flag": "FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLY"
+      "script": "VerdanturfTown_WandasHouse_EventScript_Matthew",
+      "flag": "FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_MATTHEW"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
@@ -50,8 +50,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VerdanturfTown_WandasHouse_EventScript_WallysUncle",
-      "flag": "FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLYS_UNCLE"
+      "script": "VerdanturfTown_WandasHouse_EventScript_MatthewsUncle",
+      "flag": "FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_MATTHEWS_UNCLE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VerdanturfTown_WandasHouse_EventScript_WallysAunt",
+      "script": "VerdanturfTown_WandasHouse_EventScript_MatthewsAunt",
       "flag": "0"
     },
     {

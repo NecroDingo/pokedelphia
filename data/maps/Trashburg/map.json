@@ -1,9 +1,9 @@
 {
-  "id": "MAP_LITTLEROOT_TOWN",
-  "name": "LittlerootTown",
-  "layout": "LAYOUT_LITTLEROOT_TOWN",
-  "music": "MUS_LITTLEROOT",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "id": "MAP_TRASHBURG",
+  "name": "Trashburg",
+  "layout": "LAYOUT_TRASHBURG",
+  "music": "MUS_TRASHBURG",
+  "region_map_section": "MAPSEC_TRASHBURG",
   "requires_flash": false,
   "weather": "WEATHER_RAIN",
   "map_type": "MAP_TYPE_TOWN",
@@ -21,7 +21,7 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_LITTLEROOT_TWIN",
+      "local_id": "LOCALID_TRASHBURG_TWIN",
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
       "x": 24,
       "y": 6,
@@ -31,7 +31,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Twin",
+      "script": "Trashburg_EventScript_Twin",
       "flag": "0"
     },
     {
@@ -44,8 +44,8 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_FatMan",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN"
+      "script": "Trashburg_EventScript_FatMan",
+      "flag": "FLAG_HIDE_TRASHBURG_FAT_MAN"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
@@ -57,11 +57,11 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Boy",
+      "script": "Trashburg_EventScript_Boy",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_LITTLEROOT_MOM",
+      "local_id": "LOCALID_TRASHBURG_MOM",
       "graphics_id": "OBJ_EVENT_GFX_MOM",
       "x": 5,
       "y": 8,
@@ -71,8 +71,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LittlerootTown_EventScript_Mom",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE"
+      "script": "Trashburg_EventScript_Mom",
+      "flag": "FLAG_HIDE_TRASHBURG_MOM_OUTSIDE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
@@ -85,10 +85,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK"
+      "flag": "FLAG_HIDE_TRASHBURG_BRENDANS_HOUSE_TRUCK"
     },
     {
-      "local_id": "LOCALID_LITTLEROOT_RIVAL",
+      "local_id": "LOCALID_TRASHBURG_RIVAL",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 24,
       "y": 18,
@@ -99,11 +99,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_RIVAL"
+      "flag": "FLAG_HIDE_TRASHBURG_RIVAL"
     },
     {
-      "local_id": "LOCALID_LITTLEROOT_BIRCH",
-      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "local_id": "LOCALID_TRASHBURG_FRANK",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_FRANK",
       "x": 25,
       "y": 18,
       "elevation": 3,
@@ -113,7 +113,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCH"
+      "flag": "FLAG_HIDE_TRASHBURG_FRANK"
     }
   ],
   "warp_events": [
@@ -121,21 +121,21 @@
       "x": 25,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
+      "dest_map": "MAP_TRASHBURG_TOWN_MAYS_HOUSE_1F",
       "dest_warp_id": "1"
     },
     {
       "x": 5,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+      "dest_map": "MAP_TRASHBURG_TOWN_BRENDANS_HOUSE_1F",
       "dest_warp_id": "1"
     },
     {
       "x": 7,
       "y": 24,
       "elevation": 0,
-      "dest_map": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "dest_map": "MAP_TRASHBURG_PROFESSOR_FRANKS_LAB",
       "dest_warp_id": "0"
     }
   ],
@@ -145,81 +145,81 @@
       "x": 10,
       "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "0",
-      "script": "LittlerootTown_EventScript_NeedPokemonTriggerLeft"
+      "script": "Trashburg_EventScript_NeedPokemonTriggerLeft"
     },
     {
       "type": "trigger",
       "x": 11,
       "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "0",
-      "script": "LittlerootTown_EventScript_NeedPokemonTriggerRight"
+      "script": "Trashburg_EventScript_NeedPokemonTriggerRight"
     },
     {
       "type": "trigger",
       "x": 11,
       "y": 1,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "1",
-      "script": "LittlerootTown_EventScript_GoSaveBirchTrigger"
+      "script": "Trashburg_EventScript_GoSaveFrankTrigger"
     },
     {
       "type": "trigger",
       "x": 8,
       "y": 9,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger4"
+      "script": "Trashburg_EventScript_GiveRunningShoesTrigger4"
     },
     {
       "type": "trigger",
       "x": 9,
       "y": 9,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger5"
+      "script": "Trashburg_EventScript_GiveRunningShoesTrigger5"
     },
     {
       "type": "trigger",
       "x": 10,
       "y": 9,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger2"
+      "script": "Trashburg_EventScript_GiveRunningShoesTrigger2"
     },
     {
       "type": "trigger",
       "x": 11,
       "y": 9,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger3"
+      "script": "Trashburg_EventScript_GiveRunningShoesTrigger3"
     },
     {
       "type": "trigger",
       "x": 10,
       "y": 2,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger0"
+      "script": "Trashburg_EventScript_GiveRunningShoesTrigger0"
     },
     {
       "type": "trigger",
       "x": 11,
       "y": 2,
       "elevation": 3,
-      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var": "VAR_TRASHBURG_STATE",
       "var_value": "3",
-      "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger1"
+      "script": "Trashburg_EventScript_GiveRunningShoesTrigger1"
     }
   ],
   "bg_events": [
@@ -229,7 +229,7 @@
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_TownSign"
+      "script": "Trashburg_EventScript_TownSign"
     },
     {
       "type": "sign",
@@ -237,7 +237,7 @@
       "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_BirchsLabSign"
+      "script": "Trashburg_EventScript_FranksLabSign"
     },
     {
       "type": "sign",
@@ -245,7 +245,7 @@
       "y": 8,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_BrendansHouseSign"
+      "script": "Trashburg_EventScript_BrendansHouseSign"
     },
     {
       "type": "sign",
@@ -253,7 +253,7 @@
       "y": 16,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_MaysHouseSign"
+      "script": "Trashburg_EventScript_MaysHouseSign"
     }
   ]
 }

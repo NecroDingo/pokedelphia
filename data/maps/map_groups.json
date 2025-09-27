@@ -36,17 +36,17 @@
     "gMapGroup_IndoorRoute124"
   ],
   "gMapGroup_TownsAndRoutes": [
-    "PetalburgCity",
+    "GiantsReach",
     "SlateportCity",
     "MauvilleCity",
-    "RustboroCity",
+    "WawaPark",
     "FortreeCity",
     "LilycoveCity",
     "MossdeepCity",
     "SootopolisCity",
     "EverGrandeCity",
-    "LittlerootTown",
-    "OldaleTown",
+    "Trashburg",
+    "OldScumport",
     "DewfordTown",
     "LavaridgeTown",
     "FallarborTown",
@@ -95,19 +95,19 @@
     "Underwater_Route125",
     "Route104Beach"
   ],
-  "gMapGroup_IndoorLittleroot": [
-    "LittlerootTown_BrendansHouse_1F",
-    "LittlerootTown_BrendansHouse_2F",
-    "LittlerootTown_MaysHouse_1F",
-    "LittlerootTown_MaysHouse_2F",
-    "LittlerootTown_ProfessorBirchsLab"
+  "gMapGroup_IndoorTrashburg": [
+    "Trashburg_BrendansHouse_1F",
+    "Trashburg_BrendansHouse_2F",
+    "Trashburg_MaysHouse_1F",
+    "Trashburg_MaysHouse_2F",
+    "Trashburg_ProfessorFranksLab"
   ],
-  "gMapGroup_IndoorOldale": [
-    "OldaleTown_House1",
-    "OldaleTown_House2",
-    "OldaleTown_PokemonCenter_1F",
-    "OldaleTown_PokemonCenter_2F",
-    "OldaleTown_Mart"
+  "gMapGroup_IndoorOldScumport": [
+    "OldScumport_House1",
+    "OldScumport_House2",
+    "OldScumport_PokemonCenter_1F",
+    "OldScumport_PokemonCenter_2F",
+    "OldScumport_Mart"
   ],
   "gMapGroup_IndoorDewford": [
     "DewfordTown_House1",
@@ -156,14 +156,14 @@
     "PacifidlogTown_House4",
     "PacifidlogTown_House5"
   ],
-  "gMapGroup_IndoorPetalburg": [
-    "PetalburgCity_WallysHouse",
-    "PetalburgCity_Gym",
-    "PetalburgCity_House1",
-    "PetalburgCity_House2",
-    "PetalburgCity_PokemonCenter_1F",
-    "PetalburgCity_PokemonCenter_2F",
-    "PetalburgCity_Mart"
+  "gMapGroup_IndoorGiantsReach": [
+    "GiantsReach_MatthewsHouse",
+    "GiantsReach_Gym",
+    "GiantsReach_House1",
+    "GiantsReach_House2",
+    "GiantsReach_PokemonCenter_1F",
+    "GiantsReach_PokemonCenter_2F",
+    "GiantsReach_Mart"
   ],
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_SternsShipyard_1F",
@@ -191,24 +191,24 @@
     "MauvilleCity_PokemonCenter_2F",
     "MauvilleCity_Mart"
   ],
-  "gMapGroup_IndoorRustboro": [
-    "RustboroCity_DevonCorp_1F",
-    "RustboroCity_DevonCorp_2F",
-    "RustboroCity_DevonCorp_3F",
-    "RustboroCity_Gym",
-    "RustboroCity_PokemonSchool",
-    "RustboroCity_PokemonCenter_1F",
-    "RustboroCity_PokemonCenter_2F",
-    "RustboroCity_Mart",
-    "RustboroCity_Flat1_1F",
-    "RustboroCity_Flat1_2F",
-    "RustboroCity_House1",
-    "RustboroCity_CuttersHouse",
-    "RustboroCity_House2",
-    "RustboroCity_Flat2_1F",
-    "RustboroCity_Flat2_2F",
-    "RustboroCity_Flat2_3F",
-    "RustboroCity_House3"
+  "gMapGroup_IndoorWawaPark": [
+    "WawaPark_DevonCorp_1F",
+    "WawaPark_DevonCorp_2F",
+    "WawaPark_DevonCorp_3F",
+    "WawaPark_Gym",
+    "WawaPark_PokemonSchool",
+    "WawaPark_PokemonCenter_1F",
+    "WawaPark_PokemonCenter_2F",
+    "WawaPark_Mart",
+    "WawaPark_Flat1_1F",
+    "WawaPark_Flat1_2F",
+    "WawaPark_House1",
+    "WawaPark_CuttersHouse",
+    "WawaPark_House2",
+    "WawaPark_Flat2_1F",
+    "WawaPark_Flat2_2F",
+    "WawaPark_Flat2_3F",
+    "WawaPark_House3"
   ],
   "gMapGroup_IndoorFortree": [
     "FortreeCity_House1",
@@ -334,7 +334,7 @@
     "GraniteCave_B1F",
     "GraniteCave_B2F",
     "GraniteCave_StevensRoom",
-    "PetalburgWoods",
+    "ScrappleHollow",
     "MtChimney",
     "JaggedPass",
     "FieryPath",

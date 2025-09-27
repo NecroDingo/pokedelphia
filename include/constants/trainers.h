@@ -85,7 +85,7 @@
 #define TRAINER_PIC_TWINS                 67
 #define TRAINER_PIC_SAILOR                68
 #define TRAINER_PIC_MAGMA_ADMIN           69
-#define TRAINER_PIC_WALLY                 70
+#define TRAINER_PIC_MATTHEW                 70
 #define TRAINER_PIC_BRENDAN               71
 #define TRAINER_PIC_MAY                   72
 #define TRAINER_PIC_BUG_CATCHER           73
@@ -117,7 +117,7 @@
 #define TRAINER_BACK_PIC_LEAF                   3
 #define TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN  4
 #define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      5
-#define TRAINER_BACK_PIC_WALLY                  6
+#define TRAINER_BACK_PIC_MATTHEW                  6
 #define TRAINER_BACK_PIC_STEVEN                 7
 
 #define FACILITY_CLASS_HIKER                 0x0
@@ -179,7 +179,7 @@
 #define FACILITY_CLASS_SWIMMER_F             0x38
 #define FACILITY_CLASS_TWINS                 0x39
 #define FACILITY_CLASS_SAILOR                0x3a
-#define FACILITY_CLASS_WALLY                 0x3b
+#define FACILITY_CLASS_MATTHEW                 0x3b
 #define FACILITY_CLASS_BRENDAN               0x3c
 #define FACILITY_CLASS_BRENDAN_2             0x3d
 #define FACILITY_CLASS_BRENDAN_3             0x3e
@@ -262,7 +262,7 @@
 #define RS_FACILITY_CLASS_BOARDER_1             0x36
 #define RS_FACILITY_CLASS_BOARDER_2             0x37
 #define RS_FACILITY_CLASS_COLLECTOR             0x38
-#define RS_FACILITY_CLASS_WALLY                 0x39
+#define RS_FACILITY_CLASS_MATTHEW                 0x39
 #define RS_FACILITY_CLASS_BRENDAN_1             0x3A
 #define RS_FACILITY_CLASS_BRENDAN_2             0x3B
 #define RS_FACILITY_CLASS_BRENDAN_3             0x3C

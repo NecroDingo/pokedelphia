@@ -104,7 +104,7 @@ Route102_Text_WatchMeCatchPokemon:
 	.string "That thing’s not supposed to be here!\n"
 	.string "Is this even legal!?$"
 
-Route102_Text_WallyIDidIt:
+Route102_Text_MatthewIDidIt:
 	.string "Matthew: I actually did it…\p"
 	.string "This is my Pokémon now!\n"
 	.string "For real! My own partner!$"

@@ -1,11 +1,11 @@
-OldaleTown_House1_MapScripts::
+OldScumport_House1_MapScripts::
 	.byte 0
 
-OldaleTown_House1_EventScript_Woman::
-	msgbox OldaleTown_House1_Text_LeftPokemonGoesOutFirst, MSGBOX_NPC
+OldScumport_House1_EventScript_Woman::
+	msgbox OldScumport_House1_Text_LeftPokemonGoesOutFirst, MSGBOX_NPC
 	end
 
-OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
+OldScumport_House1_Text_LeftPokemonGoesOutFirst:
 	.string "Hey, pro tip from a seasoned battler:\p"
 	.string "The first 'mon in line jumps out first.\p"
 	.string "Don’t put your weakest freak up\n"

@@ -274,7 +274,7 @@ extern u8 gBattleControllerData[MAX_BATTLERS_COUNT];
 
 // general functions
 void HandleLinkBattleSetup(void);
-void SetUpBattleVarsAndBirchZigzagoon(void);
+void SetUpBattleVarsAndFrankZigzagoon(void);
 void InitBattleControllers(void);
 bool32 IsValidForBattle(struct Pokemon *mon);
 void TryReceiveLinkBattleData(void);
@@ -409,9 +409,9 @@ void PlayerPartnerBufferExecCompleted(u32 battler);
 void SetControllerToSafari(u32 battler);
 void SafariBufferExecCompleted(u32 battler);
 
-// wally controller
-void SetControllerToWally(u32 battler);
-void WallyBufferExecCompleted(u32 battler);
+// matthew controller
+void SetControllerToMatthew(u32 battler);
+void MatthewBufferExecCompleted(u32 battler);
 
 // recorded opponent controller
 void SetControllerToRecordedOpponent(u32 battler);

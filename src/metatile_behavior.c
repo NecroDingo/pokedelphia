@@ -236,7 +236,7 @@ bool8 MetatileBehavior_IsWarpDoor(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsDoor(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_PETALBURG_GYM_DOOR
+    if (metatileBehavior == MB_GIANTSREACH_GYM_DOOR
      || metatileBehavior == MB_ANIMATED_DOOR)
         return TRUE;
     else

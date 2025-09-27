@@ -116,7 +116,7 @@ struct ListBuffer2 {
     u8 name[MAX_POCKET_ITEMS][max(ITEM_NAME_LENGTH, MOVE_NAME_LENGTH) + 15];
 };
 
-struct TempWallyBag {
+struct TempMatthewBag {
     struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
     struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
     u16 cursorPosition[POCKETS_COUNT];
@@ -139,8 +139,8 @@ static void CreatePocketScrollArrowPair(void);
 static void CreatePocketSwitchArrowPair(void);
 static void DestroyPocketSwitchArrowPair(void);
 static void PrepareTMHMMoveWindow(void);
-static bool8 IsWallysBag(void);
-static void Task_WallyTutorialBagMenu(u8);
+static bool8 IsMatthewsBag(void);
+static void Task_MatthewTutorialBagMenu(u8);
 static void Task_BagMenu_HandleInput(u8);
 static void GetItemNameFromPocket(u8 *, u16);
 static void PrintItemDescription(int);
@@ -379,7 +379,7 @@ static const TaskFunc sContextMenuFuncs[] = {
     [ITEMMENULOCATION_FAVOR_LADY] =             Task_ItemContext_Normal,
     [ITEMMENULOCATION_QUIZ_LADY] =              Task_ItemContext_Normal,
     [ITEMMENULOCATION_APPRENTICE] =             Task_ItemContext_Normal,
-    [ITEMMENULOCATION_WALLY] =                  NULL,
+    [ITEMMENULOCATION_MATTHEW] =                  NULL,
     [ITEMMENULOCATION_PCBOX] =                  Task_ItemContext_GiveToPC,
     [ITEMMENULOCATION_BERRY_TREE_MULCH] =       Task_FadeAndCloseBagMenuIfMulch,
 };
@@ -579,7 +579,7 @@ EWRAM_DATA struct BagPosition gBagPosition = {0};
 static EWRAM_DATA struct ListBuffer1 *sListBuffer1 = 0;
 static EWRAM_DATA struct ListBuffer2 *sListBuffer2 = 0;
 EWRAM_DATA u16 gSpecialVar_ItemId = 0;
-static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
+static EWRAM_DATA struct TempMatthewBag *sTempMatthewBag = 0;
 
 void ResetBagScrollPositions(void)
 {
@@ -854,14 +854,14 @@ static bool8 LoadBagMenu_Graphics(void)
         }
         break;
     case 2:
-        if (!IsWallysBag() && gSaveBlock2Ptr->playerGender != MALE)
+        if (!IsMatthewsBag() && gSaveBlock2Ptr->playerGender != MALE)
             LoadPalette(gBagScreenFemale_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
         else
             LoadPalette(gBagScreenMale_Pal, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
         gBagMenu->graphicsLoadState++;
         break;
     case 3:
-        if (IsWallysBag() == TRUE || gSaveBlock2Ptr->playerGender == MALE)
+        if (IsMatthewsBag() == TRUE || gSaveBlock2Ptr->playerGender == MALE)
             LoadCompressedSpriteSheet(&gBagMaleSpriteSheet);
         else
             LoadCompressedSpriteSheet(&gBagFemaleSpriteSheet);
@@ -882,8 +882,8 @@ static bool8 LoadBagMenu_Graphics(void)
 static u8 CreateBagInputHandlerTask(u8 location)
 {
     u8 taskId;
-    if (location == ITEMMENULOCATION_WALLY)
-        taskId = CreateTask(Task_WallyTutorialBagMenu, 0);
+    if (location == ITEMMENULOCATION_MATTHEW)
+        taskId = CreateTask(Task_MatthewTutorialBagMenu, 0);
     else
         taskId = CreateTask(Task_BagMenu_HandleInput, 0);
     return taskId;
@@ -1431,7 +1431,7 @@ static void Task_SwitchBagPocket(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (!MenuHelpers_IsLinkActive() && !IsWallysBag())
+    if (!MenuHelpers_IsLinkActive() && !IsMatthewsBag())
     {
         switch (GetSwitchBagPocketDirection())
         {
@@ -1609,7 +1609,7 @@ static void OpenContextMenu(u8 taskId)
     switch (gBagPosition.location)
     {
     case ITEMMENULOCATION_BATTLE:
-    case ITEMMENULOCATION_WALLY:
+    case ITEMMENULOCATION_MATTHEW:
         if (GetItemBattleUsage(gSpecialVar_ItemId))
         {
             gBagMenu->contextMenuItemsPtr = sContextMenuItems_BattleUse;
@@ -2370,58 +2370,58 @@ static void WaitDepositErrorMessage(u8 taskId)
     }
 }
 
-static bool8 IsWallysBag(void)
+static bool8 IsMatthewsBag(void)
 {
-    if (gBagPosition.location == ITEMMENULOCATION_WALLY)
+    if (gBagPosition.location == ITEMMENULOCATION_MATTHEW)
         return TRUE;
     return FALSE;
 }
 
-static void PrepareBagForWallyTutorial(void)
+static void PrepareBagForMatthewTutorial(void)
 {
     u32 i;
 
-    sTempWallyBag = AllocZeroed(sizeof(*sTempWallyBag));
-    memcpy(sTempWallyBag->bagPocket_Items, gSaveBlock1Ptr->bag.items, sizeof(gSaveBlock1Ptr->bag.items));
-    memcpy(sTempWallyBag->bagPocket_PokeBalls, gSaveBlock1Ptr->bag.pokeBalls, sizeof(gSaveBlock1Ptr->bag.pokeBalls));
-    sTempWallyBag->pocket = gBagPosition.pocket;
+    sTempMatthewBag = AllocZeroed(sizeof(*sTempMatthewBag));
+    memcpy(sTempMatthewBag->bagPocket_Items, gSaveBlock1Ptr->bag.items, sizeof(gSaveBlock1Ptr->bag.items));
+    memcpy(sTempMatthewBag->bagPocket_PokeBalls, gSaveBlock1Ptr->bag.pokeBalls, sizeof(gSaveBlock1Ptr->bag.pokeBalls));
+    sTempMatthewBag->pocket = gBagPosition.pocket;
     for (i = 0; i < POCKETS_COUNT; i++)
     {
-        sTempWallyBag->cursorPosition[i] = gBagPosition.cursorPosition[i];
-        sTempWallyBag->scrollPosition[i] = gBagPosition.scrollPosition[i];
+        sTempMatthewBag->cursorPosition[i] = gBagPosition.cursorPosition[i];
+        sTempMatthewBag->scrollPosition[i] = gBagPosition.scrollPosition[i];
     }
     memset(gSaveBlock1Ptr->bag.items, 0, sizeof(gSaveBlock1Ptr->bag.items));
     memset(gSaveBlock1Ptr->bag.pokeBalls, 0, sizeof(gSaveBlock1Ptr->bag.pokeBalls));
     ResetBagScrollPositions();
 }
 
-static void RestoreBagAfterWallyTutorial(void)
+static void RestoreBagAfterMatthewTutorial(void)
 {
     u32 i;
 
-    memcpy(gSaveBlock1Ptr->bag.items, sTempWallyBag->bagPocket_Items, sizeof(sTempWallyBag->bagPocket_Items));
-    memcpy(gSaveBlock1Ptr->bag.pokeBalls, sTempWallyBag->bagPocket_PokeBalls, sizeof(sTempWallyBag->bagPocket_PokeBalls));
-    gBagPosition.pocket = sTempWallyBag->pocket;
+    memcpy(gSaveBlock1Ptr->bag.items, sTempMatthewBag->bagPocket_Items, sizeof(sTempMatthewBag->bagPocket_Items));
+    memcpy(gSaveBlock1Ptr->bag.pokeBalls, sTempMatthewBag->bagPocket_PokeBalls, sizeof(sTempMatthewBag->bagPocket_PokeBalls));
+    gBagPosition.pocket = sTempMatthewBag->pocket;
     for (i = 0; i < POCKETS_COUNT; i++)
     {
-        gBagPosition.cursorPosition[i] = sTempWallyBag->cursorPosition[i];
-        gBagPosition.scrollPosition[i] = sTempWallyBag->scrollPosition[i];
+        gBagPosition.cursorPosition[i] = sTempMatthewBag->cursorPosition[i];
+        gBagPosition.scrollPosition[i] = sTempMatthewBag->scrollPosition[i];
     }
-    Free(sTempWallyBag);
+    Free(sTempMatthewBag);
 }
 
-void DoWallyTutorialBagMenu(void)
+void DoMatthewTutorialBagMenu(void)
 {
-    PrepareBagForWallyTutorial();
+    PrepareBagForMatthewTutorial();
     AddBagItem(ITEM_POTION, 1);
     AddBagItem(ITEM_POKE_BALL, 1);
-    GoToBagMenu(ITEMMENULOCATION_WALLY, POCKET_ITEMS, CB2_SetUpReshowBattleScreenAfterMenu2);
+    GoToBagMenu(ITEMMENULOCATION_MATTHEW, POCKET_ITEMS, CB2_SetUpReshowBattleScreenAfterMenu2);
 }
 
 #define tTimer data[8]
-#define WALLY_BAG_DELAY 102 // The number of frames between each action Wally takes in the bag
+#define MATTHEW_BAG_DELAY 102 // The number of frames between each action Matthew takes in the bag
 
-static void Task_WallyTutorialBagMenu(u8 taskId)
+static void Task_MatthewTutorialBagMenu(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
@@ -2429,23 +2429,23 @@ static void Task_WallyTutorialBagMenu(u8 taskId)
     {
         switch (tTimer)
         {
-        case WALLY_BAG_DELAY * 1:
+        case MATTHEW_BAG_DELAY * 1:
             PlaySE(SE_SELECT);
             SwitchBagPocket(taskId, MENU_CURSOR_DELTA_RIGHT, FALSE);
             tTimer++;
             break;
-        case WALLY_BAG_DELAY * 2:
+        case MATTHEW_BAG_DELAY * 2:
             PlaySE(SE_SELECT);
             BagMenu_PrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
             gSpecialVar_ItemId = ITEM_POKE_BALL;
             OpenContextMenu(taskId);
             tTimer++;
             break;
-        case WALLY_BAG_DELAY * 3:
+        case MATTHEW_BAG_DELAY * 3:
             PlaySE(SE_SELECT);
             RemoveContextWindow();
             DestroyListMenuTask(tListTaskId, 0, 0);
-            RestoreBagAfterWallyTutorial();
+            RestoreBagAfterMatthewTutorial();
             Task_FadeAndCloseBagMenu(taskId);
             break;
         default:

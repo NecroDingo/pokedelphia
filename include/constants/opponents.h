@@ -522,7 +522,7 @@
 #define TRAINER_EDWIN_3                     516
 #define TRAINER_EDWIN_4                     517
 #define TRAINER_EDWIN_5                     518
-#define TRAINER_WALLY_VR_1                  519
+#define TRAINER_MATTHEW_VR_1                  519
 #define TRAINER_MEGHAN                      520  // Route 102 addition. Took out Brendan
 #define TRAINER_HIKARU                      521  // Route 102 addition. Took out Brendan
 #define TRAINER_ZACH                        522  // Route 102 addition. Took out Brendan
@@ -659,11 +659,11 @@
 #define TRAINER_RILEY                       653
 #define TRAINER_FLINT                       654
 #define TRAINER_ASHLEY                      655
-#define TRAINER_WALLY_MAUVILLE              656
-#define TRAINER_WALLY_VR_2                  657
-#define TRAINER_WALLY_VR_3                  658
-#define TRAINER_WALLY_VR_4                  659
-#define TRAINER_WALLY_VR_5                  660
+#define TRAINER_MATTHEW_MAUVILLE              656
+#define TRAINER_MATTHEW_VR_2                  657
+#define TRAINER_MATTHEW_VR_3                  658
+#define TRAINER_MATTHEW_VR_4                  659
+#define TRAINER_MATTHEW_VR_5                  660
 #define TRAINER_BRENDAN_LILYCOVE_ARON       661  // Unused
 #define TRAINER_BRENDAN_LILYCOVE_BULBASAUR  662  // Unused
 #define TRAINER_BRENDAN_LILYCOVE_GIBLE      663  // Unused

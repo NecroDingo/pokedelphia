@@ -63,7 +63,7 @@ void HandleLinkBattleSetup(void)
     }
 }
 
-void SetUpBattleVarsAndBirchZigzagoon(void)
+void SetUpBattleVarsAndFrankZigzagoon(void)
 {
     s32 i;
 
@@ -192,8 +192,8 @@ static void InitBtlControllersInternal(void)
                 gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToRecordedPlayer;
             else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
                 gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToSafari;
-            else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
-                gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToWally;
+            else if (gBattleTypeFlags & BATTLE_TYPE_MATTHEW_TUTORIAL)
+                gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToMatthew;
             else if (isAIvsAI)
                 gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToPlayerPartner;
             else
@@ -328,9 +328,9 @@ static inline bool32 IsControllerPlayerPartner(u32 battler)
     return (gBattlerControllerEndFuncs[battler] == PlayerPartnerBufferExecCompleted);
 }
 
-static inline bool32 IsControllerWally(u32 battler)
+static inline bool32 IsControllerMatthew(u32 battler)
 {
-    return (gBattlerControllerEndFuncs[battler] == WallyBufferExecCompleted);
+    return (gBattlerControllerEndFuncs[battler] == MatthewBufferExecCompleted);
 }
 
 static inline bool32 IsControllerRecordedOpponent(u32 battler)
@@ -1873,7 +1873,7 @@ static bool8 ShouldDoSlideInAnim(u32 battler)
 
     if (gBattleTypeFlags & (
         BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_FIRST_BATTLE |
-        BATTLE_TYPE_SAFARI | BATTLE_TYPE_WALLY_TUTORIAL | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TWO_OPPONENTS |
+        BATTLE_TYPE_SAFARI | BATTLE_TYPE_MATTHEW_TUTORIAL | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TWO_OPPONENTS |
         BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_RECORDED | BATTLE_TYPE_TRAINER_HILL)
     )
         return FALSE;
@@ -2541,7 +2541,7 @@ void BtlController_HandleHealthBarUpdate(u32 battler)
         SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], maxHP, 0, hpVal);
         if (IsControllerPlayer(battler)
          || IsControllerRecordedPlayer(battler)
-         || IsControllerWally(battler))
+         || IsControllerMatthew(battler))
             UpdateHpTextInHealthbox(gHealthboxSpriteIds[battler], HP_CURRENT, 0, maxHP);
         TestRunner_Battle_RecordHP(battler, curHP, 0);
     }
@@ -2845,7 +2845,7 @@ void BtlController_HandleHidePartyStatusSummary(u32 battler)
 
 void BtlController_HandleBattleAnimation(u32 battler)
 {
-    if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_WALLY_TUTORIAL))
+    if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_MATTHEW_TUTORIAL))
         || !IsBattleSEPlaying(battler))
     {
         u8 animationId = gBattleResources->bufferA[battler][1];

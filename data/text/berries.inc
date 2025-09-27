@@ -1,4 +1,4 @@
-PetalburgCity_Gym_Text_GiveEnigmaBerry:
+GiantsReach_Gym_Text_GiveEnigmaBerry:
 	.string "DAD: Hi, {PLAYER}!\p"
 	.string "I just received a very rare BERRY.\n"
 	.string "I'd like you to have it.$"
@@ -101,7 +101,7 @@ Route123_BerryMastersHouse_Text_WhyBeStingyTakeAnother:
 
 Route123_BerryMastersHouse_Text_VisitPrettyPetalFlowerShop:
 	.string "Be sure to visit the PRETTY PETAL\n"
-	.string "flower shop near RUSTBORO.\p"
+	.string "flower shop near Wawa Park.\p"
 	.string "Let flowers fill the world!$"
 
 Route123_BerryMastersHouse_Text_DoneForToday:

@@ -1,9 +1,9 @@
 {
-  "id": "MAP_OLDALE_TOWN",
-  "name": "OldaleTown",
-  "layout": "LAYOUT_OLDALE_TOWN",
-  "music": "MUS_OLDALE",
-  "region_map_section": "MAPSEC_OLDALE_TOWN",
+  "id": "MAP_OLD_SCUMPORT",
+  "name": "OldScumport",
+  "layout": "LAYOUT_OLD_SCUMPORT",
+  "music": "MUS_OLD_SCUMPORT",
+  "region_map_section": "MAPSEC_OLD_SCUMPORT",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",
@@ -41,12 +41,12 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_QUEST_GIVER",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_LadyElizabeth",
+      "script": "OldScumport_EventScript_LadyElizabeth",
       "flag": "0",
       "quest_id": 0
     },
     {
-      "local_id": "LOCALID_OLDALE_MART_EMPLOYEE",
+      "local_id": "LOCALID_OLD_SCUMPORTMART_EMPLOYEE",
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 10,
       "y": 18,
@@ -56,7 +56,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_MartEmployee",
+      "script": "OldScumport_EventScript_MartEmployee",
       "flag": "0"
     },
     {
@@ -70,11 +70,11 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_FootprintsMan",
+      "script": "OldScumport_EventScript_FootprintsMan",
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_OLDALE_RIVAL",
+      "local_id": "LOCALID_OLD_SCUMPORTRIVAL",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 11,
       "y": 29,
@@ -84,8 +84,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_Rival",
-      "flag": "FLAG_HIDE_OLDALE_TOWN_RIVAL"
+      "script": "OldScumport_EventScript_Rival",
+      "flag": "FLAG_HIDE_OLD_SCUMPORT_RIVAL"
     }
   ],
   "warp_events": [
@@ -93,28 +93,28 @@
       "x": 28,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_HOUSE1",
+      "dest_map": "MAP_OLD_SCUMPORT_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 35,
       "y": 26,
       "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_HOUSE2",
+      "dest_map": "MAP_OLD_SCUMPORT_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 20,
       "y": 21,
       "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
+      "dest_map": "MAP_OLD_SCUMPORT_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 6,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_OLDALE_TOWN_MART",
+      "dest_map": "MAP_OLD_SCUMPORT_MART",
       "dest_warp_id": "0"
     }
   ],
@@ -124,36 +124,36 @@
       "x": 1,
       "y": 10,
       "elevation": 3,
-      "var": "VAR_OLDALE_TOWN_STATE",
+      "var": "VAR_OLD_SCUMPORT_STATE",
       "var_value": "0",
-      "script": "OldaleTown_EventScript_BlockedPath"
+      "script": "OldScumport_EventScript_BlockedPath"
     },
     {
       "type": "trigger",
       "x": 8,
       "y": 29,
       "elevation": 3,
-      "var": "VAR_OLDALE_RIVAL_STATE",
+      "var": "VAR_OLD_SCUMPORTRIVAL_STATE",
       "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalTrigger1"
+      "script": "OldScumport_EventScript_RivalTrigger1"
     },
     {
       "type": "trigger",
       "x": 9,
       "y": 29,
       "elevation": 3,
-      "var": "VAR_OLDALE_RIVAL_STATE",
+      "var": "VAR_OLD_SCUMPORTRIVAL_STATE",
       "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalTrigger2"
+      "script": "OldScumport_EventScript_RivalTrigger2"
     },
     {
       "type": "trigger",
       "x": 10,
       "y": 29,
       "elevation": 3,
-      "var": "VAR_OLDALE_RIVAL_STATE",
+      "var": "VAR_OLD_SCUMPORTRIVAL_STATE",
       "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalTrigger3"
+      "script": "OldScumport_EventScript_RivalTrigger3"
     },
     {
       "type": "trigger",
@@ -162,7 +162,7 @@
       "elevation": 0,
       "var": "VAR_MART_CALL",
       "var_value": "0",
-      "script": "OldaleTown_EventScript_MartEmployeeCall1"
+      "script": "OldScumport_EventScript_MartEmployeeCall1"
     },
     {
       "type": "trigger",
@@ -171,7 +171,7 @@
       "elevation": 0,
       "var": "VAR_MART_CALL",
       "var_value": "0",
-      "script": "OldaleTown_EventScript_MartEmployeeCall2"
+      "script": "OldScumport_EventScript_MartEmployeeCall2"
     },
     {
       "type": "trigger",
@@ -180,7 +180,7 @@
       "elevation": 0,
       "var": "VAR_MART_CALL",
       "var_value": "0",
-      "script": "OldaleTown_EventScript_MartEmployeeCall3"
+      "script": "OldScumport_EventScript_MartEmployeeCall3"
     }
   ],
   "bg_events": [
@@ -190,7 +190,7 @@
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "OldaleTown_EventScript_TownSign"
+      "script": "OldScumport_EventScript_TownSign"
     },
     {
       "type": "sign",

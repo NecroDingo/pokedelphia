@@ -9455,10 +9455,10 @@ Shiftry
 Level: 35
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_WALLY_VR_1 ===
-Name: WALLY
+=== TRAINER_MATTHEW_VR_1 ===
+Name: MATTHEW
 Class: Rival
-Pic: Wally
+Pic: Matthew
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
@@ -11838,10 +11838,10 @@ Swablu
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_WALLY_MAUVILLE ===
-Name: WALLY
+=== TRAINER_MATTHEW_MAUVILLE ===
+Name: MATTHEW
 Class: Rival
-Pic: Wally
+Pic: Matthew
 Gender: Male
 Music: Male
 Double Battle: No
@@ -11851,10 +11851,10 @@ Ralts
 Level: 16
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_WALLY_VR_2 ===
-Name: WALLY
+=== TRAINER_MATTHEW_VR_2 ===
+Name: MATTHEW
 Class: Rival
-Pic: Wally
+Pic: Matthew
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
@@ -11901,10 +11901,10 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Psychic
 - Future Sight
 
-=== TRAINER_WALLY_VR_3 ===
-Name: WALLY
+=== TRAINER_MATTHEW_VR_3 ===
+Name: MATTHEW
 Class: Rival
-Pic: Wally
+Pic: Matthew
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
@@ -11951,10 +11951,10 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Psychic
 - Future Sight
 
-=== TRAINER_WALLY_VR_4 ===
-Name: WALLY
+=== TRAINER_MATTHEW_VR_4 ===
+Name: MATTHEW
 Class: Rival
-Pic: Wally
+Pic: Matthew
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore
@@ -12001,10 +12001,10 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Psychic
 - Future Sight
 
-=== TRAINER_WALLY_VR_5 ===
-Name: WALLY
+=== TRAINER_MATTHEW_VR_5 ===
+Name: MATTHEW
 Class: Rival
-Pic: Wally
+Pic: Matthew
 Gender: Male
 Music: Male
 Items: Full Restore / Full Restore

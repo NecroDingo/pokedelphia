@@ -2099,8 +2099,8 @@
           }
         },
         {
-          "map": "MAP_PETALBURG_WOODS",
-          "base_label": "gPetalburgWoods",
+          "map": "MAP_SCRAPPLE_HOLLOW",
+          "base_label": "gScrappleHollow",
           "land_mons": {
             "encounter_rate": 20,
             "mons": [
@@ -2168,8 +2168,8 @@
           }
         },
         {
-          "map": "MAP_PETALBURG_WOODS",
-          "base_label": "gPetalburgWoods_Night",
+          "map": "MAP_SCRAPPLE_HOLLOW",
+          "base_label": "gScrappleHollow_Night",
           "land_mons": {
             "encounter_rate": 10,
             "mons": [
@@ -9372,8 +9372,8 @@
           }
         },
         {
-          "map": "MAP_PETALBURG_CITY",
-          "base_label": "gPetalburgCity",
+          "map": "MAP_GIANTS_REACH",
+          "base_label": "gGiantsReach",
           "water_mons": {
             "encounter_rate": 1,
             "mons": [

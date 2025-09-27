@@ -539,142 +539,142 @@ Route110_Movement_RivalExit3:
 	walk_fast_up
 	step_end
 
-Route110_EventScript_BirchScene1::
+Route110_EventScript_FrankScene1::
 	lockall
 	setvar VAR_0x8008, 1
-	goto Route110_EventScript_BirchScene
+	goto Route110_EventScript_FrankScene
 
-Route110_EventScript_BirchScene2::
+Route110_EventScript_FrankScene2::
 	lockall
 	setvar VAR_0x8008, 2
-	goto Route110_EventScript_BirchScene
+	goto Route110_EventScript_FrankScene
 
-Route110_EventScript_BirchScene3::
+Route110_EventScript_FrankScene3::
 	lockall
 	setvar VAR_0x8008, 3
-	goto Route110_EventScript_BirchScene
+	goto Route110_EventScript_FrankScene
 
-Route110_EventScript_BirchScene4::
+Route110_EventScript_FrankScene4::
 	lockall
 	setvar VAR_0x8008, 4
-	goto Route110_EventScript_BirchScene
+	goto Route110_EventScript_FrankScene
 
-Route110_EventScript_BirchScene::
-	addobject LOCALID_ROUTE110_BIRCH
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchEntrance
+Route110_EventScript_FrankScene::
+	addobject LOCALID_ROUTE110_FRANK
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankEntrance
 	waitmovement 0
 	playse SE_PIN
-	applymovement LOCALID_ROUTE110_BIRCH, Common_Movement_ExclamationMark
+	applymovement LOCALID_ROUTE110_FRANK, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement LOCALID_ROUTE110_BIRCH, Common_Movement_Delay48
+	applymovement LOCALID_ROUTE110_FRANK, Common_Movement_Delay48
 	waitmovement 0
-	call_if_eq VAR_0x8008, 1, Route110_EventScript_BirchApproachPlayer1
-	call_if_eq VAR_0x8008, 2, Route110_EventScript_BirchApproachPlayer2
-	call_if_eq VAR_0x8008, 3, Route110_EventScript_BirchApproachPlayer3
-	call_if_eq VAR_0x8008, 4, Route110_EventScript_BirchApproachPlayer4
+	call_if_eq VAR_0x8008, 1, Route110_EventScript_FrankApproachPlayer1
+	call_if_eq VAR_0x8008, 2, Route110_EventScript_FrankApproachPlayer2
+	call_if_eq VAR_0x8008, 3, Route110_EventScript_FrankApproachPlayer3
+	call_if_eq VAR_0x8008, 4, Route110_EventScript_FrankApproachPlayer4
 	msgbox Route110_Text_ImagineSeeingYouHere, MSGBOX_DEFAULT
 	closemessage
 	delay 20
-	applymovement LOCALID_ROUTE110_BIRCH, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_ROUTE110_FRANK, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	delay 10
-	applymovement LOCALID_ROUTE110_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_ROUTE110_FRANK, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	delay 20
-	applymovement LOCALID_ROUTE110_BIRCH, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_ROUTE110_FRANK, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	delay 30
 	msgbox Route110_Text_HeardYouInstallMatchCall, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox Route110_Text_RegisteredBirchInPokenav, MSGBOX_DEFAULT
+	msgbox Route110_Text_RegisteredFrankInPokenav, MSGBOX_DEFAULT
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
+	setflag FLAG_ENABLE_PROF_FRANK_MATCH_CALL
 	msgbox Route110_Text_KeepAnEyeOutForRival, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_0x8008, 1, Route110_EventScript_BirchExit1
-	call_if_eq VAR_0x8008, 2, Route110_EventScript_BirchExit2
-	call_if_eq VAR_0x8008, 3, Route110_EventScript_BirchExit3
-	call_if_eq VAR_0x8008, 4, Route110_EventScript_BirchExit4
-	removeobject LOCALID_ROUTE110_BIRCH
-	setvar VAR_REGISTER_BIRCH_STATE, 2
+	call_if_eq VAR_0x8008, 1, Route110_EventScript_FrankExit1
+	call_if_eq VAR_0x8008, 2, Route110_EventScript_FrankExit2
+	call_if_eq VAR_0x8008, 3, Route110_EventScript_FrankExit3
+	call_if_eq VAR_0x8008, 4, Route110_EventScript_FrankExit4
+	removeobject LOCALID_ROUTE110_FRANK
+	setvar VAR_REGISTER_FRANK_STATE, 2
 	releaseall
 	end
 
-Route110_EventScript_BirchApproachPlayer1::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchApproachPlayer1
+Route110_EventScript_FrankApproachPlayer1::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankApproachPlayer1
 	waitmovement 0
 	return
 
-Route110_EventScript_BirchApproachPlayer2::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchApproachPlayer2
+Route110_EventScript_FrankApproachPlayer2::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankApproachPlayer2
 	waitmovement 0
 	return
 
-Route110_EventScript_BirchApproachPlayer3::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchApproachPlayer3
+Route110_EventScript_FrankApproachPlayer3::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankApproachPlayer3
 	waitmovement 0
 	return
 
-Route110_EventScript_BirchApproachPlayer4::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchApproachPlayer4
+Route110_EventScript_FrankApproachPlayer4::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankApproachPlayer4
 	waitmovement 0
 	return
 
-Route110_EventScript_BirchExit1::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchExit1
+Route110_EventScript_FrankExit1::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankExit1
 	waitmovement 0
 	return
 
-Route110_EventScript_BirchExit2::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchExit2
+Route110_EventScript_FrankExit2::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankExit2
 	waitmovement 0
 	return
 
-Route110_EventScript_BirchExit3::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchExit3
+Route110_EventScript_FrankExit3::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankExit3
 	waitmovement 0
 	return
 
-Route110_EventScript_BirchExit4::
-	applymovement LOCALID_ROUTE110_BIRCH, Route110_Movement_BirchExit4
+Route110_EventScript_FrankExit4::
+	applymovement LOCALID_ROUTE110_FRANK, Route110_Movement_FrankExit4
 	waitmovement 0
 	return
 
-Route110_Movement_BirchEntrance:
+Route110_Movement_FrankEntrance:
 	walk_down
 	walk_down
 	walk_down
 	step_end
 
-Route110_Movement_BirchApproachPlayer1:
+Route110_Movement_FrankApproachPlayer1:
 	walk_down
 	walk_left
 	walk_left
 	walk_down
 	step_end
 
-Route110_Movement_BirchApproachPlayer2:
+Route110_Movement_FrankApproachPlayer2:
 	walk_down
 	walk_left
 	walk_down
 	step_end
 
-Route110_Movement_BirchApproachPlayer3:
+Route110_Movement_FrankApproachPlayer3:
 	walk_down
 	walk_down
 	step_end
 
-Route110_Movement_BirchApproachPlayer4:
+Route110_Movement_FrankApproachPlayer4:
 	walk_down
 	walk_right
 	walk_down
 	step_end
 
-Route110_Movement_BirchExit1:
+Route110_Movement_FrankExit1:
 	walk_up
 	walk_up
 	walk_right
@@ -683,7 +683,7 @@ Route110_Movement_BirchExit1:
 	walk_up
 	step_end
 
-Route110_Movement_BirchExit2:
+Route110_Movement_FrankExit2:
 	walk_up
 	walk_up
 	walk_up
@@ -691,7 +691,7 @@ Route110_Movement_BirchExit2:
 	walk_up
 	step_end
 
-Route110_Movement_BirchExit3:
+Route110_Movement_FrankExit3:
 	walk_up
 	walk_up
 	walk_up
@@ -699,7 +699,7 @@ Route110_Movement_BirchExit3:
 	walk_up
 	step_end
 
-Route110_Movement_BirchExit4:
+Route110_Movement_FrankExit4:
 	walk_up
 	walk_up
 	walk_up
@@ -904,7 +904,7 @@ Route110_Text_ThereIsNoRecord:
 	.string "challenge. There is no record…$"
 
 Route110_Text_ImagineSeeingYouHere:
-	.string "PROF. BIRCH: Oh, {PLAYER}{KUN}!\n"
+	.string "PROF. FRANK: Oh, {PLAYER}{KUN}!\n"
 	.string "Imagine seeing you here!\p"
 	.string "And where might my {RIVAL} be?$"
 
@@ -920,12 +920,12 @@ Route110_Text_HeardYouInstallMatchCall:
 	.string "I can rate your POKéDEX anytime.\p"
 	.string "… … … … … …$"
 
-Route110_Text_RegisteredBirchInPokenav:
-	.string "Registered PROF. BIRCH\n"
+Route110_Text_RegisteredFrankInPokenav:
+	.string "Registered PROF. FRANK\n"
 	.string "in the POKéNAV.$"
 
 Route110_Text_KeepAnEyeOutForRival:
-	.string "PROF. BIRCH: {PLAYER}{KUN}…\p"
+	.string "PROF. FRANK: {PLAYER}{KUN}…\p"
 	.string "Please keep an eye out for my {RIVAL}.\n"
 	.string "… … … … … …\p"
 	.string "Well, I had better get going.\n"

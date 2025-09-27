@@ -963,14 +963,14 @@ Edit `gSpeciesInfo`:
 ```
 
 ## 4. Make it appear!
-Now Mewthree really does slumber in the games code - but we won't know until we make him appear somewhere! The legend tells that Mewthree is hiding somewhere in Petalburg Woods...
+Now Mewthree really does slumber in the games code - but we won't know until we make him appear somewhere! The legend tells that Mewthree is hiding somewhere in Scrapple Hollow...
 
 Edit [src/data/wild_encounters.json](https://github.com/rh-hideout/pokeemerald-expansion/blob/master/src/data/wild_encounters.json):
 
 ```diff
          {
-           "map": "MAP_PETALBURG_WOODS",
-           "base_label": "gPetalburgWoods",
+           "map": "MAP_SCRAPPLE_HOLLOW",
+           "base_label": "gScrappleHollow",
            "land_mons": {
              "encounter_rate": 20,
              "mons": [

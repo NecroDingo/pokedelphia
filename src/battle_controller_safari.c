@@ -358,7 +358,7 @@ static void SafariHandleStatusIconUpdate(u32 battler)
     BtlController_Complete(battler);
 }
 
-// All of the other controllers(except Wally's) use CRY_MODE_FAINT.
+// All of the other controllers(except Matthew's) use CRY_MODE_FAINT.
 // Player is not a pokemon, so it can't really faint in the Safari anyway.
 static void SafariHandleFaintingCry(u32 battler)
 {

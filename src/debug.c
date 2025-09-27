@@ -81,7 +81,7 @@ enum FollowerNPCCreateDebugMenu
     DEBUG_FNPC_BRENDAN,
     DEBUG_FNPC_MAY,
     DEBUG_FNPC_STEVEN,
-    DEBUG_FNPC_WALLY,
+    DEBUG_FNPC_MATTHEW,
     DEBUG_FNPC_RED,
     DEBUG_FNPC_LEAF,
     DEBUG_FNPC_COUNT,
@@ -425,7 +425,7 @@ static const u8 *const gFollowerNPCStringsTable[DEBUG_FNPC_COUNT] = {
     COMPOUND_STRING("Brendan"),
     COMPOUND_STRING("May"),
     COMPOUND_STRING("Steven"),
-    COMPOUND_STRING("Wally"),
+    COMPOUND_STRING("Matthew"),
     COMPOUND_STRING("Red"),
     COMPOUND_STRING("Leaf"),
 };
@@ -496,7 +496,7 @@ static const struct DebugMenuOption sDebugMenu_Actions_FollowerNPCMenu_Create[] 
     [DEBUG_FNPC_BRENDAN] = { gFollowerNPCStringsTable[DEBUG_FNPC_BRENDAN], DebugAction_CreateFollowerNPC },
     [DEBUG_FNPC_MAY] =     { gFollowerNPCStringsTable[DEBUG_FNPC_MAY],     DebugAction_CreateFollowerNPC },
     [DEBUG_FNPC_STEVEN] =  { gFollowerNPCStringsTable[DEBUG_FNPC_STEVEN],  DebugAction_CreateFollowerNPC },
-    [DEBUG_FNPC_WALLY] =   { gFollowerNPCStringsTable[DEBUG_FNPC_WALLY],   DebugAction_CreateFollowerNPC },
+    [DEBUG_FNPC_MATTHEW] =   { gFollowerNPCStringsTable[DEBUG_FNPC_MATTHEW],   DebugAction_CreateFollowerNPC },
     [DEBUG_FNPC_RED] =     { gFollowerNPCStringsTable[DEBUG_FNPC_RED],     DebugAction_CreateFollowerNPC },
     [DEBUG_FNPC_LEAF] =    { gFollowerNPCStringsTable[DEBUG_FNPC_LEAF],    DebugAction_CreateFollowerNPC },
     { NULL }
@@ -933,17 +933,17 @@ static void DebugAction_DestroyExtraWindow(u8 taskId)
 
 static const u16 sLocationFlags[] =
 {
-    FLAG_VISITED_LITTLEROOT_TOWN,
-    FLAG_VISITED_OLDALE_TOWN,
+    FLAG_VISITED_TRASHBURG,
+    FLAG_VISITED_OLD_SCUMPORT,
     FLAG_VISITED_DEWFORD_TOWN,
     FLAG_VISITED_LAVARIDGE_TOWN,
     FLAG_VISITED_FALLARBOR_TOWN,
     FLAG_VISITED_VERDANTURF_TOWN,
     FLAG_VISITED_PACIFIDLOG_TOWN,
-    FLAG_VISITED_PETALBURG_CITY,
+    FLAG_VISITED_GIANTS_REACH,
     FLAG_VISITED_SLATEPORT_CITY,
     FLAG_VISITED_MAUVILLE_CITY,
-    FLAG_VISITED_RUSTBORO_CITY,
+    FLAG_VISITED_WAWA_PARK,
     FLAG_VISITED_FORTREE_CITY,
     FLAG_VISITED_LILYCOVE_CITY,
     FLAG_VISITED_MOSSDEEP_CITY,
@@ -3349,7 +3349,7 @@ static const u32 gDebugFollowerNPCGraphics[] =
     OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
     OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
     OBJ_EVENT_GFX_STEVEN,
-    OBJ_EVENT_GFX_WALLY,
+    OBJ_EVENT_GFX_MATTHEW,
     OBJ_EVENT_GFX_RED,
     OBJ_EVENT_GFX_LEAF,
 };
@@ -3391,7 +3391,7 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
 #undef tDigit
 
 #define SOUND_LIST_BGM              \
-    X(MUS_LITTLEROOT_TEST)          \
+    X(MUS_TRASHBURG_TEST)          \
     X(MUS_GSC_ROUTE38)              \
     X(MUS_CAUGHT)                   \
     X(MUS_VICTORY_WILD)             \
@@ -3403,11 +3403,11 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_ROUTE101)                 \
     X(MUS_ROUTE110)                 \
     X(MUS_ROUTE120)                 \
-    X(MUS_PETALBURG)                \
-    X(MUS_OLDALE)                   \
+    X(MUS_GIANTS_REACH)                \
+    X(MUS_OLD_SCUMPORT)                   \
     X(MUS_GYM)                      \
     X(MUS_SURF)                     \
-    X(MUS_PETALBURG_WOODS)          \
+    X(MUS_SCRAPPLE_HOLLOW)          \
     X(MUS_LEVEL_UP)                 \
     X(MUS_HEAL)                     \
     X(MUS_OBTAIN_BADGE)             \
@@ -3424,7 +3424,7 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_ENCOUNTER_MALE)           \
     X(MUS_ABANDONED_SHIP)           \
     X(MUS_FORTREE)                  \
-    X(MUS_BIRCH_LAB)                \
+    X(MUS_FRANK_LAB)                \
     X(MUS_B_TOWER_RS)               \
     X(MUS_ENCOUNTER_SWIMMER)        \
     X(MUS_CAVE_OF_ORIGIN)           \
@@ -3440,13 +3440,13 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_LINK_CONTEST_P4)          \
     X(MUS_ENCOUNTER_RICH)           \
     X(MUS_VERDANTURF)               \
-    X(MUS_RUSTBORO)                 \
+    X(MUS_WAWA_PARK)                 \
     X(MUS_POKE_CENTER)              \
     X(MUS_ROUTE104)                 \
     X(MUS_ROUTE119)                 \
     X(MUS_CYCLING)                  \
     X(MUS_POKE_MART)                \
-    X(MUS_LITTLEROOT)               \
+    X(MUS_TRASHBURG)               \
     X(MUS_MT_CHIMNEY)               \
     X(MUS_ENCOUNTER_FEMALE)         \
     X(MUS_LILYCOVE)                 \

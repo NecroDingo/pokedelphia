@@ -1,7 +1,7 @@
 {
   "map_sections": [
     {
-      "id": "MAPSEC_LITTLEROOT_TOWN",
+      "id": "MAPSEC_TRASHBURG",
       "name": "TRASHBURG",
       "x": 4,
       "y": 11,
@@ -9,7 +9,7 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_OLDALE_TOWN",
+      "id": "MAPSEC_OLD_SCUMPORT",
       "name": "OLD SCUMPORT",
       "x": 4,
       "y": 9,
@@ -57,7 +57,7 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_PETALBURG_CITY",
+      "id": "MAPSEC_GIANTS_REACH",
       "name": "GIANT'S REACH",
       "x": 1,
       "y": 9,
@@ -81,8 +81,8 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_RUSTBORO_CITY",
-      "name": "RUSTBORO CITY",
+      "id": "MAPSEC_WAWA_PARK",
+      "name": "WAWA PARK",
       "x": 0,
       "y": 5,
       "width": 1,
@@ -473,7 +473,7 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_PETALBURG_WOODS",
+      "id": "MAPSEC_SCRAPPLE_HOLLOW",
       "name": "SCRAPPLE HOLLOW",
       "x": 0,
       "y": 8,

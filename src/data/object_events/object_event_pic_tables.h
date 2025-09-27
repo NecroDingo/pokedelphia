@@ -282,8 +282,8 @@ static const struct SpriteFrameImage sPicTable_Nurse[] = {
     overworld_frame(gObjectEventPic_Nurse, 2, 4, 3),
 };
 
-static const struct SpriteFrameImage sPicTable_ProfBirch[] = {
-    overworld_ascending_frames(gObjectEventPic_ProfBirch, 2, 4),
+static const struct SpriteFrameImage sPicTable_ProfFrank[] = {
+    overworld_ascending_frames(gObjectEventPic_ProfFrank, 2, 4),
 };
 
 static const struct SpriteFrameImage sPicTable_Man4[] = {
@@ -398,8 +398,8 @@ static const struct SpriteFrameImage sPicTable_VigorothFacingAway[] = {
     overworld_frame(gObjectEventPic_VigorothMover, 4, 4, 4),
 };
 
-static const struct SpriteFrameImage sPicTable_BirchsBag[] = {
-    obj_frame_tiles(gObjectEventPic_BirchsBag),
+static const struct SpriteFrameImage sPicTable_FranksBag[] = {
+    obj_frame_tiles(gObjectEventPic_FranksBag),
 };
 
 static const struct SpriteFrameImage sPicTable_EnemyZigzagoon[] = {
@@ -636,8 +636,8 @@ static const struct SpriteFrameImage sPicTable_Steven[] = {
     overworld_ascending_frames(gObjectEventPic_Steven, 2, 4),
 };
 
-static const struct SpriteFrameImage sPicTable_Wally[] = {
-    overworld_ascending_frames(gObjectEventPic_Wally, 2, 4),
+static const struct SpriteFrameImage sPicTable_Matthew[] = {
+    overworld_ascending_frames(gObjectEventPic_Matthew, 2, 4),
 };
 
 static const struct SpriteFrameImage sPicTable_RubySapphireLittleBoy[] = {

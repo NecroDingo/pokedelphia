@@ -14,12 +14,12 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_PETALBURG_CITY",
+      "map": "MAP_GIANTS_REACH",
       "offset": 18,
       "direction": "left"
     },
     {
-      "map": "MAP_OLDALE_TOWN",
+      "map": "MAP_OLD_SCUMPORT",
       "offset": 0,
       "direction": "right"
     }

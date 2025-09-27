@@ -1,0 +1,1053 @@
+GiantsReach_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GiantsReach_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, GiantsReach_OnFrame
+	.byte 0
+
+GiantsReach_OnTransition:
+	setflag FLAG_VISITED_GIANTS_REACH
+	call_if_eq VAR_GIANTS_REACH_CITY_STATE, 0, GiantsReach_EventScript_MoveGymBoyToWestEntrance
+	call_if_eq VAR_GIANTS_REACH_CITY_STATE, 2, GiantsReach_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_GIANTS_REACH_CITY_STATE, 4, GiantsReach_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_GIANTS_REACH_GYM_STATE, 8, GiantsReach_EventScript_SetGymDoorsUnlocked
+	end
+
+GiantsReach_EventScript_MoveGymBoyToWestEntrance::
+	setobjectxyperm LOCALID_GYM_BOY, 36, 17
+	return
+
+GiantsReach_EventScript_DisableMapNameAndMusic::
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+	savebgm MUS_FOLLOW_ME
+	return
+
+GiantsReach_EventScript_SetGymDoorsUnlocked::
+	setvar VAR_GIANTS_REACH_GYM_STATE, 7
+	return
+
+GiantsReach_OnFrame:
+	map_script_2 VAR_GIANTS_REACH_CITY_STATE, 2, GiantsReach_EventScript_MatthewTutorial
+	map_script_2 VAR_GIANTS_REACH_CITY_STATE, 4, GiantsReach_EventScript_WalkToMatthewHouse
+	.2byte 0
+
+GiantsReach_EventScript_MatthewTutorial::
+	lockall
+	special SavePlayerParty
+	special LoadMatthewZigzagoon
+	applymovement LOCALID_PETALBURG_MATTHEW, GiantsReach_Movement_MatthewTutorialMatthew
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_MatthewTutorialPlayer
+	waitmovement 0
+	msgbox Route102_Text_WatchMeCatchPokemon, MSGBOX_DEFAULT
+	special StartMatthewTutorialBattle
+	waitstate
+	msgbox Route102_Text_MatthewIDidIt, MSGBOX_DEFAULT
+	applymovement LOCALID_PETALBURG_MATTHEW, Common_Movement_WalkInPlaceFasterLeft, MAP_GIANTS_REACH
+	waitmovement LOCALID_PETALBURG_MATTHEW, MAP_GIANTS_REACH
+	msgbox Route102_Text_LetsGoBack, MSGBOX_DEFAULT
+	closemessage
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	setvar VAR_GIANTS_REACH_CITY_STATE, 3
+	fadedefaultbgm
+	clearflag FLAG_DONT_TRANSITION_MUSIC
+	special LoadPlayerParty
+	setvar VAR_GIANTS_REACH_GYM_STATE, 1
+	warp MAP_GIANTS_REACH_GYM, 4, 108
+	waitstate
+	releaseall
+	end
+
+GiantsReach_EventScript_WalkToMatthewHouse::
+	lockall
+	setflag FLAG_HIDE_MAP_NAME_POPUP
+	applymovement LOCALID_PETALBURG_MATTHEWS_DAD, GiantsReach_Movement_WalkToMatthewHouseMatthewsDad
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_WalkToMatthewHousePlayer
+	waitmovement 0
+	setvar VAR_0x8004, 7
+	setvar VAR_0x8005, 5
+	opendoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	applymovement LOCALID_PETALBURG_MATTHEWS_DAD, GiantsReach_Movement_WalkInsideHouseMatthewsDad
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_WalkInsideHousePlayer
+	waitmovement 0
+	setflag FLAG_HIDE_GIANTS_REACH_MATTHEWS_DAD
+	hideobjectat LOCALID_PLAYER, MAP_GIANTS_REACH
+	closedoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	fadedefaultbgm
+	clearflag FLAG_DONT_TRANSITION_MUSIC
+	warp MAP_GIANTS_REACH_MATTHEWS_HOUSE, 2, 4
+	waitstate
+	releaseall
+	end
+
+GiantsReach_EventScript_Boy::
+	lock
+	faceplayer
+	msgbox GiantsReach_Text_WaterReflection, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PETALBURG_BOY, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
+	setflag FLAG_GIANTS_REACH_CITY_CAN_SEARCH_BUSHES
+	end
+
+GiantsReach_EventScript_MatthewsMom::
+	msgbox GiantsReach_Text_WhereIsMatthew, MSGBOX_NPC
+	end
+
+GiantsReach_Movement_WalkToMatthewHousePlayer:
+	delay_8
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+GiantsReach_Movement_WalkInsideHousePlayer:
+	walk_up
+	walk_up
+	step_end
+
+GiantsReach_Movement_WalkToMatthewHouseMatthewsDad:
+	delay_8
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+GiantsReach_Movement_WalkInsideHouseMatthewsDad:
+	walk_up
+	set_invisible
+	step_end
+
+GiantsReach_Movement_MatthewTutorialPlayer:
+	delay_8
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_in_place_faster_right
+	step_end
+
+GiantsReach_Movement_MatthewTutorialMatthew:
+	delay_16
+	delay_16
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	delay_16
+	walk_in_place_faster_left
+	step_end
+
+GiantsReach_EventScript_GymSign::
+	msgbox GiantsReach_Text_GymSign, MSGBOX_SIGN
+	end
+
+GiantsReach_EventScript_CitySign::
+	msgbox GiantsReach_Text_CitySign, MSGBOX_SIGN
+	end
+
+GiantsReach_EventScript_Gentleman::
+	msgbox GiantsReach_Text_FullPartyExplanation, MSGBOX_NPC
+	end
+
+GiantsReach_EventScript_MatthewHouseSign::
+	msgbox GiantsReach_Text_MatthewHouseSign, MSGBOX_SIGN
+	end
+
+GiantsReach_EventScript_ShowGymToPlayer0::
+	lockall
+	setvar VAR_0x8008, 0
+	goto GiantsReach_EventScript_ShowGymToPlayer
+	end
+
+GiantsReach_EventScript_ShowGymToPlayer1::
+	lockall
+	setvar VAR_0x8008, 1
+	goto GiantsReach_EventScript_ShowGymToPlayer
+	end
+
+GiantsReach_EventScript_ShowGymToPlayer2::
+	lockall
+	setvar VAR_0x8008, 2
+	goto GiantsReach_EventScript_ShowGymToPlayer
+	end
+
+GiantsReach_EventScript_ShowGymToPlayer3::
+	lockall
+	setvar VAR_0x8008, 3
+	goto GiantsReach_EventScript_ShowGymToPlayer
+	end
+
+GiantsReach_EventScript_ShowGymToPlayer::
+	applymovement LOCALID_GYM_BOY, Common_Movement_FacePlayer
+	waitmovement 0
+	playbgm MUS_FOLLOW_ME, FALSE
+	playse SE_PIN
+	applymovement LOCALID_GYM_BOY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_GYM_BOY, Common_Movement_Delay48
+	waitmovement 0
+	call_if_eq VAR_0x8008, 0, GiantsReach_EventScript_BoyApproachPlayer0
+	call_if_eq VAR_0x8008, 1, GiantsReach_EventScript_BoyApproachPlayer1
+	call_if_eq VAR_0x8008, 2, GiantsReach_EventScript_BoyApproachPlayer2
+	call_if_eq VAR_0x8008, 3, GiantsReach_EventScript_BoyApproachPlayer3
+	msgbox GiantsReach_Text_AreYouRookieTrainer, MSGBOX_DEFAULT
+	closemessage
+	call_if_eq VAR_0x8008, 0, GiantsReach_EventScript_LeadPlayerToGym0
+	call_if_eq VAR_0x8008, 1, GiantsReach_EventScript_LeadPlayerToGym1
+	call_if_eq VAR_0x8008, 2, GiantsReach_EventScript_LeadPlayerToGym2
+	call_if_eq VAR_0x8008, 3, GiantsReach_EventScript_LeadPlayerToGym3
+	msgbox GiantsReach_Text_ThisIsPetalburgGym, MSGBOX_DEFAULT
+	applymovement LOCALID_GYM_BOY, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	msgbox GiantsReach_Text_ThisIsGymSign, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GYM_BOY, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	msgbox GiantsReach_Text_ThisIsYourUncle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_WalkToGym
+	waitmovement 0
+	setvar VAR_0x8004, 39
+	setvar VAR_0x8005, 28
+	opendoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_WalkInGym
+	waitmovement 0
+	warp MAP_GIANTS_REACH_GYM, 4, 111
+	waitstate
+	closedoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	fadedefaultbgm
+	releaseall
+	end
+
+GiantsReach_EventScript_BoyApproachPlayer0::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyApproachPlayer0
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_BoyApproachPlayer1::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyApproachPlayer1
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_BoyApproachPlayer2::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyApproachPlayer2
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_BoyApproachPlayer3::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyApproachPlayer3
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_LeadPlayerToGym0::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyWalkToGym0
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWalkToGym0
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_LeadPlayerToGym1::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyWalkToGym1
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWalkToGym1
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_LeadPlayerToGym2::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyWalkToGym2
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWalkToGym2
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_LeadPlayerToGym3::
+	applymovement LOCALID_GYM_BOY, GiantsReach_Movement_BoyWalkToGym3
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWalkToGym3
+	waitmovement 0
+	return
+
+@ Unused
+GiantsReach_Movement_Delay48::
+	delay_16
+	delay_16
+	delay_16
+	step_end
+
+GiantsReach_Movement_BoyApproachPlayer0:
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_faster_up
+	step_end
+
+GiantsReach_Movement_BoyApproachPlayer1:
+	walk_right
+	walk_right
+	step_end
+
+GiantsReach_Movement_BoyApproachPlayer2:
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_faster_down
+	step_end
+
+GiantsReach_Movement_BoyApproachPlayer3:
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	step_end
+
+GiantsReach_Movement_BoyWalkToGym0:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_in_place_faster_down
+	step_end
+
+GiantsReach_Movement_BoyWalkToGym1:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_in_place_faster_down
+	step_end
+
+GiantsReach_Movement_BoyWalkToGym2:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_in_place_faster_down
+	step_end
+
+GiantsReach_Movement_BoyWalkToGym3:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_in_place_faster_down
+	step_end
+
+GiantsReach_Movement_WalkToGym:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+GiantsReach_Movement_WalkInGym::
+	walk_up
+	step_end
+
+GiantsReach_Movement_PlayerWalkToGym0:
+	delay_16
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+GiantsReach_Movement_PlayerWalkToGym1:
+	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+GiantsReach_Movement_PlayerWalkToGym2:
+	delay_16
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+GiantsReach_Movement_PlayerWalkToGym3:
+	delay_16
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+GiantsReach_EventScript_Scott0::
+	lockall
+	addobject LOCALID_PETALBURG_SCOTT
+	setvar VAR_0x8008, 0
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 12
+	goto GiantsReach_EventScript_Scott
+	end
+
+GiantsReach_EventScript_Scott1::
+	lockall
+	addobject LOCALID_PETALBURG_SCOTT
+	setvar VAR_0x8008, 1
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 13
+	goto GiantsReach_EventScript_Scott
+	end
+
+GiantsReach_EventScript_Scott2::
+	lockall
+	addobject LOCALID_PETALBURG_SCOTT
+	setvar VAR_0x8008, 2
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 14
+	goto GiantsReach_EventScript_Scott
+	end
+
+GiantsReach_EventScript_Scott3::
+	lockall
+	addobject LOCALID_PETALBURG_SCOTT
+	setvar VAR_0x8008, 3
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 15
+	goto GiantsReach_EventScript_Scott
+	end
+
+GiantsReach_EventScript_Scott::
+	applymovement LOCALID_PETALBURG_SCOTT, GiantsReach_Movement_ScottStartWalkLeft
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_PETALBURG_SCOTT, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_SCOTT, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_SCOTT, GiantsReach_Movement_ScottApproachPlayer
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	setvar VAR_SCOTT_STATE, 1
+	msgbox GiantsReach_Text_AreYouATrainer, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PETALBURG_SCOTT, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	delay 30
+	msgbox GiantsReach_Text_WellMaybeNot, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PETALBURG_SCOTT, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	delay 30
+	msgbox GiantsReach_Text_ImLookingForTalentedTrainers, MSGBOX_DEFAULT
+	closemessage
+	call_if_eq VAR_0x8008, 0, GiantsReach_EventScript_ScottExit0
+	call_if_eq VAR_0x8008, 1, GiantsReach_EventScript_ScottExit1
+	call_if_eq VAR_0x8008, 2, GiantsReach_EventScript_ScottExit2
+	call_if_eq VAR_0x8008, 3, GiantsReach_EventScript_ScottExit3
+	setvar VAR_SCOTT_PETALBURG_ENCOUNTER, 1
+	removeobject LOCALID_PETALBURG_SCOTT
+	releaseall
+	end
+
+GiantsReach_EventScript_ScottExit0::
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWatchScottExit0
+	applymovement LOCALID_PETALBURG_SCOTT, GiantsReach_Movement_ScottExit0
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_ScottExit1::
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWatchScottExit1
+	applymovement LOCALID_PETALBURG_SCOTT, GiantsReach_Movement_ScottExit1
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_ScottExit2::
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWatchScottExit2
+	applymovement LOCALID_PETALBURG_SCOTT, GiantsReach_Movement_ScottExit2
+	waitmovement 0
+	return
+
+GiantsReach_EventScript_ScottExit3::
+	applymovement LOCALID_PLAYER, GiantsReach_Movement_PlayerWatchScottExit3
+	applymovement LOCALID_PETALBURG_SCOTT, GiantsReach_Movement_ScottExit3
+	waitmovement 0
+	return
+
+GiantsReach_Movement_ScottStartWalkLeft:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+GiantsReach_Movement_ScottApproachPlayer:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+GiantsReach_Movement_ScottExit0:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+GiantsReach_Movement_PlayerWatchScottExit0:
+	delay_16
+	walk_in_place_faster_down
+	delay_16
+	delay_16
+	delay_8
+	walk_in_place_faster_left
+	step_end
+
+GiantsReach_Movement_ScottExit1:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+GiantsReach_Movement_PlayerWatchScottExit1:
+	delay_16
+	walk_in_place_faster_down
+	delay_16
+	delay_8
+	walk_in_place_faster_left
+	step_end
+
+GiantsReach_Movement_ScottExit2:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+GiantsReach_Movement_PlayerWatchScottExit2:
+	delay_16
+	walk_in_place_faster_up
+	delay_16
+	delay_8
+	walk_in_place_faster_left
+	step_end
+
+GiantsReach_Movement_ScottExit3:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+GiantsReach_Movement_PlayerWatchScottExit3:
+	delay_16
+	walk_in_place_faster_up
+	delay_16
+	delay_8
+	walk_in_place_faster_left
+	step_end
+
+GiantsReach_EventScript_GymBoy::
+	msgbox GiantsReach_Text_GymBoy2, MSGBOX_NPC
+	end
+
+GiantsReach_Text_WhereIsMatthew:
+	.string "Where did Matthew dip off to?\p"
+	.string "We've gotta head to Verdanturf soon,\n"
+	.string "no time for slacking.$"
+
+GiantsReach_Text_AreYouRookieTrainer:
+	.string "Hey, you a rookie TRAINER or just\n"
+	.string "playin’ dress-up?\p"
+	.string "Listen up.\p"
+	.string "When you hit a new town, first thing\n"
+	.string "you do is check out the GYM.\p"
+	.string "That’s how you know who’s boss around\n"
+	.string "here.$"
+
+GiantsReach_Text_ThisIsPetalburgGym:
+	.string "Welcome to GIANT'S REACH GYM.\p"
+	.string "This is where Jack throws down.$"
+
+GiantsReach_Text_ThisIsGymSign:
+	.string "That sign? That’s the GYM’s mark.\p"
+	.string "If you see it, you know thats where\n"
+	.string "you need to go for a great fight!$"
+
+GiantsReach_Text_ThisIsYourUncle:
+	.string "..................\p"
+	.string "Oh, this is your Uncle's GYM?\n"
+	.string "Head on inside!$"
+
+GiantsReach_Text_GymBoy2:
+	.string "I love this GYM.\n"
+	.string "Jack’s the best.\p"
+	.string "He’s got big hands, sharp mind,\n"
+	.string "and a heart of gold.$"
+
+GiantsReach_Text_WaterReflection:
+	.string "Lookin’ in the water, I only see\n"
+	.string "my stupid face.\p"
+	.string "Shoulda been a grin, but nah.\p"
+	.string "Lost my damn nugget in some bush,\n"
+	.string "now I’m stuck here feelin’ like a chump.\p"
+	.string "It’s gotta be around this jawn\n"
+	.string "somewhere...$"
+
+GiantsReach_Text_FullPartyExplanation:
+	.string "You got six POKéMON yet?\p"
+	.string "Catch another? It ain’t joinin’ your\n"
+	.string "crew.\p"
+	.string "It gets tossed in the STORAGE BOX,\n"
+	.string "chillin’ in the PC until you wanna\l"
+	.string "deal with it.$"
+
+GiantsReach_Text_GymSign:
+	.string "GIANT’S REACH POKéMON GYM\n"
+	.string "LEADER: JACK\p"
+	.string "Big hands. Sharp mind.\n"
+	.string "Final verdict: defeat.$"
+
+GiantsReach_Text_CitySign:
+	.string "GIANT'S REACH:\n"
+	.string "Justice served with a giant’s grip.$"
+
+GiantsReach_Text_MatthewHouseSign:
+	.string "MATTHEW'S HOUSE$"
+
+GiantsReach_Text_AreYouATrainer:
+	.string "Yo, hold up! Lemme guess.\p"
+	.string "Lookin’ at how you’re\n"
+	.string "dressed, you a POKéMON TRAINER or what?$"
+
+GiantsReach_Text_WellMaybeNot:
+	.string "… … … … … …\p"
+	.string "Eh, maybe not.\p"
+	.string "Your clothes ain’t dirty enough to be\n"
+	.string "a real trainer.\p"
+	.string "You either new to this or just some kid\n"
+	.string "playin’ at it.$"
+
+GiantsReach_Text_ImLookingForTalentedTrainers:
+	.string "I’m huntin’ for real talent.\p"
+	.string "Don’t waste my time if you ain’t\n"
+	.string "serious.$"
+
+GiantsReach_Eventscript_NuggetBush::
+	checkflag FLAG_GIANTS_REACH_CITY_CAN_SEARCH_BUSHES
+    goto_if FALSE, GiantsReach_EventScript_NuggetBush_End
+    checkflag FLAG_HIDDEN_ITEM_GIANTS_REACH_NUGGET
+    goto_if TRUE, GiantsReach_EventScript_NuggetBush_End
+    msgbox GiantsReach_Text_FoundNugget, MSGBOX_SIGN
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_NUGGET, 1
+	setflag FLAG_HIDDEN_ITEM_GIANTS_REACH_NUGGET
+    msgbox GiantsReach_Text_AfterFoundNugget, MSGBOX_SIGN
+	goto GiantsReach_EventScript_NuggetBush_End
+
+GiantsReach_EventScript_NuggetBush_End:
+    end
+
+GiantsReach_Text_FoundNugget:
+	.string "You search the bush...\p"
+    .string "You found a Nugget!$"
+
+GiantsReach_EventScript_EmptyBush::
+    checkflag FLAG_GIANTS_REACH_CITY_CAN_SEARCH_BUSHES
+    goto_if FALSE, GiantsReach_EventScript_EmptyBush_End
+    checkflag FLAG_HIDDEN_ITEM_GIANTS_REACH_NUGGET
+    goto_if TRUE, GiantsReach_EventScript_EmptyBush_End
+    msgbox GiantsReach_Text_EmptyBush, MSGBOX_SIGN
+GiantsReach_EventScript_EmptyBush_End:
+    end
+
+GiantsReach_Text_EmptyBush:
+	.string "You search the bush...\p"
+	.string "No Nugget here...$"
+
+GiantsReach_Text_AfterFoundNugget:
+	.string "One man's mistake is another man's\n"
+	.string "treasure.$"
+

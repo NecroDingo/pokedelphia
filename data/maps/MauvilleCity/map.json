@@ -2,7 +2,7 @@
   "id": "MAP_MAUVILLE_CITY",
   "name": "MauvilleCity",
   "layout": "LAYOUT_MAUVILLE_CITY",
-  "music": "MUS_RUSTBORO",
+  "music": "MUS_WAWA_PARK",
   "region_map_section": "MAPSEC_MAUVILLE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -101,8 +101,8 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_MAUVILLE_WALLY",
-      "graphics_id": "OBJ_EVENT_GFX_WALLY",
+      "local_id": "LOCALID_MAUVILLE_MATTHEW",
+      "graphics_id": "OBJ_EVENT_GFX_MATTHEW",
       "x": 8,
       "y": 6,
       "elevation": 3,
@@ -111,11 +111,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_EventScript_Wally",
-      "flag": "FLAG_HIDE_MAUVILLE_CITY_WALLY"
+      "script": "MauvilleCity_EventScript_Matthew",
+      "flag": "FLAG_HIDE_MAUVILLE_CITY_MATTHEW"
     },
     {
-      "local_id": "LOCALID_MAUVILLE_WALLYS_UNCLE",
+      "local_id": "LOCALID_MAUVILLE_MATTHEWS_UNCLE",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
       "x": 9,
       "y": 6,
@@ -125,8 +125,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_EventScript_WallysUncle",
-      "flag": "FLAG_HIDE_MAUVILLE_CITY_WALLYS_UNCLE"
+      "script": "MauvilleCity_EventScript_MatthewsUncle",
+      "flag": "FLAG_HIDE_MAUVILLE_CITY_MATTHEWS_UNCLE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WATTSON",

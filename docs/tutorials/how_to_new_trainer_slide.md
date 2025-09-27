@@ -1,7 +1,7 @@
 # Adding New Trainer Slides
 ## Define Slides Per Trainer
 
-We are going to add a Trainer Slide to Wally's first Victory Road battle, before he Mega Evolves his Gallade. This battle takes place outside a Battle Facility, so `sTrainerSlides` must be edited.
+We are going to add a Trainer Slide to Matthew's first Victory Road battle, before he Mega Evolves his Gallade. This battle takes place outside a Battle Facility, so `sTrainerSlides` must be edited.
 
 ### `src/trainer_slide.c`
 ```diff
@@ -11,7 +11,7 @@ static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_COUNT][TRAINER_
 {
     [DIFFICULTY_NORMAL] =
     {
-+        [TRAINER_WALLY_VR_1] = // use the Trainer's Id from include/constants/opponents.h
++        [TRAINER_MATTHEW_VR_1] = // use the Trainer's Id from include/constants/opponents.h
 +        {
 +            [TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("That's the way, Gallade! Go!{PAUSE_UNTIL_PRESS}"), // find the id for the slide to be used.
 +            //[TRAINER_SLIDE_MEGA_EVOLUTION] = gText_ThatsTheWay, // You can use globals or COMPOUND_STRING to define text here.

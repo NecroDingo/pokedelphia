@@ -351,7 +351,7 @@ gSongTable::
 	song dummy_song_header, 0, 0
 	song dummy_song_header, 0, 0
 	song dummy_song_header, 0, 0
-	song mus_littleroot_test, 0, 0
+	song mus_trashburg_test, 0, 0
 	song mus_gsc_route38, 0, 0
 	song mus_caught, 0, 0
 	song mus_victory_wild, 0, 0
@@ -363,11 +363,11 @@ gSongTable::
 	song mus_route101, 0, 0
 	song mus_route110, 0, 0
 	song mus_route120, 0, 0
-	song mus_petalburg, 0, 0
-	song mus_oldale, 0, 0
+	song mus_giants_reach, 0, 0
+	song mus_old_scumport, 0, 0
 	song mus_gym, 0, 0
 	song mus_surf, 0, 0
-	song mus_petalburg_woods, 0, 0
+	song mus_scrapple_hollow, 0, 0
 	song mus_level_up, 2, 2
 	song mus_heal, 2, 2
 	song mus_obtain_badge, 2, 2
@@ -384,7 +384,7 @@ gSongTable::
 	song mus_encounter_male, 0, 0
 	song mus_abandoned_ship, 0, 0
 	song mus_fortree, 0, 0
-	song mus_birch_lab, 0, 0
+	song mus_frank_lab, 0, 0
 	song mus_b_tower_rs, 0, 0
 	song mus_encounter_swimmer, 0, 0
 	song mus_cave_of_origin, 0, 0
@@ -400,13 +400,13 @@ gSongTable::
 	song mus_link_contest_p4, 0, 0
 	song mus_encounter_rich, 0, 0
 	song mus_verdanturf, 0, 0
-	song mus_rustboro, 0, 0
+	song mus_wawa_park, 0, 0
 	song mus_poke_center, 0, 0
 	song mus_route104, 0, 0
 	song mus_route119, 0, 0
 	song mus_cycling, 0, 0
 	song mus_poke_mart, 0, 0
-	song mus_littleroot, 0, 0
+	song mus_trashburg, 0, 0
 	song mus_mt_chimney, 0, 0
 	song mus_encounter_female, 0, 0
 	song mus_lilycove, 0, 0

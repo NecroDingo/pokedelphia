@@ -538,9 +538,9 @@ static void Task_LoadShowMons(u8 taskId)
         ResetAllPicSprites();
         FreeAllSpritePalettes();
         gReservedSpritePaletteCount = 8;
-        DecompressDataWithHeaderVram(gBirchBagGrass_Gfx, (void *)VRAM);
-        DecompressDataWithHeaderVram(gBirchGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
-        LoadPalette(gBirchBagGrass_Pal + 1, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(2 * 16 - 1));
+        DecompressDataWithHeaderVram(gFrankBagGrass_Gfx, (void *)VRAM);
+        DecompressDataWithHeaderVram(gFrankGrassTilemap, (void *)(BG_SCREEN_ADDR(7)));
+        LoadPalette(gFrankBagGrass_Pal + 1, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(2 * 16 - 1));
 
         for (i = 0; i < MON_PIC_SIZE; i++)
         {

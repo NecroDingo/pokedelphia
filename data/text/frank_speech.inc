@@ -1,0 +1,55 @@
+gText_Frank_Welcome::
+	.string "Hey there, I'm Professor Frank!\n"
+	.string "Legally, anyway.\p"
+	.string "Got the papers off some guy in a\n"
+	.string "Waffle House parking lot.\l"
+	.string "Long story.\p"
+	.string "This here's the world of Pokémon.\p"
+	.string "Some people train 'em, some people\n"
+	.string "battle 'em.\p"
+	.string "Sometimes I just sell 'em when\n"
+	.string "the market's hot.\p"
+	.string "$"
+
+gText_Frank_Pokemon::
+	.string "$"
+
+gText_Frank_MainSpeech::
+	.string "Now this...this is a rat.\n"
+	.string "A damn special one, too.\p"
+	.string "You're gonna love this.\n"
+	.string "Charlie loves rats, big rat guy!\p"
+	.string "Spent a whole month livin’ with\n"
+	.string "a bunch of ‘em once.\p"
+	.string "Eats cheese off the floor with ‘em.\n"
+	.string "Reads bedtime stories to 'em.\p"
+	.string "Even claimed they taught him\n"
+	.string "another language or some shit like that.\p"
+	.string "Still kills 'em sometimes though,\n"
+	.string "it's hilarious!\p"
+	.string "Now, you're gonna be part of that dream.\p"
+	.string "I'm giving you the chance to\n"
+	.string "take these critters and go beat\l"
+	.string "the crap outta other kids’ pets.\p"
+	.string "You're not saving the world or anything,\n"
+	.string "but you might be king of Trashburg,\l"
+	.string "and that’s somethin’.\p"
+	.string "$"
+
+
+gText_Frank_YourePlayer::
+	.string "$"
+
+gText_Frank_AreYouReady::
+	.string "Oh yeah,\n"
+	.string "you're Charlie now.\p"
+	.string "Just lean into it.\n"
+	.string "The rats already know your scent.\p"
+	.string "The real Charlie couldn't make it.\n"
+	.string "Somethin' about glue fumes.\p"
+	.string "Join us.\p"
+	.string "Accept the rats.\p"
+	.string "Accept the trash.\p"
+	.string "Accept the destiny.\p"
+	.string "Let's go make some chaos.\p"
+	.string "$"

@@ -9,7 +9,7 @@ Route104_MrBrineysHouse_OnTransition:
 	end
 
 Route104_MrBrineysHouse_EventScript_HideRustboroRival::
-	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
+	setflag FLAG_HIDE_WAWA_PARK_RIVAL
 	return
 
 Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos::
@@ -75,9 +75,9 @@ Route104_MrBrineysHouse_EventScript_SailToDewford::
 	clearflag FLAG_HIDE_ROUTE_104_MR_BRINEY
 	setflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
 	setflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
-	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_WAWA_PARK_CITY_STATE, 8
 	setvar VAR_ROUTE104_STATE, 2
-	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
+	setflag FLAG_HIDE_WAWA_PARK_RIVAL
 	setflag FLAG_HIDE_ROUTE_104_RIVAL
 	warp MAP_ROUTE104, 13, 51
 	waitstate

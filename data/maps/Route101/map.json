@@ -14,12 +14,12 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_OLDALE_TOWN",
+      "map": "MAP_OLD_SCUMPORT",
       "offset": 0,
       "direction": "up"
     },
     {
-      "map": "MAP_LITTLEROOT_TOWN",
+      "map": "MAP_TRASHBURG",
       "offset": 0,
       "direction": "down"
     }
@@ -39,8 +39,8 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_ROUTE101_BIRCH",
-      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "local_id": "LOCALID_ROUTE101_FRANK",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_FRANK",
       "x": 4,
       "y": 43,
       "elevation": 0,
@@ -50,10 +50,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE"
+      "flag": "FLAG_HIDE_ROUTE_101_FRANK_ZIGZAGOON_BATTLE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
+      "graphics_id": "OBJ_EVENT_GFX_FRANKS_BAG",
       "x": 7,
       "y": 44,
       "elevation": 3,
@@ -62,11 +62,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route101_EventScript_BirchsBag",
-      "flag": "FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG"
+      "script": "Route101_EventScript_FranksBag",
+      "flag": "FLAG_HIDE_ROUTE_101_FRANK_STARTERS_BAG"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_FRANK",
       "x": 5,
       "y": 41,
       "elevation": 3,
@@ -75,8 +75,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ProfBirch_EventScript_RatePokedexOrRegister",
-      "flag": "FLAG_HIDE_ROUTE_101_BIRCH"
+      "script": "ProfFrank_EventScript_RatePokedexOrRegister",
+      "flag": "FLAG_HIDE_ROUTE_101_FRANK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
@@ -128,7 +128,7 @@
       "elevation": 3,
       "var": "VAR_ROUTE101_STATE",
       "var_value": "1",
-      "script": "Route101_EventScript_StartBirchRescue"
+      "script": "Route101_EventScript_StartFrankRescue"
     },
     {
       "type": "trigger",
@@ -137,7 +137,7 @@
       "elevation": 3,
       "var": "VAR_ROUTE101_STATE",
       "var_value": "1",
-      "script": "Route101_EventScript_StartBirchRescue"
+      "script": "Route101_EventScript_StartFrankRescue"
     },
     {
       "type": "trigger",

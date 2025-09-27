@@ -24,7 +24,7 @@ We will start with a graphic that we want to use for our new trainer pic. Unlike
 ### 2. Register the sprites
 Sadly, just putting the image files into the graphics folder is not enough. To use the sprites we have to register them by linking the graphic files in [`src/data/graphics/trainers.h`](./src/data/graphics/trainers.h):
 ```diff
- const u8 gTrainerBackPic_Wally[] = INCBIN_U8("graphics/trainers/back_pics/wally.4bpp");
+ const u8 gTrainerBackPic_Matthew[] = INCBIN_U8("graphics/trainers/back_pics/matthew.4bpp");
  const u8 gTrainerBackPic_Steven[] = INCBIN_U8("graphics/trainers/back_pics/steven.4bpp");
 +const u8 gTrainerBackPic_NewOne[] = INCBIN_U8("graphics/trainers/back_pics/new_one.4bpp");
 
@@ -63,7 +63,7 @@ So, finally, it needs to look like this:
 Finally, let's bring it all together by defining our new trainer pic in [`include/constants/trainers.h`](./include/constants/trainers.h):
 
 ```diff
- #define TRAINER_BACK_PIC_WALLY                  6
+ #define TRAINER_BACK_PIC_MATTHEW                  6
  #define TRAINER_BACK_PIC_STEVEN                 7
 +#define TRAINER_BACK_PIC_NEW_ONE                8
 ```

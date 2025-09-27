@@ -2025,7 +2025,7 @@ MatchCall_Text_Mom1::
 MatchCall_Text_Mom2::
 	.string "MOM: Hi, {PLAYER}!\n"
 	.string "Your father keeps himself locked\l"
-	.string "away in the PETALBURG GYM.\p"
+	.string "away in the Giant's Reach GYM.\p"
 	.string "He comes home every so often.\n"
 	.string "But he goes back to the GYM when\l"
 	.string "he's eaten everything he can.\p"
@@ -2059,11 +2059,11 @@ MatchCall_Text_Roxanne2::
 MatchCall_Text_Roxanne3::
 	.string "ROXANNE: {PLAYER}!\n"
 	.string "My GYM is ready!\p"
-	.string "Please visit RUSTBORO whenever\n"
+	.string "Please visit Wawa Park whenever\n"
 	.string "you can!$"
 
 MatchCall_Text_Roxanne4::
-	.string "ROXANNE: At the RUSTBORO GYM,\n"
+	.string "ROXANNE: At the Wawa Park GYM,\n"
 	.string "the fact that we battled, {PLAYER},\l"
 	.string "is a matter of pride.$"
 
@@ -2345,7 +2345,7 @@ MatchCall_Text_May1::
 MatchCall_Text_May2::
 	.string "MAY: Hi, {PLAYER}{KUN}!\p"
 	.string "You know how little towns like\n"
-	.string "PETALBURG and DEWFORD have GYMS?\p"
+	.string "Giant's Reach and DEWFORD have GYMS?\p"
 	.string "For some reason, the big port of\n"
 	.string "SLATEPORT doesn't have a GYM.\p"
 	.string "When they finally build a GYM there,\n"
@@ -2354,7 +2354,7 @@ MatchCall_Text_May2::
 MatchCall_Text_May3::
 	.string "MAY: Hi, {PLAYER}{KUN}!\p"
 	.string "Do you remember a man named\n"
-	.string "the CUTTER in RUSTBORO?\l"
+	.string "the CUTTER in Wawa Park?\l"
 	.string "He had a house there, remember?\p"
 	.string "Well, I found out his younger\n"
 	.string "brother lives in MAUVILLE.\p"
@@ -2367,7 +2367,7 @@ MatchCall_Text_May4::
 	.string "MAY: {PLAYER}{KUN}?\p"
 	.string "RUSTURF TUNNEL…\n"
 	.string "They named it that because it\l"
-	.string "joins RUSTBORO and VERDANTURF.$"
+	.string "joins Wawa Park and VERDANTURF.$"
 
 MatchCall_Text_May5::
 	.string "MAY: {PLAYER}{KUN}, how are you?\p"
@@ -2471,7 +2471,7 @@ MatchCall_Text_Brendan1::
 MatchCall_Text_Brendan2::
 	.string "BRENDAN: Hey, {PLAYER}!\p"
 	.string "I don't get how little towns like\n"
-	.string "PETALBURG and DEWFORD have GYMS.\p"
+	.string "Giant's Reach and DEWFORD have GYMS.\p"
 	.string "I mean, not when the big port of\n"
 	.string "SLATEPORT doesn't have a GYM.\p"
 	.string "When they finally build a GYM there,\n"
@@ -2480,7 +2480,7 @@ MatchCall_Text_Brendan2::
 MatchCall_Text_Brendan3::
 	.string "BRENDAN: Yo, {PLAYER}!\p"
 	.string "Do you remember a guy named\n"
-	.string "the CUTTER in RUSTBORO?\l"
+	.string "the CUTTER in Wawa Park?\l"
 	.string "He had a house there, right?\p"
 	.string "Well, it turns out his little\n"
 	.string "brother lives in MAUVILLE.\p"
@@ -2492,7 +2492,7 @@ MatchCall_Text_Brendan3::
 MatchCall_Text_Brendan4::
 	.string "BRENDAN: This voice… {PLAYER}?\p"
 	.string "They gave RUSTURF TUNNEL its name\n"
-	.string "because it joins RUSTBORO and\l"
+	.string "because it joins Wawa Park and\l"
 	.string "VERDANTURF.\p"
 	.string "Did you know that?$"
 
@@ -2586,37 +2586,37 @@ MatchCall_Text_Brendan15::
 	.string "with you, {PLAYER}, they get pretty\l"
 	.string "envious!$"
 
-MatchCall_Text_Wally1::
-	.string "WALLY: Oh, {PLAYER}!\p"
+MatchCall_Text_Matthew1::
+	.string "MATTHEW: Oh, {PLAYER}!\p"
 	.string "I've been getting healthier and\n"
 	.string "more physically fit.\p"
 	.string "I hope I can become a TRAINER like\n"
 	.string "you soon, {PLAYER}!$"
 
-MatchCall_Text_Wally2::
-	.string "WALLY: {PLAYER}, hello!\p"
+MatchCall_Text_Matthew2::
+	.string "MATTHEW: {PLAYER}, hello!\p"
 	.string "After RUSTURF TUNNEL went\n"
 	.string "through, WANDA's been very happy!$"
 
-MatchCall_Text_Wally3::
-	.string "WALLY: Oh, {PLAYER}!\p"
+MatchCall_Text_Matthew3::
+	.string "MATTHEW: Oh, {PLAYER}!\p"
 	.string "I… I left my uncle's place in\n"
 	.string "VERDANTURF without telling anyone.\p"
 	.string "I wonder if he's furious with me…\p"
 	.string "{PLAYER}, you understand how\n"
 	.string "I feel, don't you?$"
 
-MatchCall_Text_Wally4::
-	.string "WALLY: {PLAYER}?\n"
-	.string "It's me, WALLY!\p"
+MatchCall_Text_Matthew4::
+	.string "MATTHEW: {PLAYER}?\n"
+	.string "It's me, MATTHEW!\p"
 	.string "The world of TRAINERS is amazing!\p"
 	.string "When I have my POKéMON with me,\n"
 	.string "all sorts of people say hi!\p"
 	.string "It's as if everyone's getting\n"
 	.string "connected through POKéMON!$"
 
-MatchCall_Text_Wally5::
-	.string "WALLY: {PLAYER}? It's awesome!\n"
+MatchCall_Text_Matthew5::
+	.string "MATTHEW: {PLAYER}? It's awesome!\n"
 	.string "That RALTS we caught together?\l"
 	.string "It evolved, {PLAYER}!\p"
 	.string "Maybe I'm talented…\p"
@@ -2625,14 +2625,14 @@ MatchCall_Text_Wally5::
 	.string "After all, it's the POKéMON that\n"
 	.string "should be praised!$"
 
-MatchCall_Text_Wally6::
+MatchCall_Text_Matthew6::
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
-	.string "WALLY appears to be out of\n"
+	.string "MATTHEW appears to be out of\n"
 	.string "the POKéNAV's service area…$"
 
-MatchCall_Text_Wally7::
-	.string "WALLY: Oh, {PLAYER}!\p"
+MatchCall_Text_Matthew7::
+	.string "MATTHEW: Oh, {PLAYER}!\p"
 	.string "Before I met you, I hardly ever\n"
 	.string "left my house…\p"
 	.string "But now, I'm on an adventure with\n"
@@ -2710,7 +2710,7 @@ MatchCall_Text_Scott7::
 	.string "the POKéNAV's service area…$"
 
 MatchCall_Text_Norman1::
-	.string "DAD: In RUSTBORO, there's a man\n"
+	.string "DAD: In Wawa Park, there's a man\n"
 	.string "that goes by the odd name of\l"
 	.string "the CUTTER.\p"
 	.string "If you're in the area, you should\n"
@@ -2766,7 +2766,7 @@ MatchCall_Text_Norman8::
 	.string "What good timing!\p"
 	.string "This time, I'm going to challenge\n"
 	.string "you to battle.\p"
-	.string "I'm waiting in the PETALBURG GYM.\n"
+	.string "I'm waiting in the Giant's Reach GYM.\n"
 	.string "Accept my challenge anytime!$"
 
 MatchCall_Text_Norman9::
@@ -2831,8 +2831,8 @@ MatchCall_Text_Steven7::
 	.string "I hope we can meet again\n"
 	.string "somewhere!$"
 
-MatchCall_Text_BirchRegisterCall:
-	.string "PROF. BIRCH: Oh, {PLAYER}{KUN}!\n"
+MatchCall_Text_FrankRegisterCall:
+	.string "PROF. FRANK: Oh, {PLAYER}{KUN}!\n"
 	.string "I've already heard about you!\p"
 	.string "It seems your POKéNAV's been\n"
 	.string "upgraded with MATCH CALL.\p"
@@ -2842,12 +2842,12 @@ MatchCall_Text_BirchRegisterCall:
 	.string "out in the field.\p"
 	.string "… … … … … …$"
 
-MatchCall_Text_RegisteredBirch:
-	.string "Registered PROF. BIRCH\n"
+MatchCall_Text_RegisteredFrank:
+	.string "Registered PROF. FRANK\n"
 	.string "in the POKéNAV.$"
 
-MatchCall_Text_UnusedProfBirch:
-	.string "PROF. BIRCH: When one has both\n"
+MatchCall_Text_UnusedProfFrank:
+	.string "PROF. FRANK: When one has both\n"
 	.string "the POKéDEX and POKéNAV, studying\l"
 	.string "POKéMON becomes more fun, eh?$"
 
@@ -2882,7 +2882,7 @@ MatchCall_Text_MrStone3::
 	.string "MR. STONE: Oh! {PLAYER}{KUN}!\p"
 	.string "Ah, so you've met STEVEN!\n"
 	.string "I'd better reward you, then!\p"
-	.string "When you visit RUSTBORO again,\n"
+	.string "When you visit Wawa Park again,\n"
 	.string "come see me at my office.\p"
 	.string "I'll be waiting for you!$"
 
@@ -2899,7 +2899,7 @@ MatchCall_Text_MrStone4::
 
 MatchCall_Text_MrStone5::
 	.string "MR. STONE: Hello, hello, {PLAYER}{KUN}!\p"
-	.string "I heard from someone in PETALBURG\n"
+	.string "I heard from someone in Giant's Reach\n"
 	.string "that you're NORMAN's child!\p"
 	.string "No wonder you're such a capable\n"
 	.string "being!$"

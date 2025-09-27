@@ -618,7 +618,7 @@
 			.2byte \localId
 			.4byte \movements
 		.else
-			@ Really only useful if the object has followed from one map to another (e.g. Wally during the catching event).
+			@ Really only useful if the object has followed from one map to another (e.g. Matthew during the catching event).
 			.byte SCR_OP_APPLYMOVEMENTAT
 			.2byte \localId
 			.4byte \movements
