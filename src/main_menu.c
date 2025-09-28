@@ -1296,6 +1296,8 @@ static void Task_NewGameFrankSpeech_Init(u8 taskId)
     FreeAllSpritePalettes();
     ResetAllPicSprites();
     AddFrankSpeechObjects(taskId);
+    // Start timer early for trainer ID randomness (normally done when entering naming screen)
+    StartTimer1();
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
     gTasks[taskId].tBG1HOFS = 0;
     gTasks[taskId].func = Task_NewGameFrankSpeech_WaitToShowFrank;
@@ -1632,6 +1634,9 @@ static void Task_NewGameFrankSpeech_AreYouReady(u8 taskId)
         gSprites[spriteId].invisible = FALSE;
         gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         gTasks[taskId].tPlayerSpriteId = spriteId;
+        // Seed RNG for trainer ID generation (normally done when exiting naming screen)
+        // Timer was started much earlier, so now we have proper randomness
+        SeedRngAndSetTrainerId();
         NewGameFrankSpeech_StartFadeInTarget1OutTarget2(taskId, 2);
         NewGameFrankSpeech_StartFadePlatformOut(taskId, 1);
         StringExpandPlaceholders(gStringVar4, gText_Frank_AreYouReady);
