@@ -38,7 +38,7 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
     {
         .mapSecId = MAPSEC_GIANTS_REACH,
         .index = 0,
-        .tilemap = gPokenavCityMap_GiantsReach_0,
+        .tilemap = gPokenavCityMap_Petalburg_0,
     },
     {
         .mapSecId = MAPSEC_SLATEPORT_CITY,
