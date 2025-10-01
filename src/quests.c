@@ -283,7 +283,7 @@ static const struct SubQuest sSubQuests1[QUEST_1_SUB_COUNT] =
 	      sText_Found
 	),
 
-	sub_quest(
+		sub_quest(
 	      3,
 	      gText_SubQuest1_Name4,
 	      gText_SubQuest1_Desc4,
@@ -594,7 +594,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      gText_SideQuestDesc_1,
 	      gText_SideQuestDoneDesc_1,
 	      gText_SideQuestMap1,
-	      OBJ_EVENT_GFX_GIRL_3,
+	      OBJ_EVENT_GFX_GIRL_2,
 	      OBJECT,
 		  NULL,
 		  0
@@ -614,7 +614,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      gText_SideQuestDesc_3,
 	      gText_SideQuestDoneDesc_3,
 	      gText_SideQuestMap3,
-	      OBJ_EVENT_GFX_MATTHEW,
+	      OBJ_EVENT_GFX_PROF_FRANK,
 	      OBJECT,
 	      NULL,
 	      0
@@ -2087,7 +2087,7 @@ void GenerateQuestFlavorText(s32 questId)
 }
 void UpdateQuestFlavorText(s32 questId)
 {
-	StringCopy(gStringVar1, sSideQuests[questId].desc);
+		StringCopy(gStringVar1, sSideQuests[questId].desc);
 }
 void PrintQuestFlavorText(s32 questId)
 {
@@ -2295,15 +2295,15 @@ static void GenerateStateAndPrint(u8 windowId, u32 questId,
 u8 GenerateSubquestState(u8 questId)
 {
 	u8 parentQuest = sStateDataPtr->parentQuest;
-
+	
 	if (QuestMenu_GetSetSubquestState(parentQuest, FLAG_GET_COMPLETED,
 	                                  questId))
-	{
-		StringCopy(gStringVar4, sSideQuests[parentQuest].subquests[questId].type);
-	}
-	else
-	{
-		StringCopy(gStringVar4, sText_Empty);
+		{
+			StringCopy(gStringVar4, sSideQuests[parentQuest].subquests[questId].type);
+		}
+		else
+		{
+			StringCopy(gStringVar4, sText_Empty);
 	}
 
 	return 2;

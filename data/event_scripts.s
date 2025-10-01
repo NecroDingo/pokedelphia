@@ -602,8 +602,6 @@ EventScript_AfterWhiteOutHeal::
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	call_if_unset FLAG_DEFEATED_WAWA_PARK_GYM, EventScript_AfterWhiteOutHealMsgPreRoxanne
 	call_if_set FLAG_DEFEATED_WAWA_PARK_GYM, EventScript_AfterWhiteOutHealMsg
-	applymovement VAR_LAST_TALKED, Movement_PkmnCenterNurse_Bow
-	waitmovement 0
 	fadedefaultbgm
 	releaseall
 	end
@@ -713,7 +711,7 @@ Common_ShowEasyChatScreen::
 	fadescreen FADE_FROM_BLACK
 	return
 
-Common_EventScript_ReadyPetalburgGymForBattle::
+Common_EventScript_ReadyGiantsReachGymForBattle::
 	clearflag FLAG_HIDE_GIANTSREACH_GYM_GREETER
 	setflag FLAG_GIANTS_REACH_MART_EXPANDED_ITEMS
 	return
@@ -933,17 +931,18 @@ gText_PlayerWhitedOut::
 	.string "POKéMON!\p{PLAYER} whited out!$"
 
 gText_FirstShouldRestoreMonsHealth::
-	.string "Of course they all died…\n"
-	.string "I’ll fix up your dumb little monsters.\p"
-	.string "Don’t get used to this though, okay?\n$"
+	.string "Of course they all died...\n"
+	.string "Looks like a skill issue to me.\p"
+	.string "Yes, I'll heal them,\n"
+	.string "just don't get used to this, okay?$"
 
 gText_MonsHealedShouldBuyPotions::
-	.string "Alright, your Pokémon are healed.\n"
-	.string "Perfect health, whatever.\p"
-	.string "But, like, if they get their asses kicked again,\n"
-	.string "don’t come crying to me.\p"
-	.string "Go grab some Potions at the Mart\n"
-	.string "and stop being such a mess.$"
+	.string "Alright, your Pokémon are healed.\p"
+	.string "Do better Charlie. Don't abuse your\n"
+	.string "Pokémon like that.\p"
+	.string "Go grab some Potions at the Mart or\n"
+	.string "something and stop being such a mess.\p"
+	.string "Now leave me alone!\n$"
 
 gText_MonsHealed::
 	.string "Yeah, they’re healed. Great.\n"
