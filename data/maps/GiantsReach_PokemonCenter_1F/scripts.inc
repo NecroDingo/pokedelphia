@@ -25,18 +25,18 @@ GiantsReach_PokemonCenter_EventScript_NurseIntro::
 	call GiantsReach_PokemonCenter_EventScript_NurseIntroMovement
 	msgbox GiantsReach_PokemonCenter_Text_NurseIntro2, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_PETALBURG_NURSE, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_GIANTS_REACH_NURSE, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 180
-	applymovement LOCALID_PETALBURG_NURSE, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_GIANTS_REACH_NURSE, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	msgbox GiantsReach_PokemonCenter_Text_NurseIntro3, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_PETALBURG_NURSE, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_GIANTS_REACH_NURSE, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	waitmovement 0
-	applymovement LOCALID_PETALBURG_NURSE, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_GIANTS_REACH_NURSE, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	msgbox gText_ThankYouForWaiting, MSGBOX_DEFAULT
 	closemessage
@@ -89,7 +89,7 @@ GiantsReach_PokemonCenter_Text_NurseIntro3:
 	.string "for? Give me your POKéMON...$"
 
 GiantsReach_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_PETALBURG_NURSE
+	setvar VAR_0x800B, LOCALID_GIANTS_REACH_NURSE
 	call Common_EventScript_PkmnCenterNurse
 	waitmessage
 	waitbuttonpress

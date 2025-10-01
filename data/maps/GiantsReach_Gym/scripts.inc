@@ -291,7 +291,7 @@ GiantsReach_Gym_EventScript_MatthewFaceDown::
 	return
 
 GiantsReach_Gym_EventScript_NormanNoBadges::
-	msgbox GiantsReach_Gym_Text_NormanGoToRustboro, MSGBOX_DEFAULT
+	msgbox GiantsReach_Gym_Text_NormanGoToWawaPark, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1046,60 +1046,60 @@ GiantsReach_Gym_EventScript_OpenOHKORoomDoors::
 	return
 
 GiantsReach_Gym_EventScript_SetEntranceRoomDoorMetatiles::
-	setmetatile 6, 85, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 85, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 98, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 98, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 6, 85, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 7, 85, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
+	setmetatile 1, 98, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 2, 98, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SetSpeedRoomDoorMetatiles::
-	setmetatile 6, 46, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 46, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 59, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 59, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 6, 46, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 7, 46, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
+	setmetatile 1, 59, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 2, 59, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SetAccuracyRoomDoorMetatiles::
-	setmetatile 6, 59, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 59, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 72, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 72, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 6, 59, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 7, 59, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
+	setmetatile 1, 72, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 2, 72, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SetConfusionRoomDoorMetatiles::
-	setmetatile 1, 20, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 20, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 1, 20, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 2, 20, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SetDefenseRoomDoorMetatiles::
-	setmetatile 6, 20, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 20, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
-	setmetatile 1, 33, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 33, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 6, 20, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 7, 20, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
+	setmetatile 1, 33, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 2, 33, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SetRecoveryRoomDoorMetatiles::
-	setmetatile 6, 33, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 33, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 6, 33, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 7, 33, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SetStrengthRoomDoorMetatiles::
-	setmetatile 1, 7, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 2, 7, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 1, 7, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 2, 7, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SetOHKORoomDoorMetatiles::
-	setmetatile 6, 7, METATILE_PetalburgGym_RoomEntrance_Left, FALSE
-	setmetatile 7, 7, METATILE_PetalburgGym_RoomEntrance_Right, FALSE
+	setmetatile 6, 7, METATILE_GiantsReachGym_RoomEntrance_Left, FALSE
+	setmetatile 7, 7, METATILE_GiantsReachGym_RoomEntrance_Right, FALSE
 	return
 
 GiantsReach_Gym_EventScript_SlideOpenRoomDoors::
-	special PetalburgGymSlideOpenRoomDoors
+	special GiantsReachGymSlideOpenRoomDoors
 	waitstate
 	return
 
 GiantsReach_Gym_EventScript_UnlockRoomDoors::
-	special PetalburgGymUnlockRoomDoors
+	special GiantsReachGymUnlockRoomDoors
 	return
 
 GiantsReach_Gym_EventScript_GymGuide::
@@ -1264,9 +1264,9 @@ GiantsReach_Gym_Text_DadGoCollectBadges:
 	.string "..................\l"
 	.string "Just be ready.$"
 
-GiantsReach_Gym_Text_NormanGoToRustboro:
+GiantsReach_Gym_Text_NormanGoToWawaPark:
 	.string "UNCLE JACK: Hm? Aren't you going to the\n"
-	.string "POKéMON GYM in WAWA PARK?\p"
+	.string "POKéMON GYM in Wawa Park?\p"
 	.string "There's no challenge for me to\n"
 	.string "battle a greenhorn TRAINER.\p"
 	.string "{PLAYER}, I want you to challenge me\n"

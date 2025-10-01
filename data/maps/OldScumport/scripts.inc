@@ -6,7 +6,7 @@ OldScumport_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	setflag FLAG_VISITED_OLD_SCUMPORT
 	call_if_eq VAR_OLD_SCUMPORT_TOWN_STATE, 0, OldScumport_EventScript_BlockWestEntrance
-	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldScumport_EventScript_MoveMartEmployee
+	call_if_unset FLAG_RECEIVED_POTION_OLD_SCUMPORT, OldScumport_EventScript_MoveMartEmployee
 	end
 
 OldScumport_EventScript_BlockWestEntrance::
@@ -26,7 +26,7 @@ OldScumport_EventScript_TownSign::
 OldScumport_EventScript_MartEmployee::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_POTION_OLDALE, OldScumport_EventScript_ExplainPotion
+	goto_if_set FLAG_RECEIVED_POTION_OLD_SCUMPORT, OldScumport_EventScript_ExplainPotion
 	goto_if_set FLAG_TEMP_1, OldScumport_EventScript_ExplainPotion
 	setflag FLAG_TEMP_1
 	playbgm MUS_FOLLOW_ME, FALSE
@@ -46,7 +46,7 @@ OldScumport_EventScript_ExplainPokemonMart::
 	giveitem ITEM_POTION, 10
 	goto_if_eq VAR_RESULT, FALSE, OldScumport_EventScript_BagIsFull
 	msgbox OldScumport_Text_PotionExplanation, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_POTION_OLDALE
+	setflag FLAG_RECEIVED_POTION_OLD_SCUMPORT
 	setvar VAR_MART_CALL, 1
 	fadedefaultbgm
 	release
@@ -181,6 +181,7 @@ OldScumport_EventScript_MartEmployeeCall1::
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
 	waitmovement 0
 	msgbox OldScumport_Text_IWorkAtPokemonMart, MSGBOX_DEFAULT
@@ -195,6 +196,7 @@ OldScumport_EventScript_MartEmployeeCall1::
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
 	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
@@ -211,6 +213,7 @@ OldScumport_EventScript_MartEmployeeCall1::
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
 	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
@@ -429,7 +432,7 @@ OldScumport_EventScript_LadyElizabeth_Offer:
 
 OldScumport_EventScript_LadyElizabeth_Accept:
 	msgbox OldScumport_Text_LadyElizabethAccept, MSGBOX_NPC
-	startquesttop QUEST_1_FIND_CHESTO 
+	startquest QUEST_1_FIND_CHESTO 
 	release
 	end
 
@@ -444,7 +447,7 @@ OldScumport_EventScript_LadyElizabeth_TurnIn:
 	faceplayer
 	msgbox OldScumport_Text_LadyElizabethTurnIn, MSGBOX_NPC
 	removeitem ITEM_CHESTO_BERRY, 1
-	completequesttop QUEST_1_FIND_CHESTO
+	completequest QUEST_1_FIND_CHESTO
 	msgbox OldScumport_Text_LadyElizabethTurnIn2, MSGBOX_NPC
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
@@ -480,13 +483,13 @@ OldScumport_Text_LadyElizabethAccept:
 	.string "one.\p"
 	.string "I can’t deal with this nonsense much\n"
 	.string "longer.\p"
-	.string "I swear,\n"
-	.string "if I have to listen to him snore one\l"
-	.string "more time...$"
+	.string "I swear, if I have to listen\n"
+	.string "to him snore one more time...$"
+
 
 OldScumport_Text_LadyElizabethDecline:
 	.string "Look, I’m not going back after that\n"
-	.string "Drowzee.\p"
+	.string "Drowzee...\p"
 	.string "I’ve got better things to do\n"
 	.string "than play tag with a sleepy Pokémon.\p"
 	.string "I’ll owe you one.$"

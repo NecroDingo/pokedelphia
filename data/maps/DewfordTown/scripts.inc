@@ -9,21 +9,21 @@ DewfordTown_OnTransition:
 DewfordTown_EventScript_Briney::
 	lock
 	faceplayer
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToPetalburgPrompt
+	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, DewfordTown_EventScript_ReturnToGiantsReachPrompt
 	message DewfordTown_Text_WhereAreWeBound
 	waitmessage
 	multichoicedefault 21, 6, MULTI_BRINEY_ON_DEWFORD, 2, FALSE
 	switch VAR_RESULT
-	case 0, DewfordTown_EventScript_ChoosePetalburg
+	case 0, DewfordTown_EventScript_ChooseGiantsReach
 	case 1, DewfordTown_EventScript_ChooseSlateport
 	case 2, DewfordTown_EventScript_CancelSailSelect
 	case MULTI_B_PRESSED, DewfordTown_EventScript_CancelSailSelect
 	end
 
-DewfordTown_EventScript_ChoosePetalburg::
-	msgbox DewfordTown_Text_PetalburgWereSettingSail, MSGBOX_DEFAULT
+DewfordTown_EventScript_ChooseGiantsReach::
+	msgbox DewfordTown_Text_GiantsReachWereSettingSail, MSGBOX_DEFAULT
 	closemessage
-	goto DewfordTown_EventScript_SailToPetalburg
+	goto DewfordTown_EventScript_SailToGiantsReach
 	release
 	end
 
@@ -40,17 +40,17 @@ DewfordTown_EventScript_CancelSailSelect::
 	release
 	end
 
-DewfordTown_EventScript_ReturnToPetalburgPrompt::
-	msgbox DewfordTown_Text_SetSailBackToPetalburg, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_SailBackToPetalburg
+DewfordTown_EventScript_ReturnToGiantsReachPrompt::
+	msgbox DewfordTown_Text_SetSailBackToGiantsReach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_SailBackToGiantsReach
 	msgbox DewfordTown_Text_GoDeliverIllBeWaiting, MSGBOX_DEFAULT
 	release
 	end
 
-DewfordTown_EventScript_SailBackToPetalburg::
-	msgbox DewfordTown_Text_PetalburgWereSettingSail2, MSGBOX_DEFAULT
+DewfordTown_EventScript_SailBackToGiantsReach::
+	msgbox DewfordTown_Text_GiantsReachWereSettingSail2, MSGBOX_DEFAULT
 	closemessage
-	goto DewfordTown_EventScript_SailToPetalburg
+	goto DewfordTown_EventScript_SailToGiantsReach
 	end
 
 DewfordTown_EventScript_Woman::
@@ -110,7 +110,7 @@ DewfordTown_EventScript_FishingNotSoGood::
 	release
 	end
 
-DewfordTown_EventScript_SailToPetalburg::
+DewfordTown_EventScript_SailToGiantsReach::
 	call EventScript_BackupMrBrineyLocation
 	setobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN, 0
 	setobjectsubpriority LOCALID_PLAYER, MAP_DEWFORD_TOWN, 0
@@ -121,12 +121,12 @@ DewfordTown_EventScript_SailToPetalburg::
 	waitmovement 0
 	hideobjectat LOCALID_PLAYER, MAP_DEWFORD_TOWN
 	call Common_EventScript_PlayBrineysBoatMusic
-	applymovement LOCALID_DEWFORD_BOAT, DewfordTown_Movement_SailToPetalburg
-	applymovement LOCALID_PLAYER, DewfordTown_Movement_SailToPetalburg
+	applymovement LOCALID_DEWFORD_BOAT, DewfordTown_Movement_SailToGiantsReach
+	applymovement LOCALID_PLAYER, DewfordTown_Movement_SailToGiantsReach
 	waitmovement 0
 	showobjectat LOCALID_PLAYER, MAP_ROUTE104
 	call Common_EventScript_StopBrineysBoatMusic
-	applymovement LOCALID_PLAYER, DewfordTown_Movement_ExitBoatPetalburg
+	applymovement LOCALID_PLAYER, DewfordTown_Movement_ExitBoatGiantsReach
 	waitmovement 0
 	showobjectat LOCALID_PLAYER, MAP_ROUTE104
 	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
@@ -188,7 +188,7 @@ DewfordTown_EventScript_LandedSlateport::
 	msgbox DewfordTown_Text_BrineyLandedInSlateport, MSGBOX_DEFAULT
 	return
 
-DewfordTown_Movement_SailToPetalburg:
+DewfordTown_Movement_SailToGiantsReach:
 	walk_up
 	walk_up
 	walk_fast_up
@@ -564,7 +564,7 @@ DewfordTown_Movement_PlayerBoardBoat:
 	walk_up
 	step_end
 
-DewfordTown_Movement_ExitBoatPetalburg:
+DewfordTown_Movement_ExitBoatGiantsReach:
 	walk_up
 	walk_up
 	walk_up
@@ -651,13 +651,13 @@ Route104_Text_LandedInDewfordDeliverLetter:
 	.string "I suppose you're off to deliver that\n"
 	.string "LETTER to, who was it now, STEVEN!$"
 
-DewfordTown_Text_SetSailBackToPetalburg:
+DewfordTown_Text_SetSailBackToGiantsReach:
 	.string "MR. BRINEY: Have you delivered your\n"
 	.string "LETTER?\p"
 	.string "Or were you meaning to sail back to\n"
 	.string "Giant's Reach?$"
 
-DewfordTown_Text_PetalburgWereSettingSail2:
+DewfordTown_Text_GiantsReachWereSettingSail2:
 	.string "MR. BRINEY: Giant's Reach it is, then!\p"
 	.string "Anchors aweigh!\n"
 	.string "PEEKO, we're setting sail, my darling!$"
@@ -677,7 +677,7 @@ DewfordTown_Text_WhereAreWeBound:
 	.string "For you, I'll go out to sea anytime!\p"
 	.string "Now, my friend, where are we bound?$"
 
-DewfordTown_Text_PetalburgWereSettingSail:
+DewfordTown_Text_GiantsReachWereSettingSail:
 	.string "MR. BRINEY: Giant's Reach, is it?\p"
 	.string "Anchors aweigh!\n"
 	.string "PEEKO, we're setting sail, my darling!$"
