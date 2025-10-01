@@ -11,7 +11,7 @@ gText_PlayerWhatCanIDoForYou::
 	.string "Hey Charlie, you're back.\p"
 	.string "Alright, what do ya need this time?$"
 
-gText_MyBrotherInOldale::
+gText_MyBrotherInOldScumport::
 	.string "Oh.. Hey there {PLAYER}.\p"
 	.string "My brother down in OLD SCUMPORT\n"
 	.string "told me he saw you the other day.\p"

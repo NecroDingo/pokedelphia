@@ -28,10 +28,12 @@ contest_types := cool beauty cute smart tough
 
 ### Tilesets ###
 
-$(TILESETGFXDIR)/secondary/petalburg/tiles.4bpp: %.4bpp: %.png
+# Giant's Reach (formerly GiantsReach) tileset
+$(TILESETGFXDIR)/secondary/giantsreach/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 159 -Wnum_tiles
 
-$(TILESETGFXDIR)/secondary/rustboro/tiles.4bpp: %.4bpp: %.png
+# Wawa Park (formerly WawaPark) tileset  
+$(TILESETGFXDIR)/secondary/wawapark/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 498 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/dewford/tiles.4bpp: %.4bpp: %.png
@@ -160,7 +162,8 @@ $(TILESETGFXDIR)/secondary/mauville_game_corner/tiles.4bpp: %.4bpp: %.png
 $(TILESETGFXDIR)/secondary/unused_2/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 150 -Wnum_tiles
 
-$(TILESETGFXDIR)/secondary/rustboro_gym/tiles.4bpp: %.4bpp: %.png
+# Wawa Park Gym (formerly Rustboro Gym) tileset
+$(TILESETGFXDIR)/secondary/wawapark_gym/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 60 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/dewford_gym/tiles.4bpp: %.4bpp: %.png

@@ -1,4 +1,5 @@
 #include "fieldmap.h"
+#include "tileset_anims.h"
 
 // Whether a palette has a night version, located at ((x + 9) % 16).pal
 #define SWAP_PAL(x) ((x) < NUM_PALS_IN_PRIMARY ? 1 << (x) : 1 << ((x) - NUM_PALS_IN_PRIMARY))
@@ -14,15 +15,15 @@ const struct Tileset gTileset_General =
     .callback = InitTilesetAnim_General,
 };
 
-const struct Tileset gTileset_Petalburg =
+const struct Tileset gTileset_GiantsReach =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_Petalburg,
-    .palettes = gTilesetPalettes_Petalburg,
-    .metatiles = gMetatiles_Petalburg,
-    .metatileAttributes = gMetatileAttributes_Petalburg,
-    .callback = InitTilesetAnim_Petalburg,
+    .tiles = gTilesetTiles_GiantsReach,
+    .palettes = gTilesetPalettes_GiantsReach,
+    .metatiles = gMetatiles_GiantsReach,
+    .metatileAttributes = gMetatileAttributes_GiantsReach,
+    .callback = InitTilesetAnim_GiantsReach,
 };
 
 const struct Tileset gTileset_Rustboro =
@@ -498,14 +499,14 @@ const struct Tileset gTileset_Underwater =
     .callback = InitTilesetAnim_Underwater,
 };
 
-const struct Tileset gTileset_PetalburgGym =
+const struct Tileset gTileset_GiantsReachGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_PetalburgGym,
-    .palettes = gTilesetPalettes_PetalburgGym,
-    .metatiles = gMetatiles_PetalburgGym,
-    .metatileAttributes = gMetatileAttributes_PetalburgGym,
+    .tiles = gTilesetTiles_GiantsReachGym,
+    .palettes = gTilesetPalettes_GiantsReachGym,
+    .metatiles = gMetatiles_GiantsReachGym,
+    .metatileAttributes = gMetatileAttributes_GiantsReachGym,
     .callback = NULL,
 };
 

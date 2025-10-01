@@ -13,7 +13,7 @@
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
 #define TRAINER_GABRIELLE_1                   9
-#define TRAINER_GRUNT_PETALBURG_WOODS        10
+#define TRAINER_GRUNT_SCRAPPLE_HOLLOW        10
 #define TRAINER_MARCEL                       11
 #define TRAINER_ALBERTO                      12
 #define TRAINER_ED                           13
@@ -602,8 +602,8 @@
 #define TRAINER_GRUNT_WEATHER_INST_5        596
 #define TRAINER_TABITHA_MT_CHIMNEY          597
 #define TRAINER_JONATHAN                    598
-#define TRAINER_BRENDAN_RUSTBORO_ARON       599  // Unused
-#define TRAINER_MAY_RUSTBORO_ARON           600
+#define TRAINER_BRENDAN_WAWA_PARK_ARON       599  // Unused
+#define TRAINER_MAY_WAWA_PARK_ARON           600
 #define TRAINER_MAXIE_MAGMA_HIDEOUT         601
 #define TRAINER_MAXIE_MT_CHIMNEY            602
 #define TRAINER_TIANA                       603
@@ -771,8 +771,8 @@
 #define TRAINER_MYLES                       765
 #define TRAINER_PAT                         766
 #define TRAINER_CRISTIN_1                   767
-#define TRAINER_MAY_RUSTBORO_BULBASAUR      768
-#define TRAINER_MAY_RUSTBORO_GIBLE          769
+#define TRAINER_MAY_WAWA_PARK_BULBASAUR      768
+#define TRAINER_MAY_WAWA_PARK_GIBLE          769
 #define TRAINER_ROXANNE_2                   770
 #define TRAINER_ROXANNE_3                   771
 #define TRAINER_ROXANNE_4                   772

@@ -151,7 +151,7 @@
 #define FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN  0x81
 #define FLAG_DEFEATED_RIVAL_ROUTE103         0x82
 #define FLAG_RECEIVED_DOLL_LANETTE           0x83
-#define FLAG_RECEIVED_POTION_OLDALE          0x84
+#define FLAG_RECEIVED_POTION_OLD_SCUMPORT          0x84
 #define FLAG_DISABLE_OLD_SCUMPORTMART_EMPLOYEE_CALL 0x85
 #define FLAG_RECEIVED_AMULET_COIN            0x85
 #define FLAG_PENDING_DAYCARE_EGG             0x86
@@ -231,9 +231,9 @@
 #define FLAG_GOT_BASEMENT_KEY_FROM_WATTSON   0xD0
 #define FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON 0xD1
 #define FLAG_FAN_CLUB_STRENGTH_SHARED        0xD2 // Set when you rate the strength of another trainer in Lilycove's Trainer Fan Club.
-#define FLAG_DEFEATED_RIVAL_RUSTBORO         0xD3
+#define FLAG_DEFEATED_RIVAL_WAWA_PARK         0xD3
 #define FLAG_RECEIVED_RED_OR_BLUE_ORB        0xD4
-#define FLAG_RECEIVED_PREMIER_BALL_RUSTBORO  0xD5
+#define FLAG_RECEIVED_PREMIER_BALL_WAWA_PARK  0xD5
 #define FLAG_ENABLE_MATTHEW_MATCH_CALL         0xD6
 #define FLAG_ENABLE_SCOTT_MATCH_CALL         0xD7
 #define FLAG_ENABLE_MOM_MATCH_CALL           0xD8
@@ -312,7 +312,7 @@
 #define FLAG_RECEIVED_DEVON_SCOPE            0x11D
 #define FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE  0x11E
 #define FLAG_MET_DEVON_EMPLOYEE              0x11F
-#define FLAG_MET_RIVAL_RUSTBORO              0x120
+#define FLAG_MET_RIVAL_WAWA_PARK              0x120
 #define FLAG_RECEIVED_SILK_SCARF             0x121
 #define FLAG_NOT_READY_FOR_BATTLE_ROUTE_120  0x122
 #define FLAG_RECEIVED_SS_TICKET              0x123
@@ -334,7 +334,7 @@
 #define FLAG_STEVEN_GUIDES_TO_CAVE_OF_ORIGIN 0x133 // Set after you follow Steven to the entrance of the Cave of Origin.
 #define FLAG_MET_ARCHIE_SOOTOPOLIS           0x134
 #define FLAG_MET_MAXIE_SOOTOPOLIS            0x135
-#define FLAG_MET_SCOTT_RUSTBORO              0x136
+#define FLAG_MET_SCOTT_WAWA_PARK              0x136
 #define FLAG_WALLACE_GOES_TO_SKY_PILLAR      0x137 // Set after speaking to Wallace within the Cave of Origin.
 #define FLAG_RECEIVED_HM_WATERFALL           0x138
 #define FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS    0x139
@@ -446,7 +446,7 @@
 #define FLAG_REGISTERED_TRENT                (TRAINER_REGISTERED_FLAGS_START + REMATCH_TRENT)
 #define FLAG_REGISTERED_SAWYER               (TRAINER_REGISTERED_FLAGS_START + REMATCH_SAWYER)
 #define FLAG_REGISTERED_KIRA_AND_DAN         (TRAINER_REGISTERED_FLAGS_START + REMATCH_KIRA_AND_DAN)
-#define FLAG_REGISTERED_MATTHEW                (TRAINER_REGISTERED_FLAGS_START + REMATCH_MATTHEW)
+#define FLAG_REGISTERED_MATTHEW              (TRAINER_REGISTERED_FLAGS_START + REMATCH_MATTHEW)
 #define FLAG_REGISTERED_ROXANNE              (TRAINER_REGISTERED_FLAGS_START + REMATCH_ROXANNE)
 #define FLAG_REGISTERED_BRAWLY               (TRAINER_REGISTERED_FLAGS_START + REMATCH_BRAWLY)
 #define FLAG_REGISTERED_WATTSON              (TRAINER_REGISTERED_FLAGS_START + REMATCH_WATTSON)
@@ -602,10 +602,10 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_110_FULL_HEAL                 (FLAG_HIDDEN_ITEMS_START + 0x37)
 #define FLAG_HIDDEN_ITEM_ROUTE_111_PROTEIN                   (FLAG_HIDDEN_ITEMS_START + 0x38)
 #define FLAG_HIDDEN_ITEM_ROUTE_111_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x39)
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POTION              (FLAG_HIDDEN_ITEMS_START + 0x3A)
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_1     (FLAG_HIDDEN_ITEMS_START + 0x3B)
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_2     (FLAG_HIDDEN_ITEMS_START + 0x3C)
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POKE_BALL           (FLAG_HIDDEN_ITEMS_START + 0x3D)
+#define FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_POTION              (FLAG_HIDDEN_ITEMS_START + 0x3A)
+#define FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_TINY_MUSHROOM_1     (FLAG_HIDDEN_ITEMS_START + 0x3B)
+#define FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_TINY_MUSHROOM_2     (FLAG_HIDDEN_ITEMS_START + 0x3C)
+#define FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_POKE_BALL           (FLAG_HIDDEN_ITEMS_START + 0x3D)
 #define FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL                 (FLAG_HIDDEN_ITEMS_START + 0x3E)
 #define FLAG_HIDDEN_ITEM_ROUTE_106_POKE_BALL                 (FLAG_HIDDEN_ITEMS_START + 0x3F)
 #define FLAG_HIDDEN_ITEM_ROUTE_109_ETHER                     (FLAG_HIDDEN_ITEMS_START + 0x40)
@@ -639,7 +639,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1             (FLAG_HIDDEN_ITEMS_START + 0x5C)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5E)
-#define FLAG_HIDDEN_ITEM_GIANTS_REACH_NUGGET               (FLAG_HIDDEN_ITEMS_START + 0x5F)
+#define FLAG_HIDDEN_ITEM_GIANTS_REACH_NUGGET                 (FLAG_HIDDEN_ITEMS_START + 0x5F)
 #define FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES             (FLAG_HIDDEN_ITEMS_START + 0x60)
 #define FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE               (FLAG_HIDDEN_ITEMS_START + 0x61)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET                    (FLAG_HIDDEN_ITEMS_START + 0x62)
@@ -661,13 +661,14 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_PEARL               (FLAG_HIDDEN_ITEMS_START + 0x72)
 #define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_TM_DOUBLE_TEAM      (FLAG_HIDDEN_ITEMS_START + 0x73)
 #define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_REPEL               (FLAG_HIDDEN_ITEMS_START + 0x74)
+#define FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL            (FLAG_HIDDEN_ITEMS_START + 0x75)
 
-#define FLAG_GIANTS_REACH_NURSE_INTRO_DONE                      0x264 // Petalburg Nurse intro
-#define FLAG_OLD_SCUMPORT_NURSE_INTRO_DONE                         0x265 // Oldale Nurse intro
+#define FLAG_GIANTS_REACH_NURSE_INTRO_DONE                      0x264 // Giants Reach Nurse intro
+#define FLAG_OLD_SCUMPORT_NURSE_INTRO_DONE                         0x265 // Old Scumport Nurse intro
 
 #define FLAG_EXP_SHARE_TOGGLE                                0x266 // Toggles Exp. Share on/off
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
+#define FLAG_HIDE_FRANK_QUEST3_COMPLETE                      0x267 // Hides Frank after completing his quest in Matthews House
+#define FLAG_HIDE_FRANK_BEFORE_QUEST_3                       0x268 // Hides Frank before starting his quest in Matthews House
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
@@ -777,21 +778,21 @@
 #define FLAG_HIDE_TRASHBURG_FRANKS_LAB_FRANK                        0x2D1
 #define FLAG_HIDE_TRASHBURG_MAYS_HOUSE_RIVAL_BEDROOM                0x2D2
 #define FLAG_HIDE_ROUTE_103_RIVAL                                   0x2D3
-#define FLAG_HIDE_PETALBURG_WOODS_DEVON_EMPLOYEE                    0x2D4
-#define FLAG_HIDE_PETALBURG_WOODS_AQUA_GRUNT                        0x2D5
-#define FLAG_HIDE_GIANTS_REACH_MATTHEW                                0x2D6
+#define FLAG_HIDE_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE                    0x2D4
+#define FLAG_HIDE_SCRAPPLE_HOLLOW_AQUA_GRUNT                        0x2D5
+#define FLAG_HIDE_GIANTS_REACH_MATTHEW                              0x2D6
 #define FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_INVISIBLE_NINJA_BOY   0x2D7
-#define FLAG_HIDE_GIANTS_REACH_MATTHEWS_MOM                           0x2D8
+#define FLAG_HIDE_GIANTS_REACH_MATTHEWS_MOM                         0x2D8
 
-#define FLAG_UNUSED_0x2D9                                           0x2D9 // Unused Flag
+#define FLAG_HIDE_FRANK_GIANTS_REACH                                0x2D9 // Flag for Frank in Giants' Reach Quest 3
 
 #define FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER                     0x2DA
-#define FLAG_HIDE_WAWA_PARK_AQUA_GRUNT                          0x2DB
-#define FLAG_HIDE_WAWA_PARK_DEVON_EMPLOYEE_1                    0x2DC
+#define FLAG_HIDE_WAWA_PARK_AQUA_GRUNT                              0x2DB
+#define FLAG_HIDE_WAWA_PARK_DEVON_EMPLOYEE_1                        0x2DC
 #define FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_KYOGRE_ASLEEP              0x2DD
 #define FLAG_HIDE_PLAYERS_HOUSE_DAD                                 0x2DE
-#define FLAG_HIDE_TRASHBURG_BRENDANS_HOUSE_RIVAL_SIBLING      0x2DF
-#define FLAG_HIDE_TRASHBURG_MAYS_HOUSE_RIVAL_SIBLING          0x2E0
+#define FLAG_HIDE_TRASHBURG_BRENDANS_HOUSE_RIVAL_SIBLING            0x2DF
+#define FLAG_HIDE_TRASHBURG_MAYS_HOUSE_RIVAL_SIBLING                0x2E0
 #define FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_MAGMA_NOTE             0x2E1
 #define FLAG_HIDE_ROUTE_104_MR_BRINEY                               0x2E2
 #define FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY                           0x2E3
@@ -800,17 +801,17 @@
 #define FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT                          0x2E6
 #define FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN                       0x2E7
 #define FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT                          0x2E8
-#define FLAG_HIDE_TRASHBURG_BRENDANS_HOUSE_BRENDAN            0x2E9
-#define FLAG_HIDE_TRASHBURG_MAYS_HOUSE_MAY                    0x2EA
+#define FLAG_HIDE_TRASHBURG_BRENDANS_HOUSE_BRENDAN                  0x2E9
+#define FLAG_HIDE_TRASHBURG_MAYS_HOUSE_MAY                          0x2EA
 #define FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION                  0x2EB
 #define FLAG_HIDE_LILYCOVE_HARBOR_EVENT_TICKET_TAKER                0x2EC
 #define FLAG_HIDE_SLATEPORT_CITY_SCOTT                              0x2ED
 #define FLAG_HIDE_ROUTE_101_ZIGZAGOON                               0x2EE
-#define FLAG_HIDE_VICTORY_ROAD_EXIT_MATTHEW                           0x2EF
-#define FLAG_HIDE_TRASHBURG_MOM_OUTSIDE                       0x2F0
+#define FLAG_HIDE_VICTORY_ROAD_EXIT_MATTHEW                         0x2EF
+#define FLAG_HIDE_TRASHBURG_MOM_OUTSIDE                             0x2F0
 #define FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_STEVEN              0x2F1
-#define FLAG_HIDE_TRASHBURG_PLAYERS_HOUSE_VIGOROTH_1          0x2F2
-#define FLAG_HIDE_TRASHBURG_PLAYERS_HOUSE_VIGOROTH_2          0x2F3
+#define FLAG_HIDE_TRASHBURG_PLAYERS_HOUSE_VIGOROTH_1                0x2F2
+#define FLAG_HIDE_TRASHBURG_PLAYERS_HOUSE_VIGOROTH_2                0x2F3
 #define FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_1F_TEAM_MAGMA          0x2F4
 #define FLAG_HIDE_TRASHBURG_PLAYERS_BEDROOM_MOM               0x2F5
 #define FLAG_HIDE_TRASHBURG_BRENDANS_HOUSE_MOM                0x2F6
@@ -1112,10 +1113,10 @@
 #define FLAG_ITEM_MT_PYRE_5F_LAX_INCENSE                            0x41C
 #define FLAG_ITEM_GRANITE_CAVE_B2F_REPEL                            0x41D
 #define FLAG_ITEM_GRANITE_CAVE_B2F_RARE_CANDY                       0x41E
-#define FLAG_ITEM_PETALBURG_WOODS_X_ATTACK                          0x41F
-#define FLAG_ITEM_PETALBURG_WOODS_GREAT_BALL                        0x420
+#define FLAG_ITEM_SCRAPPLE_HOLLOW_X_ATTACK                          0x41F
+#define FLAG_ITEM_SCRAPPLE_HOLLOW_GREAT_BALL                        0x420
 #define FLAG_ITEM_ROUTE_104_POKE_BALL                               0x421
-#define FLAG_ITEM_PETALBURG_WOODS_ETHER                             0x422
+#define FLAG_ITEM_SCRAPPLE_HOLLOW_ETHER                             0x422
 #define FLAG_ITEM_MAGMA_HIDEOUT_3F_3R_ECAPE_ROPE                    0x423
 #define FLAG_ITEM_TRICK_HOUSE_PUZZLE_1_ORANGE_MAIL                  0x424
 #define FLAG_ITEM_TRICK_HOUSE_PUZZLE_2_HARBOR_MAIL                  0x425
@@ -1174,7 +1175,7 @@
 #define FLAG_ITEM_ROUTE_103_GUARD_SPEC                              0x45A
 #define FLAG_ITEM_ROUTE_104_X_ACCURACY                              0x45B
 #define FLAG_ITEM_MAUVILLE_CITY_X_SPEED                             0x45C
-#define FLAG_ITEM_PETALBURG_WOODS_PARALYZE_HEAL                     0x45D
+#define FLAG_ITEM_SCRAPPLE_HOLLOW_PARALYZE_HEAL                     0x45D
 #define FLAG_ITEM_ROUTE_115_GREAT_BALL                              0x45E
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_CALCIUM                         0x45F
 #define FLAG_ITEM_MT_PYRE_3F_SUPER_REPEL                            0x460
@@ -1229,8 +1230,8 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_GIANTS_REACH_CITY_CAN_SEARCH_BUSHES                       0x493 // FLAG GIANTS REACH, Allows looking for Nugget
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
+#define FLAG_GIANTS_REACH_CITY_CAN_SEARCH_BUSHES                    0x493 // FLAG GIANTS REACH, Allows looking for Nugget
+#define FLAG_QUEST_3_ROOT_FOSSIL                                    0x494 // Unused Flag
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
