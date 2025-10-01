@@ -112,8 +112,8 @@ Route116_Movement_DevonEmployeeExitEast:
 	walk_left
 	step_end
 
-Route116_EventScript_RouteSignWawaPark::
-	msgbox Route116_Text_RouteSignWawaPark, MSGBOX_SIGN
+Route116_EventScript_RouteSignRustboro::
+	msgbox Route116_Text_RouteSignRustboro, MSGBOX_SIGN
 	end
 
 Route116_EventScript_RusturfTunnelSign::
@@ -440,13 +440,13 @@ Route116_Text_NotWhatImLookingFor:
 	.string "These are BLACKGLASSES.\l"
 	.string "They're not what I'm looking for…$"
 
-Route116_Text_RouteSignWawaPark:
+Route116_Text_RouteSignRustboro:
 	.string "ROUTE 116\n"
 	.string "{LEFT_ARROW} WAWA PARK$"
 
 Route116_Text_RusturfTunnelSign:
 	.string "RUSTURF TUNNEL\n"
-	.string "“Linking WAWAPARK and VERDANTURF\p"
+	.string "“Linking RUSTBORO and VERDANTURF\p"
 	.string "“The tunnel project has been\n"
 	.string "canceled.”$"
 

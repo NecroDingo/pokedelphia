@@ -32,7 +32,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_LADY_ELIZABETH",
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
       "x": 22,
       "y": 6,
       "elevation": 3,
@@ -62,8 +62,8 @@
     {
       "local_id": "LOCALID_FOOTPRINTS_MAN",
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 9,
-      "y": 12,
+      "x": 3,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -124,7 +124,7 @@
       "x": 1,
       "y": 10,
       "elevation": 3,
-      "var": "VAR_OLD_SCUMPORT_TOWN_STATE",
+      "var": "VAR_OLD_SCUMPORT_STATE",
       "var_value": "0",
       "script": "OldScumport_EventScript_BlockedPath"
     },
@@ -133,7 +133,7 @@
       "x": 8,
       "y": 29,
       "elevation": 3,
-      "var": "VAR_OLD_SCUMPORT_RIVAL_STATE",
+      "var": "VAR_OLD_SCUMPORTRIVAL_STATE",
       "var_value": "1",
       "script": "OldScumport_EventScript_RivalTrigger1"
     },
@@ -142,7 +142,7 @@
       "x": 9,
       "y": 29,
       "elevation": 3,
-      "var": "VAR_OLD_SCUMPORT_RIVAL_STATE",
+      "var": "VAR_OLD_SCUMPORTRIVAL_STATE",
       "var_value": "1",
       "script": "OldScumport_EventScript_RivalTrigger2"
     },
@@ -151,7 +151,7 @@
       "x": 10,
       "y": 29,
       "elevation": 3,
-      "var": "VAR_OLD_SCUMPORT_RIVAL_STATE",
+      "var": "VAR_OLD_SCUMPORTRIVAL_STATE",
       "var_value": "1",
       "script": "OldScumport_EventScript_RivalTrigger3"
     },

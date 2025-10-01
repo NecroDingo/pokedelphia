@@ -6,12 +6,12 @@ Route102_EventScript_LittleBoy::
 	msgbox Route102_Text_ImNotVeryTall, MSGBOX_NPC
 	end
 
-Route102_EventScript_RouteSignOldScumport::
-	msgbox Route102_Text_RouteSignOldScumport, MSGBOX_SIGN
+Route102_EventScript_RouteSignOldale::
+	msgbox Route102_Text_RouteSignOldale, MSGBOX_SIGN
 	end
 
-Route102_EventScript_RouteSignGiantsReach::
-	msgbox Route102_Text_RouteSignGiantsReach, MSGBOX_SIGN
+Route102_EventScript_RouteSignPetalburg::
+	msgbox Route102_Text_RouteSignPetalburg, MSGBOX_SIGN
 	end
 
 Route102_EventScript_Boy::
@@ -127,10 +127,10 @@ Route102_Text_CatchWholeBunchOfPokemon:
 	.string "been actin’ real funny.\p"
 	.string "Keep ya eyes peeled, a'ight?$"
 
-Route102_Text_RouteSignOldScumport:
+Route102_Text_RouteSignOldale:
 	.string "ROUTE 102\n"
 	.string "{RIGHT_ARROW} OLD SCUMPORT$"
 
-Route102_Text_RouteSignGiantsReach:
+Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} GIANT'S REACH$"

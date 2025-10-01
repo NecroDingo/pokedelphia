@@ -1,5 +1,5 @@
-	Route104Beach_MapScripts::
-		.byte 0
+Route104Beach_MapScripts::
+	.byte 0
 
 
 	Route104Beach_EventScript_Elise::

@@ -61,7 +61,7 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	setflag FLAG_DEFEATED_LAVARIDGE_GYM
 	setflag FLAG_BADGE04_GET
 	addvar VAR_GIANTS_REACH_GYM_STATE, 1
-	call_if_eq VAR_GIANTS_REACH_GYM_STATE, 6, Common_EventScript_ReadyGiantsReachGymForBattle
+	call_if_eq VAR_GIANTS_REACH_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 4
 	call Common_EventScript_SetGymTrainers
 	setflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_MATTHEW

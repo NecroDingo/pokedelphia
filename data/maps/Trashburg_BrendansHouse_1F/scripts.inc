@@ -49,7 +49,7 @@ Trashburg_BrendansHouse_1F_EventScript_MoveMomToDoor::
 Trashburg_BrendansHouse_1F_OnFrame:
 	map_script_2 VAR_TRASHBURG_INTRO_STATE, 3, Trashburg_BrendansHouse_1F_EventScript_EnterHouseMovingIn
 	map_script_2 VAR_TRASHBURG_INTRO_STATE, 5, Trashburg_BrendansHouse_1F_EventScript_GoUpstairsToSetClock
-	map_script_2 VAR_TRASHBURG_INTRO_STATE, 6, Trashburg_BrendansHouse_1F_EventScript_GiantsReachGymReport
+	map_script_2 VAR_TRASHBURG_INTRO_STATE, 6, Trashburg_BrendansHouse_1F_EventScript_PetalburgGymReport
 	map_script_2 VAR_TRASHBURG_HOUSES_STATE_MAY, 1, Trashburg_BrendansHouse_1F_EventScript_YoureNewNeighbor
 	map_script_2 VAR_TRASHBURG_HOUSES_STATE_MAY, 3, PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV
 	.2byte 0
@@ -77,11 +77,11 @@ Trashburg_BrendansHouse_1F_EventScript_EnterHouseMovingIn::
 	goto PlayersHouse_1F_EventScript_EnterHouseMovingIn
 	end
 
-Trashburg_BrendansHouse_1F_EventScript_GiantsReachGymReport::
+Trashburg_BrendansHouse_1F_EventScript_PetalburgGymReport::
 	lockall
 	setvar VAR_0x8004, MALE
 	setvar VAR_0x8005, LOCALID_PLAYERS_HOUSE_1F_MOM
-	goto PlayersHouse_1F_EventScript_GiantsReachGymReportMale
+	goto PlayersHouse_1F_EventScript_PetalburgGymReportMale
 	end
 
 Trashburg_BrendansHouse_1F_EventScript_YoureNewNeighbor::
@@ -373,7 +373,7 @@ PlayersHouse_1F_Text_Vigoroth1:
 PlayersHouse_1F_Text_Vigoroth2:
 	.string "Huggoh, uggo uggo…$"
 
-PlayersHouse_1F_Text_ReportFromGiantsReachGym:
+PlayersHouse_1F_Text_ReportFromPetalburgGym:
 	.string "INTERVIEWER: …We brought you this\n"
 	.string "report from GIANT'S REACH GYM.$"
 

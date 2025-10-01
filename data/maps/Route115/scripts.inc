@@ -23,8 +23,8 @@ Route115_EventScript_Woman::
 	msgbox Route115_Text_NeverKnowWhenCavePokemonWillAppear, MSGBOX_NPC
 	end
 
-Route115_EventScript_RouteSignWawaPark::
-	msgbox Route115_Text_RouteSignWawaPark, MSGBOX_SIGN
+Route115_EventScript_RouteSignRustboro::
+	msgbox Route115_Text_RouteSignRustboro, MSGBOX_SIGN
 	end
 
 Route115_EventScript_MeteorFallsSign::
@@ -135,7 +135,7 @@ Route115_Text_NeverKnowWhenCavePokemonWillAppear:
 	.string "You never know when wild POKéMON will\n"
 	.string "appear. It's full of suspense.$"
 
-Route115_Text_RouteSignWawaPark:
+Route115_Text_RouteSignRustboro:
 	.string "ROUTE 115\n"
 	.string "{DOWN_ARROW} WAWA PARK$"
 

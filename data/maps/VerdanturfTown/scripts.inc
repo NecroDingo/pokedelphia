@@ -41,7 +41,7 @@ VerdanturfTown_EventScript_Boy::
 	end
 
 VerdanturfTown_EventScript_BoyTunnelOpen::
-	msgbox VerdanturfTown_Text_EasyToGetToWawaParkNow, MSGBOX_DEFAULT
+	msgbox VerdanturfTown_Text_EasyToGetToRustboroNow, MSGBOX_DEFAULT
 	release
 	end
 
@@ -99,11 +99,11 @@ VerdanturfTown_Text_GuyTryingToBustThroughCave:
 	.string "It'd be great if we could go through…\n"
 	.string "It'll make it easy to visit Wawa Park.$"
 
-VerdanturfTown_Text_EasyToGetToWawaParkNow:
+VerdanturfTown_Text_EasyToGetToRustboroNow:
 	.string "That cave next to the POKéMON MART\n"
 	.string "is now a tunnel to the other side.\p"
 	.string "It's great--it's easy to go shop for\n"
-	.string "new DEVON products in WAWA PARK now.$"
+	.string "new DEVON products in Wawa Park now.$"
 
 VerdanturfTown_Text_TownSign:
 	.string "VERDANTURF TOWN\p"
@@ -119,7 +119,7 @@ VerdanturfTown_Text_BattleTentSign:
 
 VerdanturfTown_Text_RusturfTunnelSign:
 	.string "RUSTURF TUNNEL\n"
-	.string "“Linking WAWAPARK and VERDANTURF\p"
+	.string "“Linking RUSTBORO and VERDANTURF\p"
 	.string "“The tunnel project has been\n"
 	.string "canceled.”$"
 

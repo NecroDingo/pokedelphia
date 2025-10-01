@@ -111,11 +111,7 @@ Route103_EventScript_RivalEnd::
 	clearflag FLAG_HIDE_OLD_SCUMPORT_RIVAL
 	savebgm MUS_DUMMY
 	fadedefaultbgm
-	applymovement LOCALID_PLAYER, Common_Movement_SelfText
-	waitmovement 0
 	msgbox Route103_Text_BetterGoBack, MSGBOX_DEFAULT
-	applymovement LOCALID_PLAYER, Common_Movement_FaceOriginalDirection
-	waitmovement 0
 	releaseall
 	end
 
@@ -175,7 +171,7 @@ Route103_EventScript_Boy::
 	end
 
 Route103_EventScript_Man::
-	msgbox Route103_Text_ShortcutToOldScumport, MSGBOX_NPC
+	msgbox Route103_Text_ShortcutToOldale, MSGBOX_NPC
 	end
 
 Route103_EventScript_RouteSign::
@@ -309,7 +305,7 @@ Route103_Text_ShouldHaveBroughtPotion:
 	.string "corner store.\p"
 	.string "Now I’m out here lookin’ dumb.$"
 
-Route103_Text_ShortcutToOldScumport:
+Route103_Text_ShortcutToOldale:
 	.string "Cross that water right there?\n"
 	.string "Boom! Shortcut straight to OLD SCUMPORT.\p"
 	.string "Yeah, f'real. That’s the move. Pro tip, kid.$"

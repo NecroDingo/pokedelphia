@@ -150,7 +150,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
 	addvar VAR_GIANTS_REACH_GYM_STATE, 1
-	call_if_eq VAR_GIANTS_REACH_GYM_STATE, 6, Common_EventScript_ReadyGiantsReachGymForBattle
+	call_if_eq VAR_GIANTS_REACH_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	call DewfordTown_Gym_EventScript_GiveBulkUp

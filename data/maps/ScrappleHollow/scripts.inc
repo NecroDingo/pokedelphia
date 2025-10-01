@@ -32,49 +32,51 @@ ScrappleHollow_EventScript_Goodbye::
     end
 
 ScrappleHollow_Text_NurseHeal:
-	.string "WAITRESS: Oh great. Hi Charlie.\n"
-	.string "Do you need your POKéMON healed?$"
+	.string "WAITRESS: Oh great, you again. Do you\n"
+	.string "need your POKéMON healed?$"
 
 ScrappleHollow_Text_PayingMe:
-	.string "WAITRESS: I’m only out here ‘cause they\n"
-	.string "pay me to be.\p"
+	.string "WAITRESS: I’m only here ‘cause they pay\n"
+	.string "me to be.\p"
 	.string "Don’t get any ideas Charlie.$"
 
 ScrappleHollow_Text_WhyAreYouTalking:
 	.string "WAITRESS: Wow, seriously? Why are you\n"
 	.string "even talking to me...$"
 
+
+
 ScrappleHollow_EventScript_DevonResearcherLeft::
 	lockall
 	call ScrappleHollow_EventScript_DevonResearcherIntro
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherApproachPlayerLeft
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherApproachPlayerLeft
 	waitmovement 0
 	msgbox ScrappleHollow_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaEntrance
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaEntrance
 	waitmovement 0
 	msgbox ScrappleHollow_Text_IWasGoingToAmbushYou, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaApproachResearcherLeft
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaApproachResearcherLeft
 	waitmovement 0
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	msgbox ScrappleHollow_Text_HandOverThosePapers, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherFleeToPlayerLeft
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherFleeToPlayerLeft
 	waitmovement 0
 	msgbox ScrappleHollow_Text_YouHaveToHelpMe, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaApproachPlayer
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaApproachPlayer
 	waitmovement 0
 	msgbox ScrappleHollow_Text_NoOneCrossesTeamAqua, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_SCRAPPLE_HOLLOW, ScrappleHollow_Text_YoureKiddingMe
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaBackOff
+	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, ScrappleHollow_Text_YoureKiddingMe
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaBackOff
 	waitmovement 0
 	call ScrappleHollow_EventScript_DevonResearcherPostBattle
 	applymovement LOCALID_PLAYER, ScrappleHollow_Movement_WatchResearcherLeave
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherExitLeft
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherExitLeft
 	waitmovement 0
 	goto ScrappleHollow_EventScript_RemoveDevonResearcher
 	end
@@ -82,42 +84,42 @@ ScrappleHollow_EventScript_DevonResearcherLeft::
 ScrappleHollow_EventScript_DevonResearcherRight::
 	lockall
 	call ScrappleHollow_EventScript_DevonResearcherIntro
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherApproachPlayerRight
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherApproachPlayerRight
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	msgbox ScrappleHollow_Text_HaveYouSeenShroomish, MSGBOX_DEFAULT
 	closemessage
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaEntrance
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaEntrance
 	waitmovement 0
 	msgbox ScrappleHollow_Text_IWasGoingToAmbushYou, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaApproachResearcherRight
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaApproachResearcherRight
 	waitmovement 0
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	msgbox ScrappleHollow_Text_HandOverThosePapers, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherFleeToPlayerRight
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherFleeToPlayerRight
 	waitmovement 0
 	msgbox ScrappleHollow_Text_YouHaveToHelpMe, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaApproachPlayer
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaApproachPlayer
 	waitmovement 0
 	msgbox ScrappleHollow_Text_NoOneCrossesTeamAqua, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GRUNT_SCRAPPLE_HOLLOW, ScrappleHollow_Text_YoureKiddingMe
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaBackOff
+	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, ScrappleHollow_Text_YoureKiddingMe
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaBackOff
 	waitmovement 0
 	call ScrappleHollow_EventScript_DevonResearcherPostBattle
 	applymovement LOCALID_PLAYER, ScrappleHollow_Movement_WatchResearcherLeave
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherExitRight
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherExitRight
 	waitmovement 0
 	goto ScrappleHollow_EventScript_RemoveDevonResearcher
 	end
 
 ScrappleHollow_EventScript_DevonResearcherIntro::
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherLookAround
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherLookAround
 	waitmovement 0
 	msgbox ScrappleHollow_Text_NotAOneToBeFound, MSGBOX_DEFAULT
 	closemessage
@@ -126,9 +128,9 @@ ScrappleHollow_EventScript_DevonResearcherIntro::
 ScrappleHollow_EventScript_DevonResearcherPostBattle::
 	msgbox ScrappleHollow_Text_YouveGotSomeNerve, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_SCRAPPLE_HOLLOW_GRUNT, ScrappleHollow_Movement_AquaRunAway
+	applymovement LOCALID_PETALBURG_WOODS_GRUNT, ScrappleHollow_Movement_AquaRunAway
 	waitmovement 0
-	removeobject LOCALID_SCRAPPLE_HOLLOW_GRUNT
+	removeobject LOCALID_PETALBURG_WOODS_GRUNT
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	msgbox ScrappleHollow_Text_ThatWasAwfullyClose, MSGBOX_DEFAULT
@@ -143,15 +145,15 @@ ScrappleHollow_EventScript_BagFull::
 	end
 
 ScrappleHollow_EventScript_DevonResearcherFinish::
-	msgbox ScrappleHollow_Text_ICantBeWastingTime, MSGBOX_DEFAULT
-	applymovement LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherStartExit
+	msgbox ScrappleHollow_Text_TeamAquaAfterSomethingInRustboro, MSGBOX_DEFAULT
+	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, ScrappleHollow_Movement_DevonResearcherStartExit
 	waitmovement 0
 	msgbox ScrappleHollow_Text_ICantBeWastingTime, MSGBOX_DEFAULT
 	closemessage
 	return
 
 ScrappleHollow_EventScript_RemoveDevonResearcher::
-	removeobject LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE
+	removeobject LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE
 	setvar VAR_GIANTS_REACH_WOODS_STATE, 1
 	releaseall
 	end
@@ -482,7 +484,7 @@ ScrappleHollow_Text_YouveGotSomeNerve:
 	.string "THE JERSEY MIKE BOYS.\p"
 	.string "I'd run it back, but I’m fresh outta\n"
 	.string "POKéMON...\p"
-	.string "Whatever. We’re hittin’ WAWAPARK next.\p"
+	.string "Whatever. We’re hittin’ RUSTBORO next.\p"
 	.string "Count ya blessings, kid.$"
 
 ScrappleHollow_Text_ThatWasAwfullyClose:

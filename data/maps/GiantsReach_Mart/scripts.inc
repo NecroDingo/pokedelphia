@@ -5,7 +5,7 @@ GiantsReach_Mart_EventScript_Clerk::
 	lock
 	faceplayer
 	goto_if_set FLAG_DAILY_GIANT_REACH_MART, GiantsReach_Mart_EventScript_Clerk_Regular
-	message gText_MyBrotherInOldScumport
+	message gText_MyBrotherInOldale
 	waitmessage
 	setflag FLAG_DAILY_GIANT_REACH_MART
 	goto GiantsReach_Mart_EventScript_Clerk_Continue
