@@ -108,8 +108,8 @@ u16 GetNumFansOfPlayerInTrainerFanClub(void);
 
 static void RecordCyclingRoadResults(u32, u8);
 static void LoadLinkPartnerObjectEventSpritePalette(u16, u8, u8);
-static void Task_GiantsReachGymSlideOpenRoomDoors(u8);
-static void GiantsReachGymSetDoorMetatiles(u8, u16);
+static void Task_PetalburgGymSlideOpenRoomDoors(u8);
+static void PetalburgGymSetDoorMetatiles(u8, u16);
 static void Task_PCTurnOnEffect(u8);
 static void PCTurnOnEffect(struct Task *);
 static void PCTurnOnEffect_SetMetatile(s16, s8, s8);
@@ -804,29 +804,29 @@ void MauvilleGymDeactivatePuzzle(void)
 
 static const bool8 sSlidingDoorNextFrameDelay[] = {0, 1, 1, 1, 1};
 
-static const u16 sGiantsReachGymSlidingDoorMetatiles[] = {
-    METATILE_GiantsReachGym_SlidingDoor_Frame0,
-    METATILE_GiantsReachGym_SlidingDoor_Frame1,
-    METATILE_GiantsReachGym_SlidingDoor_Frame2,
-    METATILE_GiantsReachGym_SlidingDoor_Frame3,
-    METATILE_GiantsReachGym_SlidingDoor_Frame4,
+static const u16 sPetalburgGymSlidingDoorMetatiles[] = {
+    METATILE_PetalburgGym_SlidingDoor_Frame0,
+    METATILE_PetalburgGym_SlidingDoor_Frame1,
+    METATILE_PetalburgGym_SlidingDoor_Frame2,
+    METATILE_PetalburgGym_SlidingDoor_Frame3,
+    METATILE_PetalburgGym_SlidingDoor_Frame4,
 };
 
-void GiantsReachGymSlideOpenRoomDoors(void)
+void PetalburgGymSlideOpenRoomDoors(void)
 {
     sSlidingDoorNextFrameCounter = 0;
     sSlidingDoorFrame = 0;
     PlaySE(SE_UNLOCK);
-    CreateTask(Task_GiantsReachGymSlideOpenRoomDoors, 8);
+    CreateTask(Task_PetalburgGymSlideOpenRoomDoors, 8);
 }
 
-static void Task_GiantsReachGymSlideOpenRoomDoors(u8 taskId)
+static void Task_PetalburgGymSlideOpenRoomDoors(u8 taskId)
 {
     if (sSlidingDoorNextFrameDelay[sSlidingDoorFrame] == sSlidingDoorNextFrameCounter)
     {
-        GiantsReachGymSetDoorMetatiles(gSpecialVar_0x8004, sGiantsReachGymSlidingDoorMetatiles[sSlidingDoorFrame]);
+        PetalburgGymSetDoorMetatiles(gSpecialVar_0x8004, sPetalburgGymSlidingDoorMetatiles[sSlidingDoorFrame]);
         sSlidingDoorNextFrameCounter = 0;
-        if ((++sSlidingDoorFrame) == ARRAY_COUNT(sGiantsReachGymSlidingDoorMetatiles))
+        if ((++sSlidingDoorFrame) == ARRAY_COUNT(sPetalburgGymSlidingDoorMetatiles))
         {
             DestroyTask(taskId);
             ScriptContext_Enable();
@@ -838,7 +838,7 @@ static void Task_GiantsReachGymSlideOpenRoomDoors(u8 taskId)
     }
 }
 
-static void GiantsReachGymSetDoorMetatiles(u8 roomNumber, u16 metatileId)
+static void PetalburgGymSetDoorMetatiles(u8 roomNumber, u16 metatileId)
 {
     u16 doorCoordsX[4];
     u16 doorCoordsY[4];
@@ -903,9 +903,9 @@ static void GiantsReachGymSetDoorMetatiles(u8 roomNumber, u16 metatileId)
     DrawWholeMapView();
 }
 
-void GiantsReachGymUnlockRoomDoors(void)
+void PetalburgGymUnlockRoomDoors(void)
 {
-    GiantsReachGymSetDoorMetatiles(gSpecialVar_0x8004, sGiantsReachGymSlidingDoorMetatiles[4]);
+    PetalburgGymSetDoorMetatiles(gSpecialVar_0x8004, sPetalburgGymSlidingDoorMetatiles[4]);
 }
 
 void ShowFieldMessageStringVar4(void)
@@ -3538,10 +3538,10 @@ u32 GetMartEmployeeObjectEventId(void)
         { MAP_GROUP(MAP_LAVARIDGE_TOWN_MART),  MAP_NUM(MAP_LAVARIDGE_TOWN_MART),  LOCALID_LAVARIDGE_MART_CLERK },
         { MAP_GROUP(MAP_FALLARBOR_TOWN_MART),  MAP_NUM(MAP_FALLARBOR_TOWN_MART),  LOCALID_FALLARBOR_MART_CLERK },
         { MAP_GROUP(MAP_VERDANTURF_TOWN_MART), MAP_NUM(MAP_VERDANTURF_TOWN_MART), LOCALID_VERDANTURF_MART_CLERK },
-        { MAP_GROUP(MAP_GIANTS_REACH_MART),  MAP_NUM(MAP_GIANTS_REACH_MART),  LOCALID_GIANTS_REACH_MART_CLERK },
+        { MAP_GROUP(MAP_GIANTS_REACH_MART),  MAP_NUM(MAP_GIANTS_REACH_MART),  LOCALID_PETALBURG_MART_CLERK },
         { MAP_GROUP(MAP_SLATEPORT_CITY_MART),  MAP_NUM(MAP_SLATEPORT_CITY_MART),  LOCALID_SLATEPORT_MART_CLERK },
         { MAP_GROUP(MAP_MAUVILLE_CITY_MART),   MAP_NUM(MAP_MAUVILLE_CITY_MART),   LOCALID_MAUVILLE_MART_CLERK },
-        { MAP_GROUP(MAP_WAWA_PARK_MART),   MAP_NUM(MAP_WAWA_PARK_MART),   LOCALID_WAWA_PARK_MART_CLERK },
+        { MAP_GROUP(MAP_WAWA_PARK_MART),   MAP_NUM(MAP_WAWA_PARK_MART),   LOCALID_RUSTBORO_MART_CLERK },
         { MAP_GROUP(MAP_FORTREE_CITY_MART),    MAP_NUM(MAP_FORTREE_CITY_MART),    LOCALID_FORTREE_MART_CLERK },
         { MAP_GROUP(MAP_MOSSDEEP_CITY_MART),   MAP_NUM(MAP_MOSSDEEP_CITY_MART),   LOCALID_MOSSDEEP_MART_CLERK },
         { MAP_GROUP(MAP_SOOTOPOLIS_CITY_MART), MAP_NUM(MAP_SOOTOPOLIS_CITY_MART), LOCALID_SOOTOPOLIS_MART_CLERK },

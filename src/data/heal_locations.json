@@ -26,7 +26,7 @@
       "x": 28,
       "y": 10,
       "respawn_map": "MAP_GIANTS_REACH_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_GIANTS_REACH_NURSE"
+      "respawn_npc": "LOCALID_PETALBURG_NURSE"
     },
     {
       "id": "HEAL_LOCATION_SLATEPORT_CITY",
@@ -50,7 +50,7 @@
       "x": 16,
       "y": 39,
       "respawn_map": "MAP_WAWA_PARK_POKEMON_CENTER_1F",
-      "respawn_npc": "LOCALID_WAWA_PARK_NURSE"
+      "respawn_npc": "LOCALID_RUSTBORO_NURSE"
     },
     {
       "id": "HEAL_LOCATION_FORTREE_CITY",
@@ -191,7 +191,7 @@
       "id": "HEAL_LOCATION_SCRAPPLE_HOLLOW",
       "map": "MAP_SCRAPPLE_HOLLOW",
       "x": 26,
-      "y": 76,
+      "y": 77,
       "respawn_map": "MAP_SCRAPPLE_HOLLOW",
       "respawn_x": 26,
       "respawn_y": 77

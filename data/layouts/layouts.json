@@ -7,7 +7,7 @@
       "width": 44,
       "height": 36,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_GiantsReach",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/GiantsReach/border.bin",
       "blockdata_filepath": "data/layouts/GiantsReach/map.bin"
     },
@@ -97,7 +97,7 @@
       "width": 30,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_GiantsReach",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/TrashburgTown/border.bin",
       "blockdata_filepath": "data/layouts/TrashburgTown/map.bin"
     },
@@ -107,7 +107,7 @@
       "width": 40,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_GiantsReach",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/OldScumport/border.bin",
       "blockdata_filepath": "data/layouts/OldScumport/map.bin"
     },
@@ -167,7 +167,7 @@
       "width": 40,
       "height": 50,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_GiantsReach",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route101/border.bin",
       "blockdata_filepath": "data/layouts/Route101/map.bin"
     },
@@ -177,7 +177,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_GiantsReach",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route102/border.bin",
       "blockdata_filepath": "data/layouts/Route102/map.bin"
     },
@@ -187,7 +187,7 @@
       "width": 80,
       "height": 42,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_GiantsReach",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route103/border.bin",
       "blockdata_filepath": "data/layouts/Route103/map.bin"
     },
@@ -787,7 +787,7 @@
       "width": 9,
       "height": 112,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GiantsReachGym",
+      "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/GiantsReach_Gym/border.bin",
       "blockdata_filepath": "data/layouts/GiantsReach_Gym/map.bin"
     },

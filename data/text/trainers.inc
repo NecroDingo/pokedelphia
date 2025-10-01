@@ -4951,3 +4951,4 @@ Route104Beach_Text_OscarPostBattle:
 	.string "open flame?\p"
 	.string "No?\n"
 	.string "Don’t.$"
+
