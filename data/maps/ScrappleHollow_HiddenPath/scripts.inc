@@ -1,0 +1,6 @@
+ScrappleHollow_HiddenPath_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, ScrappleHollow_HiddenPath_OnTransition
+	.byte 0
+
+ScrappleHollow_HiddenPath_OnTransition:
+	end

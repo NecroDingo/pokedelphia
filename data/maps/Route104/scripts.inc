@@ -30,7 +30,7 @@ Route104_EventScript_HideWhiteHerbFlorist::
 
 Route104_EventScript_TrySetRivalPos::
 	goto_if_ge VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_DontSetRivalPos
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, Route104_EventScript_DontSetRivalPos
+	goto_if_set FLAG_MET_RIVAL_WAWA_PARK, Route104_EventScript_DontSetRivalPos
 	goto_if_unset FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_DontSetRivalPos
 	setobjectxyperm LOCALID_ROUTE104_RIVAL, 17, 52
 	return
@@ -69,7 +69,7 @@ Route104_EventScript_RivalTrigger::
 	waitmovement 0
 	goto Route104_EventScript_RivalEncounter
 
-@ Unused, shares script with Rustboro encounter instead
+@ Unused, shares script with WawaPark encounter instead
 Route104_EventScript_PlayRivalMusic::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, Route104_EventScript_PlayMayMusic
@@ -227,8 +227,8 @@ Route104_EventScript_BrineysCottageSign::
 	msgbox Route104_Text_MrBrineysCottage, MSGBOX_SIGN
 	end
 
-Route104_EventScript_RouteSignPetalburg::
-	msgbox Route104_Text_RouteSignPetalburg, MSGBOX_SIGN
+Route104_EventScript_RouteSignGiantsReach::
+	msgbox Route104_Text_RouteSignGiantsReach, MSGBOX_SIGN
 	end
 
 Route104_EventScript_RouteSignRustboro::
@@ -926,10 +926,12 @@ Route104_EventScript_Darian::
 Route104_Text_BrineyLivesInSeasideCottage:
 	.string "That shabby cottage on the shore?\n"
 	.string "That’s where Artemis lives.\p"
-	.string "Total art school dropout turned “sea whisperer.”\p"
+	.string "Total art school dropout turned\n"
+	.string "“sea whisperer.”\p"
 	.string "She says she reads tides like\n"
 	.string "tarot cards.\p"
-	.string "I don’t buy it, but she scares the gulls.$"
+	.string "I don’t buy it,\n"
+	.string "but she scares the gulls.$"
 
 Route104_Text_WhatsItLikeAtBottomOfSea:
 	.string "What’s at the bottom of the sea, anyway?\p"
@@ -991,7 +993,7 @@ Route104_Text_FlowerShopSellingSaplings:
 Route104_Text_MrBrineysCottage:
 	.string "ARTEMIS’S “SEA HOUSE”$"
 
-Route104_Text_RouteSignPetalburg:
+Route104_Text_RouteSignGiantsReach:
 	.string "ROUTE 1O4\n"
 	.string "{RIGHT_ARROW} GIANT'S REACH\l"
 	.string "{LEFT_ARROW} ARTEMIS’S “SEA HOUSE”\l"
@@ -1058,3 +1060,15 @@ Route104_Text_MayPostBattle:
 	.string "then gestures into the ocean.\p"
 	.string "What does that mean?$"
 
+Game_EventScript_EndSoFar::
+	msgbox Game_Text_EndSoFar, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Game_Text_EndSoFar:
+	.string "Here is the end so far!\p"
+	.string "Let me know of anything you\n"
+	.string "think I can add or change,\l"
+	.string "and of course anything I messed\l"
+	.string "up.\p"
+	.string "Thanks!$"

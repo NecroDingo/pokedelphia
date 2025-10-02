@@ -97,17 +97,17 @@
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
 #define VAR_GIANTS_REACH_QUEST_3                         0x404E // Quest 3 Triggers - Giant's Reach
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
-#define VAR_TRASHBURG_STATE                        0x4050
-#define VAR_OLD_SCUMPORT_TOWN_STATE                            0x4051
+#define VAR_TRASHBURG_STATE                              0x4050
+#define VAR_OLD_SCUMPORT_TOWN_STATE                      0x4051
 #define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
 #define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var
 #define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
-#define VAR_GIANTS_REACH_CITY_STATE                         0x4057
+#define VAR_GIANTS_REACH_CITY_STATE                      0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
 #define VAR_MAUVILLE_CITY_STATE                          0x4059 // Unused Var
-#define VAR_WAWA_PARK_CITY_STATE                          0x405A
+#define VAR_WAWA_PARK_CITY_STATE                         0x405A
 #define VAR_FORTREE_CITY_STATE                           0x405B // Unused Var
 #define VAR_LILYCOVE_CITY_STATE                          0x405C // Unused Var
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D
@@ -259,7 +259,7 @@
 #define VAR_SECRET_BASE_HIGH_TV_FLAGS                    0x40EF // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_IS_NOT_LOCAL                     0x40F0 // Set to TRUE while in another player's secret base.
 #define VAR_DAILY_BP                                     0x40F1
-#define VAR_MATTHEW_CALL_STEP_COUNTER                      0x40F2
+#define VAR_MATTHEW_CALL_STEP_COUNTER                    0x40F2
 #define VAR_SCOTT_FORTREE_CALL_STEP_COUNTER              0x40F3
 #define VAR_ROXANNE_CALL_STEP_COUNTER                    0x40F4
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40F5

@@ -32,8 +32,8 @@ ScrappleHollow_EventScript_Goodbye::
     end
 
 ScrappleHollow_Text_NurseHeal:
-	.string "WAITRESS: Oh great, you again. Do you\n"
-	.string "need your POKéMON healed?$"
+	.string "WAITRESS: Oh great... Hi Charlie.\n"
+	.string "Do you need your POKéMON healed?$"
 
 ScrappleHollow_Text_PayingMe:
 	.string "WAITRESS: I’m only here ‘cause they pay\n"
@@ -650,4 +650,3 @@ ScrappleHollow_Text_GotPunked:
 	.string "from a sharp object.\p"
 	.string "“Ha, You got Punk'd” is written out\n"
 	.string "under the old message.$"
-

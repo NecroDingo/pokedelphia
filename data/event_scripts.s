@@ -363,6 +363,7 @@ gStdScripts_End::
 	.include "data/maps/GraniteCave_B2F/scripts.inc"
 	.include "data/maps/GraniteCave_StevensRoom/scripts.inc"
 	.include "data/maps/ScrappleHollow/scripts.inc"
+	.include "data/maps/ScrappleHollow_HiddenPath/scripts.inc"
 	.include "data/maps/MtChimney/scripts.inc"
 	.include "data/maps/JaggedPass/scripts.inc"
 	.include "data/maps/FieryPath/scripts.inc"
@@ -1157,4 +1158,6 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/frank_speech.inc"
 	.include "data/scripts/dexnav.inc"
+
+
 

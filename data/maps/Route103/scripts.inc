@@ -111,6 +111,8 @@ Route103_EventScript_RivalEnd::
 	clearflag FLAG_HIDE_OLD_SCUMPORT_RIVAL
 	savebgm MUS_DUMMY
 	fadedefaultbgm
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
 	msgbox Route103_Text_BetterGoBack, MSGBOX_DEFAULT
 	releaseall
 	end

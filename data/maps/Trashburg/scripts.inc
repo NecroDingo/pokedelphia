@@ -697,8 +697,8 @@ Trashburg_EventScript_GiveRunningShoes::
 	msgbox Trashburg_Text_WearTheseRunningShoes, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
 	message Trashburg_Text_SwitchShoesWithRunningShoes
-	waitmessage
 	waitfanfare
+	waitmessage
 	setflag FLAG_RECEIVED_RUNNING_SHOES
 	msgbox Trashburg_Text_ExplainRunningShoes, MSGBOX_DEFAULT
 	msgbox Trashburg_Text_TakeThisToo, MSGBOX_DEFAULT
@@ -861,4 +861,3 @@ Trashburg_Text_EXPShare:
 	.string "This one helps them all!\p"
 	.string "You just turn it on and suddenly\n"
 	.string "they’re all winners! You could use that.$"
-

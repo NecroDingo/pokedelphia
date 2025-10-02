@@ -672,7 +672,7 @@ WawaPark_EventScript_EmployeeFacePlayerRight::
 
 WawaPark_EventScript_Rival::
 	lockall
-	call_if_unset FLAG_MET_RIVAL_RUSTBORO, WawaPark_EventScript_PlayRivalMusic
+	call_if_unset FLAG_MET_RIVAL_WAWA_PARK, WawaPark_EventScript_PlayRivalMusic
 	applymovement LOCALID_RUSTBORO_RIVAL, Common_Movement_FacePlayer
 	waitmovement 0
 	goto WawaPark_EventScript_RivalEncounter
@@ -824,8 +824,8 @@ WawaPark_EventScript_RivalEncounter::
 
 WawaPark_EventScript_MayEncounter::
 	goto_if_set FLAG_DEFEATED_RIVAL_RUSTBORO, WawaPark_EventScript_MayBrineyHint
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, WawaPark_EventScript_MayAskToBattle
-	setflag FLAG_MET_RIVAL_RUSTBORO
+	goto_if_set FLAG_MET_RIVAL_WAWA_PARK, WawaPark_EventScript_MayAskToBattle
+	setflag FLAG_MET_RIVAL_WAWA_PARK
 	msgbox WawaPark_Text_MayHiLetsRegister, MSGBOX_DEFAULT
 	closemessage
 	delay 30

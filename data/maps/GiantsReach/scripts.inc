@@ -5,6 +5,7 @@ GiantsReach_MapScripts::
 
 GiantsReach_OnTransition:
 	setflag FLAG_VISITED_GIANTS_REACH
+	setflag FLAG_HIDE_FRANK_GIANTS_REACH
 	call_if_eq VAR_GIANTS_REACH_CITY_STATE, 0, GiantsReach_EventScript_MoveGymBoyToWestEntrance
 	call_if_eq VAR_GIANTS_REACH_CITY_STATE, 2, GiantsReach_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_GIANTS_REACH_CITY_STATE, 4, GiantsReach_EventScript_DisableMapNameAndMusic
@@ -784,7 +785,7 @@ GiantsReach_EventScript_Scott::
 	call_if_eq VAR_0x8008, 1, GiantsReach_EventScript_ScottExit1
 	call_if_eq VAR_0x8008, 2, GiantsReach_EventScript_ScottExit2
 	call_if_eq VAR_0x8008, 3, GiantsReach_EventScript_ScottExit3
-	setvar VAR_SCOTT_PETALBURG_ENCOUNTER, 1
+	setvar VAR_SCOTT_GIANTSREACH_ENCOUNTER, 1
 	removeobject LOCALID_PETALBURG_SCOTT
 	releaseall
 	end
@@ -1051,3 +1052,132 @@ GiantsReach_Text_AfterFoundNugget:
 	.string "One man's mistake is another man's\n"
 	.string "treasure.$"
 
+GiantsReach_EventScript_Frank0::
+	lockall
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, GiantsReach_EventScript_Frank_AlreadyActive
+	addobject LOCALID_GIANTSREACH_FRANK
+	setobjectxy LOCALID_GIANTSREACH_FRANK, 15, 21
+	goto GiantsReach_EventScript_Frank_Quest3
+	end	
+
+GiantsReach_EventScript_Frank1::
+	lockall
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, GiantsReach_EventScript_Frank_AlreadyActive
+	addobject LOCALID_GIANTSREACH_FRANK
+	setobjectxy LOCALID_GIANTSREACH_FRANK, 16, 21
+	goto GiantsReach_EventScript_Frank_Quest3
+	end
+
+GiantsReach_EventScript_Frank_AlreadyActive::
+	releaseall
+	end
+
+GiantsReach_EventScript_Frank_Quest3::
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	delay 8
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	applymovement LOCALID_GIANTSREACH_FRANK, GiantsReach_Movement_FrankStartWalkDown
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_GIANTSREACH_FRANK, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_GIANTSREACH_FRANK, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_GIANTSREACH_FRANK, GiantsReach_Movement_FrankApproachPlayer
+	waitmovement 0
+	msgbox GiantsReach_Text_Frank_Quest3_Start1, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	msgbox GiantsReach_Text_Frank_Quest3_Start2, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	goto GiantsReach_EventScript_FrankExit
+	end
+	
+	GiantsReach_EventScript_FrankExit::
+	applymovement LOCALID_GIANTSREACH_FRANK, GiantsReach_Movement_FrankExit
+	waitmovement 0
+	removeobject LOCALID_GIANTSREACH_FRANK
+	startquest QUEST_3_ROOT_FOSSIL
+	setvar VAR_GIANTS_REACH_QUEST_3, 1
+	releaseall
+	end	
+
+GiantsReach_Movement_FrankStartWalkDown:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+GiantsReach_Movement_FrankApproachPlayer:
+	walk_down
+	step_end	
+
+GiantsReach_Movement_FrankExit:	
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+GiantsReach_Text_Frank_Quest3_Start1:
+	.string "Hey-o, Charlie.\p"
+	.string "Listen, I been tailin’ you around\n"
+	.string "‘cause I wanna play a little game.\p"
+	.string "Yeah, a game.\p"
+	.string "I got a riddle for ya.\p"
+	.string "And no, it ain’t one’a those\n"
+	.string "kid crap riddles...\p"
+	.string "This one’s got stakes.\p"
+	.string "I stashed somethin’ in this town.\n"
+	.string "You find it, it’s yours.\p"
+	.string "Don’t ask me where I got it.\p"
+	.string "Alright, here we go:\p"
+	.string "A little vase with leafy hair,\n"
+	.string "got somethin’ juicy hid in there.\l"
+	.string "Don’t go screw around in the grass,\l"
+	.string "the prize sits where trainers pass.$"
+
+GiantsReach_Text_Frank_Quest3_Start2:
+	.string "Now, I’m gonna head up to the\n"
+	.string "church house, or whatever the hell\l"
+	.string "it is.\p"
+	.string "I got some questions for the priests.\p"
+	.string "Wanna see just how much I can\n"
+	.string "do before the big man upstairs blows\l"
+	.string "a gasket.\p"
+	.string "Come see me when you find it.\n$"
+
+GiantsReach_EventScript_Quest3_HiddenItem::
+	checkflag FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL
+	goto_if TRUE, GiantsReach_EventScript_Quest3_NotActive
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	compare VAR_RESULT, FALSE
+	goto_if_eq GiantsReach_EventScript_Quest3_NotActive
+	msgbox GiantsReach_Text_FoundRootFossil, MSGBOX_SIGN
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_ROOT_FOSSIL, 1
+	questmenu QUEST_MENU_SET_REWARD QUEST_3_ROOT_FOSSIL
+	setflag FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
+	msgbox GiantsReach_Text_Frank_Quest3_FoundItem, MSGBOX_SIGN
+	end
+
+GiantsReach_EventScript_Quest3_NotActive::
+	end
+
+GiantsReach_Text_FoundRootFossil:
+	.string "You search the flowers...\p"
+	.string "You found a Root Fossil!$"
+
+GiantsReach_Text_Frank_Quest3_FoundItem:
+	.string "Better go tell Frank that we found\n"
+	.string "the hidden item!$"

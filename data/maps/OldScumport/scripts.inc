@@ -181,6 +181,7 @@ OldScumport_EventScript_MartEmployeeCall1::
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
 	waitmovement 0
 	msgbox OldScumport_Text_IWorkAtPokemonMart, MSGBOX_DEFAULT
@@ -195,6 +196,7 @@ OldScumport_EventScript_MartEmployeeCall1::
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
 	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
@@ -211,6 +213,7 @@ OldScumport_EventScript_MartEmployeeCall1::
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
 	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
@@ -429,7 +432,7 @@ OldScumport_EventScript_LadyElizabeth_Offer:
 
 OldScumport_EventScript_LadyElizabeth_Accept:
 	msgbox OldScumport_Text_LadyElizabethAccept, MSGBOX_NPC
-	startquesttop QUEST_1_FIND_CHESTO 
+	startquest QUEST_1_FIND_CHESTO 
 	release
 	end
 
@@ -444,7 +447,7 @@ OldScumport_EventScript_LadyElizabeth_TurnIn:
 	faceplayer
 	msgbox OldScumport_Text_LadyElizabethTurnIn, MSGBOX_NPC
 	removeitem ITEM_CHESTO_BERRY, 1
-	completequesttop QUEST_1_FIND_CHESTO
+	completequest QUEST_1_FIND_CHESTO
 	msgbox OldScumport_Text_LadyElizabethTurnIn2, MSGBOX_NPC
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM

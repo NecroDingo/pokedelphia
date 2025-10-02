@@ -108,8 +108,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 2,
-      "y": 3,
+      "x": 5,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -146,6 +146,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_HIDE_GIANTS_REACH_SCOTT"
+    },
+    {
+      "local_id": "LOCALID_GIANTSREACH_FRANK",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_FRANK",
+      "x": 16,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_FRANK_GIANTS_REACH"
     }
   ],
   "warp_events": [
@@ -234,7 +248,7 @@
       "x": 18,
       "y": 12,
       "elevation": 3,
-      "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
+      "var": "VAR_SCOTT_GIANTSREACH_ENCOUNTER",
       "var_value": "0",
       "script": "GiantsReach_EventScript_Scott0"
     },
@@ -243,7 +257,7 @@
       "x": 18,
       "y": 13,
       "elevation": 3,
-      "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
+      "var": "VAR_SCOTT_GIANTSREACH_ENCOUNTER",
       "var_value": "0",
       "script": "GiantsReach_EventScript_Scott1"
     },
@@ -252,7 +266,7 @@
       "x": 18,
       "y": 14,
       "elevation": 3,
-      "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
+      "var": "VAR_SCOTT_GIANTSREACH_ENCOUNTER",
       "var_value": "0",
       "script": "GiantsReach_EventScript_Scott2"
     },
@@ -261,9 +275,27 @@
       "x": 18,
       "y": 15,
       "elevation": 3,
-      "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
+      "var": "VAR_SCOTT_GIANTSREACH_ENCOUNTER",
       "var_value": "0",
       "script": "GiantsReach_EventScript_Scott3"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GIANTS_REACH_QUEST_3",
+      "var_value": "0",
+      "script": "GiantsReach_EventScript_Frank0"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_GIANTS_REACH_QUEST_3",
+      "var_value": "0",
+      "script": "GiantsReach_EventScript_Frank1"
     }
   ],
   "bg_events": [
@@ -357,8 +389,8 @@
     },
     {
       "type": "sign",
-      "x": 6,
-      "y": 3,
+      "x": 17,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "GiantsReach_EventScript_EmptyBush"
