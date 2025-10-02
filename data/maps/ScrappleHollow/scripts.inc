@@ -154,7 +154,7 @@ ScrappleHollow_EventScript_DevonResearcherFinish::
 
 ScrappleHollow_EventScript_RemoveDevonResearcher::
 	removeobject LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE
-	setvar VAR_GIANTS_REACH_WOODS_STATE, 1
+	setvar VAR_SCRAPPLE_HOLLOW_STATE, 1
 	releaseall
 	end
 

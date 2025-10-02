@@ -281,7 +281,7 @@
       "x": 27,
       "y": 23,
       "elevation": 3,
-      "var": "VAR_GIANTS_REACH_WOODS_STATE",
+      "var": "VAR_SCRAPPLE_HOLLOW_STATE",
       "var_value": "0",
       "script": "ScrappleHollow_EventScript_DevonResearcherLeft"
     },
@@ -290,7 +290,7 @@
       "x": 27,
       "y": 24,
       "elevation": 3,
-      "var": "VAR_GIANTS_REACH_WOODS_STATE",
+      "var": "VAR_SCRAPPLE_HOLLOW_STATE",
       "var_value": "0",
       "script": "ScrappleHollow_EventScript_DevonResearcherRight"
     }
