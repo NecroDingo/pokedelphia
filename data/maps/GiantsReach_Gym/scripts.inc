@@ -87,7 +87,15 @@ GiantsReach_Gym_EventScript_ReturnFromMatthewTutorial::
 	delay 30
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
-	msgbox GiantsReach_Gym_Text_DadGoCollectBadges, MSGBOX_DEFAULT
+	msgbox GiantsReach_Gym_Text_GreatJobCharlie, MSGBOX_DEFAULT
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_TM_CASE
+	waitfanfare
+	msgbox GiantsReach_Gym_Text_ThisIsATMCase, MSGBOX_DEFAULT
+	waitmessage
+	msgbox GiantsReach_Gym_Text_GoGetBadges, MSGBOX_DEFAULT
+	waitmessage
 	setvar VAR_GIANTS_REACH_GYM_STATE, 2
 	releaseall
 	end
@@ -1245,7 +1253,23 @@ GiantsReach_Gym_Text_MatthewThankYouBye:
 	.string "Anyway, I gotta go.\p"
 	.string "Bye, {PLAYER}!$"
 
-GiantsReach_Gym_Text_DadGoCollectBadges:
+GiantsReach_Gym_Text_GreatJobCharlie:
+	.string "UNCLE JACK: Wow, you did a great\n"
+	.string "job helping him Charlie.\p"
+	.string "I wish I could've seen you two\n"
+	.string "out there in the woods.\p"
+	.string "Two boys out catching pokemon, on a\n"
+	.string "hot day, getting ......\p"
+	.string "Nevermind about that, here's a\n"
+	.string "little gift for my new trainer!$"
+
+GiantsReach_Gym_Text_ThisIsATMCase:
+	.string "UNCLE JACK: It’s a TM CASE.\p"
+	.string "You can store TMs in it to\n"
+	.string "help keep your moves organized.\p"
+	.string "I’m trusting you with it.$"
+
+GiantsReach_Gym_Text_GoGetBadges:	
 	.string "UNCLE JACK: Alright, {PLAYER}.\p"
 	.string "If you really want to be a strong\n"
 	.string "Trainer...Like me...With big hands..\p"
@@ -1642,4 +1666,3 @@ GiantsReach_Gym_Text_NormanRematchNeedTwoMons:
 	.string "capable of battle?\p"
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
-

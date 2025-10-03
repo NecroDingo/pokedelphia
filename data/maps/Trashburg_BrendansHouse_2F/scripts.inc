@@ -270,6 +270,10 @@ PlayersHouse_2F_EventScript_GameCube::
 	msgbox PlayersHouse_2F_Text_ItsAGameCube, MSGBOX_SIGN
 	end
 
+PlayersHouse_2F_EventScript_Map::
+	msgbox PlayersHouse_2F_Text_Map, MSGBOX_SIGN
+	end
+
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"
 	.string "Better set it and start it!$"
@@ -292,7 +296,7 @@ PlayersHouse_2F_Text_Notebook:
 	.string "SAVE a lot. Trust nothing.\p"
 	.string "The rest is covered in mustard.$"
 
-Common_Text_LookCloserAtMap:
+PlayersHouse_2F_Text_Map:
 	.string "{PLAYER} took a closer look at the map.\n"
 	.string "There’s a weird stain on Trashburg.$"
 

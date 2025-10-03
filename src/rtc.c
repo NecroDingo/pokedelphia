@@ -457,10 +457,12 @@ enum Weekday GetDayOfWeek(void)
 
 enum TimeOfDay TryIncrementTimeOfDay(enum TimeOfDay timeOfDay)
 {
-    return timeOfDay == TIME_NIGHT ? TIME_MORNING : timeOfDay + 1;
+    // Simplified to only cycle between DAY and NIGHT
+    return timeOfDay == TIME_DAY ? TIME_NIGHT : TIME_DAY;
 }
 
 enum TimeOfDay TryDecrementTimeOfDay(enum TimeOfDay timeOfDay)
 {
-    return timeOfDay == TIME_MORNING ? TIME_NIGHT : timeOfDay - 1;
+    // Simplified to only cycle between DAY and NIGHT
+    return timeOfDay == TIME_DAY ? TIME_NIGHT : TIME_DAY;
 }
