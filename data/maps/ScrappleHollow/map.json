@@ -47,7 +47,7 @@
       "flag": "FLAG_TEMP_12"
     },
     {
-      "local_id": "LOCALID_PETALBURG_WOODS_GRUNT",
+      "local_id": "LOCALID_SCRAPPLE_HOLLOW_GRUNT",
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 35,
       "y": 23,
@@ -58,10 +58,10 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_PETALBURG_WOODS_AQUA_GRUNT"
+      "flag": "FLAG_HIDE_SCRAPPLE_HOLLOW_AQUA_GRUNT"
     },
     {
-      "local_id": "LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE",
+      "local_id": "LOCALID_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE",
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
       "x": 35,
       "y": 20,
@@ -72,7 +72,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_PETALBURG_WOODS_DEVON_EMPLOYEE"
+      "flag": "FLAG_HIDE_SCRAPPLE_HOLLOW_DEVON_EMPLOYEE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -85,7 +85,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_GREAT_BALL",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_PETALBURG_WOODS_GREAT_BALL"
+      "flag": "FLAG_ITEM_SCRAPPLE_HOLLOW_GREAT_BALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -98,7 +98,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_X_ATTACK",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_PETALBURG_WOODS_X_ATTACK"
+      "flag": "FLAG_ITEM_SCRAPPLE_HOLLOW_X_ATTACK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -111,7 +111,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_ETHER",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_PETALBURG_WOODS_ETHER"
+      "flag": "FLAG_ITEM_SCRAPPLE_HOLLOW_ETHER"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
@@ -176,7 +176,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_PARALYZE_HEAL",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_PETALBURG_WOODS_PARALYZE_HEAL"
+      "flag": "FLAG_ITEM_SCRAPPLE_HOLLOW_PARALYZE_HEAL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
@@ -310,7 +310,7 @@
       "y": 31,
       "elevation": 3,
       "item": "ITEM_POTION",
-      "flag": "FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POTION"
+      "flag": "FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_POTION"
     },
     {
       "type": "hidden_item",
@@ -318,7 +318,7 @@
       "y": 7,
       "elevation": 3,
       "item": "ITEM_TINY_MUSHROOM",
-      "flag": "FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_1"
+      "flag": "FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_TINY_MUSHROOM_1"
     },
     {
       "type": "hidden_item",
@@ -326,7 +326,7 @@
       "y": 14,
       "elevation": 3,
       "item": "ITEM_TINY_MUSHROOM",
-      "flag": "FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_2"
+      "flag": "FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_TINY_MUSHROOM_2"
     },
     {
       "type": "hidden_item",
@@ -334,7 +334,7 @@
       "y": 18,
       "elevation": 3,
       "item": "ITEM_POKE_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POKE_BALL"
+      "flag": "FLAG_HIDDEN_ITEM_SCRAPPLE_HOLLOW_POKE_BALL"
     },
     {
       "type": "sign",
