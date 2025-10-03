@@ -552,6 +552,8 @@ EWRAM_DATA static bool8 sAutoActionOn = 0;
 EWRAM_DATA static bool8 sJustOpenedBag = 0;
 EWRAM_DATA static bool8 sRefreshDisplayMonGfx = FALSE;
 
+#define FOLLOWER_IN_HAND    0xFD
+
 // Main tasks
 static void Task_InitPokeStorage(u8);
 static void Task_PlaceMon(u8);
@@ -2718,6 +2720,8 @@ static void Task_MoveMon(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
+        if (gSaveBlock3Ptr->followerIndex == sCursorPosition && sCursorArea == CURSOR_AREA_IN_PARTY)
+            gSaveBlock3Ptr->followerIndex = FOLLOWER_IN_HAND;
         InitMonPlaceChange(CHANGE_GRAB);
         sStorage->state++;
         break;
@@ -2738,6 +2742,16 @@ static void Task_PlaceMon(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
+        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
+        {
+            if (sCursorArea == CURSOR_AREA_IN_PARTY)
+                gSaveBlock3Ptr->followerIndex = sCursorPosition;
+            else if (sCursorArea == CURSOR_AREA_IN_BOX)
+            {
+                gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+                gFollowerSteps = 0;
+            }
+        }
         InitMonPlaceChange(CHANGE_PLACE);
         sStorage->state++;
         break;
@@ -6426,9 +6440,23 @@ static void PurgeMonOrBoxMon(u8 boxId, u8 position)
 static void SetShiftedMonData(u8 boxId, u8 position)
 {
     if (boxId == TOTAL_BOXES_COUNT)
+    {
+        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
+            gSaveBlock3Ptr->followerIndex = position;
+        else if (gSaveBlock3Ptr->followerIndex == position)
+            gSaveBlock3Ptr->followerIndex = FOLLOWER_IN_HAND;
+
         sStorage->tempMon = gPlayerParty[position];
+    }
     else
+    {
+        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
+        {
+            gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+            gFollowerSteps = 0;
+        }
         BoxMonAtToMon(boxId, position, &sStorage->tempMon);
+    }
 
     SetPlacedMonData(boxId, position);
     sStorage->movingMon = sStorage->tempMon;
@@ -6451,6 +6479,11 @@ static bool8 TryStorePartyMonInBox(u8 boxId)
     }
     else
     {
+        if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
+        {
+            gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+            gFollowerSteps = 0;
+        }
         SetMovingMonData(TOTAL_BOXES_COUNT, sCursorPosition);
         SetPlacedMonData(boxId, boxPosition);
         DestroyPartyMonIcon(sCursorPosition);
@@ -6514,6 +6547,11 @@ static void ReleaseMon(void)
             boxId = TOTAL_BOXES_COUNT;
             if (OW_PC_RELEASE_ITEM >= GEN_8)
                 item = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_HELD_ITEM);
+            if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
+            {
+                gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+                gFollowerSteps = 0;
+            }
         }
         else
         {
@@ -6793,7 +6831,11 @@ s16 CompactPartySlots(void)
         if (species != SPECIES_NONE)
         {
             if (i != last)
+            {
                 gPlayerParty[last] = gPlayerParty[i];
+                if (gSaveBlock3Ptr->followerIndex == i)
+                    gSaveBlock3Ptr->followerIndex--;
+            }
             last++;
         }
         else if (retVal == -1)
