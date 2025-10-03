@@ -4592,7 +4592,7 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer / Force Setup First Turn
+AI: Expert Trainer / Force Setup First Turn
 Mugshot: Purple
 
 Mightyena
@@ -4643,7 +4643,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 Mugshot: Green
 
 Dusclops
@@ -4694,7 +4694,7 @@ Gender: Female
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 Mugshot: Pink
 
 Sealeo
@@ -4745,7 +4745,7 @@ Gender: Male
 Music: Elite Four
 Items: Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 Mugshot: Blue
 
 Shelgon
@@ -4796,7 +4796,7 @@ Gender: Female
 Music: Female
 Items: Potion / Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Geodude
 Level: 12
@@ -4830,7 +4830,7 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Machop
 Level: 16
@@ -4864,7 +4864,7 @@ Gender: Male
 Music: Male
 Items: Super Potion / Super Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Voltorb
 Level: 20
@@ -4906,7 +4906,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Numel
 Level: 24
@@ -4948,7 +4948,7 @@ Gender: Male
 Music: Male
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Spinda
 Level: 27
@@ -4990,7 +4990,7 @@ Gender: Female
 Music: Female
 Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Smart Trainer / Risky
+AI: Expert Trainer / Risky
 
 Swablu
 Level: 29
@@ -5040,7 +5040,7 @@ Gender: Male
 Music: Female
 Items: Hyper Potion / Hyper Potion / Hyper Potion / Hyper Potion
 Double Battle: Yes
-AI: Smart Trainer
+AI: Expert Trainer
 
 Claydol
 Level: 41
@@ -6252,7 +6252,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 Mugshot: Yellow
 
 Wailord
@@ -9512,7 +9512,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Bulbasaur
 Level: 5
@@ -9525,7 +9525,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Wingull
 Level: 18
@@ -9546,7 +9546,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Slugma
 Level: 29
@@ -9567,7 +9567,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Gible
 Level: 5
@@ -9601,7 +9601,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Pelipper
 Level: 29
@@ -9656,7 +9656,7 @@ Pic: May
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Lombre
 Level: 29
@@ -15592,7 +15592,7 @@ Gender: Male
 Music: Male
 Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
-AI: Smart Trainer
+AI: Expert Trainer
 
 Skarmory
 Level: 77
