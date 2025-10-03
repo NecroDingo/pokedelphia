@@ -41,12 +41,6 @@
 #include "trainer_hill.h"
 #include "fldeff.h"
 #include "battle.h"
-#include "ui_startmenu_full.h"
-#include "battle_pike.h"
-#include "battle_pyramid.h"
-#include "battle_pyramid_bag.h"
-#include "safari_zone.h"
-#include "field_specials.h"
 
 static void Task_ExitNonAnimDoor(u8);
 static void Task_ExitNonDoor(u8);
@@ -462,10 +456,7 @@ static void Task_WaitForFadeShowStartMenu(u8 taskId)
     if (WaitForWeatherFadeIn() == TRUE)
     {
         DestroyTask(taskId);
-        if (GetSafariZoneFlag() || InBattlePike() || InUnionRoom() || InMultiPartnerRoom())
-            CreateTask(Task_ShowStartMenu, 80);
-        else        
-            CreateTask(Task_OpenStartMenuFullScreen, 80);
+        CreateTask(Task_ShowStartMenu, 80);
     }
 }
 
