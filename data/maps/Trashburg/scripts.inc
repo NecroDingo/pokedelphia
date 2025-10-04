@@ -810,7 +810,7 @@ Trashburg_Text_YouSavedFrank:
 
 Trashburg_Text_GoodLuckCatchingPokemon:
 	.string "Aight, quick PSA:\n"
-	.string "Day 7am–7pm, Night 7pm–7am.\p"
+	.string "Day 7am-7pm, Night 7pm-7am.\p"
 	.string "When the clock flips the spawns swap.\n"
 	.string "Different Pokémon like to come out\l"
 	.string "after dark.\p"
