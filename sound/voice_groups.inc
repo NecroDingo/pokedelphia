@@ -137,6 +137,8 @@
 .include "sound/voicegroups/frlg_sfx.inc"
 .include "sound/voicegroups/bard.inc"
 .include "sound/voicegroups/always_sunny_intro.inc"
+.include "sound/voicegroups/blue_blood.inc"
+.include "sound/voicegroups/on_your_bike.inc"
 .include "sound/voicegroups/unused_2.inc" @ used by unused GSC radio tower takeover test track in RS
 
 @ FRLG
