@@ -2,7 +2,7 @@
   "id": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
   "name": "BattleFrontier_OutsideEast",
   "layout": "LAYOUT_BATTLE_FRONTIER_OUTSIDE_EAST",
-  "music": "MUS_B_FRONTIER",
+  "music": "MUS_BLUE_BLOOD",
   "region_map_section": "MAPSEC_BATTLE_FRONTIER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

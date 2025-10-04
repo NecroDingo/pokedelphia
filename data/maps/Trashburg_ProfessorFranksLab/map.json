@@ -2,7 +2,7 @@
   "id": "MAP_TRASHBURG_PROFESSOR_FRANKS_LAB",
   "name": "Trashburg_ProfessorFranksLab",
   "layout": "LAYOUT_TRASHBURG_PROFESSOR_FRANKS_LAB",
-  "music": "MUS_FRANK_LAB",
+  "music": "MUS_ALWAYS_SUNNY_INTRO",
   "region_map_section": "MAPSEC_TRASHBURG",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

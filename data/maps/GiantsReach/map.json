@@ -2,7 +2,7 @@
   "id": "MAP_GIANTS_REACH",
   "name": "GiantsReach",
   "layout": "LAYOUT_GIANTS_REACH",
-  "music": "MUS_GIANTS_REACH",
+  "music": "MUS_ON_YOUR_BIKE",
   "region_map_section": "MAPSEC_GIANTS_REACH",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",

@@ -2,7 +2,7 @@
   "id": "MAP_WAWA_PARK_POKEMON_CENTER_2F",
   "name": "WawaPark_PokemonCenter_2F",
   "layout": "LAYOUT_POKEMON_CENTER_2F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_ALWAYS_SUNNY_INTRO",
   "region_map_section": "MAPSEC_WAWA_PARK",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

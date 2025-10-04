@@ -2,7 +2,7 @@
   "id": "MAP_TRASHBURG",
   "name": "Trashburg",
   "layout": "LAYOUT_TRASHBURG",
-  "music": "MUS_TRASHBURG",
+  "music": "MUS_ON_YOUR_BIKE",
   "region_map_section": "MAPSEC_TRASHBURG",
   "requires_flash": false,
   "weather": "WEATHER_RAIN",
