@@ -51,7 +51,7 @@ src/data/debug_trainers.h
 test/battle/trainer_control.h
 tools/compresSmol/compresSmol
 tools/compresSmol/compresSmolTilemap
-tools/wild_encounters
+tools/wild_encounters/planning
 *.Identifier
 *.smol
 *.fastSmol
