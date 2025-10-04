@@ -809,9 +809,19 @@ Trashburg_Text_YouSavedFrank:
 	.string "Man, that guy owes you… like, a sandwich.$"
 
 Trashburg_Text_GoodLuckCatchingPokemon:
-	.string "Catching Pokémon, huh?\n"
-	.string "Yeah… good luck with that.\p"
-	.string "Hope you brought snacks. And bandages.$"
+	.string "Aight, quick PSA:\n"
+	.string "Day 7am–7pm, Night 7pm–7am.\p"
+	.string "When the clock flips the spawns swap.\n"
+	.string "Different Pokémon like to come out\l"
+	.string "after dark.\p"
+	.string "The time also changes evolution for\n"
+	.string "some species.\p"
+	.string "Some evolve one way by day, another\n"
+	.string "by night, and others need special\l"
+	.string "triggers.\p"
+	.string "Want a specific outcome?\n"
+	.string "Check the species’ rules and\l"
+	.string "time it right.$"
 
 Trashburg_Text_TownSign:
 	.string "TRASHBURG\n"
