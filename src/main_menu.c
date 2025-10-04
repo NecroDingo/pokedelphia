@@ -1305,7 +1305,7 @@ static void Task_NewGameFrankSpeech_Init(u8 taskId)
     gTasks[taskId].tPlayerSpriteId = SPRITE_NONE;
     gTasks[taskId].data[3] = 0xFF;
     gTasks[taskId].tTimer = 0xD8;
-    PlayBGM(MUS_ROUTE122);
+    PlayBGM(MUS_ALWAYS_SUNNY_INTRO);
     ShowBg(0);
     ShowBg(1);
 }
@@ -1349,7 +1349,7 @@ void CB2_NewGameFrankSpeech_FromNewMainMenu(void) // Combination of the Above fu
     FreeAllSpritePalettes();
     ResetAllPicSprites();
     AddFrankSpeechObjects(taskId);
-    PlayBGM(MUS_ROUTE122);
+    PlayBGM(MUS_ALWAYS_SUNNY_INTRO);
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
     SetGpuReg(REG_OFFSET_WIN0H, 0);
     SetGpuReg(REG_OFFSET_WIN0V, 0);
