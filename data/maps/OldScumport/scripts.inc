@@ -431,14 +431,13 @@ OldScumport_EventScript_LadyElizabeth_Offer:
 	end
 
 OldScumport_EventScript_LadyElizabeth_Accept:
-	msgbox OldScumport_Text_LadyElizabethAccept, MSGBOX_NPC
-	waitmessage
+	msgbox OldScumport_Text_LadyElizabethAccept, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
 	giveitem ITEM_BERRY_POUCH
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	waitfanfare
-	msgbox OldScumport_Text_LadyElizabethAccept2, MSGBOX_NPC
-	waitmessage
-	startquest QUEST_1_FIND_CHESTO 
+	msgbox OldScumport_Text_LadyElizabethAccept2, MSGBOX_DEFAULT
+	startquest QUEST_1_FIND_CHESTO
 	release
 	end
 
