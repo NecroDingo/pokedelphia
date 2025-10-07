@@ -287,6 +287,13 @@ extern const u8 gText_Frank_WhatsYourName[];
 extern const u8 gText_Frank_SoItsPlayer[];
 extern const u8 gText_Frank_YourePlayer[];
 extern const u8 gText_Frank_AreYouReady[];
+extern const u8 gText_Frank_HaveYouPlayedPokemonBefore[];
+extern const u8 gText_Frank_HaventPlayedPokemon[];
+extern const u8 gText_Frank_LetsGetIntoIt[];
+extern const u8 gText_Frank_HavePlayedPokemon[];
+extern const u8 gText_Frank_NuzlockeChallenge[];
+extern const u8 gText_Frank_NoNuzlucke[];
+extern const u8 gText_Frank_YesNuzlocke[];
 
 extern const u8 gText_FrankInTrouble[];
 extern const u8 gText_ConfirmStarterChoice[];
@@ -679,6 +686,7 @@ extern const u8 gText_PlayerUsedVar2[];
 extern const u8 gText_RepelEffectsLingered[];
 extern const u8 gText_LureEffectsLingered[];
 extern const u8 gText_BoxFull[];
+extern const u8 gText_BallsCannotBeUsedNuz[];
 extern const u8 gText_WontHaveEffect[];
 extern const u8 gText_NextFusionMon[];
 

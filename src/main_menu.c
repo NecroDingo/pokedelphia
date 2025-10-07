@@ -199,10 +199,12 @@ static void NewGameFrankSpeech_StartFadeInTarget1OutTarget2(u8, u8);
 static void NewGameFrankSpeech_StartFadePlatformOut(u8, u8);
 static void Task_NewGameFrankSpeech_WaitForSpriteFadeInWelcome(u8);
 static void NewGameFrankSpeech_ShowDialogueWindow(u8, u8);
+static void NewGameFrankSpeech_ShowYesNoMenu(void);
+static s8 NewGameFrankSpeech_ProcessYesNoMenuInput(void);
 static void NewGameFrankSpeech_ClearWindow(u8);
 static void Task_NewGameFrankSpeech_ThisIsAPokemon(u8);
 static void Task_NewGameFrankSpeech_MainSpeech(u8);
-static void Task_NewGameFrankSpeech_YourePlayer(u8);
+// static void Task_NewGameFrankSpeech_YourePlayer(u8);
 static void NewGameFrankSpeech_WaitForThisIsPokemonText(struct TextPrinterTemplate *, u16);
 static void Task_NewGameFrankSpeechSub_WaitForLotad(u8);
 static void NewGameFrankSpeech_StartFadeOutTarget1InTarget2(u8, u8);
@@ -226,6 +228,23 @@ static void Task_NewGameFrankSpeech_SlidePlatformAway2(u8);
 static void Task_NewGameFrankSpeech_ReshowFrankLotad(u8);
 static void Task_NewGameFrankSpeech_WaitForSpriteFadeInAndTextPrinter(u8);
 static void Task_NewGameFrankSpeech_AreYouReady(u8);
+static void Task_NewGameFrankSpeech_HaveYouPlayedPokemonBefore(u8);
+static void Task_NewGameFrankSpeech_HaveYouPlayedPokemonBeforeMenu(u8);
+static void Task_NewGameFrankSpeech_ProcessPlayedBeforeInput(u8);
+static void Task_NewGameFrankSpeech_HaventPlayedPokemon(u8);
+static void Task_NewGameFrankSpeech_WaitAfterHaventPlayed(u8);
+static void Task_NewGameFrankSpeech_HavePlayedPokemon(u8);
+static void Task_NewGameFrankSpeech_WaitAfterHavePlayedPokemon(u8);
+static void Task_NewGameFrankSpeech_NuzlockeChallenge(u8);
+static void Task_NewGameFrankSpeech_NuzlockeChallengeMenu(u8);
+static void Task_NewGameFrankSpeech_ProcessNuzlockeInput(u8);
+static void Task_NewGameFrankSpeech_NoNuzlocke(u8);
+static void Task_NewGameFrankSpeech_WaitAfterNoNuzlocke(u8);
+static void Task_NewGameFrankSpeech_YesNuzlocke(u8);
+static void Task_NewGameFrankSpeech_WaitAfterYesNuzlocke(u8);
+static void Task_NewGameFrankSpeech_LetsGetIntoIt(u8);
+static void Task_NewGameFrankSpeech_StartGame(u8);
+static void Task_NewGameFrankSpeech_FadeToOverworld(u8);
 static void Task_NewGameFrankSpeech_ShrinkPlayer(u8);
 static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *);
 static void Task_NewGameFrankSpeech_WaitForPlayerShrink(u8);
@@ -469,6 +488,11 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
 static const struct MenuAction sMenuActions_Gender[] = {
     {COMPOUND_STRING("BOY"), {NULL}},
     {COMPOUND_STRING("GIRL"), {NULL}}
+};
+
+static const struct MenuAction sMenuActions_YesNo[] = {
+    {COMPOUND_STRING("YES"), {NULL}},
+    {COMPOUND_STRING("NO"), {NULL}}
 };
 
 static const u8 *const sMalePresetNames[] = {
@@ -1437,19 +1461,19 @@ static void Task_NewGameFrankSpeech_MainSpeech(u8 taskId)
         // Skip gender and name selection, set defaults
         gSaveBlock2Ptr->playerGender = MALE;
         StringCopy(gSaveBlock2Ptr->playerName, COMPOUND_STRING("Charlie"));
-        gTasks[taskId].func = Task_NewGameFrankSpeech_YourePlayer;
+        gTasks[taskId].func = Task_NewGameFrankSpeech_HaveYouPlayedPokemonBefore;
     }
 }
 
-static void Task_NewGameFrankSpeech_YourePlayer(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        StringExpandPlaceholders(gStringVar4, gText_Frank_YourePlayer);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameFrankSpeech_AreYouReady;
-    }
-}
+// static void Task_NewGameFrankSpeech_YourePlayer(u8 taskId)
+// {
+//     if (!RunTextPrintersAndIsPrinter0Active())
+//     {
+//         StringExpandPlaceholders(gStringVar4, gText_Frank_YourePlayer);
+//         AddTextPrinterForMessage(TRUE);
+//         gTasks[taskId].func = Task_NewGameFrankSpeech_AreYouReady;
+//     }
+// }
 
 #define tState data[0]
 
@@ -1494,6 +1518,218 @@ static void Task_NewGameFrankSpeechSub_WaitForLotad(u8 taskId)
 }
 
 #undef tState
+
+// New Frank speech functions for branching system
+static void Task_NewGameFrankSpeech_HaveYouPlayedPokemonBefore(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        StringExpandPlaceholders(gStringVar4, gText_Frank_HaveYouPlayedPokemonBefore);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameFrankSpeech_HaveYouPlayedPokemonBeforeMenu;
+    }
+}
+
+static void Task_NewGameFrankSpeech_HaveYouPlayedPokemonBeforeMenu(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameFrankSpeech_ShowYesNoMenu();
+        gTasks[taskId].func = Task_NewGameFrankSpeech_ProcessPlayedBeforeInput;
+    }
+}
+
+static void Task_NewGameFrankSpeech_ProcessPlayedBeforeInput(u8 taskId)
+{
+    s8 input = NewGameFrankSpeech_ProcessYesNoMenuInput();
+    
+    switch (input)
+    {
+        case 0: // YES
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameFrankSpeech_HavePlayedPokemon;
+            break;
+        case 1: // NO
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameFrankSpeech_HaventPlayedPokemon;
+            break;
+    }
+}
+
+static void Task_NewGameFrankSpeech_HaventPlayedPokemon(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        // Ensure text printer is completely stopped
+        if (IsTextPrinterActive(0))
+            return;
+        NewGameFrankSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Frank_HaventPlayedPokemon);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameFrankSpeech_WaitAfterHaventPlayed;
+    }
+}
+
+static void Task_NewGameFrankSpeech_WaitAfterHaventPlayed(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            gTasks[taskId].func = Task_NewGameFrankSpeech_AreYouReady;
+        }
+    }
+}
+
+static void Task_NewGameFrankSpeech_StartGame(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = Task_NewGameFrankSpeech_FadeToOverworld;
+        }
+    }
+}
+
+static void Task_NewGameFrankSpeech_FadeToOverworld(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        FreeAllWindowBuffers();
+        SetMainCallback2(CB2_NewGame);
+        ResetSpriteData();
+        FreeAllSpritePalettes();
+        SetVBlankCallback(NULL);
+        SetHBlankCallback(NULL);
+        SetGpuReg(REG_OFFSET_DISPCNT, 0);
+        ResetTasks();
+        ResetPaletteFade();
+    }
+}
+
+static void Task_NewGameFrankSpeech_HavePlayedPokemon(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameFrankSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Frank_HavePlayedPokemon);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameFrankSpeech_WaitAfterHavePlayedPokemon;
+    }
+}
+
+static void Task_NewGameFrankSpeech_WaitAfterHavePlayedPokemon(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            gTasks[taskId].func = Task_NewGameFrankSpeech_NuzlockeChallenge;
+        }
+    }
+}
+
+static void Task_NewGameFrankSpeech_NuzlockeChallenge(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameFrankSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Frank_NuzlockeChallenge);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameFrankSpeech_NuzlockeChallengeMenu;
+    }
+}
+
+static void Task_NewGameFrankSpeech_NuzlockeChallengeMenu(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameFrankSpeech_ShowYesNoMenu();
+        gTasks[taskId].func = Task_NewGameFrankSpeech_ProcessNuzlockeInput;
+    }
+}
+
+static void Task_NewGameFrankSpeech_ProcessNuzlockeInput(u8 taskId)
+{
+    s8 input = NewGameFrankSpeech_ProcessYesNoMenuInput();
+    
+    switch (input)
+    {
+        case 0: // YES
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameFrankSpeech_YesNuzlocke;
+            break;
+        case 1: // NO
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameFrankSpeech_NoNuzlocke;
+            break;
+    }
+}
+
+static void Task_NewGameFrankSpeech_NoNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        // Clear the Nuzlocke flag
+        FlagClear(FLAG_NUZLOCKE);
+        NewGameFrankSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Frank_NoNuzlucke);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameFrankSpeech_WaitAfterNoNuzlocke;
+    }
+}
+
+static void Task_NewGameFrankSpeech_YesNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        // Set the Nuzlocke flag
+        FlagSet(FLAG_NUZLOCKE);
+        NewGameFrankSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Frank_YesNuzlocke);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameFrankSpeech_WaitAfterYesNuzlocke;
+    }
+}
+
+static void Task_NewGameFrankSpeech_WaitAfterYesNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            // Set the fade flag so AreYouReady will trigger the scene change
+            gTasks[taskId].tIsDoneFadingSprites = TRUE;
+            gTasks[taskId].func = Task_NewGameFrankSpeech_AreYouReady;
+        }
+    }
+}
+
+static void Task_NewGameFrankSpeech_WaitAfterNoNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            // Set the fade flag so AreYouReady will trigger the scene change
+            gTasks[taskId].tIsDoneFadingSprites = TRUE;
+            gTasks[taskId].func = Task_NewGameFrankSpeech_AreYouReady;
+        }
+    }
+}
+
+static void Task_NewGameFrankSpeech_LetsGetIntoIt(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameFrankSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Frank_LetsGetIntoIt);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameFrankSpeech_ShrinkPlayer;
+    }
+}
 
 
 
@@ -1700,9 +1936,10 @@ static void Task_NewGameFrankSpeech_AreYouReady(u8 taskId)
         SeedRngAndSetTrainerId();
         NewGameFrankSpeech_StartFadeInTarget1OutTarget2(taskId, 2);
         NewGameFrankSpeech_StartFadePlatformOut(taskId, 1);
+        NewGameFrankSpeech_ClearWindow(0);
         StringExpandPlaceholders(gStringVar4, gText_Frank_AreYouReady);
         AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameFrankSpeech_ShrinkPlayer;
+        gTasks[taskId].func = Task_NewGameFrankSpeech_LetsGetIntoIt;
     }
 }
 
@@ -2209,12 +2446,11 @@ static void NewGameFrankSpeech_ClearGenderWindow(u8 windowId, bool8 copyToVram)
 static void NewGameFrankSpeech_ClearWindow(u8 windowId)
 {
     u8 bgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
-    u8 maxCharWidth = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_WIDTH);
-    u8 maxCharHeight = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT);
     u8 winWidth = GetWindowAttribute(windowId, WINDOW_WIDTH);
     u8 winHeight = GetWindowAttribute(windowId, WINDOW_HEIGHT);
 
-    FillWindowPixelRect(windowId, bgColor, 0, 0, maxCharWidth * winWidth, maxCharHeight * winHeight);
+    // Clear the entire window area with background color
+    FillWindowPixelRect(windowId, bgColor, 0, 0, winWidth * 8, winHeight * 16);
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
 
@@ -2269,6 +2505,16 @@ static void Task_NewGameFrankSpeech_ReturnFromNamingScreenShowTextbox(u8 taskId)
         NewGameFrankSpeech_ShowDialogueWindow(0, 1);
         gTasks[taskId].func = Task_NewGameFrankSpeech_SoItsPlayerName;
     }
+}
+
+static void NewGameFrankSpeech_ShowYesNoMenu(void)
+{
+    CreateYesNoMenuParameterized(2, 1, 0xF3, 0xDF, 2, 15);
+}
+
+static s8 NewGameFrankSpeech_ProcessYesNoMenuInput(void)
+{
+    return Menu_ProcessInputNoWrapClearOnChoose();
 }
 
 #undef tTimer

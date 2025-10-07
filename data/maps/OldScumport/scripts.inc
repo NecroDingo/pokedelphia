@@ -496,8 +496,8 @@ OldScumport_Text_LadyElizabethAccept:
 OldScumport_Text_LadyElizabethAccept2:
 	.string "I can’t deal with this nonsense much\n"
 	.string "longer.\p"
-	.string "I swear,\n"
-	.string "if I have to listen to this snoring\l"
+	.string "I swear...\n"
+	.string "If I have to listen to this snoring\l"
 	.string "all night...$"
 
 OldScumport_Text_LadyElizabethDecline:
