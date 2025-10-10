@@ -36,6 +36,7 @@ Trashburg_MapScripts::
 
 Trashburg_OnTransition:
 	setflag FLAG_VISITED_TRASHBURG
+	setflag FLAG_HIDE_DAYNIGHT_SCIENCEGUY
 	call Common_EventScript_SetupRivalGfxId
 	call_if_eq VAR_TRASHBURG_INTRO_STATE, 2, Trashburg_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_FRANK, Trashburg_EventScript_SetTwinPos
@@ -239,7 +240,7 @@ Trashburg_EventScript_Boy::
 Trashburg_EventScript_Twin::
 	lock
 	faceplayer
-	goto_if_set FLAG_ADVENTURE_STARTED, Trashburg_EventScript_GoodLuck
+	goto_if_set FLAG_ADVENTURE_STARTED, Trashburg_EventScript_YouSavedFrank
 	goto_if_set FLAG_RESCUED_FRANK, Trashburg_EventScript_YouSavedFrank
 	goto_if_ne VAR_TRASHBURG_STATE, 0, Trashburg_EventScript_GoSaveFrank
 	msgbox Trashburg_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
@@ -259,11 +260,6 @@ Trashburg_EventScript_GoSaveFrank::
 Trashburg_EventScript_YouSavedFrank::
 	special GetPlayerBigGuyGirlString
 	msgbox Trashburg_Text_YouSavedFrank, MSGBOX_DEFAULT
-	release
-	end
-
-Trashburg_EventScript_GoodLuck::
-	msgbox Trashburg_Text_GoodLuckCatchingPokemon, MSGBOX_DEFAULT
 	release
 	end
 
@@ -809,19 +805,8 @@ Trashburg_Text_YouSavedFrank:
 	.string "Man, that guy owes you… like, a sandwich.$"
 
 Trashburg_Text_GoodLuckCatchingPokemon:
-	.string "Aight, quick PSA:\n"
-	.string "Day 7am-7pm, Night 7pm-7am.\p"
-	.string "When the clock flips the spawns swap.\n"
-	.string "Different Pokémon like to come out\l"
-	.string "after dark.\p"
-	.string "The time also changes evolution for\n"
-	.string "some species.\p"
-	.string "Some evolve one way by day, another\n"
-	.string "by night, and others need special\l"
-	.string "triggers.\p"
-	.string "Want a specific outcome?\n"
-	.string "Check the species’ rules and\l"
-	.string "time it right.$"
+	.string "MOM: Good luck catching Pokémon out there!\p"
+	.string "$"
 
 Trashburg_Text_TownSign:
 	.string "TRASHBURG\n"
@@ -871,3 +856,98 @@ Trashburg_Text_EXPShare:
 	.string "This one helps them all!\p"
 	.string "You just turn it on and suddenly\n"
 	.string "they’re all winners! You could use that.$"
+
+Trashburg_EventScript_GoodLuck1::
+	lockall
+	addobject LOCALID_SCIENCEGUY
+	setobjectxy LOCALID_SCIENCEGUY, 10, 8
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	delay 8
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	applymovement LOCALID_SCIENCEGUY, Trashburg_Movement_WalkToPlayer1
+	waitmovement 0
+	msgbox Trashburg_Text_DayNightInfo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_SCIENCEGUY, Trashburg_Movement_WalkAway1
+	waitmovement 0
+	removeobject LOCALID_SCIENCEGUY
+	setvar VAR_TRASHBURG_STATE, 5
+	releaseall
+	end
+
+Trashburg_EventScript_GoodLuck2::
+	lockall
+	addobject LOCALID_SCIENCEGUY
+	setobjectxy LOCALID_SCIENCEGUY, 11, 8
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	delay 8
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	applymovement LOCALID_SCIENCEGUY, Trashburg_Movement_WalkToPlayer2
+	waitmovement 0
+	msgbox Trashburg_Text_DayNightInfo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_SCIENCEGUY, Trashburg_Movement_WalkAway2
+	waitmovement 0
+	removeobject LOCALID_SCIENCEGUY
+	setflag FLAG_HIDE_DAYNIGHT_SCIENCEGUY
+	setvar VAR_TRASHBURG_STATE, 5
+	releaseall
+	end	
+
+Trashburg_Movement_WalkToPlayer1:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Trashburg_Movement_WalkToPlayer2:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end	
+
+Trashburg_Movement_WalkAway1:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Trashburg_Movement_WalkAway2:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end	
+
+Trashburg_Text_DayNightInfo:
+	.string "Hey there, {PLAYER}!\n"
+	.string "Good luck filling that POKéDEX!\p"
+	.string "Quick PSA since Frank forgot...\p"
+	.string "Day is 7am-7pm, Night is 7pm-7am.\p"
+	.string "When the clock flips the spawns swap.\n"
+	.string "Different Pokémon like to come out\l"
+	.string "after dark.\p"
+	.string "The time also changes evolution for\n"
+	.string "some species.\p"
+	.string "Some evolve one way by day, another\n"
+	.string "by night, and others need special\l"
+	.string "triggers.\p"
+	.string "Want a specific outcome?\n"
+	.string "Check the species’ rules and\l"
+	.string "time it right.\p"
+	.string "..... ..... .....\p"
+	.string "Anyway..have a fun time.\p"
+	.string "Don't go dyin out there too quick.$"

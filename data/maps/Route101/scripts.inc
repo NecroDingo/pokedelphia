@@ -281,7 +281,7 @@ Route101_Text_YouSavedMe:
 	.string "Think it had rabies or meth rage.\p"
 	.string "Anyway, you did good kid.\n"
 	.string "Real good.\p"
-	.string "Come by my lab later. I got a whole\n"
+	.string "Come by my lab. I got a whole\n"
 	.string "trashcan full of things to show you.$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter:

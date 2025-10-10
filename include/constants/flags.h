@@ -669,7 +669,7 @@
 #define FLAG_EXP_SHARE_TOGGLE                                0x266 // Toggles Exp. Share on/off
 #define FLAG_HIDE_FRANK_QUEST3_COMPLETE                      0x267 // Hides Frank after completing his quest in Matthews House
 #define FLAG_HIDE_FRANK_BEFORE_QUEST_3                       0x268 // Hides Frank before starting his quest in Matthews House
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
+#define FLAG_HIDE_DAYNIGHT_SCIENCEGUY                        0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
