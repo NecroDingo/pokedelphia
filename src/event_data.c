@@ -1,6 +1,8 @@
 #include "global.h"
 #include "event_data.h"
 #include "pokedex.h"
+#include "constants/flags.h"
+#include "gba/isagbprint.h"
 
 #define SPECIAL_FLAGS_SIZE  (NUM_SPECIAL_FLAGS / 8)  // 8 flags per byte
 #define TEMP_FLAGS_SIZE     (NUM_TEMP_FLAGS / 8)
@@ -50,6 +52,8 @@ const u16 gBadgeFlags[NUM_BADGES] =
 
 void InitEventData(void)
 {
+    DebugPrintfLevel(MGBA_LOG_ERROR, "NUZLOCKE: InitEventData called - clearing all flags");
+    
     memset(gSaveBlock1Ptr->flags, 0, sizeof(gSaveBlock1Ptr->flags));
     memset(gSaveBlock1Ptr->vars, 0, sizeof(gSaveBlock1Ptr->vars));
     memset(sSpecialFlags, 0, sizeof(sSpecialFlags));

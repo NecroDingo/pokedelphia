@@ -13,6 +13,9 @@ extern const u8 gText_ExpandedPlaceholder_Magma[];
 extern const u8 gText_ExpandedPlaceholder_Archie[];
 extern const u8 gText_ExpandedPlaceholder_Maxie[];
 extern const u8 gText_ExpandedPlaceholder_Kyogre[];
+
+// Nuzlocke strings
+extern const u8 gText_NuzlockeCatchable[];
 extern const u8 gText_ExpandedPlaceholder_Groudon[];
 extern const u8 gText_ExpandedPlaceholder_Brendan[];
 extern const u8 gText_ExpandedPlaceholder_May[];
@@ -1968,6 +1971,7 @@ extern const u8 gText_TrainerCardMoney[];
 extern const u8 gText_PokedollarVar1[];
 extern const u8 gText_EmptyString6[];
 extern const u8 gText_TrainerCardPokedex[];
+extern const u8 gText_TrainerCardNuzlockePokedex[];
 extern const u8 gText_TrainerCardTime[];
 extern const u8 gText_Colon2[];
 extern const u8 gText_Var1sTrainerCard[];

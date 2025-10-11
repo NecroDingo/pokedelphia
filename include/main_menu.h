@@ -6,5 +6,7 @@ void CreateYesNoMenuParameterized(u8 x, u8 y, u16 baseTileNum, u16 baseBlock, u8
 void CB2_ReinitMainMenu(void);
 void CB2_NewGameFrankSpeech_FromNewMainMenu(void);
 void NewGameFrankSpeech_SetDefaultPlayerName(u8);
+bool8 WasNuzlockeModeSelected(void);
+void ClearNuzlockeModeSelection(void);
 
 #endif // GUARD_MAIN_MENU_H

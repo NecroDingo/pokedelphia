@@ -123,6 +123,7 @@ void AgbMain(void)
 #ifndef NDEBUG
 #if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
     (void) MgbaOpen();
+    DebugPrintfLevel(MGBA_LOG_ERROR, "NUZLOCKE DEBUG: mGBA logging initialized!");
 #elif (LOG_HANDLER == LOG_HANDLER_AGB_PRINT)
     AGBPrintInit();
 #endif

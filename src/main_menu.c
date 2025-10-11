@@ -173,6 +173,7 @@
 
 static EWRAM_DATA bool8 sStartedPokeBallTask = 0;
 static EWRAM_DATA u16 sCurrItemAndOptionMenuCheck = 0;
+static EWRAM_DATA bool8 sNuzlockeModeSelected = FALSE;
 
 static u8 sFrankSpeechMainTaskId;
 
@@ -243,8 +244,6 @@ static void Task_NewGameFrankSpeech_WaitAfterNoNuzlocke(u8);
 static void Task_NewGameFrankSpeech_YesNuzlocke(u8);
 static void Task_NewGameFrankSpeech_WaitAfterYesNuzlocke(u8);
 static void Task_NewGameFrankSpeech_LetsGetIntoIt(u8);
-static void Task_NewGameFrankSpeech_StartGame(u8);
-static void Task_NewGameFrankSpeech_FadeToOverworld(u8);
 static void Task_NewGameFrankSpeech_ShrinkPlayer(u8);
 static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *);
 static void Task_NewGameFrankSpeech_WaitForPlayerShrink(u8);
@@ -1581,34 +1580,6 @@ static void Task_NewGameFrankSpeech_WaitAfterHaventPlayed(u8 taskId)
     }
 }
 
-static void Task_NewGameFrankSpeech_StartGame(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
-        {
-            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-            gTasks[taskId].func = Task_NewGameFrankSpeech_FadeToOverworld;
-        }
-    }
-}
-
-static void Task_NewGameFrankSpeech_FadeToOverworld(u8 taskId)
-{
-    if (!gPaletteFade.active)
-    {
-        FreeAllWindowBuffers();
-        SetMainCallback2(CB2_NewGame);
-        ResetSpriteData();
-        FreeAllSpritePalettes();
-        SetVBlankCallback(NULL);
-        SetHBlankCallback(NULL);
-        SetGpuReg(REG_OFFSET_DISPCNT, 0);
-        ResetTasks();
-        ResetPaletteFade();
-    }
-}
-
 static void Task_NewGameFrankSpeech_HavePlayedPokemon(u8 taskId)
 {
     if (!RunTextPrintersAndIsPrinter0Active())
@@ -1685,8 +1656,8 @@ static void Task_NewGameFrankSpeech_YesNuzlocke(u8 taskId)
 {
     if (!RunTextPrintersAndIsPrinter0Active())
     {
-        // Set the Nuzlocke flag
-        FlagSet(FLAG_NUZLOCKE);
+        // Store the Nuzlocke choice for later (flag will be set after game initialization)
+        sNuzlockeModeSelected = TRUE;
         NewGameFrankSpeech_ClearWindow(0);
         StringExpandPlaceholders(gStringVar4, gText_Frank_YesNuzlocke);
         AddTextPrinterForMessage(TRUE);
@@ -2515,6 +2486,16 @@ static void NewGameFrankSpeech_ShowYesNoMenu(void)
 static s8 NewGameFrankSpeech_ProcessYesNoMenuInput(void)
 {
     return Menu_ProcessInputNoWrapClearOnChoose();
+}
+
+bool8 WasNuzlockeModeSelected(void)
+{
+    return sNuzlockeModeSelected;
+}
+
+void ClearNuzlockeModeSelection(void)
+{
+    sNuzlockeModeSelected = FALSE;
 }
 
 #undef tTimer

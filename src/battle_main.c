@@ -58,6 +58,7 @@
 #include "trainer_pools.h"
 #include "trig.h"
 #include "tv.h"
+#include "nuzlocke.h"
 #include "util.h"
 #include "wild_encounter.h"
 #include "window.h"
@@ -5613,6 +5614,7 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
+        
         if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
             TryRestoreHeldItems();
 
