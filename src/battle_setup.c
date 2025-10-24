@@ -428,7 +428,7 @@ static void DoBattlePyramidTrainerHillBattle(void)
 // Initiates battle where Matthew catches Swablu
 void StartMatthewTutorialBattle(void)
 {
-    CreateMaleMon(&gEnemyParty[0], SPECIES_SWABLU, 3);
+    CreateMaleMon(&gEnemyParty[0], SPECIES_SWABLU, 4);
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_MATTHEW_TUTORIAL;
@@ -1286,6 +1286,8 @@ static void HandleBattleVariantEndParty(void)
 
 static void CB2_EndTrainerBattle(void)
 {
+    bool8 noWhiteout = FlagGet(B_FLAG_NO_WHITEOUT);
+    
     HandleBattleVariantEndParty();
 
     if (FollowerNPCIsBattlePartner())
@@ -1300,21 +1302,30 @@ static void CB2_EndTrainerBattle(void)
     if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_SECRET_BASE)
     {
         DowngradeBadPoison();
+        FlagClear(B_FLAG_NO_WHITEOUT); // Clear flag after battle
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
-        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()) || FlagGet(B_FLAG_NO_WHITEOUT))
+        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()) || noWhiteout)
+        {
+            FlagClear(B_FLAG_NO_WHITEOUT); // Clear flag after battle
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        }
         else
+        {
+            FlagClear(B_FLAG_NO_WHITEOUT); // Clear flag after battle
             SetMainCallback2(CB2_WhiteOut);
+        }
     }
     else if (DidPlayerForfeitNormalTrainerBattle())
     {
+            FlagClear(B_FLAG_NO_WHITEOUT); // Clear flag after battle
             SetMainCallback2(CB2_WhiteOut);
     }
     else
     {
+        FlagClear(B_FLAG_NO_WHITEOUT); // Clear flag after battle
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         DowngradeBadPoison();
         if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE && !InTrainerHillChallenge())

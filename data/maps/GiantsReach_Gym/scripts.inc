@@ -1627,7 +1627,7 @@ GiantsReach_Gym_Text_GymStatue:
 
 GiantsReach_Gym_Text_GymStatueCertified:
 	.string "GIANT'S REACH POKéMON GYM\p"
-	.string "NORMAN'S CERTIFIED TRAINERS:\n"
+	.string "JACK'S CERTIFIED TRAINERS:\n"
 	.string "{PLAYER}$"
 
 GiantsReach_Gym_Text_NormanPreRematch:
@@ -1666,3 +1666,40 @@ GiantsReach_Gym_Text_NormanRematchNeedTwoMons:
 	.string "capable of battle?\p"
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
+
+GiantsReach_Gym_EventScript_Quest3_HiddenItem::
+	checkflag FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL
+	goto_if TRUE, GiantsReach_Gym_EventScript_Quest3_NotActive
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	compare VAR_RESULT, FALSE
+	goto_if_eq GiantsReach_Gym_EventScript_Quest3_NotStarted
+	msgbox GiantsReach_Text_FoundRootFossil, MSGBOX_SIGN
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_ROOT_FOSSIL, 1
+	questmenu QUEST_MENU_SET_REWARD QUEST_3_ROOT_FOSSIL
+	setflag FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
+	msgbox GiantsReach_Text_Frank_Quest3_FoundItem, MSGBOX_SIGN
+	end
+
+GiantsReach_Gym_EventScript_Quest3_NotActive::
+	msgbox GiantsReach_Text_Quest3_FlowersNotActive, MSGBOX_SIGN
+	end
+
+GiantsReach_Gym_EventScript_Quest3_NotStarted::
+	end
+
+GiantsReach_Text_FoundRootFossil:
+	.string "You search the flowers...\p"
+	.string "You found a Root Fossil!$"
+
+GiantsReach_Text_Frank_Quest3_FoundItem:
+	.string "Better go tell Frank that we found\n"
+	.string "the hidden item!$"
+
+GiantsReach_Text_Quest3_FlowersNotActive:
+	.string "These are just ordinary flowers.\p"
+	.string "Nothing special here.....$"
+

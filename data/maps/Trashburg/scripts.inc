@@ -353,6 +353,8 @@ Trashburg_Movement_TwinReturnRight:
 
 Trashburg_EventScript_GoSaveFrankTrigger::
 	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	playse SE_PIN
 	applymovement LOCALID_TRASHBURG_TWIN, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
@@ -861,6 +863,7 @@ Trashburg_EventScript_GoodLuck1::
 	lockall
 	addobject LOCALID_SCIENCEGUY
 	setobjectxy LOCALID_SCIENCEGUY, 10, 8
+	playse SE_PIN
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 8
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
@@ -880,6 +883,7 @@ Trashburg_EventScript_GoodLuck2::
 	lockall
 	addobject LOCALID_SCIENCEGUY
 	setobjectxy LOCALID_SCIENCEGUY, 11, 8
+	playse SE_PIN
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 8
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown

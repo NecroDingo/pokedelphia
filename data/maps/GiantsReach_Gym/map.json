@@ -547,9 +547,9 @@
       "type": "sign",
       "x": 4,
       "y": 105,
-      "elevation": 0,
+      "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "GiantsReach_EventScript_Quest3_HiddenItem"
+      "script": "GiantsReach_Gym_EventScript_Quest3_HiddenItem"
     }
   ]
 }

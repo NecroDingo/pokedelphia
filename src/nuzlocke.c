@@ -10,6 +10,7 @@
 #include "battle.h"
 #include "battle_interface.h"
 #include "overworld.h"
+#include "config/battle.h"
 
 // Check if Nuzlocke mode is active
 bool8 IsNuzlockeActive(void)
@@ -123,58 +124,10 @@ static u8 GetNuzlockeLocationId(u8 currLocation)
         return MAPSEC_FIERY_PATH;
     case MAPSEC_JAGGED_PASS2:
         return MAPSEC_JAGGED_PASS;
-        
-    // Kanto areas (if this is expansion with Kanto)
-    case MAPSEC_PALLET_TOWN:
-    case MAPSEC_VIRIDIAN_CITY:
-    case MAPSEC_PEWTER_CITY:
-    case MAPSEC_CERULEAN_CITY:
-    case MAPSEC_LAVENDER_TOWN:
-    case MAPSEC_VERMILION_CITY:
-    case MAPSEC_CELADON_CITY:
-    case MAPSEC_FUCHSIA_CITY:
-    case MAPSEC_CINNABAR_ISLAND:
-    case MAPSEC_SAFFRON_CITY:
-        return currLocation;
-        
-    // Kanto routes
-    case MAPSEC_ROUTE_1:
-    case MAPSEC_ROUTE_2:
-    case MAPSEC_ROUTE_3:
-    case MAPSEC_ROUTE_4:
-    case MAPSEC_ROUTE_5:
-    case MAPSEC_ROUTE_6:
-    case MAPSEC_ROUTE_7:
-    case MAPSEC_ROUTE_8:
-    case MAPSEC_ROUTE_9:
-    case MAPSEC_ROUTE_10:
-    case MAPSEC_ROUTE_11:
-    case MAPSEC_ROUTE_12:
-    case MAPSEC_ROUTE_13:
-    case MAPSEC_ROUTE_14:
-    case MAPSEC_ROUTE_15:
-    case MAPSEC_ROUTE_16:
-    case MAPSEC_ROUTE_17:
-    case MAPSEC_ROUTE_18:
-    case MAPSEC_ROUTE_19:
-    case MAPSEC_ROUTE_20:
-    case MAPSEC_ROUTE_21:
-    case MAPSEC_ROUTE_22:
-    case MAPSEC_ROUTE_23:
-    case MAPSEC_ROUTE_24:
-    case MAPSEC_ROUTE_25:
-        return currLocation;
-        
-    // Kanto areas
-    case MAPSEC_VIRIDIAN_FOREST:
-    case MAPSEC_MT_MOON:
-    case MAPSEC_DIGLETTS_CAVE:
-    case MAPSEC_KANTO_VICTORY_ROAD:
-    case MAPSEC_KANTO_SAFARI_ZONE:
-    case MAPSEC_ROCK_TUNNEL:
-    case MAPSEC_SEAFOAM_ISLANDS:
-    case MAPSEC_CERULEAN_CAVE:
-        return currLocation;
+    
+    // Beach areas - remap to low IDs to fit in tracking variables (max 64 locations)
+    case MAPSEC_ROUTE_104_BEACH:
+        return 60;  // Use unused ID 60 for Route 104 Beach tracking
         
     // Default to the location itself if not handled above
     default:
@@ -364,7 +317,8 @@ bool8 PlayerOwnsSpecies(u16 species)
     // Check party
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == species)
+        u16 partySpecies = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        if (partySpecies != SPECIES_NONE && partySpecies == species)
             return TRUE;
     }
     
@@ -374,7 +328,13 @@ bool8 PlayerOwnsSpecies(u16 species)
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
             struct BoxPokemon *boxMon = GetBoxedMonPtr(i, j);
-            if (GetBoxMonData(boxMon, MON_DATA_SPECIES) == species)
+            u16 boxSpecies = GetBoxMonData(boxMon, MON_DATA_SPECIES);
+            
+            // Early exit if empty slot
+            if (boxSpecies == SPECIES_NONE)
+                continue;
+            
+            if (boxSpecies == species)
                 return TRUE;
         }
     }
@@ -429,6 +389,10 @@ void NuzlockeHealBoxPokemon(struct BoxPokemon *boxMon)
 void NuzlockeHandleFaint(struct Pokemon *mon)
 {
     if (!IsNuzlockeActive())
+        return;
+    
+    // Don't mark as dead if no-whiteout flag is set (e.g., tutorial battles)
+    if (FlagGet(B_FLAG_NO_WHITEOUT))
         return;
     
     // Check if the Pokemon's HP is 0 (just fainted)

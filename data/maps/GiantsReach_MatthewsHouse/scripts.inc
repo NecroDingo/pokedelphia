@@ -275,7 +275,14 @@ GiantsReach_MatthewsHouse_Text_FrankWaiting:
 	.string "Don't keep me waitin' too long.\p"
 	.string "These folks are nice enough, but\n"
 	.string "their constant prayin' is gettin'\l"
-	.string "on my nerves.$"
+	.string "on my nerves.\p"
+	.string "Here's that riddle again..\p"
+	.string "A little vase with leafy hair,\n"
+	.string "got somethin’ juicy hid in there.\l"
+	.string "Don’t go screw around in the grass,\l"
+	.string "the prize sits where trainers pass.$"
+	.string "C'mon Charlie, I thought you\n"
+	.string "would have it by now.$"
 
 GiantsReach_MatthewsHouse_Text_FrankTurnIn:
 	.string "Well, well, well.\p"

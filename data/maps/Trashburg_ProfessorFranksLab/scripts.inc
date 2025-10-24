@@ -551,6 +551,8 @@ Trashburg_ProfessorFranksLab_EventScript_ReceivePokedex::
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
+	setflag FLAG_SYS_NATIONAL_DEX
+	special EnableNationalPokedex
 	setflag FLAG_RECEIVED_POKEDEX_FROM_FRANK
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	return
@@ -763,8 +765,8 @@ Trashburg_ProfessorFranksLab_Text_FrankRivalGoneHome:
 	.string "choices.$"
 
 Trashburg_ProfessorFranksLab_Text_HeardYouBeatRivalTakePokedex:
-	.string "PROF. FRANK: You beat Margaret?\n"
-	.string "Impressive.\p"
+	.string "PROF. FRANK: You battled Margaret?\n"
+	.string "Awesome!\p"
 	.string "She once stared down a Tauros\n"
 	.string "into submission.\p"
 	.string "Here, take this POKéDEX.\n"
@@ -1024,7 +1026,11 @@ Trashburg_ProfessorFranksLab_Text_ScottAboardSSTidalCall:
 
 Trashburg_ProfessorFranksLab_Text_EggScamQuest1:
 	.string "PROF. FRANK: Oh, before you go,\n"
-	.string "I found this egg.\p"
+	.string "I found a whole bunch of eggs under\l"
+	.string "a bridge last week.\p"
+	.string "Perfect condition,\n"
+	.string "none of them cracked or nothin.\p"
+	.string "I've got one for ya.\p"
 	.string "It must be a special egg. It smells\n"
 	.string "like a dumpster behind a seafood joint.\p"
 	.string "Around here, we don't get eggs that\n"

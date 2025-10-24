@@ -24,7 +24,7 @@
 #define FLAG_TEMP_D      (TEMP_FLAGS_START + 0xD)  // Unused Flag
 #define FLAG_TEMP_E      (TEMP_FLAGS_START + 0xE)  // When set, follower pokemon won't be spawned
 #define FLAG_TEMP_F      (TEMP_FLAGS_START + 0xF)  // Unused Flag
-#define FLAG_TEMP_10     (TEMP_FLAGS_START + 0x10) // Unused Flag
+#define FLAG_TEMP_10     (TEMP_FLAGS_START + 0x10) // No Whiteout flag for battles against Trainers
 #define FLAG_TEMP_11     (TEMP_FLAGS_START + 0x11)
 #define FLAG_TEMP_12     (TEMP_FLAGS_START + 0x12)
 #define FLAG_TEMP_13     (TEMP_FLAGS_START + 0x13)
@@ -661,7 +661,6 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_PEARL               (FLAG_HIDDEN_ITEMS_START + 0x72)
 #define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_TM_DOUBLE_TEAM      (FLAG_HIDDEN_ITEMS_START + 0x73)
 #define FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_REPEL               (FLAG_HIDDEN_ITEMS_START + 0x74)
-#define FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL            (FLAG_HIDDEN_ITEMS_START + 0x75)
 
 #define FLAG_GIANTS_REACH_NURSE_INTRO_DONE                   0x264 // Petalburg Nurse intro
 #define FLAG_OLD_SCUMPORT_NURSE_INTRO_DONE                   0x265 // Oldale Nurse intro
@@ -669,8 +668,8 @@
 #define FLAG_EXP_SHARE_TOGGLE                                0x266 // Toggles Exp. Share on/off
 #define FLAG_HIDE_FRANK_QUEST3_COMPLETE                      0x267 // Hides Frank after completing his quest in Matthews House
 #define FLAG_HIDE_FRANK_BEFORE_QUEST_3                       0x268 // Hides Frank before starting his quest in Matthews House
-#define FLAG_HIDE_DAYNIGHT_SCIENCEGUY                        0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
+#define FLAG_HIDE_DAYNIGHT_SCIENCEGUY                        0x269 // Calls Science Guy to explain day/night cycle
+#define FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL            0x26A // Hidden Item: Giant's Reach Root Fossil
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag

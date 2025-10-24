@@ -177,9 +177,11 @@ OldScumport_EventScript_NotBlockingPath::
 
 OldScumport_EventScript_MartEmployeeCall1::
 	lockall
+	playse SE_PIN
 	applymovement LOCALID_OLD_SCUMPORTMART_EMPLOYEE, Common_Movement_ExclamationMark
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
+	playse SE_PIN
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
@@ -192,9 +194,11 @@ OldScumport_EventScript_MartEmployeeCall1::
 
 	OldScumport_EventScript_MartEmployeeCall2::
 	lockall
+	playse SE_PIN
 	applymovement LOCALID_OLD_SCUMPORTMART_EMPLOYEE, Common_Movement_ExclamationMark
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
+	playse SE_PIN
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight
@@ -209,9 +213,11 @@ OldScumport_EventScript_MartEmployeeCall1::
 
 	OldScumport_EventScript_MartEmployeeCall3::
 	lockall
+	playse SE_PIN
 	applymovement LOCALID_OLD_SCUMPORTMART_EMPLOYEE, Common_Movement_ExclamationMark
 	msgbox OldScumport_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
+	playse SE_PIN
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement LOCALID_PLAYER, OldScumport_Movement_PlayerStepRight

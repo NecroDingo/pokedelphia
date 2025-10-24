@@ -1075,6 +1075,7 @@ GiantsReach_EventScript_Frank_AlreadyActive::
 	end
 
 GiantsReach_EventScript_Frank_Quest3::
+	playse SE_PIN
 	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	delay 8
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
@@ -1153,31 +1154,3 @@ GiantsReach_Text_Frank_Quest3_Start2:
 	.string "do before the big man upstairs blows\l"
 	.string "a gasket.\p"
 	.string "Come see me when you find it.\n$"
-
-GiantsReach_EventScript_Quest3_HiddenItem::
-	checkflag FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL
-	goto_if TRUE, GiantsReach_EventScript_Quest3_NotActive
-	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
-	compare VAR_RESULT, FALSE
-	goto_if_eq GiantsReach_EventScript_Quest3_NotActive
-	msgbox GiantsReach_Text_FoundRootFossil, MSGBOX_SIGN
-	waitmessage
-	playfanfare MUS_OBTAIN_ITEM
-	giveitem ITEM_ROOT_FOSSIL, 1
-	questmenu QUEST_MENU_SET_REWARD QUEST_3_ROOT_FOSSIL
-	setflag FLAG_HIDDEN_ITEM_GIANTS_REACH_ROOT_FOSSIL
-	applymovement LOCALID_PLAYER, Common_Movement_SelfText
-	waitmovement 0
-	msgbox GiantsReach_Text_Frank_Quest3_FoundItem, MSGBOX_SIGN
-	end
-
-GiantsReach_EventScript_Quest3_NotActive::
-	end
-
-GiantsReach_Text_FoundRootFossil:
-	.string "You search the flowers...\p"
-	.string "You found a Root Fossil!$"
-
-GiantsReach_Text_Frank_Quest3_FoundItem:
-	.string "Better go tell Frank that we found\n"
-	.string "the hidden item!$"

@@ -83,6 +83,14 @@ EWRAM_DATA bool8 gIsFishingEncounter = 0;
 EWRAM_DATA bool8 gIsSurfingEncounter = 0;
 EWRAM_DATA u8 gChainFishingDexNavStreak = 0;
 
+// Cache for wild encounter header lookup to avoid repeated linear searches
+// Note: EWRAM variables are zero-initialized, cache is marked invalid by sCacheValid flag
+EWRAM_DATA static u16 sCachedWildHeaderId;
+EWRAM_DATA static u8 sCachedMapGroup;
+EWRAM_DATA static u8 sCachedMapNum;
+EWRAM_DATA static bool8 sCachedNuzlockeMode;
+EWRAM_DATA static bool8 sCacheValid;
+
 #include "data/wild_encounters.h"
 #include "nuzlocke.h"
 
@@ -97,8 +105,8 @@ static const struct WildPokemonHeader *GetWildMonHeaders(void)
 static const struct WildPokemonHeader *GetWildMonHeaderById(u32 headerId)
 {
     return &GetWildMonHeaders()[headerId];
-}
-
+    }
+    
 static const struct WildPokemon sWildFeebas = {20, 25, SPECIES_FEEBAS};
 
 static const u16 sRoute119WaterTileData[] =
@@ -112,6 +120,11 @@ static const u16 sRoute119WaterTileData[] =
 void DisableWildEncounters(bool8 disabled)
 {
     sWildEncountersDisabled = disabled;
+}
+
+void InvalidateWildHeaderCache(void)
+{
+    sCacheValid = FALSE;
 }
 
 // Each fishing spot on Route 119 is given a number between 1 and NUM_FISHING_SPOTS inclusive.
@@ -213,47 +226,36 @@ static void FeebasSeedRng(u16 seed)
     sFeebasRngValue = seed;
 }
 
-// LAND_WILD_COUNT
+// LAND_WILD_COUNT (6 slots)
 u32 ChooseWildMonIndex_Land(void)
 {
     u8 wildMonIndex = 0;
     bool8 swap = FALSE;
     
-    // In Nuzlocke mode, use equal distribution for all 12 slots
+    // In Nuzlocke mode, use equal distribution for all 6 slots
     if (IsNuzlockeActive())
     {
         u8 rand = Random() % 100;
         
-        // Equal distribution: each slot gets ~8.33% chance
-        // We'll use 8% for slots 0-7 and 9% for slots 8-11 to total 100%
-        if (rand < 8)
+        // Equal distribution: ~16.67% per slot (100 / 6)
+        // We'll use 17% for slots 0-3 and 16% for slots 4-5 to total 100%
+        if (rand < 17)
             wildMonIndex = 0;
-        else if (rand < 16)
+        else if (rand < 34)
             wildMonIndex = 1;
-        else if (rand < 24)
+        else if (rand < 51)
             wildMonIndex = 2;
-        else if (rand < 32)
+        else if (rand < 68)
             wildMonIndex = 3;
-        else if (rand < 40)
+        else if (rand < 84)
             wildMonIndex = 4;
-        else if (rand < 48)
-            wildMonIndex = 5;
-        else if (rand < 56)
-            wildMonIndex = 6;
-        else if (rand < 64)
-            wildMonIndex = 7;
-        else if (rand < 73)
-            wildMonIndex = 8;
-        else if (rand < 82)
-            wildMonIndex = 9;
-        else if (rand < 91)
-            wildMonIndex = 10;
         else
-            wildMonIndex = 11;
+            wildMonIndex = 5;
     }
     else
     {
         // Normal mode: use standard encounter distribution
+        // Rates: [35, 30, 20, 10, 3, 2] = 100 total
         u8 rand = Random() % ENCOUNTER_CHANCE_LAND_MONS_TOTAL;
 
         if (rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_0)
@@ -266,27 +268,15 @@ u32 ChooseWildMonIndex_Land(void)
             wildMonIndex = 3;
         else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_3 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_4)
             wildMonIndex = 4;
-        else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_4 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_5)
+        else // rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_4 (which includes SLOT_5)
             wildMonIndex = 5;
-        else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_5 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_6)
-            wildMonIndex = 6;
-        else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_6 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_7)
-            wildMonIndex = 7;
-        else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_7 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_8)
-            wildMonIndex = 8;
-        else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_8 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_9)
-            wildMonIndex = 9;
-        else if (rand >= ENCOUNTER_CHANCE_LAND_MONS_SLOT_9 && rand < ENCOUNTER_CHANCE_LAND_MONS_SLOT_10)
-            wildMonIndex = 10;
-        else
-            wildMonIndex = 11;
     }
 
     if (LURE_STEP_COUNT != 0 && (Random() % 10 < 2))
         swap = TRUE;
 
     if (swap)
-        wildMonIndex = 11 - wildMonIndex;
+        wildMonIndex = 5 - wildMonIndex;
 
     return wildMonIndex;
 }
@@ -572,22 +562,44 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
 
 u16 GetCurrentMapWildMonHeaderId(void)
 {
+    u8 currentMapGroup = gSaveBlock1Ptr->location.mapGroup;
+    u8 currentMapNum = gSaveBlock1Ptr->location.mapNum;
+    bool8 useNuzlockeEncounters = IsNuzlockeActive();
+    
+    // Check if cached value is still valid
+    if (sCacheValid &&
+        sCachedMapGroup == currentMapGroup && 
+        sCachedMapNum == currentMapNum && 
+        sCachedNuzlockeMode == useNuzlockeEncounters)
+    {
+        // Handle altering cave special case (it can change without map change)
+        if (currentMapGroup == MAP_GROUP(MAP_ALTERING_CAVE) &&
+            currentMapNum == MAP_NUM(MAP_ALTERING_CAVE))
+        {
+            u16 alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
+            if (alteringCaveId >= NUM_ALTERING_CAVE_TABLES)
+                alteringCaveId = 0;
+            return sCachedWildHeaderId + alteringCaveId;
+        }
+        return sCachedWildHeaderId;
+    }
+    
+    // Cache miss - need to search for the header
     u16 i;
     const struct WildPokemonHeader *wildHeaders = GetWildMonHeaders();
-    bool8 useNuzlockeEncounters = IsNuzlockeActive();
     u16 currentTime = GetTimeOfDay();
     u16 normalHeaderId = HEADER_NONE;
     u16 nuzlockeHeaderId = HEADER_NONE;
 
-    // Single pass through headers - much more efficient than nested loops
+    // Single pass through headers
     for (i = 0; ; i++)
     {
         const struct WildPokemonHeader *wildHeader = &wildHeaders[i];
         if (wildHeader->mapGroup == MAP_GROUP(MAP_UNDEFINED))
             break;
 
-        if (wildHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
-            wildHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
+        if (wildHeaders[i].mapGroup == currentMapGroup &&
+            wildHeaders[i].mapNum == currentMapNum)
         {
             // Check if this header has encounter data for current time
             const struct WildPokemonInfo *landMonsInfo = wildHeader->encounterTypes[currentTime].landMonsInfo;
@@ -623,11 +635,18 @@ u16 GetCurrentMapWildMonHeaderId(void)
         targetHeaderId = normalHeaderId;
     }
 
+    // Update cache (store base header ID, without altering cave offset)
+    sCachedWildHeaderId = targetHeaderId;
+    sCachedMapGroup = currentMapGroup;
+    sCachedMapNum = currentMapNum;
+    sCachedNuzlockeMode = useNuzlockeEncounters;
+    sCacheValid = TRUE;
+
+    // Handle altering cave special case
     if (targetHeaderId != HEADER_NONE)
     {
-        // Handle altering cave special case
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ALTERING_CAVE) &&
-            gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ALTERING_CAVE))
+        if (currentMapGroup == MAP_GROUP(MAP_ALTERING_CAVE) &&
+            currentMapNum == MAP_NUM(MAP_ALTERING_CAVE))
         {
             u16 alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
             if (alteringCaveId >= NUM_ALTERING_CAVE_TABLES)
@@ -725,12 +744,17 @@ void CreateWildMon(u16 species, u8 level)
     {
         u8 currentLocation = GetCurrentRegionMapSectionId();
         
+        DebugPrintfLevel(MGBA_LOG_ERROR, "NUZLOCKE: CreateWildMon location=%d, species=%d", currentLocation, species);
+        
         // Check if this location has already had its "real" encounter
         bool8 locationAlreadyUsed = HasWildPokemonBeenSeenInLocation(currentLocation, FALSE);
+        
+        DebugPrintfLevel(MGBA_LOG_ERROR, "NUZLOCKE: locationAlreadyUsed=%d", locationAlreadyUsed);
         
         if (locationAlreadyUsed)
         {
             // Location already used - not catchable
+            DebugPrintfLevel(MGBA_LOG_ERROR, "NUZLOCKE: Location already used - NOT catchable");
         }
         else
         {
@@ -738,11 +762,13 @@ void CreateWildMon(u16 species, u8 level)
             if (PlayerOwnsSpecies(species))
             {
                 // Duplicate species - hunting continues
+                DebugPrintfLevel(MGBA_LOG_ERROR, "NUZLOCKE: Duplicate species - hunting continues");
             }
             else
             {
                 // New species - catchable!
                 gWildPokemonIsCatchableInNuzlocke = TRUE;
+                DebugPrintfLevel(MGBA_LOG_ERROR, "NUZLOCKE: New species - CATCHABLE!");
             }
         }
     }
@@ -796,7 +822,7 @@ void CreateWildMon(u16 species, u8 level)
 
     // Determine chance to evolve wild Pokémon
     u16 evolvedSpecies = species;
-        if (Random() % 100 < 90) // 90% chance
+        if (Random() % 100 < 50) // 50% chance
     {
         evolvedSpecies = GetWildEvolvedSpecies(species, level, gender, timeOfDay);
     }
@@ -979,6 +1005,7 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
     u32 headerId;
     enum TimeOfDay timeOfDay;
     struct Roamer *roamer;
+    const struct WildPokemonHeader *wildHeader;
 
     if (sWildEncountersDisabled == TRUE)
         return FALSE;
@@ -1008,15 +1035,19 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
     }
     else
     {
+        // Cache the wild header pointer to avoid repeated lookups
+        wildHeader = GetWildMonHeaderById(headerId);
+        
         if (MetatileBehavior_IsLandWildEncounter(curMetatileBehavior) == TRUE)
         {
             timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_LAND);
+            const struct WildPokemonInfo *landMonsInfo = wildHeader->encounterTypes[timeOfDay].landMonsInfo;
 
-            if (GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].landMonsInfo == NULL)
+            if (landMonsInfo == NULL)
                 return FALSE;
             else if (prevMetatileBehavior != curMetatileBehavior && !AllowWildCheckOnNewMetatile())
                 return FALSE;
-            else if (WildEncounterCheck(GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].landMonsInfo->encounterRate, FALSE) != TRUE)
+            else if (WildEncounterCheck(landMonsInfo->encounterRate, FALSE) != TRUE)
                 return FALSE;
 
             if (TryStartRoamerEncounter())
@@ -1037,12 +1068,12 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
                 }
 
                 // try a regular wild land encounter
-                if (TryGenerateWildMon(GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
+                if (TryGenerateWildMon(landMonsInfo, WILD_AREA_LAND, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
                 {
                     if (TryDoDoubleWildBattle())
                     {
                         struct Pokemon mon1 = gEnemyParty[0];
-                        TryGenerateWildMon(GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE);
+                        TryGenerateWildMon(landMonsInfo, WILD_AREA_LAND, WILD_CHECK_KEEN_EYE);
                         gEnemyParty[1] = mon1;
                         BattleSetup_StartDoubleWildBattle();
                     }
@@ -1060,14 +1091,15 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
                  || (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && MetatileBehavior_IsBridgeOverWater(curMetatileBehavior) == TRUE))
         {
             timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_WATER);
+            const struct WildPokemonInfo *waterMonsInfo = wildHeader->encounterTypes[timeOfDay].waterMonsInfo;
 
             if (AreLegendariesInSootopolisPreventingEncounters() == TRUE)
                 return FALSE;
-            else if (GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].waterMonsInfo == NULL)
+            else if (waterMonsInfo == NULL)
                 return FALSE;
             else if (prevMetatileBehavior != curMetatileBehavior && !AllowWildCheckOnNewMetatile())
                 return FALSE;
-            else if (WildEncounterCheck(GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].waterMonsInfo->encounterRate, FALSE) != TRUE)
+            else if (WildEncounterCheck(waterMonsInfo->encounterRate, FALSE) != TRUE)
                 return FALSE;
 
             if (TryStartRoamerEncounter())
@@ -1081,13 +1113,13 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
             }
             else // try a regular surfing encounter
             {
-                if (TryGenerateWildMon(GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
+                if (TryGenerateWildMon(waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
                 {
                     gIsSurfingEncounter = TRUE;
                     if (TryDoDoubleWildBattle())
                     {
                         struct Pokemon mon1 = gEnemyParty[0];
-                        TryGenerateWildMon(GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_KEEN_EYE);
+                        TryGenerateWildMon(waterMonsInfo, WILD_AREA_WATER, WILD_CHECK_KEEN_EYE);
                         gEnemyParty[1] = mon1;
                         BattleSetup_StartDoubleWildBattle();
                     }
@@ -1282,7 +1314,7 @@ u16 GetLocalWildMon(bool8 *isWaterMon)
     headerId = GetCurrentMapWildMonHeaderId();
     if (headerId == HEADER_NONE)
         return SPECIES_NONE;
-
+    
     timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_LAND);
     landMonsInfo = GetWildMonHeaderById(headerId)->encounterTypes[timeOfDay].landMonsInfo;
 
@@ -1562,33 +1594,45 @@ static bool8 CanWildMonEvolveByMethod(const struct Evolution *evo, u8 level, u8 
 
 // Returns the final evolved species for a wild mon, or the original if no evolution occurs.
 // Applies chance per evolution step, checks bans, and supports time/gender-based evolutions.
+// Only allows evolution if the player's party is at a high enough level for that evolution.
 static u16 GetWildEvolvedSpecies(u16 species, u8 level, u8 gender, enum TimeOfDay timeOfDay)
 {
     const struct Evolution *evolutions;
     u16 evolvedSpecies = species;
     bool8 evolved = FALSE;
     int i;
+    int maxEvolutions = 3; // Safety limit to prevent infinite loops
+    u8 highestPartyLevel = GetHighestPartyLevel();
 
     // Check for per-species bans
     if (IsSpeciesBannedFromWildEvo(species))
         return species;
 
     // Loop: try to evolve as far as possible, but apply chance at each step
-    while (TRUE)
+    while (maxEvolutions-- > 0)
     {
         evolutions = GetSpeciesEvolutions(evolvedSpecies);
         bool8 found = FALSE;
 
+        // Early exit if no evolutions exist
+        if (evolutions[0].method == EVOLUTIONS_END)
+            break;
+
         for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
         {
-            // Skip if this evolution is banned (add per-evo ban logic if needed)
-            // if (IsEvolutionBannedFromWildEvo(evolvedSpecies, evolutions[i].targetSpecies))
-            //     continue;
-
             // Check if this evolution method is satisfied
             if (CanWildMonEvolveByMethod(&evolutions[i], level, gender, timeOfDay))
             {
-                // Apply random chance (e.g. 50%)
+                // Only allow evolution if player's highest party level is high enough
+                // This ensures wild encounters scale with player progression
+                u8 requiredLevel = evolutions[i].param;
+                if (highestPartyLevel < requiredLevel)
+                {
+                    // Player hasn't reached this evolution level yet - stop evolving
+                    return evolvedSpecies;
+                }
+                
+                // Apply random chance (e.g. 75%)
                 if ((Random() & 0xFF) < WILD_MON_EVO_CHANCE)
                 {
                     evolvedSpecies = evolutions[i].targetSpecies;

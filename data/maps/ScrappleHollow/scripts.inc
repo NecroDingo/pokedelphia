@@ -646,7 +646,7 @@ ScrappleHollow_Text_Advantages:
 	.string "the tide of battle.$"
 
 ScrappleHollow_Text_GotPunked:
-	.string "The message is carved out if the sign\n"
+	.string "The message is carved into the sign\n"
 	.string "from a sharp object.\p"
-	.string "“Ha, You got Punk'd” is written out\n"
-	.string "under the old message.$"
+	.string "“Ha, You got Punk'd” is carved out\n"
+	.string "over the old message.$"

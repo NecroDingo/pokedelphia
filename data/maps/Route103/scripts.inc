@@ -34,7 +34,9 @@ Route103_EventScript_RivalMay::
 	waitmovement 0
 	applymovement LOCALID_ROUTE103_RIVAL, Common_Movement_Delay48
 	waitmovement 0
+	setflag FLAG_TEMP_10
 	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
+	closemessage
 	switch VAR_STARTER_MON
 	case 0, Route103_EventScript_StartMayBattleBulbasaur
 	case 1, Route103_EventScript_StartMayBattleGible
@@ -43,29 +45,25 @@ Route103_EventScript_RivalMay::
 
 
 Route103_EventScript_StartMayBattleBulbasaur::
-	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
-	goto Route103_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayDefeated
+	goto Route103_EventScript_MayHeals
 	end
 
 Route103_EventScript_StartMayBattleGible::
-	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
-	goto Route103_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayDefeated
+	goto Route103_EventScript_MayHeals
 	end
 
 Route103_EventScript_StartMayBattleAron::
-	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
-	goto Route103_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayDefeated
+	goto Route103_EventScript_MayHeals
 	end
 
-Route103_EventScript_AfterMayBattle::
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, Route103_EventScript_MayHealsAfterLoss
-	msgbox Route103_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
-	goto Route103_EventScript_RivalExit
-	end
-
-Route103_EventScript_MayHealsAfterLoss::
+Route103_EventScript_MayHeals::
+	delay 40
 	msgbox Route103_Text_MayHealsParty, MSGBOX_DEFAULT
+	special HealPlayerParty
+	callnative UpdateFollowingPokemon
 	msgbox Route103_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
 	goto Route103_EventScript_RivalExit
 	end
@@ -122,6 +120,7 @@ Route103_EventScript_RivalEnd::
 	applymovement LOCALID_PLAYER, Common_Movement_SelfText
 	waitmovement 0
 	msgbox Route103_Text_BetterGoBack, MSGBOX_DEFAULT
+	clearflag FLAG_TEMP_10
 	releaseall
 	end
 
@@ -298,9 +297,9 @@ Route103_Text_MayDefeated:
 	.string "You swear she writes 'Charlie is trash'.$"
 
 Route103_Text_MayHealsParty:
-	.string "She pulls out a small spray bottle\n"
+	.string "She pulls out a small potion\n"
 	.string "and walks over to your POKéMON.\p"
-	.string "Gives them a few quick spritzes.\n"
+	.string "Gives them a few quick sips.\n"
 	.string "Your POKéMON perk up immediately.\p"
 	.string "She nods approvingly and caps\n"
 	.string "the bottle with a satisfied grunt.$"
