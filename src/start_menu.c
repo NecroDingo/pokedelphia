@@ -50,6 +50,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "ui_startmenu_full.h"
 
 // Menu actions
 enum
@@ -624,7 +625,20 @@ void ShowStartMenu(void)
         PlayerFreeze();
         StopPlayerAvatar();
     }
-    CreateStartMenuTask(Task_ShowStartMenu);
+    else
+    {
+        CreateStartMenuTask(Task_ShowStartMenu);
+        LockPlayerFieldControls();
+        return;
+    }
+    if (GetSafariZoneFlag() || InBattlePyramid_() || InBattlePike() || InUnionRoom() || InMultiPartnerRoom())
+    {
+        CreateStartMenuTask(Task_ShowStartMenu);
+        LockPlayerFieldControls();
+        return;
+    }
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+    CreateTask(Task_OpenStartMenuFullScreen, 0);
     LockPlayerFieldControls();
 }
 
@@ -748,11 +762,11 @@ static bool8 StartMenuPlayerNameCallback(void)
         CleanupOverworldWindowsAndTilemaps();
 
         if (IsOverworldLinkActive() || InUnionRoom())
-            ShowPlayerTrainerCard(CB2_ReturnToFieldWithOpenMenu); // Display trainer card
+            ShowPlayerTrainerCard(CB2_ReturnToFullScreenStartMenu); // Display trainer card
         else if (FlagGet(FLAG_SYS_FRONTIER_PASS))
-            ShowFrontierPass(CB2_ReturnToFieldWithOpenMenu); // Display frontier pass
+            ShowFrontierPass(CB2_ReturnToFullScreenStartMenu); // Display frontier pass
         else
-            ShowPlayerTrainerCard(CB2_ReturnToFieldWithOpenMenu); // Display trainer card
+            ShowPlayerTrainerCard(CB2_ReturnToFullScreenStartMenu); // Display trainer card
 
         return TRUE;
     }
@@ -770,6 +784,52 @@ static bool8 StartMenuSaveCallback(void)
     return FALSE;
 }
 
+static void Task_SaveFromStartMenuFull(u8 taskId);
+
+void SaveStartCallback_FullStartMenu(void)
+{
+    WarpFadeInScreen();
+    InitSave();
+    CreateTask(Task_SaveFromStartMenuFull, 0);
+    return;
+}
+
+static void Task_SaveFromStartMenuFull(u8 taskId)
+{
+    s16 *state = gTasks[taskId].data;
+
+    if (!gPaletteFade.active)
+    {
+        switch (*state)
+        {
+            case 0:
+                ShowSaveInfoWindow();
+                *state = 1;
+                break;
+            case 1:
+                ShowSaveMessage(gText_SavingDontTurnOff, SaveDoSaveCallback);
+                *state = 2;
+                break;
+            case 2:
+                if (SaveCallback())
+                    *state = 3;
+                break;
+            case 3:
+                if (SaveCallback())
+                    *state = 4;
+                break;
+            case 4:
+                DestroyTask(taskId);
+                ClearDialogWindowAndFrameToTransparent(0, TRUE);
+                HideSaveMessageWindow();
+                ScriptUnfreezeObjectEvents();
+                UnlockPlayerFieldControls();
+                SoftResetInBattlePyramid();
+                break;
+        }
+    }
+}
+
 static bool8 StartMenuOptionCallback(void)
 {
     if (!gPaletteFade.active)
@@ -778,7 +838,7 @@ static bool8 StartMenuOptionCallback(void)
         RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
         SetMainCallback2(CB2_InitOptionMenu); // Display option menu
-        gMain.savedCallback = CB2_ReturnToFieldWithOpenMenu;
+        gMain.savedCallback = CB2_ReturnToFullScreenStartMenu;
 
         return TRUE;
     }
@@ -830,7 +890,7 @@ static bool8 StartMenuLinkModePlayerNameCallback(void)
     {
         PlayRainStoppingSoundEffect();
         CleanupOverworldWindowsAndTilemaps();
-        ShowTrainerCardInLink(gLocalLinkPlayerId, CB2_ReturnToFieldWithOpenMenu);
+        ShowTrainerCardInLink(gLocalLinkPlayerId, CB2_ReturnToFullScreenStartMenu);
 
         return TRUE;
     }

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "overworld.h"
 #include "battle_pyramid.h"
+#include "battle_pike.h"
 #include "battle_setup.h"
 #include "berry.h"
 #include "bg.h"
@@ -58,6 +59,7 @@
 #include "secret_base.h"
 #include "sound.h"
 #include "start_menu.h"
+#include "ui_startmenu_full.h"
 #include "string_util.h"
 #include "task.h"
 #include "tileset_anims.h"
@@ -1935,6 +1937,19 @@ void CB2_ReturnToFieldWithOpenMenu(void)
     gFieldCallback2 = FieldCB_ReturnToFieldOpenStartMenu;
     RefreshQuestIcons();
     CB2_ReturnToField();
+}
+
+void CB2_ReturnToFullScreenStartMenu(void)
+{
+    FieldClearVBlankHBlankCallbacks();
+
+    if (GetSafariZoneFlag() || InBattlePyramid_() || InBattlePike() || InUnionRoom() || InMultiPartnerRoom())
+    {
+        SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+        return;
+    }
+
+    StartMenuFull_Init(CB2_ReturnToField);
 }
 
 void CB2_ReturnToFieldContinueScript(void)
