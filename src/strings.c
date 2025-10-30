@@ -727,6 +727,7 @@ const u8 gText_TrainerCardIDNo[] = _("IDNo.");
 const u8 gText_TrainerCardMoney[] = _("MONEY");
 const u8 gText_PokeDollar[] = _("¥"); // Unused
 const u8 gText_TrainerCardPokedex[] = _("POKéDEX");
+const u8 gText_TrainerCardNuzlockePokedex[] = _("NUZLOCKE POKéDEX");
 const u8 gText_EmptyString6[] = _("");
 const u8 gText_Colon2[] = _(":");
 const u8 gText_Points[] = _(" points"); // Unused
