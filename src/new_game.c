@@ -47,6 +47,8 @@
 #include "constants/map_groups.h"
 #include "constants/items.h"
 #include "difficulty.h"
+#include "main_menu.h"
+#include "constants/flags.h"
 #include "follower_npc.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
@@ -213,6 +215,13 @@ void NewGameInitData(void)
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();
+    
+    // Set Nuzlocke flag if it was selected during Birch's speech
+    if (WasNuzlockeModeSelected())
+    {
+        FlagSet(FLAG_NUZLOCKE);
+        ClearNuzlockeModeSelection(); // Reset the selection variable
+    }
 }
 
 static void ResetMiniGamesRecords(void)
