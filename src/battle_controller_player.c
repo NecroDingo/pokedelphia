@@ -32,6 +32,7 @@
 #include "util.h"
 #include "window.h"
 #include "line_break.h"
+#include "nuzlocke.h"
 #include "constants/battle_anim.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_partner.h"
@@ -1220,6 +1221,9 @@ void SetBattleEndCallbacks(u32 battler)
         }
         else
         {
+            // Call Nuzlocke battle end handling before ending battle
+            NuzlockeOnBattleEnd();
+            
             m4aSongNumStop(SE_LOW_HEALTH);
             gMain.inBattle = FALSE;
             gMain.callback1 = gPreBattleCallback1;

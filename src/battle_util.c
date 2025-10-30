@@ -27,6 +27,7 @@
 #include "trig.h"
 #include "trainer_slide.h"
 #include "window.h"
+#include "nuzlocke.h"
 #include "battle_message.h"
 #include "battle_ai_main.h"
 #include "battle_ai_util.h"
@@ -688,6 +689,9 @@ bool32 TryRunFromBattle(u32 battler)
     {
         gCurrentTurnActionNumber = gBattlersCount;
         gBattleOutcome = B_OUTCOME_RAN;
+        
+        // Nuzlocke: Mark area as used if running from catchable Pokemon (not duplicate/shiny)
+        NuzlockeOnBattleEnd();
     }
 
     return effect;
@@ -745,6 +749,9 @@ void HandleAction_Run(void)
             {
                 gCurrentTurnActionNumber = gBattlersCount;
                 gBattleOutcome = B_OUTCOME_MON_FLED;
+                
+                // Nuzlocke: Mark area as used if running from catchable Pokemon (not duplicate/shiny)
+                NuzlockeOnBattleEnd();
             }
         }
     }
