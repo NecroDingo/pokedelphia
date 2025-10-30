@@ -43,4 +43,7 @@ void NuzlockeOnBattleEnd(void);
 // Nuzlocke encounter status (for messages)
 u8 GetNuzlockeEncounterStatus(u16 species, u32 personality, u32 otId);
 
+// Silent save function
+void NuzlockeSilentSave(void);
+
 #endif // GUARD_NUZLOCKE_H

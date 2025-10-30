@@ -11,6 +11,7 @@
 #include "battle_interface.h"
 #include "overworld.h"
 #include "config/battle.h"
+#include "save.h"
 
 // Check if Nuzlocke mode is active
 bool8 IsNuzlockeActive(void)
@@ -460,4 +461,11 @@ u8 GetNuzlockeEncounterStatus(u16 species, u32 personality, u32 otId)
     
     // New species, first encounter - catchable!
     return NUZLOCKE_ENCOUNTER_CATCHABLE;
+}
+
+// Silent save for Nuzlocke mode (no confirmation prompt)
+// Uses SAVE_LINK for faster saving (skips PC storage)
+void NuzlockeSilentSave(void)
+{
+    TrySavingData(SAVE_LINK);
 }
