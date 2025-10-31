@@ -279,6 +279,7 @@ static bool8 IsMonAllowedInMinigame(u8);
 static void DisplayPartyPokemonDataToTeachMove(u8, u16);
 static u8 CanTeachMove(struct Pokemon *, u16);
 static void DisplayPartyPokemonBarDetail(u8, const u8 *, u8, const u8 *);
+static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 color, const u8 *align, u32 width);
 static void DisplayPartyPokemonLevel(u8, struct PartyMenuBox *);
 static void DisplayPartyPokemonGender(u8, u16, u8 *, struct PartyMenuBox *);
 static void DisplayPartyPokemonHP(u16 hp, u16 maxHp, struct PartyMenuBox *menuBox);
@@ -1181,7 +1182,7 @@ static void DisplayPartyPokemonDataForMultiBattle(u8 slot)
         StringCopy(gStringVar1, gMultiPartnerParty[actualSlot].nickname);
         StringGet_Nickname(gStringVar1);
         ConvertInternationalPlayerName(gStringVar1);
-        DisplayPartyPokemonBarDetail(menuBox->windowId, gStringVar1, 0, menuBox->infoRects->dimensions);
+        DisplayPartyPokemonBarDetailToFit(menuBox->windowId, gStringVar1, 0, menuBox->infoRects->dimensions, 50);
         DisplayPartyPokemonLevel(gMultiPartnerParty[actualSlot].level, menuBox);
         DisplayPartyPokemonGender(gMultiPartnerParty[actualSlot].gender, gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].nickname, menuBox);
         DisplayPartyPokemonHP(gMultiPartnerParty[actualSlot].hp, gMultiPartnerParty[actualSlot].maxhp, menuBox);
@@ -1524,12 +1525,22 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
         }
         case PARTY_ACTION_SEND_MON_TO_BOX:
         {
-            u8 partyId = GetPartyIdFromBattleSlot((u8)*slotPtr);
-            if (partyId == 0 || ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && partyId == 2)
-                || ((gBattleTypeFlags & BATTLE_TYPE_MULTI) && partyId >= (PARTY_SIZE / 2)))
+            u8 partyId = (u8)*slotPtr;
+            if (partyId == 0 || ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && partyId == 1))
             {
-                // Can't select if mon is currently on the field, or doesn't belong to you
+                // Can't select if mon is currently on the field
                 PlaySE(SE_FAILURE);
+                DisplayPartyMenuMessage(gText_CannotSendMonToBoxActive, FALSE);
+                ScheduleBgCopyTilemapToVram(2);
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+            }
+            else if ((gBattleTypeFlags & BATTLE_TYPE_MULTI) && partyId >= (PARTY_SIZE / 2))
+            {
+                // Can't select if mon doesn't belong to you
+                PlaySE(SE_FAILURE);
+                DisplayPartyMenuMessage(gText_CannotSendMonToBoxPartner, FALSE);
+                ScheduleBgCopyTilemapToVram(2);
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
             }
             else if (DoesSelectedMonKnowHM((u8 *)slotPtr))
             {
@@ -1541,7 +1552,7 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             else
             {
                 PlaySE(SE_SELECT);
-                gSelectedMonPartyId = partyId;
+                gSelectedMonPartyId = GetPartyIdFromBattleSlot(partyId);
                 Task_ClosePartyMenu(taskId);
             }
             break;
@@ -2583,6 +2594,10 @@ static void DisplayPartyPokemonBarDetail2(u8 windowId, const u8 *str, u8 color, 
     AddTextPrinterParameterized3(windowId, FONT_SMALL, align[0] + 4, align[1], sFontColorTable[color], 0, str);
 }
 
+static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 color, const u8 *align, u32 width)
+{
+    AddTextPrinterParameterized3(windowId, GetFontIdToFit(str, FONT_SMALL, 0, width), align[0], align[1], sFontColorTable[color], 0, str);
+}
 
 static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox *menuBox, u8 c)
 {
@@ -2593,7 +2608,7 @@ static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox
         if (c == 1)
             menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[0] >> 3, menuBox->infoRects->dimensions[1] >> 3, menuBox->infoRects->dimensions[2] >> 3, menuBox->infoRects->dimensions[3] >> 3, FALSE);
         GetMonNickname(mon, nickname);
-        DisplayPartyPokemonBarDetail2(menuBox->windowId, nickname, 0, menuBox->infoRects->dimensions);
+        DisplayPartyPokemonBarDetailToFit(menuBox->windowId, nickname, 0, menuBox->infoRects->dimensions, 50);
     }
 }
 
