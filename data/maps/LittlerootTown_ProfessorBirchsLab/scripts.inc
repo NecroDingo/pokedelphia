@@ -520,6 +520,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
 	setvar VAR_LITTLEROOT_TOWN_STATE, 3
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
 	call LittlerootTown_ProfessorBirchsLab_EventScript_GiveCharlieEgg
 	releaseall
 	end
@@ -686,8 +688,8 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
 
 LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon:
 	.string "PROF. FRANK: So, {PLAYER}\p"
-	.string "Word is you’re weird, and honestly,\n"
-	.string "that’s a plus.\p"
+	.string "You’re weird, and honestly, that’s\n"
+	.string "a plus.\p"
 	.string "You handled that rat like a champ.\n"
 	.string "Didn’t even scream. That’s rare.\p"
 	.string "So here.\n"
@@ -752,8 +754,8 @@ LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex:
 LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait:
 	.string "PROF. FRANK: There’s a whole world\n"
 	.string "of POKéMON.\p"
-	.string "Most bite.\n"
-	.string "Some explode.\l"
+	.string "Most bite.\p"
+	.string "Some explode.\p"
 	.string "All magical.\p"
 	.string "Go roll around in the weirdness, kid.$"
 
@@ -1014,7 +1016,6 @@ LittlerootTown_ProfessorBirchsLab_Text_NoRoomForEgg:
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveCharlieEgg::
 	lock
-	faceplayer
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_CharlieEgg, MSGBOX_DEFAULT
 	giveegg SPECIES_RATTATA_ALOLA
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToParty

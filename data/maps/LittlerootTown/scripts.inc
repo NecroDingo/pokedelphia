@@ -907,7 +907,9 @@ LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "I was so worried for my Charlie.\p"
 	.string "Anyway, this is our new place.\n"
 	.string "I hope it's better than the last one.\p"
-	.string "I think there's a mattress inside.\n"
+	.string "It's always raining in this town.\p"
+	.string "I think there's a mattress inside\n"
+	.string "and some towels to dry off with.\l"
 	.string "I know you’ll figure it out.\p"
 	.string "Let's go. I wanna sit down.$"
 
@@ -957,6 +959,7 @@ LittlerootTown_Text_BirchSpendsDaysInLab:
 	.string "PROF. Frank said he's 'training rats\n"
 	.string "for street combat and science.'\p"
 	.string "I haven’t slept since Tuesday.\n"
+	.string "I've been standing here in the rain.\p"
 	.string "Please send help.$"
 
 

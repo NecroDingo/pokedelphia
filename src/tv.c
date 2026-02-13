@@ -3381,7 +3381,7 @@ void GetMomOrDadStringForTVMessage(void)
     }
     else if (VarGet(VAR_TEMP_3) == 2)
     {
-        StringCopy(gStringVar1, gText_Dad);
+        StringCopy(gStringVar1, gText_Mom);
     }
     else if (VarGet(VAR_TEMP_3) > 2)
     {
@@ -3389,7 +3389,7 @@ void GetMomOrDadStringForTVMessage(void)
         if (VarGet(VAR_TEMP_3) % 2 == 0)
             StringCopy(gStringVar1, gText_Mom);
         else
-            StringCopy(gStringVar1, gText_Dad);
+            StringCopy(gStringVar1, gText_Mom);
     }
     else
     {
@@ -3403,7 +3403,7 @@ void GetMomOrDadStringForTVMessage(void)
         }
         else
         {
-            StringCopy(gStringVar1, gText_Dad);
+            StringCopy(gStringVar1, gText_Mom);
             VarSet(VAR_TEMP_3, 2);
         }
     }

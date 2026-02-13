@@ -1,51 +1,60 @@
 gText_WouldYouLikeToRestYourPkmn::
-	.string "Hello, and welcome to\n"
-	.string "the POKéMON CENTER.\p"
-	.string "We restore your tired POKéMON\n"
-	.string "to full health.\p"
-	.string "Would you like to rest your POKéMON?$"
+	.string "WAITRESS: Ugh. Hi, Charlie.\p"
+	.string "This is the Pokémon Center.\n"
+	.string "We heal stuff.\p"
+	.string "You want me to fix your weird little\n"
+	.string "POKéMON?$"
 
 gText_IllTakeYourPkmn::
-	.string "Okay, I'll take your POKéMON\n"
-	.string "for a few seconds.$"
+	.string "Fine. Hand them over.\n"
+	.string "I’ll do it. Just… stop staring at me.$"
 
 gText_RestoredPkmnToFullHealth::
-	.string "Thank you for waiting.\p"
-	.string "We've restored your POKéMON\n"
-	.string "to full health.$"
+	.string "There. They’re better.\p"
+	.string "No, that doesn't mean we’re friends.\n"
+	.string "Please leave me alone for a while.$"
 
 gText_WeHopeToSeeYouAgain::
-	.string "We hope to see you again!$"
+	.string "Actually, I hope I don’t see you again,\n"
+	.string "Charlie.$"
 
 gText_WelcomeCutShort::
-	.string "Hello, and welcome to\n"
-	.string "the POKéMON CENTER.\p"
-	.string "We restore your tired POKéMON\n"
-	.string "to full health.\p"
-	.string "Would you like to…$"
+	.string "WAITRESS: Charlie, seriously?\n"
+	.string "Again?\p"
+	.string "What do you even do to them?$"
 
 gText_NoticesGoldCard::
-	.string "Th-that card…\n"
-	.string "Could it be… The GOLD CARD?!\p"
-	.string "Oh, the gold color is brilliant!\n"
-	.string "The four stars seem to sparkle!\p"
-	.string "I've seen several TRAINERS with\n"
-	.string "a SILVER CARD before, but, {PLAYER},\l"
-	.string "you're the first TRAINER I've ever\l"
-	.string "seen with a GOLD CARD!\p"
-	.string "Okay, {PLAYER}, please allow me\n"
-	.string "the honor of resting your POKéMON!$"
+	.string "WAITRESS: Ugh..Hey Char...\p"
+	.string "Whoa… wait.\n"
+	.string "Is that a… is that a Gold Card?\p"
+	.string "It’s… actually kinda impressive,\n"
+	.string "Charlie.\p"
+	.string "The shimmer… the stars…\n"
+	.string "It’s, like… really gold.\p"
+	.string "I mean, I’ve seen losers with\n"
+	.string "Silver Cards..but you?\l"
+	.string "You have a Gold one?\p"
+	.string "Okay…\n"
+	.string "Look, just let me heal your Pokémon.\l"
+	.string "It’s not a big deal or anything.\p"
+	.string "I’m just saying…\n"
+	.string "Gold looks… good on you.$"
 
 gText_YouWantTheUsual::
-	.string "I'm delighted to see you, {PLAYER}!\n"
-	.string "You want the usual, am I right?$"
+	.string "WAITRESS: Oh, Charlie.\n"
+	.string "Same nonsense as usual?\p"
+	.string "Of course it is.$"
 
 gText_IllTakeYourPkmn2::
-	.string "Okay, I'll take your POKéMON\n"
-	.string "for a few seconds.$"
+	.string "Yep. Give ‘em here.\n"
+	.string "Can’t believe I’m still doing this\l"
+	.string "for you.$"
 
 gText_ThankYouForWaiting::
-	.string "Thank you for waiting.$"
+	.string "Thanks for waiting, I guess.\n"
+	.string "I mean, I didn’t ask you to, but…$"
 
 gText_WeHopeToSeeYouAgain2::
-	.string "We hope to see you again!$"
+	.string "You’re gonna come back in, like\n"
+	.string "10 minutes, huh.\p"
+	.string "Great.$"
