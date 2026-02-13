@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE104",
-      "offset": -34,
+      "offset": -48,
       "direction": "left"
     },
     {
@@ -83,7 +83,7 @@
       "local_id": "LOCALID_PETALBURG_WALLYS_DAD",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
       "x": 39,
-      "y": 32,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,

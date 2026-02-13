@@ -474,7 +474,7 @@
     },
     {
       "id": "MAPSEC_PETALBURG_WOODS",
-      "name": "PETALBURG WOODS",
+      "name": "SCRAPPLE HOLLOW",
       "x": 0,
       "y": 8,
       "width": 1,
@@ -1230,6 +1230,10 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_104_BEACH",
+      "name": "ROUTE 104 BEACH"
     }
   ]
 }

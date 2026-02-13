@@ -36,24 +36,24 @@ Route103_EventScript_RivalMay::
 	waitmovement 0
 	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route103_EventScript_StartMayBattleRalts
-	case 1, Route103_EventScript_StartMayBattleAron
-	case 2, Route103_EventScript_StartMayBattleTrapinch
+	case 0, Route103_EventScript_StartMayBattleBulbasaur
+	case 1, Route103_EventScript_StartMayBattleGible
+	case 2, Route103_EventScript_StartMayBattleAron
 	end
 
 
-Route103_EventScript_StartMayBattleRalts::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_RALTS, Route103_Text_MayDefeated
+Route103_EventScript_StartMayBattleBulbasaur::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayDefeated
+	goto Route103_EventScript_AfterMayBattle
+	end
+
+Route103_EventScript_StartMayBattleGible::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 
 Route103_EventScript_StartMayBattleAron::
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayDefeated
-	goto Route103_EventScript_AfterMayBattle
-	end
-
-Route103_EventScript_StartMayBattleTrapinch::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TRAPINCH, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 

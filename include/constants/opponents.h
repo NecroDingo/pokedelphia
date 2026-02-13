@@ -527,20 +527,20 @@
 #define TRAINER_HIKARU                      521  // Route 102 addition. Took out Brendan
 #define TRAINER_ZACH                        522  // Route 102 addition. Took out Brendan
 #define TRAINER_CHAZ                        523  // Route 102 addition. Took out Brendan
-#define TRAINER_BRENDAN_ROUTE_110_RALTS     524  // Unused
-#define TRAINER_BRENDAN_ROUTE_119_RALTS     525  // Unused
-#define TRAINER_BRENDAN_ROUTE_103_ARON      526  // Unused
-#define TRAINER_BRENDAN_ROUTE_110_ARON      527  // Unused
+#define TRAINER_ELISE                       524  // Route 104 Beach addition. Took out Brendan
+#define TRAINER_ISLA                        525  // Route 104 Beach addition. Took out Brendan
+#define TRAINER_HUGO                        526  // Route 104 Beach addition. Took out Brendan
+#define TRAINER_OSCAR                       527  // Route 104 Beach addition. Took out Brendan
 #define TRAINER_BRENDAN_ROUTE_119_ARON      528  // Unused
-#define TRAINER_MAY_ROUTE_103_TRAPINCH      529
-#define TRAINER_MAY_ROUTE_110_TRAPINCH      530
-#define TRAINER_MAY_ROUTE_119_TRAPINCH      531
-#define TRAINER_MAY_ROUTE_103_RALTS         532
-#define TRAINER_MAY_ROUTE_110_RALTS         533
-#define TRAINER_MAY_ROUTE_119_RALTS         534
-#define TRAINER_MAY_ROUTE_103_ARON          535
-#define TRAINER_MAY_ROUTE_110_ARON          536
-#define TRAINER_MAY_ROUTE_119_ARON          537
+#define TRAINER_MAY_ROUTE_103_ARON          529
+#define TRAINER_MAY_ROUTE_110_ARON          530
+#define TRAINER_MAY_ROUTE_119_ARON          531
+#define TRAINER_MAY_ROUTE_103_BULBASAUR     532
+#define TRAINER_MAY_ROUTE_110_BULBASAUR     533
+#define TRAINER_MAY_ROUTE_119_BULBASAUR     534
+#define TRAINER_MAY_ROUTE_103_GIBLE         535
+#define TRAINER_MAY_ROUTE_110_GIBLE         536
+#define TRAINER_MAY_ROUTE_119_GIBLE         537
 #define TRAINER_ISAAC_1                     538
 #define TRAINER_DAVIS                       539
 #define TRAINER_MITCHELL                    540
@@ -595,15 +595,15 @@
 #define TRAINER_GRUNT_SPACE_CENTER_6        589
 #define TRAINER_GRUNT_SPACE_CENTER_7        590
 #define TRAINER_MACEY                       591
-#define TRAINER_BRENDAN_RUSTBORO_RALTS      592  // Unused
-#define TRAINER_BRENDAN_RUSTBORO_TRAPINCH   593  // Unused
+#define TRAINER_LIAM                        592  // Scrapple Hollow addition. Took out Brendan
+#define TRAINER_MAYA                        593  // Scrapple Hollow addition. Took out Brendan
 #define TRAINER_PAXTON                      594
 #define TRAINER_ISABELLA                    595
 #define TRAINER_GRUNT_WEATHER_INST_5        596
 #define TRAINER_TABITHA_MT_CHIMNEY          597
 #define TRAINER_JONATHAN                    598
 #define TRAINER_BRENDAN_RUSTBORO_ARON       599  // Unused
-#define TRAINER_MAY_RUSTBORO_TRAPINCH       600
+#define TRAINER_MAY_RUSTBORO_ARON           600
 #define TRAINER_MAXIE_MAGMA_HIDEOUT         601
 #define TRAINER_MAXIE_MT_CHIMNEY            602
 #define TRAINER_TIANA                       603
@@ -664,12 +664,12 @@
 #define TRAINER_WALLY_VR_3                  658
 #define TRAINER_WALLY_VR_4                  659
 #define TRAINER_WALLY_VR_5                  660
-#define TRAINER_BRENDAN_LILYCOVE_TRAPINCH   661  // Unused
-#define TRAINER_BRENDAN_LILYCOVE_RALTS      662  // Unused
-#define TRAINER_BRENDAN_LILYCOVE_ARON       663  // Unused
-#define TRAINER_MAY_LILYCOVE_TRAPINCH       664
-#define TRAINER_MAY_LILYCOVE_RALTS          665
-#define TRAINER_MAY_LILYCOVE_ARON           666
+#define TRAINER_BRENDAN_LILYCOVE_ARON       661  // Unused
+#define TRAINER_BRENDAN_LILYCOVE_BULBASAUR  662  // Unused
+#define TRAINER_BRENDAN_LILYCOVE_GIBLE      663  // Unused
+#define TRAINER_MAY_LILYCOVE_ARON           664
+#define TRAINER_MAY_LILYCOVE_BULBASAUR      665
+#define TRAINER_MAY_LILYCOVE_GIBLE          666
 #define TRAINER_JONAH                       667
 #define TRAINER_HENRY                       668
 #define TRAINER_ROGER                       669
@@ -771,8 +771,8 @@
 #define TRAINER_MYLES                       765
 #define TRAINER_PAT                         766
 #define TRAINER_CRISTIN_1                   767
-#define TRAINER_MAY_RUSTBORO_RALTS          768
-#define TRAINER_MAY_RUSTBORO_ARON           769
+#define TRAINER_MAY_RUSTBORO_BULBASAUR      768
+#define TRAINER_MAY_RUSTBORO_GIBLE          769
 #define TRAINER_ROXANNE_2                   770
 #define TRAINER_ROXANNE_3                   771
 #define TRAINER_ROXANNE_4                   772

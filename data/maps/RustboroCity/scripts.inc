@@ -856,9 +856,9 @@ RustboroCity_EventScript_MayAskToBattle::
 RustboroCity_EventScript_BattleMay::
 	msgbox RustboroCity_Text_MayImNotGoingToLose, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, RustboroCity_EventScript_BattleMayRalts
-	case 1, RustboroCity_EventScript_BattleMayAron
-	case 2, RustboroCity_EventScript_BattleMayTrapinch
+	case 0, RustboroCity_EventScript_BattleMayBulbasaur
+	case 1, RustboroCity_EventScript_BattleMayGible
+	case 2, RustboroCity_EventScript_BattleMayAron
 	end
 
 RustboroCity_EventScript_MayBrineyHint::
@@ -872,20 +872,20 @@ RustboroCity_EventScript_RestoreBgm::
 	fadedefaultbgm
 	return
 
-RustboroCity_EventScript_BattleMayRalts::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_RALTS, RustboroCity_Text_MayDefeat
+RustboroCity_EventScript_BattleMayBulbasaur::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_BULBASAUR, RustboroCity_Text_MayDefeat
+	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
+	goto RustboroCity_EventScript_MayBrineyHint
+	end
+
+RustboroCity_EventScript_BattleMayGible::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_GIBLE, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
 
 RustboroCity_EventScript_BattleMayAron::
 	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_ARON, RustboroCity_Text_MayDefeat
-	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
-	goto RustboroCity_EventScript_MayBrineyHint
-	end
-
-RustboroCity_EventScript_BattleMayTrapinch::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TRAPINCH, RustboroCity_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_RUSTBORO
 	goto RustboroCity_EventScript_MayBrineyHint
 	end
