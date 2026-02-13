@@ -61,6 +61,7 @@
 
 #define MAX_AREA_HIGHLIGHTS 64 // Maximum number of rectangular route highlights
 #define MAX_AREA_MARKERS 32 // Maximum number of circular spot highlights
+#define MAPS_PER_FRAME 32 // Number of maps to process per frame for async loading
 
 #define LABEL_WINDOW_BG 1
 #define NUM_LABEL_WINDOWS 2
@@ -108,16 +109,18 @@ struct
     /*0xFBC*/ u8 areaUnknownGraphicsBuffer[0x600];
     /*0xFC0*/ u8 areaScreenLabelIds[NUM_LABEL_WINDOWS];
     /*0xFC8*/ u8 areaState;
+    /*0xFC9*/ u16 mapProcessingIndex; // For async map processing
 } static EWRAM_DATA *sPokedexAreaScreen = NULL;
 
 EWRAM_DATA u8 gAreaTimeOfDay = 0;
 
-static void FindMapsWithMon(u16);
+static void ResetFindMapsState(u16);
+static bool8 FindMapsWithMonAsync(u16);
 static void BuildAreaGlowTilemap(void);
 static void SetAreaHasMon(u16, u16);
 static void SetSpecialMapHasMon(u16, u16);
 static mapsec_u16_t GetRegionMapSectionId(u8, u8);
-static bool8 MapHasSpecies(const struct WildEncounterTypes *, u16);
+static bool8 MapHasSpecies(u32, u16);
 static bool8 MonListHasSpecies(const struct WildPokemonInfo *, u16, u16);
 static void DoAreaGlow(void);
 static void Task_ShowPokedexAreaScreen(u8 taskId);
@@ -270,23 +273,27 @@ static bool8 DrawAreaGlow(void)
     switch (sPokedexAreaScreen->drawAreaGlowState)
     {
     case 0:
-        FindMapsWithMon(sPokedexAreaScreen->species);
+        ResetFindMapsState(sPokedexAreaScreen->species);
         break;
     case 1:
-        BuildAreaGlowTilemap();
+        if (FindMapsWithMonAsync(sPokedexAreaScreen->species))
+            return TRUE; // Still processing maps, don't advance state
         break;
     case 2:
+        BuildAreaGlowTilemap();
+        break;
+    case 3:
         DecompressAndCopyTileDataToVram(2, sAreaGlow_Gfx, 0, 0, 0);
         LoadBgTilemap(2, sPokedexAreaScreen->areaGlowTilemap, sizeof(sPokedexAreaScreen->areaGlowTilemap), 0);
         break;
-    case 3:
+    case 4:
         if (!FreeTempTileDataBuffersIfPossible())
         {
             CpuCopy32(sAreaGlow_Pal, &gPlttBufferUnfaded[BG_PLTT_ID(GLOW_PALETTE)], sizeof(sAreaGlow_Pal));
             sPokedexAreaScreen->drawAreaGlowState++;
         }
         return TRUE;
-    case 4:
+    case 5:
         ChangeBgY(2, -BG_SCREEN_SIZE, BG_COORD_SET);
         break;
     default:
@@ -297,11 +304,11 @@ static bool8 DrawAreaGlow(void)
     return TRUE;
 }
 
-static void FindMapsWithMon(u16 species)
+static void ResetFindMapsState(u16 species)
 {
     u16 i;
-    struct Roamer *roamer;
 
+    sPokedexAreaScreen->mapProcessingIndex = 0;
     sPokedexAreaScreen->alteringCaveCounter = 0;
     sPokedexAreaScreen->alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
     if (sPokedexAreaScreen->alteringCaveId >= NUM_ALTERING_CAVE_TABLES)
@@ -315,7 +322,10 @@ static void FindMapsWithMon(u16 species)
     for (i = 0; i < ARRAY_COUNT(sSpeciesHiddenFromAreaScreen); i++)
     {
         if (sSpeciesHiddenFromAreaScreen[i] == species)
+        {
+            sPokedexAreaScreen->mapProcessingIndex = 0xFFFF; // Mark as should skip
             return;
+        }
     }
 
     // Add Pokémon with special encounter circumstances (i.e. not listed
@@ -338,11 +348,24 @@ static void FindMapsWithMon(u16 species)
             }
         }
     }
+}
 
-    // Add regular species to the area map
-    for (i = 0; gWildMonHeaders[i].mapGroup != MAP_GROUP(MAP_UNDEFINED); i++)
+static bool8 FindMapsWithMonAsync(u16 species)
+{
+    u16 i;
+    u16 mapsProcessed = 0;
+    struct Roamer *roamer;
+
+    // If marked to skip processing (hidden species), return completed
+    if (sPokedexAreaScreen->mapProcessingIndex == 0xFFFF)
+        return FALSE;
+
+    // Process regular encounters in batches
+    for (i = sPokedexAreaScreen->mapProcessingIndex; 
+         gWildMonHeaders[i].mapGroup != MAP_GROUP(MAP_UNDEFINED) && mapsProcessed < MAPS_PER_FRAME; 
+         i++, mapsProcessed++)
     {
-        if (MapHasSpecies(&gWildMonHeaders[i].encounterTypes[gAreaTimeOfDay], species))
+        if (MapHasSpecies(i, species))
         {
             switch (gWildMonHeaders[i].mapGroup)
             {
@@ -357,19 +380,28 @@ static void FindMapsWithMon(u16 species)
         }
     }
 
-    // Add roamers to the area map
-    for (i = 0; i < ROAMER_COUNT; i++)
+    sPokedexAreaScreen->mapProcessingIndex = i;
+
+    // Check if we've processed all maps
+    if (gWildMonHeaders[i].mapGroup == MAP_GROUP(MAP_UNDEFINED))
     {
-        roamer = &gSaveBlock1Ptr->roamer[i];
-        if (species == roamer->species && roamer->active)
+        // Process roamers (this is fast so we can do it all at once)
+        for (i = 0; i < ROAMER_COUNT; i++)
         {
-            // This is a roamer's species, show where this roamer is currently
-            struct OverworldArea *roamerLocation = &sPokedexAreaScreen->overworldAreasWithMons[sPokedexAreaScreen->numOverworldAreas];
-            GetRoamerLocation(i, &roamerLocation->mapGroup, &roamerLocation->mapNum);
-            roamerLocation->regionMapSectionId = Overworld_GetMapHeaderByGroupAndId(roamerLocation->mapGroup, roamerLocation->mapNum)->regionMapSectionId;
-            sPokedexAreaScreen->numOverworldAreas++;
+            roamer = &gSaveBlock1Ptr->roamer[i];
+            if (species == roamer->species && roamer->active)
+            {
+                // This is a roamer's species, show where this roamer is currently
+                struct OverworldArea *roamerLocation = &sPokedexAreaScreen->overworldAreasWithMons[sPokedexAreaScreen->numOverworldAreas];
+                GetRoamerLocation(i, &roamerLocation->mapGroup, &roamerLocation->mapNum);
+                roamerLocation->regionMapSectionId = Overworld_GetMapHeaderByGroupAndId(roamerLocation->mapGroup, roamerLocation->mapNum)->regionMapSectionId;
+                sPokedexAreaScreen->numOverworldAreas++;
+            }
         }
+        return FALSE; // Processing complete
     }
+
+    return TRUE; // Still processing
 }
 
 static void SetAreaHasMon(u16 mapGroup, u16 mapNum)
@@ -428,9 +460,8 @@ static mapsec_u16_t GetRegionMapSectionId(u8 mapGroup, u8 mapNum)
     return Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
 }
 
-static bool8 MapHasSpecies(const struct WildEncounterTypes *info, u16 species)
+static bool8 MapHasSpecies(u32 headerId, u16 species)
 {
-    u32 headerId = GetCurrentMapWildMonHeaderId();
     u8 currentMapGroup = gWildMonHeaders[headerId].mapGroup;
     u8 currentMapNum = gWildMonHeaders[headerId].mapNum;
     // If this is a header for Altering Cave, skip it if it's not the current Altering Cave encounter set
@@ -439,6 +470,19 @@ static bool8 MapHasSpecies(const struct WildEncounterTypes *info, u16 species)
         sPokedexAreaScreen->alteringCaveCounter++;
         if (sPokedexAreaScreen->alteringCaveCounter != sPokedexAreaScreen->alteringCaveId + 1)
             return FALSE;
+    }
+
+    // Use the area screen's selected time of day (guaranteed to be DAY or NIGHT)
+    // Use fallback logic if no encounter data exists for the selected time
+    enum TimeOfDay selectedTimeOfDay = gAreaTimeOfDay;
+    const struct WildEncounterTypes *info = &gWildMonHeaders[headerId].encounterTypes[selectedTimeOfDay];
+    
+    // If no encounter data exists for selected time, use the opposite time as fallback
+    if (info->landMonsInfo == NULL && info->waterMonsInfo == NULL && 
+        info->fishingMonsInfo == NULL && info->rockSmashMonsInfo == NULL)
+    {
+        selectedTimeOfDay = (selectedTimeOfDay == TIME_DAY) ? TIME_NIGHT : TIME_DAY;
+        info = &gWildMonHeaders[headerId].encounterTypes[selectedTimeOfDay];
     }
 
     if (MonListHasSpecies(info->landMonsInfo, species, LAND_WILD_COUNT))
@@ -636,22 +680,18 @@ static void DoAreaGlow(void)
 
 static const u8 *GetTimeOfDayTextWithButton(enum TimeOfDay timeOfDay)
 {
-    static const u8 gText_Morning[] = _("{DPAD_UPDOWN} MORNING");
     static const u8 gText_Day[] = _("{DPAD_UPDOWN} DAY");
-    static const u8 gText_Evening[] = _("{DPAD_UPDOWN} EVENING");
     static const u8 gText_Night[] = _("{DPAD_UPDOWN} NIGHT");
 
     switch (gAreaTimeOfDay)
     {
     case TIME_MORNING:
-        return gText_Morning;
-    case TIME_EVENING:
-        return gText_Evening;
-    case TIME_NIGHT:
-        return gText_Night;
     case TIME_DAY:
+    case TIME_EVENING:
     default:
         return gText_Day;
+    case TIME_NIGHT:
+        return gText_Night;
     }
 }
 

@@ -469,12 +469,10 @@ enum TimeOfDay GenConfigTimeOfDay(enum TimeOfDay timeOfDay)
 
 enum TimeOfDay TryIncrementTimeOfDay(enum TimeOfDay timeOfDay)
 {
-    timeOfDay = timeOfDay == TIME_LAST ? TIME_FIRST : timeOfDay + 1;
-    return GenConfigTimeOfDay(timeOfDay);
+    return timeOfDay == TIME_DAY ? TIME_NIGHT : TIME_DAY;
 }
 
 enum TimeOfDay TryDecrementTimeOfDay(enum TimeOfDay timeOfDay)
 {
-    timeOfDay = timeOfDay == TIME_FIRST ? TIME_LAST : timeOfDay - 1;
-    return GenConfigTimeOfDay(timeOfDay);
+    return timeOfDay == TIME_DAY ? TIME_NIGHT : TIME_DAY;
 }

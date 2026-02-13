@@ -567,6 +567,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GoAdventure, MSGBOX_DEFAULT
+	waitmessage
 	release
 	end
 
@@ -1072,8 +1073,8 @@ LittlerootTown_ProfessorBirchsLab_Text_GoAdventure:
 	.string "That's your reward. No profit,\n"
 	.string "no money. You understand the\l"
 	.string "business.\p"
-	.string "I'll talk to you soon Charlie. Go\n"
-	.string "out and adventure!\p"
+	.string "You're welcome, Charlie.\p"
+	.string "Now, Go out and adventure!\p"
 	.string "If you go back to OLD SCUMPORT,\n"
 	.string "make a left before the mart.\p"
 	.string "There will be a little area\n"

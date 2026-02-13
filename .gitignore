@@ -53,6 +53,7 @@ test/battle/trainer_control.h
 tools/compresSmol/compresSmol
 tools/compresSmol/compresSmolTilemap
 tools/aif2pcm/aif2pcm
+tools/wild_encounters/planning
 *.Identifier
 *.smol
 *.fastSmol
