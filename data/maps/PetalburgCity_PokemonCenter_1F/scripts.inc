@@ -1,39 +1,28 @@
 PetalburgCity_PokemonCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgCity_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PetalburgCity_PokemonCenter_1F_OnFrame
 	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
+
+PetalburgCity_PokemonCenter_1F_OnFrame:
+	map_script_2 VAR_TEMP_0, 1, PetalburgCity_PokemonCenter_EventScript_NurseIntro
+	.2byte 0
 
 PetalburgCity_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_PETALBURG_CITY
 	call Common_EventScript_UpdateBrineyLocation
+	goto_if_set FLAG_PETALBURG_NURSE_INTRO_DONE, PetalburgCity_PokemonCenter_1F_SkipNurseIntro
+	setvar VAR_TEMP_0, 1
 	end
-
-PetalburgCity_PokemonCenter_EventScript_NurseIntro0::
-    lock
-	setvar VAR_0x8008, 0
-    goto PetalburgCity_PokemonCenter_EventScript_NurseIntro
-	end
-
-PetalburgCity_PokemonCenter_EventScript_NurseIntro1::
-    lock
-	setvar VAR_0x8008, 1
-    goto PetalburgCity_PokemonCenter_EventScript_NurseIntro
-	end
-
-PetalburgCity_PokemonCenter_EventScript_NurseIntro2::
-    lock
-	setvar VAR_0x8008, 2
-    goto PetalburgCity_PokemonCenter_EventScript_NurseIntro
-	end
-
 
 PetalburgCity_PokemonCenter_EventScript_NurseIntro::
-	goto_if_set FLAG_PETALBURG_NURSE_INTRO_DONE, SkipIntro
+	lock
+	delay 50
+	playbgm MUS_CONTEST_WINNER, TRUE
+	waitse
 	msgbox PetalburgCity_PokemonCenter_Text_NurseIntro1, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_0x8008, 0, PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement0
-	call_if_eq VAR_0x8008, 1, PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement1
-	call_if_eq VAR_0x8008, 2, PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement2
+	call PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement
 	msgbox PetalburgCity_PokemonCenter_Text_NurseIntro2, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PETALBURG_NURSE, Common_Movement_WalkInPlaceFasterUp
@@ -49,56 +38,30 @@ PetalburgCity_PokemonCenter_EventScript_NurseIntro::
 	waitmovement 0
 	applymovement LOCALID_PETALBURG_NURSE, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
-	applymovement LOCALID_PETALBURG_NURSE, Movement_PkmnCenterNurse_Bow
-	waitmovement 0
 	msgbox gText_ThankYouForWaiting, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_PETALBURG_NURSE_INTRO_DONE
+	setvar VAR_TEMP_0, 0
+	fadedefaultbgm
 	release
 	end
 
-SkipIntro:
-	release
-	end
+PetalburgCity_PokemonCenter_1F_SkipNurseIntro:
+	end		
 
 PetalburgCity_PokemonCenter_Text_NurseIntro1:
 	.string "Charlie, seriously?\n"
 	.string "You’re stalking me now?\p"
 	.string "What, you got nothing better to do?$"
 
-PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement0:
-	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement0
+PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement:
+	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement
 	waitmovement 0
 	return
 
-PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement1:
-	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement1
-	waitmovement 0
-	return
-
-PetalburgCity_PokemonCenter_EventScript_NurseIntroMovement2:
-	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement2
-	waitmovement 0
-	return
-
-PetalburgCity_PokemonCenter_Movement_NurseIntroMovement0:
+PetalburgCity_PokemonCenter_Movement_NurseIntroMovement:
 	walk_up
 	walk_up
-	walk_up
-	step_end
-
-PetalburgCity_PokemonCenter_Movement_NurseIntroMovement1:
-	walk_up
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	step_end
-
-PetalburgCity_PokemonCenter_Movement_NurseIntroMovement2:
-	walk_up
-	walk_up
-	walk_left
 	walk_up
 	walk_up
 	step_end

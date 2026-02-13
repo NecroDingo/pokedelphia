@@ -1,41 +1,28 @@
 OldaleTown_PokemonCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, OldaleTown_PokemonCenter_1F_OnFrame
 	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
 	.byte 0
+
+OldaleTown_PokemonCenter_1F_OnFrame:
+	map_script_2 VAR_TEMP_0, 1, OldaleTown_PokemonCenter_EventScript_NurseIntro
+	.2byte 0
 
 OldaleTown_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_OLDALE_TOWN
 	call Common_EventScript_UpdateBrineyLocation
+	goto_if_set FLAG_OLDALE_NURSE_INTRO_DONE, OldaleTown_PokemonCenter_1F_SkipNurseIntro
+	setvar VAR_TEMP_0, 1
 	end
-
-OldaleTown_PokemonCenter_EventScript_NurseIntro0::
-    lock
-	setvar VAR_0x8008, 0
-    goto OldaleTown_PokemonCenter_EventScript_NurseIntro
-	end
-
-OldaleTown_PokemonCenter_EventScript_NurseIntro1::
-    lock
-	setvar VAR_0x8008, 1
-    goto OldaleTown_PokemonCenter_EventScript_NurseIntro
-	end
-
-OldaleTown_PokemonCenter_EventScript_NurseIntro2::
-    lock
-	setvar VAR_0x8008, 2
-    goto OldaleTown_PokemonCenter_EventScript_NurseIntro
-	end
-
 
 OldaleTown_PokemonCenter_EventScript_NurseIntro::
-	goto_if_set FLAG_OLDALE_NURSE_INTRO_DONE, SkipIntro
+	lock
+	delay 50
 	playbgm MUS_CONTEST_WINNER, TRUE
 	waitse
 	msgbox OldaleTown_PokemonCenter_Text_NurseIntro1, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_0x8008, 0, OldaleTown_PokemonCenter_EventScript_NurseIntroMovement0
-	call_if_eq VAR_0x8008, 1, OldaleTown_PokemonCenter_EventScript_NurseIntroMovement1
-	call_if_eq VAR_0x8008, 2, OldaleTown_PokemonCenter_EventScript_NurseIntroMovement2
+	call OldaleTown_PokemonCenter_EventScript_NurseIntroMovement
 	msgbox OldaleTown_PokemonCenter_Text_NurseIntro2, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_OLDALE_NURSE, Common_Movement_WalkInPlaceFasterUp
@@ -51,57 +38,33 @@ OldaleTown_PokemonCenter_EventScript_NurseIntro::
 	waitmovement 0
 	applymovement LOCALID_OLDALE_NURSE, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
-	applymovement LOCALID_OLDALE_NURSE, Movement_PkmnCenterNurse_Bow
-	waitmovement 0
 	msgbox gText_WeHopeToSeeYouAgain2, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_OLDALE_NURSE_INTRO_DONE
+	setvar VAR_TEMP_0, 0
 	fadedefaultbgm
 	release
 	end
+
+OldaleTown_PokemonCenter_1F_SkipNurseIntro:
+	end	
 
 OldaleTown_PokemonCenter_Text_NurseIntro1:
 	.string "......\n"
 	.string "Oh my god. No...\p"
 	.string "Charlie? Are you serious right now?$"
 
-OldaleTown_PokemonCenter_EventScript_NurseIntroMovement0:
-	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement0
+OldaleTown_PokemonCenter_EventScript_NurseIntroMovement:
+	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement
 	waitmovement 0
 	return
 
-OldaleTown_PokemonCenter_EventScript_NurseIntroMovement1:
-	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement1
-	waitmovement 0
-	return
-
-OldaleTown_PokemonCenter_EventScript_NurseIntroMovement2:
-	applymovement LOCALID_PLAYER, OldaleTown_PokemonCenter_Movement_NurseIntroMovement2
-	waitmovement 0
-	return
-
-OldaleTown_PokemonCenter_Movement_NurseIntroMovement0:
+OldaleTown_PokemonCenter_Movement_NurseIntroMovement:
+	walk_up
 	walk_up
 	walk_up
 	walk_up
 	step_end
-
-OldaleTown_PokemonCenter_Movement_NurseIntroMovement1:
-	walk_up
-	walk_up
-	walk_right
-	walk_up
-	walk_up
-	step_end
-
-OldaleTown_PokemonCenter_Movement_NurseIntroMovement2:
-	walk_up
-	walk_up
-	walk_left
-	walk_up
-	walk_up
-	step_end
-
 
 OldaleTown_PokemonCenter_Text_NurseIntro2:
 	.string "WAITRESS: You followed me here?\n"
