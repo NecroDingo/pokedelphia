@@ -5,15 +5,9 @@ OldaleTown_MapScripts::
 OldaleTown_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	setflag FLAG_VISITED_OLDALE_TOWN
-	call_if_unset FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_BlockWestEntrance
+	call_if_eq VAR_OLDALE_TOWN_STATE, 0, OldaleTown_EventScript_BlockWestEntrance
 	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
-	call_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_SetOldaleState
 	end
-
-@ This script seems pointless because nothing uses VAR_OLDALE_TOWN_STATE
-OldaleTown_EventScript_SetOldaleState::
-	setvar VAR_OLDALE_TOWN_STATE, 1
-	return
 
 OldaleTown_EventScript_BlockWestEntrance::
 	setobjectxyperm LOCALID_FOOTPRINTS_MAN, 1, 11
@@ -27,10 +21,6 @@ OldaleTown_EventScript_MoveMartEmployee::
 
 OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
-	end
-
-OldaleTown_EventScript_Girl::
-	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
 	end
 
 OldaleTown_EventScript_MartEmployee::
@@ -160,7 +150,7 @@ OldaleTown_Movement_Unknown2:
 OldaleTown_EventScript_FootprintsMan::
 	lock
 	faceplayer
-	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_EventScript_NotBlockingPath
+	goto_if_eq VAR_OLDALE_TOWN_STATE, 1, OldaleTown_EventScript_NotBlockingPath
 	msgbox OldaleTown_Text_DiscoveredFootprints, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_FOOTPRINTS_MAN, Common_Movement_FaceOriginalDirection
@@ -187,6 +177,7 @@ OldaleTown_EventScript_NotBlockingPath::
 
 OldaleTown_EventScript_MartEmployeeCall1::
 	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	msgbox OldaleTown_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerStepRight
@@ -199,6 +190,7 @@ OldaleTown_EventScript_MartEmployeeCall1::
 
 	OldaleTown_EventScript_MartEmployeeCall2::
 	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	msgbox OldaleTown_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerStepRight
@@ -213,6 +205,7 @@ OldaleTown_EventScript_MartEmployeeCall1::
 
 	OldaleTown_EventScript_MartEmployeeCall3::
 	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	msgbox OldaleTown_Text_HeyOverHere, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, OldaleTown_Movement_PlayerStepRight
@@ -355,11 +348,6 @@ OldaleTown_Movement_PlayerStepRight:
 	walk_right
 	step_end
 
-OldaleTown_Text_SavingMyProgress:
-	.string "Yo, I’mma crash behind this house for\n"
-	.string "a bit.\p"
-	.string "Gotta conserve the juice..$"
-
 OldaleTown_Text_IWorkAtPokemonMart:
 	.string "Yo!\n"
 	.string "I hustle for the POKéMART.\p"
@@ -419,3 +407,110 @@ OldaleTown_Text_HeyOverHere:
 	.string "Hey, you!\n"
 	.string "Over here!$"
 
+OldaleTown_EventScript_LadyElizabeth::
+    lock
+    faceplayer
+    goto_if_quest_complete QUEST_1_FIND_CHESTO, OldaleTown_EventScript_LadyElizabeth_Completed
+	goto_if_quest_active QUEST_1_FIND_CHESTO, OldaleTown_EventScript_LadyElizabeth_CheckBerry
+	goto OldaleTown_EventScript_LadyElizabeth_Offer
+
+OldaleTown_EventScript_LadyElizabeth_Offer:
+	msgbox OldaleTown_Text_LadyElizabethIntroQuest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, OldaleTown_EventScript_LadyElizabeth_Accept
+	msgbox OldaleTown_Text_LadyElizabethDecline, MSGBOX_NPC
+	release
+	end
+
+OldaleTown_EventScript_LadyElizabeth_Accept:
+	startquest QUEST_1_FIND_CHESTO 
+	msgbox OldaleTown_Text_LadyElizabethAccept, MSGBOX_NPC
+	release
+	end
+
+OldaleTown_EventScript_LadyElizabeth_CheckBerry:
+    checkitem ITEM_CHESTO_BERRY, 1
+    goto_if_eq VAR_RESULT, TRUE, OldaleTown_EventScript_LadyElizabeth_TurnIn
+    msgbox OldaleTown_Text_LadyElizabethActiveNoBerry, MSGBOX_NPC
+    release
+    end	
+
+OldaleTown_EventScript_LadyElizabeth_TurnIn:
+	faceplayer
+	msgbox OldaleTown_Text_LadyElizabethTurnIn, MSGBOX_NPC
+	removeitem ITEM_CHESTO_BERRY, 1
+	completequest QUEST_1_FIND_CHESTO
+	msgbox OldaleTown_Text_LadyElizabethTurnIn2, MSGBOX_NPC
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox OldaleTown_Text_ReceivedMoney, MSGBOX_DEFAULT
+	addmoney 500
+	waitmessage
+	release
+	end
+
+OldaleTown_EventScript_LadyElizabeth_Completed:
+	msgbox OldaleTown_Text_LadyElizabethCompleted, MSGBOX_NPC
+	release
+	end
+
+	OldaleTown_Text_LadyElizabethIntroQuest:
+	.string "LADY ELIZABETH: Yo!\n"
+	.string "You look like you can handle a\l"
+	.string "little errand for me.\p"
+	.string "My Psyduck is knocked out cold thanks\n"
+	.string "to a dumb Drowzee I was fightin'.\p"
+	.string "I need a Chesto Berry to wake him up.\n"
+	.string "Can you grab one for me?\p"
+	.string "I’m not about to let that\n"
+	.string "sleepyhead ruin my day!$"
+
+OldaleTown_Text_LadyElizabethAccept:
+	.string "Sweet!\p"
+	.string "Sometimes you'll see berry bushes\n"
+	.string "growing out of soil. Maybe we can get\l"
+	.string "lucky over on Route 102.\p"
+	.string "If not, I think theres an older\n"
+	.string "woman up by WAWA PARK that might have\l"
+	.string "one.\p"
+	.string "I can’t deal with this nonsense much\n"
+	.string "longer.\p"
+	.string "I swear,\n"
+	.string "if I have to listen to him snore one\l"
+	.string "more time...$"
+
+OldaleTown_Text_LadyElizabethDecline:
+	.string "Look, I’m not going back after that\n"
+	.string "Drowzee.\p"
+	.string "I’ve got better things to do\n"
+	.string "than play tag with a sleepy Pokémon.\p"
+	.string "I’ll owe you one.$"
+
+OldaleTown_Text_LadyElizabethActiveNoBerry:
+	.string "Hey, did you forget something?\n"
+	.string "I’m still waiting on that Chesto Berry!\p"
+	.string "My Psyduck is still snoozing over\n"
+	.string "there, and I can’t have him\l"
+	.string "missing out on the fun.\p"
+	.string "Hurry it up, will ya?\n"
+	.string "I can’t stand the sound of his snoring!$"
+
+OldaleTown_Text_LadyElizabethTurnIn:
+	.string "No way, you actually found it?\n"
+	.string "You’re a lifesaver!\p"
+	.string "Now let’s wake up my Psyduck\n"
+	.string "and get back to business.$"
+
+OldaleTown_Text_LadyElizabethTurnIn2:
+	.string "Here's a little something for you.\n"
+	.string "Thanks for your help!$"
+
+OldaleTown_Text_LadyElizabethCompleted:
+	.string "Oh, look who it is!\n"
+	.string "You really came through for me.\p"
+	.string "My Psyduck is back in action,\n"
+	.string "thanks to you! You’ve got some serious\l"
+	.string "skills.$"
+
+OldaleTown_Text_ReceivedMoney:
+	.string "Lady Elizabeth hands Charlie\n"
+	.string "500 dollars!$"

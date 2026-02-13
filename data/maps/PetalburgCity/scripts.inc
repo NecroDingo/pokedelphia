@@ -1026,6 +1026,7 @@ PetalburgCity_Eventscript_NuggetBush::
 	setflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_NUGGET
     msgbox PetalburgCity_Text_AfterFoundNugget, MSGBOX_SIGN
 	goto PetalburgCity_EventScript_NuggetBush_End
+
 PetalburgCity_EventScript_NuggetBush_End:
     end
 

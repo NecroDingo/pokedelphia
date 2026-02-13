@@ -4,7 +4,7 @@ gText_HowMayIServeYou::
 
 gText_PleaseComeAgain::
 	.string "Yeah, yeah. Come back and\n"
-	.string "spend some more cash..\p"
+	.string "spend some cash..\p"
 	.string "Go Birds!$"
 
 gText_PlayerWhatCanIDoForYou::

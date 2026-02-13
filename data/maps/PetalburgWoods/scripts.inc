@@ -17,12 +17,8 @@ PetalburgWoods_EventScript_NurseWaitressHeal::
 
 PetalburgWoods_EventScript_HealPkmn::
 	closemessage
-    incrementgamestat GAME_STAT_USED_POKECENTER
-    fadescreenswapbuffers FADE_TO_BLACK
-    delay 20
-    specialvar VAR_RESULT, HealPlayerParty
-    delay 20
-    fadescreenswapbuffers FADE_FROM_BLACK
+	incrementgamestat GAME_STAT_USED_POKECENTER
+	call Common_EventScript_OutOfCenterPartyHeal
 	delay 20
     msgbox PetalburgWoods_Text_PayingMe, MSGBOX_NPC
     waitmessage

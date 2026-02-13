@@ -517,12 +517,15 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_ProfessorBirchsLab_EventScript_BrendanGivePokeBalls
 	setvar VAR_BIRCH_LAB_STATE, 5
 	setflag FLAG_ADVENTURE_STARTED
-	setvar VAR_OLDALE_TOWN_STATE, 1
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
 	setvar VAR_LITTLEROOT_TOWN_STATE, 3
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
-	call LittlerootTown_ProfessorBirchsLab_EventScript_GiveCharlieEgg
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_EggScamQuest1
+	giveegg SPECIES_RATTATA_ALOLA
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToPC
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_NoRoomForEgg, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -553,6 +556,21 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex::
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait::
+	lock
+	faceplayer
+	questmenu QUEST_MENU_CHECK_REWARD, QUEST_2_EGG_SCAM
+	goto_if_ne VAR_RESULT, TRUE, LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait_AlreadyCompleted
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_EggScamTurnInGreeting, MSGBOX_DEFAULT
+	waitmessage
+	completequest QUEST_2_EGG_SCAM
+	setvar VAR_OLDALE_TOWN_STATE, 1
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GoAdventure, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PokemonAwait_AlreadyCompleted::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_CountlessPokemonAwait, MSGBOX_DEFAULT
 	release
 	end
@@ -1002,19 +1020,18 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
 
-LittlerootTown_ProfessorBirchsLab_Text_CharlieEgg:
+LittlerootTown_ProfessorBirchsLab_Text_EggScamQuest1:
 	.string "PROF. FRANK: Oh, before you go,\n"
 	.string "I found this egg.\p"
-	.string "It’s a special egg. Smells like\n"
-	.string "a dumpster behind a seafood joint.\p"
-	.string "Around here, we don’t get eggs that\n"
+	.string "It must be a special egg. It smells\n"
+	.string "like a dumpster behind a seafood joint.\p"
+	.string "Around here, we don't get eggs that\n"
 	.string "smell this ripe.\p"
-	.string "You seem like the type who’d\n"
-	.string "appreciate a nice egg in these\l"
-	.string "trying times.\p"
-	.string "Take it! Don’t screw it up!\p"
-	.string "And don’t blame me if it hatches\n"
-	.string "into somethin’ weird.$"
+	.string "Do me a favor will ya. Bring this egg\n"
+	.string "over to the mart in OLD SCUMPORT and\l"
+	.string "see how much you can get for it.\p"
+	.string "Come back and let me know what happens.\n"
+	.string "I'll give you a cut of the profit!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg:
 	.string "Charlie received a smelly EGG from\n"
@@ -1024,20 +1041,11 @@ LittlerootTown_ProfessorBirchsLab_Text_NoRoomForEgg:
 	.string "Oh, you don’t have any room for\n"
 	.string "this EGG.$"
 
-LittlerootTown_ProfessorBirchsLab_EventScript_GiveCharlieEgg::
-	lock
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_CharlieEgg, MSGBOX_DEFAULT
-	giveegg SPECIES_RATTATA_ALOLA
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToPC
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_NoRoomForEgg, MSGBOX_DEFAULT
-	release
-	end
-
 LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToParty::
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg, MSGBOX_DEFAULT
 	waitfanfare
+	startquest QUEST_2_EGG_SCAM
 	release
 	end
 
@@ -1046,5 +1054,27 @@ LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToPC::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ReceivedEgg, MSGBOX_DEFAULT
 	waitfanfare
 	call Common_EventScript_TransferredToPC
+	startquest QUEST_2_EGG_SCAM
 	release
 	end
+
+LittlerootTown_ProfessorBirchsLab_Text_EggScamTurnInGreeting:
+	.string "..... ..... ..... .....\p"
+	.string "The clerk said what?!?\p"
+	.string "Aw crap, I guess he figured it out...\p"
+	.string "Thats fine, I've got plenty of other\n"
+	.string "tricks up my sleeve.\p"
+	.string "Here's a few dollars for your troubles$"
+
+LittlerootTown_ProfessorBirchsLab_Text_GoAdventure:
+	.string "Go ahead and keep that egg. I can\n"
+	.string "smell it from here.\p"
+	.string "That's your reward. No profit,\n"
+	.string "no money. You understand the\l"
+	.string "business.\p"
+	.string "I'll talk to you soon Charlie. Go\n"
+	.string "out and adventure!\p"
+	.string "If you go back to OLD SCUMPORT,\n"
+	.string "make a left before the mart.\p"
+	.string "There will be a little area\n"
+	.string "to run through before the next town.$"

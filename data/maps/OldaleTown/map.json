@@ -31,17 +31,19 @@
   ],
   "object_events": [
     {
+      "local_id": "LOCALID_LADY_ELIZABETH",
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 36,
-      "y": 22,
+      "x": 22,
+      "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_QUEST_GIVER",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_Girl",
-      "flag": "0"
+      "script": "OldaleTown_EventScript_LadyElizabeth",
+      "flag": "0",
+      "quest_id": 0
     },
     {
       "local_id": "LOCALID_OLDALE_MART_EMPLOYEE",
@@ -60,12 +62,12 @@
     {
       "local_id": "LOCALID_FOOTPRINTS_MAN",
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 8,
+      "x": 3,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 3,
-      "movement_range_y": 3,
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "OldaleTown_EventScript_FootprintsMan",

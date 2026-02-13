@@ -1952,6 +1952,9 @@
 	questmenu QUEST_MENU_COMPLETE_QUEST, \quest
 	questmenu QUEST_MENU_BUFFER_QUEST_NAME \quest
 	bufferstring 1 gText_QuestComplete
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	special DoDomeConfetti
 	playfanfare MUS_LEVEL_UP
 	msgbox gText_QuestAnnounce, MSGBOX_SIGN
 	waitfanfare

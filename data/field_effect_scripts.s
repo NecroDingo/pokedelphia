@@ -91,7 +91,7 @@ gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_end
 
 gFieldEffectScript_QuestIcon::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_QuestIcon
+	field_eff_callnative FldEff_QuestIcon
 	field_eff_end
 
 gFieldEffectScript_UseCutOnTallGrass::
