@@ -432,8 +432,10 @@
 #define METATILE_PokemonCenter_Floor_ShadowTop_Alt       0x2DC
 
 // gTileset_Rustboro
-#define METATILE_Rustboro_Door_Gray  0x21F
-#define METATILE_Rustboro_Door_Tan   0x22F
+#define METATILE_Rustboro_Door_Gray       0x21F
+#define METATILE_Rustboro_Door_Tan        0x22F
+#define METATILE_Rustboro_Sand_TreeLeft   0x359
+#define METATILE_Rustboro_Sand_TreeRight  0x35A
 
 // gTileset_SecretBase
 #define METATILE_SecretBase_AttractMat_BottomLeft       0x313
