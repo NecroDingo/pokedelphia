@@ -258,42 +258,43 @@ Route101_Movement_BirchApproachPlayer:
 	step_end
 
 Route101_Text_HelpMe:
-	.string "H-help me!$"
+	.string "AH! It’s biting me! This rat is wild!$"
 
 Route101_Text_PleaseHelp:
-	.string "Hello! You over there!\n"
-	.string "Please! Help!\p"
-	.string "In my BAG!\n"
-	.string "There's a POKé BALL!$"
+	.string "Hey! You! Rat-lover!\n"
+	.string "Get over here and do something!\p"
+	.string "In my BAG! Grab a POKé BALL\n"
+	.string "before it gets my throat!$"
 
 Route101_Text_DontLeaveMe:
-	.string "Wh-Where are you going?!\n"
-	.string "Don't leave me like this!$"
+	.string "Are you just gonna walk away?!\n"
+	.string "It’s chewing my sock, man! HELP!$"
 
 Route101_Text_YouSavedMe:
-	.string "PROF. BIRCH: Whew…\p"
-	.string "I was in the tall grass studying wild\n"
-	.string "POKéMON when I was jumped.\p"
-	.string "You saved me.\n"
-	.string "Thanks a lot!\p"
-	.string "Oh?\p"
-	.string "Hi, you're {PLAYER}{KUN}!\p"
-	.string "This is not the place to chat, so come\n"
-	.string "by my POKéMON LAB later, okay?$"
+	.string "PROF. FRANK: Whew…\p"
+	.string "That little bastard was scrappy!\n"
+	.string "Think it had rabies or meth rage.\p"
+	.string "Anyway, you did good kid.\n"
+	.string "Real good.\p"
+	.string "Come by my lab later. I got a whole\n"
+	.string "trashcan full of things to show you.$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter:
-	.string "If POKéMON get tired, take them to\n"
-	.string "a POKéMON CENTER.\p"
-	.string "There's a POKéMON CENTER in OLDALE\n"
-	.string "TOWN right close by.$"
+	.string "Yeah, the grass here? Full of freaks.\p"
+	.string "You want ‘em? Go wading in.\p"
+	.string "Get bit. It builds character.\p"
+	.string "There's a nice nurse in the next\n"
+	.string "town over. If your POKéMON get tired,\l"
+	.string "you can take them there.\p"
+	.string "She's not too bad lookin' herself.$"
 
 Route101_Text_WildPokemonInTallGrass:
-	.string "Wild POKéMON will jump out at you in\n"
-	.string "tall grass.\p"
-	.string "If you want to catch POKéMON, you have\n"
-	.string "to go into the tall grass and search.$"
+	.string "Saw a rat take down a bird in here once.\n"
+	.string "Blood everywhere. Pretty sick.\p"
+	.string "You wanna be king of Trashburg?\n"
+	.string "Gotta prove it in the grass.$"
 
 Route101_Text_RouteSign:
-	.string "ROUTE 101\n"
-	.string "{UP_ARROW} OLDALE TOWN$"
+	.string "ROUTE 101 {UP_ARROW} OLDALE TOWN\n"
+	.string " Now with 30% less infestation!$"
 

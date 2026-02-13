@@ -276,27 +276,27 @@ PlayersHouse_2F_Text_ClockIsStopped:
 
 PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 	.string "MOM: {PLAYER}, how do you like your\n"
-	.string "new room?\p"
-	.string "Good! Everything's put away neatly!\p"
-	.string "They finished moving everything in\n"
-	.string "downstairs, too.\p"
-	.string "POKéMON movers are so convenient!\p"
-	.string "Oh, you should make sure that\n"
-	.string "everything's all there on your desk.$"
+	.string "room? Smells kinda neutral, right?\p"
+	.string "The movers didn’t steal anything\n"
+	.string "this time, so that’s a win.\p"
+	.string "They also found an old sock full of\n"
+	.string "mystery goo. I threw it out.\p"
+	.string "Anyway, check your desk.\n"
+	.string "Frank left something sticky on it.$"
 
 PlayersHouse_2F_Text_Notebook:
-	.string "{PLAYER} flipped open the notebook.\p"
-	.string "ADVENTURE RULE NO. 1\n"
-	.string "Open the MENU with START.\p"
-	.string "ADVENTURE RULE NO. 2\n"
-	.string "Record your progress with SAVE.\p"
-	.string "The remaining pages are blank…$"
+	.string "{PLAYER} opened a crusty old notebook.\n"
+	.string "ADVENTURE RULE NO. 1:\l"
+	.string "Press START. Hope for the best.\p"
+	.string "RULE NO. 2:\n"
+	.string "SAVE a lot. Trust nothing.\p"
+	.string "The rest is covered in mustard.$"
 
 Common_Text_LookCloserAtMap:
-	.string "{PLAYER} took a closer look at the\n"
-	.string "HOENN region map.$"
+	.string "{PLAYER} took a closer look at the map.\n"
+	.string "There’s a weird stain on Trashburg.$"
 
 PlayersHouse_2F_Text_ItsAGameCube:
-	.string "It's a Nintendo GameCube.\p"
-	.string "A Game Boy Advance is connected to\n"
-	.string "serve as the Controller.$"
+	.string "It’s a Nintendo GameCube.\p"
+	.string "Frank says it can broadcast dreams.\n"
+	.string "Unconfirmed.$"
