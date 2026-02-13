@@ -77,9 +77,10 @@
 #define FLDEFF_TRACKS_BUG                72
 #define FLDEFF_CAVE_DUST                 73
 #define FLDEFF_DEFOG                     74
-#define FLDEFF_USE_ROCK_CLIMB            75
-#define FLDEFF_ROCK_CLIMB_DUST           76
-#define FLDEFF_ORAS_DOWSE                77
+#define FLDEFF_QUEST_ICON                75
+#define FLDEFF_USE_ROCK_CLIMB            76
+#define FLDEFF_ROCK_CLIMB_DUST           77
+#define FLDEFF_ORAS_DOWSE                78
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
