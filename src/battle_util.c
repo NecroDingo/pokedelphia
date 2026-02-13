@@ -15,7 +15,6 @@
 #include "party_menu.h"
 #include "pokemon.h"
 #include "international_string_util.h"
-#include "wild_encounter.h"
 #include "item.h"
 #include "util.h"
 #include "battle_scripts.h"
@@ -53,6 +52,11 @@
 #include "constants/trainers.h"
 #include "constants/weather.h"
 #include "constants/pokemon.h"
+
+// Prototypes for caps.c functions
+u32 GetCurrentLevelCap(void);
+u32 GetSoftLevelCapExpValue(u32 level, u32 expValue);
+u32 GetCurrentEVCap(void);
 
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
@@ -1011,39 +1015,6 @@ void HandleAction_ActionFinished(void)
 }
 
 // code
-
-u8 ChooseScaledTrainerMonLevel(void)
-{
-    u8 avgLevel = GetAveragePartyLevel();
-    u8 highestLevel = GetHighestPartyLevel();
-    u8 wildMin = 2, wildMax = 100;
-    u8 minLevel, maxLevel;
-    u32 levelCap = GetCurrentLevelCap();
-    u8 x = 5; // Trainers can't be more than 5 below your highest
-
-    minLevel = avgLevel > 1 ? avgLevel - 1 : wildMin;
-    if (highestLevel <= 10)
-    {
-        maxLevel = avgLevel + 0;
-        minLevel = avgLevel - 3;
-    }
-    else {
-        maxLevel = avgLevel + 3;
-    }
-    u8 minAllowed = highestLevel > x ? highestLevel - x : wildMin;
-    if (minLevel < minAllowed)
-        minLevel = minAllowed;
-    if (minLevel < wildMin)
-        minLevel = wildMin;
-    if (maxLevel > wildMax)
-        maxLevel = wildMax;
-    if (maxLevel > levelCap)
-        maxLevel = levelCap;
-    if (minLevel > maxLevel)
-        minLevel = maxLevel;
-    u8 trainerLevel = minLevel + (Random() % (maxLevel - minLevel + 1));
-    return trainerLevel;
-}
 
 ARM_FUNC NOINLINE static uq4_12_t PercentToUQ4_12(u32 percent)
 {
@@ -6562,22 +6533,8 @@ u8 GetAttackerObedienceForAction()
     if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
         return OBEYS;
 
-    obedienceLevel = 10;
-
-    if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge
-        obedienceLevel = 20;
-    if (FlagGet(FLAG_BADGE02_GET)) // Knuckle Badge
-        obedienceLevel = 30;
-    if (FlagGet(FLAG_BADGE03_GET)) // Dynamo Badge
-        obedienceLevel = 40;
-    if (FlagGet(FLAG_BADGE04_GET)) // Heat Badge
-        obedienceLevel = 50;
-    if (FlagGet(FLAG_BADGE05_GET)) // Balance Badge
-        obedienceLevel = 60;
-    if (FlagGet(FLAG_BADGE06_GET)) // Feather Badge
-        obedienceLevel = 70;
-    if (FlagGet(FLAG_BADGE07_GET)) // Mind Badge
-        obedienceLevel = 80;
+    // Use the level cap from caps.c for obedience
+    obedienceLevel = GetCurrentLevelCap();
 
     if (B_OBEDIENCE_MECHANICS >= GEN_8
      && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))

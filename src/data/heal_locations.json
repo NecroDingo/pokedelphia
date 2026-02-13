@@ -192,12 +192,6 @@
       "map": "MAP_PETALBURG_WOODS",
       "x": 26,
       "y": 77
-    },
-    {
-      "id": "HEAL_LOCATION_PETALBURG_WOODS",
-      "map": "MAP_PETALBURG_WOODS",
-      "x": 26,
-      "y": 77
     }
   ]
 }
