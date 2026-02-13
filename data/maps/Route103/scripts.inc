@@ -303,7 +303,7 @@ Route103_Text_ShouldHaveBroughtPotion:
 Route103_Text_ShortcutToOldale:
 	.string "Cross that water right there?\n"
 	.string "Boom! Shortcut straight to OLD SCUMPORT.\p"
-	.string "Yeah, f'real. That’s the move. Pro tip, kid.\n$"
+	.string "Yeah, f'real. That’s the move. Pro tip, kid.$"
 
 Route103_Text_RouteSign:
 	.string "ROUTE 103\n"

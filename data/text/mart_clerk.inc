@@ -9,7 +9,7 @@ gText_PleaseComeAgain::
 
 gText_PlayerWhatCanIDoForYou::
 	.string "Hey Charlie, you're back.\p"
-	.string "Alright, what do ya need this time?\n$"
+	.string "Alright, what do ya need this time?$"
 
 gText_MyBrotherInOldale::
 	.string "Oh.. Hey there {PLAYER}.\p"

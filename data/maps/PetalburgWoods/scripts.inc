@@ -489,7 +489,7 @@ PetalburgWoods_Text_YouveGotSomeNerve:
 	.string "I'd run it back, but I’m fresh outta\n"
 	.string "POKéMON...\p"
 	.string "Whatever. We’re hittin’ RUSTBORO next.\p"
-	.string "Count ya blessings, kid.\n$"
+	.string "Count ya blessings, kid.$"
 
 PetalburgWoods_Text_ThatWasAwfullyClose:
 	.string "Sheesh...\n"
