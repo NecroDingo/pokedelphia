@@ -98,7 +98,7 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x054                    0x54  // Unused Flag
+#define FLAG_B_SMART_WILD_AI_FLAG            0x54  // B_SMART_WILD_AI_FLAG include/config/battle.h
 #define FLAG_UNUSED_0x055                    0x55  // Unused Flag
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
@@ -639,7 +639,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1             (FLAG_HIDDEN_ITEMS_START + 0x5C)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             (FLAG_HIDDEN_ITEMS_START + 0x5D)
 #define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             (FLAG_HIDDEN_ITEMS_START + 0x5E)
-#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY           (FLAG_HIDDEN_ITEMS_START + 0x5F)
+#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_NUGGET               (FLAG_HIDDEN_ITEMS_START + 0x5F)
 #define FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES             (FLAG_HIDDEN_ITEMS_START + 0x60)
 #define FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE               (FLAG_HIDDEN_ITEMS_START + 0x61)
 #define FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET                    (FLAG_HIDDEN_ITEMS_START + 0x62)
@@ -657,8 +657,9 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
+#define FLAG_PETALBURG_NURSE_INTRO_DONE                      0x264 // Petalburg Nurse intro
+#define FLAG_OLDALE_NURSE_INTRO_DONE                         0x265 // Oldale Nurse intro
+
 #define FLAG_UNUSED_0x266  0x266 // Unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
@@ -1223,7 +1224,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
+#define FLAG_PETALBURG_CITY_CAN_SEARCH_BUSHES                       0x493 // FLAG PETALBURG CITY, Allows looking for Nugget
 #define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
 #define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
 #define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
@@ -1594,7 +1595,7 @@
 #define FLAG_UNUSED_0x933                           (DAILY_FLAGS_START + 0x13) // Unused Flag
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
-#define FLAG_UNUSED_0x935                           (DAILY_FLAGS_START + 0x15) // Unused Flag
+#define FLAG_DAILY_GIANT_REACH_MART                 (DAILY_FLAGS_START + 0x15) // Mart in Giant's Reach message about brother in Old Scumport.
 #define FLAG_UNUSED_0x936                           (DAILY_FLAGS_START + 0x16) // Unused Flag
 #define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // Unused Flag
 #define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // Unused Flag

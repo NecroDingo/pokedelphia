@@ -994,7 +994,7 @@ LittlerootTown_Text_YouSavedBirch:
 LittlerootTown_Text_GoodLuckCatchingPokemon:
 	.string "Catching Pokémon, huh?\n"
 	.string "Yeah… good luck with that.\p"
-	.string "Hope you brought snacks. And bandages.\p"
+	.string "Hope you brought snacks. And bandages.$"
 
 LittlerootTown_Text_TownSign:
 	.string "TRASHBURG\n"

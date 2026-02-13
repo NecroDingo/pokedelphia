@@ -12,7 +12,7 @@ PetalburgCity_OnTransition:
 	end
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
-	setobjectxyperm LOCALID_GYM_BOY, 5, 11
+	setobjectxyperm LOCALID_GYM_BOY, 36, 17
 	return
 
 PetalburgCity_EventScript_DisableMapNameAndMusic::
@@ -88,6 +88,7 @@ PetalburgCity_EventScript_Boy::
 	applymovement LOCALID_PETALBURG_BOY, Common_Movement_FaceOriginalDirection
 	waitmovement 0
 	release
+	setflag FLAG_PETALBURG_CITY_CAN_SEARCH_BUSHES
 	end
 
 PetalburgCity_EventScript_WallysMom::
@@ -150,10 +151,30 @@ PetalburgCity_Movement_WallyTutorialPlayer:
 	walk_down
 	walk_down
 	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	walk_right
 	walk_right
 	walk_right
@@ -172,24 +193,40 @@ PetalburgCity_Movement_WallyTutorialPlayer:
 	walk_right
 	walk_right
 	walk_right
-	walk_right
-	walk_right
+	walk_up
 	walk_up
 	walk_up
 	walk_in_place_faster_right
 	step_end
 
 PetalburgCity_Movement_WallyTutorialWally:
-	delay_8
+	delay_16
+	delay_16
 	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_right
-	walk_right
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	walk_right
 	walk_right
 	walk_right
@@ -210,12 +247,10 @@ PetalburgCity_Movement_WallyTutorialWally:
 	walk_right
 	walk_up
 	walk_up
+	walk_up
 	walk_right
 	delay_16
-	walk_in_place_faster_up
-	delay_16
-	delay_16
-	walk_in_place_faster_right
+	walk_in_place_faster_left
 	step_end
 
 PetalburgCity_EventScript_GymSign::
@@ -278,13 +313,26 @@ PetalburgCity_EventScript_ShowGymToPlayer::
 	call_if_eq VAR_0x8008, 2, PetalburgCity_EventScript_LeadPlayerToGym2
 	call_if_eq VAR_0x8008, 3, PetalburgCity_EventScript_LeadPlayerToGym3
 	msgbox PetalburgCity_Text_ThisIsPetalburgGym, MSGBOX_DEFAULT
-	applymovement LOCALID_GYM_BOY, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_GYM_BOY, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	msgbox PetalburgCity_Text_ThisIsGymSign, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_GYM_BOY, PetalburgCity_Movement_BoyWalkAway
+	applymovement LOCALID_GYM_BOY, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
+	msgbox PetalburgCity_Text_ThisIsYourUncle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, PetalburgCity_Movement_WalkToGym
+	waitmovement 0
+	setvar VAR_0x8004, 39
+	setvar VAR_0x8005, 28
+	opendoor VAR_0x8004, VAR_0x8005
+	waitdooranim
+	applymovement LOCALID_PLAYER, PetalburgCity_Movement_WalkInGym
+	waitmovement 0
+	warp MAP_PETALBURG_CITY_GYM, 4, 111
+	waitstate
+	closedoor VAR_0x8004, VAR_0x8005
+	waitdooranim
 	fadedefaultbgm
 	releaseall
 	end
@@ -366,14 +414,37 @@ PetalburgCity_Movement_BoyApproachPlayer2:
 	step_end
 
 PetalburgCity_Movement_BoyApproachPlayer3:
+	walk_right
+	walk_right
+	walk_right
 	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_in_place_faster_down
 	step_end
 
 PetalburgCity_Movement_BoyWalkToGym0:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -382,11 +453,33 @@ PetalburgCity_Movement_BoyWalkToGym0:
 	walk_right
 	walk_right
 	walk_up
-	walk_right
-	walk_in_place_faster_up
+	walk_up
+	walk_in_place_faster_down
 	step_end
 
 PetalburgCity_Movement_BoyWalkToGym1:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_down
 	walk_right
 	walk_right
@@ -395,14 +488,36 @@ PetalburgCity_Movement_BoyWalkToGym1:
 	walk_right
 	walk_right
 	walk_right
-	walk_right
 	walk_up
 	walk_up
-	walk_right
-	walk_in_place_faster_up
+	walk_in_place_faster_down
 	step_end
 
 PetalburgCity_Movement_BoyWalkToGym2:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -411,11 +526,34 @@ PetalburgCity_Movement_BoyWalkToGym2:
 	walk_right
 	walk_right
 	walk_up
-	walk_right
-	walk_in_place_faster_up
+	walk_up
+	walk_in_place_faster_down
 	step_end
 
 PetalburgCity_Movement_BoyWalkToGym3:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -425,11 +563,22 @@ PetalburgCity_Movement_BoyWalkToGym3:
 	walk_right
 	walk_up
 	walk_up
-	walk_right
-	walk_in_place_faster_up
+	walk_in_place_faster_down
 	step_end
 
-PetalburgCity_Movement_BoyWalkAway:
+PetalburgCity_Movement_WalkToGym:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PetalburgCity_Movement_WalkInGym::
+	walk_up
+	step_end
+
+PetalburgCity_Movement_PlayerWalkToGym0:
+	delay_16
 	walk_down
 	walk_left
 	walk_left
@@ -439,12 +588,21 @@ PetalburgCity_Movement_BoyWalkAway:
 	walk_left
 	walk_left
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-PetalburgCity_Movement_PlayerWalkToGym0:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_down
 	walk_right
 	walk_right
@@ -458,7 +616,29 @@ PetalburgCity_Movement_PlayerWalkToGym0:
 
 PetalburgCity_Movement_PlayerWalkToGym1:
 	delay_16
-	delay_16
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_down
 	walk_right
 	walk_right
@@ -468,11 +648,35 @@ PetalburgCity_Movement_PlayerWalkToGym1:
 	walk_right
 	walk_right
 	walk_up
-	walk_up
 	step_end
 
 PetalburgCity_Movement_PlayerWalkToGym2:
+	delay_16
 	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -484,7 +688,31 @@ PetalburgCity_Movement_PlayerWalkToGym2:
 	step_end
 
 PetalburgCity_Movement_PlayerWalkToGym3:
+	delay_16
 	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -492,7 +720,6 @@ PetalburgCity_Movement_PlayerWalkToGym3:
 	walk_right
 	walk_right
 	walk_right
-	walk_up
 	walk_up
 	step_end
 
@@ -500,7 +727,7 @@ PetalburgCity_EventScript_Scott0::
 	lockall
 	addobject LOCALID_PETALBURG_SCOTT
 	setvar VAR_0x8008, 0
-	setobjectxy LOCALID_PETALBURG_SCOTT, 13, 10
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 12
 	goto PetalburgCity_EventScript_Scott
 	end
 
@@ -508,7 +735,7 @@ PetalburgCity_EventScript_Scott1::
 	lockall
 	addobject LOCALID_PETALBURG_SCOTT
 	setvar VAR_0x8008, 1
-	setobjectxy LOCALID_PETALBURG_SCOTT, 13, 11
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 13
 	goto PetalburgCity_EventScript_Scott
 	end
 
@@ -516,7 +743,7 @@ PetalburgCity_EventScript_Scott2::
 	lockall
 	addobject LOCALID_PETALBURG_SCOTT
 	setvar VAR_0x8008, 2
-	setobjectxy LOCALID_PETALBURG_SCOTT, 13, 12
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 14
 	goto PetalburgCity_EventScript_Scott
 	end
 
@@ -524,7 +751,7 @@ PetalburgCity_EventScript_Scott3::
 	lockall
 	addobject LOCALID_PETALBURG_SCOTT
 	setvar VAR_0x8008, 3
-	setobjectxy LOCALID_PETALBURG_SCOTT, 13, 13
+	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 15
 	goto PetalburgCity_EventScript_Scott
 	end
 
@@ -590,10 +817,10 @@ PetalburgCity_Movement_ScottStartWalkLeft:
 	walk_left
 	walk_left
 	walk_left
-	walk_left
 	step_end
 
 PetalburgCity_Movement_ScottApproachPlayer:
+	walk_left
 	walk_left
 	walk_left
 	walk_left
@@ -602,18 +829,19 @@ PetalburgCity_Movement_ScottApproachPlayer:
 
 PetalburgCity_Movement_ScottExit0:
 	walk_down
+	walk_left
+	walk_left
+	walk_left
 	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 PetalburgCity_Movement_PlayerWatchScottExit0:
@@ -630,14 +858,16 @@ PetalburgCity_Movement_ScottExit1:
 	walk_left
 	walk_left
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 PetalburgCity_Movement_PlayerWatchScottExit1:
@@ -649,23 +879,25 @@ PetalburgCity_Movement_PlayerWatchScottExit1:
 	step_end
 
 PetalburgCity_Movement_ScottExit2:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
 	walk_down
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 PetalburgCity_Movement_PlayerWatchScottExit2:
 	delay_16
-	walk_in_place_faster_down
+	walk_in_place_faster_up
 	delay_16
 	delay_8
 	walk_in_place_faster_left
@@ -676,14 +908,16 @@ PetalburgCity_Movement_ScottExit3:
 	walk_left
 	walk_left
 	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 PetalburgCity_Movement_PlayerWatchScottExit3:
@@ -695,67 +929,124 @@ PetalburgCity_Movement_PlayerWatchScottExit3:
 	step_end
 
 PetalburgCity_EventScript_GymBoy::
-	msgbox PetalburgCity_Text_AreYouRookieTrainer, MSGBOX_NPC
+	msgbox PetalburgCity_Text_GymBoy2, MSGBOX_NPC
 	end
 
 PetalburgCity_Text_WhereIsWally:
-	.string "Where has our WALLY gone?\p"
-	.string "We have to leave for VERDANTURF TOWN\n"
-	.string "very soon…$"
+	.string "Where did Matthew dip off to?\p"
+	.string "We've gotta head to Verdanturf soon,\n"
+	.string "no time for slacking.$"
 
 PetalburgCity_Text_AreYouRookieTrainer:
-	.string "Hiya! Are you maybe…\n"
-	.string "A rookie TRAINER?\p"
-	.string "Do you know what POKéMON TRAINERS\n"
-	.string "do when they reach a new town?\p"
-	.string "They first check what kind of GYM\n"
-	.string "is in the town.$"
+	.string "Hey, you a rookie TRAINER or just\n"
+	.string "playin’ dress-up?\p"
+	.string "Listen up.\p"
+	.string "When you hit a new town, first thing\n"
+	.string "you do is check out the GYM.\p"
+	.string "That’s how you know who’s boss around\n"
+	.string "here.$"
 
 PetalburgCity_Text_ThisIsPetalburgGym:
-	.string "See? This is PETALBURG CITY's GYM.$"
+	.string "Welcome to GIANT'S REACH GYM.\p"
+	.string "This is where Jack throws down.$"
 
 PetalburgCity_Text_ThisIsGymSign:
-	.string "This is the GYM's sign. Look for it\n"
-	.string "whenever you're looking for a GYM.$"
+	.string "That sign? That’s the GYM’s mark.\p"
+	.string "If you see it, you know thats where\n"
+	.string "you need to go for a great fight!$"
+
+PetalburgCity_Text_ThisIsYourUncle:
+	.string "..................\p"
+	.string "Oh, this is your Uncle's GYM?\n"
+	.string "Head on inside!$"
+
+PetalburgCity_Text_GymBoy2:
+	.string "I love this GYM.\n"
+	.string "Jack’s the best.\p"
+	.string "He’s got big hands, sharp mind,\n"
+	.string "and a heart of gold.$"
 
 PetalburgCity_Text_WaterReflection:
-	.string "My face is reflected in the water.\p"
-	.string "It's a shining grin full of hope…\p"
-	.string "Or it could be a look of somber silence\n"
-	.string "struggling with fear…\p"
-	.string "What do you see reflected in your face?$"
+	.string "Lookin’ in the water, I only see\n"
+	.string "my stupid face.\p"
+	.string "Shoulda been a grin, but nah.\p"
+	.string "Lost my damn nugget in some bush,\n"
+	.string "now I’m stuck here feelin’ like a chump.\p"
+	.string "It’s gotta be around this jawn\n"
+	.string "somewhere...$"
 
 PetalburgCity_Text_FullPartyExplanation:
-	.string "Let's say you have six POKéMON.\n"
-	.string "If you catch another one…\p"
-	.string "It is automatically sent to a STORAGE\n"
-	.string "BOX over a PC connection.$"
+	.string "You got six POKéMON yet?\p"
+	.string "Catch another? It ain’t joinin’ your\n"
+	.string "crew.\p"
+	.string "It gets tossed in the STORAGE BOX,\n"
+	.string "chillin’ in the PC until you wanna\l"
+	.string "deal with it.$"
 
 PetalburgCity_Text_GymSign:
-	.string "PETALBURG CITY POKéMON GYM\n"
-	.string "LEADER: NORMAN\l"
-	.string "“A man in pursuit of power!”$"
+	.string "GIANT’S REACH POKéMON GYM\n"
+	.string "LEADER: JACK\p"
+	.string "Big hands. Sharp mind.\n"
+	.string "Final verdict: defeat.$"
 
 PetalburgCity_Text_CitySign:
-	.string "PETALBURG CITY\n"
-	.string "“Where people mingle with nature.”$"
+	.string "GIANT'S REACH:\n"
+	.string "Justice served with a giant’s grip.$"
 
 PetalburgCity_Text_WallyHouseSign:
-	.string "WALLY'S HOUSE$"
+	.string "MATTHEW'S HOUSE$"
 
 PetalburgCity_Text_AreYouATrainer:
-	.string "Excuse me!\p"
-	.string "Let me guess, from the way you're\n"
-	.string "dressed, are you a POKéMON TRAINER?$"
+	.string "Yo, hold up! Lemme guess.\p"
+	.string "Lookin’ at how you’re\n"
+	.string "dressed, you a POKéMON TRAINER or what?$"
 
 PetalburgCity_Text_WellMaybeNot:
 	.string "… … … … … …\p"
-	.string "Well, maybe not.\n"
-	.string "Your clothes aren't all that dirty.\p"
-	.string "You're either a rookie TRAINER,\n"
-	.string "or maybe you're just an ordinary kid.$"
+	.string "Eh, maybe not.\p"
+	.string "Your clothes ain’t dirty enough to be\n"
+	.string "a real trainer.\p"
+	.string "You either new to this or just some kid\n"
+	.string "playin’ at it.$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers:
-	.string "I'm roaming the land in search of\n"
-	.string "talented TRAINERS.\p"
-	.string "I'm sorry to have taken your time.$"
+	.string "I’m huntin’ for real talent.\p"
+	.string "Don’t waste my time if you ain’t\n"
+	.string "serious.$"
+
+PetalburgCity_Eventscript_NuggetBush::
+	checkflag FLAG_PETALBURG_CITY_CAN_SEARCH_BUSHES
+    goto_if FALSE, PetalburgCity_EventScript_NuggetBush_End
+    checkflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_NUGGET
+    goto_if TRUE, PetalburgCity_EventScript_NuggetBush_End
+    msgbox PetalburgCity_Text_FoundNugget, MSGBOX_SIGN
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_NUGGET, 1
+	setflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_NUGGET
+    msgbox PetalburgCity_Text_AfterFoundNugget, MSGBOX_SIGN
+	goto PetalburgCity_EventScript_NuggetBush_End
+PetalburgCity_EventScript_NuggetBush_End:
+    end
+
+PetalburgCity_Text_FoundNugget:
+	.string "You search the bush...\p"
+    .string "You found a Nugget!$"
+
+PetalburgCity_EventScript_EmptyBush::
+    checkflag FLAG_PETALBURG_CITY_CAN_SEARCH_BUSHES
+    goto_if FALSE, PetalburgCity_EventScript_EmptyBush_End
+    checkflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_NUGGET
+    goto_if TRUE, PetalburgCity_EventScript_EmptyBush_End
+    msgbox PetalburgCity_Text_EmptyBush, MSGBOX_SIGN
+PetalburgCity_EventScript_EmptyBush_End:
+    end
+
+PetalburgCity_Text_EmptyBush:
+	.string "You search the bush...\p"
+	.string "No Nugget here...$"
+
+PetalburgCity_Text_AfterFoundNugget:
+	.string "One man's mistake is another man's\n"
+	.string "treasure.$"
+

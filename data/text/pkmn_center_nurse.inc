@@ -1,23 +1,20 @@
 gText_WouldYouLikeToRestYourPkmn::
 	.string "WAITRESS: Ugh. Hi, Charlie.\p"
-	.string "This is the Pokémon Center.\n"
-	.string "We heal stuff.\p"
-	.string "You want me to fix your weird little\n"
+	.string "You want me to heal your weird little\n"
 	.string "POKéMON?$"
 
 gText_IllTakeYourPkmn::
-	.string "Fine. Hand them over.\n"
-	.string "I’ll do it. Just… stop staring at me.$"
+	.string "WAITRESS: Fine. Hand them over.\p"
+	.string "And seriously, stop staring at me like\n"
+	.string "that...$"
 
 gText_RestoredPkmnToFullHealth::
-	.string "There. They’re better.\p"
-	.string "No, that doesn't mean we’re friends.\n"
-	.string "Please leave me alone for a while.\p"
+	.string "WAITRESS: There. They’re better.\p"
+	.string "No, that doesn't mean we’re friends.\p"
 	.string "$"
 
 gText_WeHopeToSeeYouAgain::
-	.string "Actually,\n" 
-	.string "I hope I don’t see you again.$"
+	.string "Please leave me alone for a while.$"
 
 gText_WelcomeCutShort::
 	.string "WAITRESS: Charlie, seriously?\n"
@@ -47,15 +44,14 @@ gText_YouWantTheUsual::
 	.string "Of course it is.$"
 
 gText_IllTakeYourPkmn2::
-	.string "Yep. Give ‘em here.\n"
-	.string "Can’t believe I’m still doing this\l"
-	.string "for you.$"
+	.string "WAITRESS: Yeah, yeah, give ‘em here.\n"
+	.string "Can’t believe I’m still doing this.$"
 
 gText_ThankYouForWaiting::
-	.string "Thanks for waiting, I guess.\n"
-	.string "I mean, I didn’t ask you to, but…$"
+	.string "WAITRESS: Thanks for waiting, I guess.\n"
+	.string "Not like I asked you to or anything.$"
 
 gText_WeHopeToSeeYouAgain2::
-	.string "You’re gonna come back in, like\n"
-	.string "10 minutes, huh.\p"
-	.string "Great.$"
+	.string "WAITRESS: You’re gonna come back in\n"
+	.string "like 10 minutes, huh?\p"
+	.string "Great...$"

@@ -4,8 +4,18 @@ PetalburgCity_Mart_MapScripts::
 PetalburgCity_Mart_EventScript_Clerk::
 	lock
 	faceplayer
+	goto_if_set FLAG_DAILY_GIANT_REACH_MART, PetalburgCity_Mart_EventScript_Clerk_Regular
+	message gText_MyBrotherInOldale
+	waitmessage
+	setflag FLAG_DAILY_GIANT_REACH_MART
+	goto PetalburgCity_Mart_EventScript_Clerk_Continue
+
+PetalburgCity_Mart_EventScript_Clerk_Regular:
 	message gText_HowMayIServeYou
 	waitmessage
+	goto PetalburgCity_Mart_EventScript_Clerk_Continue
+
+PetalburgCity_Mart_EventScript_Clerk_Continue:
 	goto_if_set FLAG_PETALBURG_MART_EXPANDED_ITEMS, PetalburgCity_Mart_EventScript_ExpandedItems
 	pokemart PetalburgCity_Mart_Pokemart_Basic
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
@@ -63,20 +73,24 @@ PetalburgCity_Mart_EventScript_Man::
 	end
 
 PetalburgCity_Mart_Text_WeakWillGrowStronger:
-	.string "Even if a POKéMON is weak now,\n"
-	.string "it will grow stronger.\p"
-	.string "The most important thing is love!\n"
-	.string "Love for your POKéMON!$"
+	.string "Look, even if your Pokémon’s kinda\n"
+	.string "weak right now, don’t sweat it!\l"
+	.string "They’ll get stronger, no doubt.\p"
+	.string "The key? It’s all about love, ya know?\p"
+	.string "Some might say brotherly love, but I say\n"
+	.string "Pokémon love.\p"
+	.string "That’s what makes the difference!$"
 
 PetalburgCity_Mart_Text_RepelIsUseful:
-	.string "Do you use REPEL?\n"
-	.string "It keeps POKéMON away, so it's\l"
-	.string "useful when you're in a hurry.$"
+	.string "You ever use REPEL?\p"
+	.string "It keeps wild Pokémon off your back.\p"
+	.string "Real handy when you’re tryin’ to get\n"
+	.string "somewhere fast.$"
 
 PetalburgCity_Mart_Text_TakeSomeAntidotesWithYou:
-	.string "Do you have any ANTIDOTES with\n"
-	.string "you?\p"
-	.string "If you walk around with a poisoned\n"
-	.string "POKéMON, it will lose HP until it faints.\l"
-	.string "Take some ANTIDOTES with you.$"
+	.string "You got any ANTIDOTES on you?\p"
+	.string "‘Cause if your Pokémon gets poisoned,\n"
+	.string "it’s gonna lose HP till it drops.\p"
+	.string "Best to carry some ANTIDOTES, trust me\n"
+	.string "on this one bro.$"
 
