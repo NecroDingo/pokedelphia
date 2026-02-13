@@ -389,4 +389,13 @@ enum ShinyMode {
 #define LEGENDARY_PERFECT_IV_COUNT 0
 #endif
 
+// Wild evolution: 50% chance per eligible evolution step (0-255)
+#define WILD_MON_EVO_CHANCE 192
+
+// If defined, require time of day to match for time-based evolutions
+#define WILD_MON_EVO_TIME_OF_DAY_REQUIRED TRUE
+
+// Example: Ban certain species from wild evolution (add more as needed)
+#define WILD_MON_EVO_BANS {SPECIES_SHEDINJA, SPECIES_UNOWN, SPECIES_NONE}
+
 #endif // GUARD_CONSTANTS_POKEMON_H
