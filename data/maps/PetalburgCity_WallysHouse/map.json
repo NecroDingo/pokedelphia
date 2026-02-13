@@ -29,6 +29,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_WALLYS_HOUSE_WALLYS_MOM",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
       "x": 7,
       "y": 5,
@@ -40,6 +41,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PetalburgCity_WallysHouse_EventScript_WallysMom",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_WALLYS_HOUSE_FRANK",
+      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "x": 4,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_WallysHouse_EventScript_Frank",
+      "flag": "FLAG_HIDE_FRANK_PETALBURG"
     }
   ],
   "warp_events": [

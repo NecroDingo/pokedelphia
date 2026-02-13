@@ -994,7 +994,7 @@ PetalburgCity_Text_CitySign:
 	.string "Justice served with a giant’s grip.$"
 
 PetalburgCity_Text_WallyHouseSign:
-	.string "MATTHEW'S HOUSE$"
+	.string "HOLY HOUSE$"
 
 PetalburgCity_Text_AreYouATrainer:
 	.string "Yo, hold up! Lemme guess.\p"

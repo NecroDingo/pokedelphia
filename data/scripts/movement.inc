@@ -166,3 +166,8 @@ Common_Movement_WalkRightFaster::
 Common_Movement_WalkLeftFaster::
     walk_faster_left
     step_end
+
+Common_Movement_SelfText::
+    emote_exclamation_mark
+    walk_in_place_faster_down
+    step_end
