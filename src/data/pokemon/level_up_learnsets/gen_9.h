@@ -8559,7 +8559,7 @@ static const struct LevelUpMove sSpindaLevelUpLearnset[] = {
 static const struct LevelUpMove sTrapinchLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SAND_ATTACK),
     LEVEL_UP_MOVE( 1, MOVE_ASTONISH),
-    LEVEL_UP_MOVE( 8, MOVE_BITE),
+    LEVEL_UP_MOVE( 5, MOVE_BITE),
     LEVEL_UP_MOVE(12, MOVE_MUD_SLAP),
     LEVEL_UP_MOVE(16, MOVE_SAND_TOMB),
     LEVEL_UP_MOVE(20, MOVE_BULLDOZE),

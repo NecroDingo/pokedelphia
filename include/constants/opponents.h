@@ -523,24 +523,24 @@
 #define TRAINER_EDWIN_4                     517
 #define TRAINER_EDWIN_5                     518
 #define TRAINER_WALLY_VR_1                  519
-#define TRAINER_BRENDAN_ROUTE_103_BUIZEL    520
-#define TRAINER_BRENDAN_ROUTE_110_BUIZEL    521
-#define TRAINER_BRENDAN_ROUTE_119_BUIZEL    522
-#define TRAINER_BRENDAN_ROUTE_103_SHROOMISH   523
-#define TRAINER_BRENDAN_ROUTE_110_SHROOMISH   524
-#define TRAINER_BRENDAN_ROUTE_119_SHROOMISH   525
-#define TRAINER_BRENDAN_ROUTE_103_HOUNDOUR   526
-#define TRAINER_BRENDAN_ROUTE_110_HOUNDOUR   527
-#define TRAINER_BRENDAN_ROUTE_119_HOUNDOUR   528
-#define TRAINER_MAY_ROUTE_103_BUIZEL        529
-#define TRAINER_MAY_ROUTE_110_BUIZEL        530
-#define TRAINER_MAY_ROUTE_119_BUIZEL        531
-#define TRAINER_MAY_ROUTE_103_SHROOMISH       532
-#define TRAINER_MAY_ROUTE_110_SHROOMISH       533
-#define TRAINER_MAY_ROUTE_119_SHROOMISH       534
-#define TRAINER_MAY_ROUTE_103_HOUNDOUR       535
-#define TRAINER_MAY_ROUTE_110_HOUNDOUR       536
-#define TRAINER_MAY_ROUTE_119_HOUNDOUR       537
+#define TRAINER_MEGHAN                      520  // Route 102 addition. Took out Brendan
+#define TRAINER_HIKARU                      521  // Route 102 addition. Took out Brendan
+#define TRAINER_ZACH                        522  // Route 102 addition. Took out Brendan
+#define TRAINER_CHAZ                        523  // Route 102 addition. Took out Brendan
+#define TRAINER_BRENDAN_ROUTE_110_RALTS     524  // Unused
+#define TRAINER_BRENDAN_ROUTE_119_RALTS     525  // Unused
+#define TRAINER_BRENDAN_ROUTE_103_ARON      526  // Unused
+#define TRAINER_BRENDAN_ROUTE_110_ARON      527  // Unused
+#define TRAINER_BRENDAN_ROUTE_119_ARON      528  // Unused
+#define TRAINER_MAY_ROUTE_103_TRAPINCH      529
+#define TRAINER_MAY_ROUTE_110_TRAPINCH      530
+#define TRAINER_MAY_ROUTE_119_TRAPINCH      531
+#define TRAINER_MAY_ROUTE_103_RALTS         532
+#define TRAINER_MAY_ROUTE_110_RALTS         533
+#define TRAINER_MAY_ROUTE_119_RALTS         534
+#define TRAINER_MAY_ROUTE_103_ARON          535
+#define TRAINER_MAY_ROUTE_110_ARON          536
+#define TRAINER_MAY_ROUTE_119_ARON          537
 #define TRAINER_ISAAC_1                     538
 #define TRAINER_DAVIS                       539
 #define TRAINER_MITCHELL                    540
@@ -595,15 +595,15 @@
 #define TRAINER_GRUNT_SPACE_CENTER_6        589
 #define TRAINER_GRUNT_SPACE_CENTER_7        590
 #define TRAINER_MACEY                       591
-#define TRAINER_BRENDAN_RUSTBORO_SHROOMISH    592
-#define TRAINER_BRENDAN_RUSTBORO_BUIZEL     593
+#define TRAINER_BRENDAN_RUSTBORO_RALTS      592  // Unused
+#define TRAINER_BRENDAN_RUSTBORO_TRAPINCH   593  // Unused
 #define TRAINER_PAXTON                      594
 #define TRAINER_ISABELLA                    595
 #define TRAINER_GRUNT_WEATHER_INST_5        596
 #define TRAINER_TABITHA_MT_CHIMNEY          597
 #define TRAINER_JONATHAN                    598
-#define TRAINER_BRENDAN_RUSTBORO_HOUNDOUR    599
-#define TRAINER_MAY_RUSTBORO_BUIZEL         600
+#define TRAINER_BRENDAN_RUSTBORO_ARON       599  // Unused
+#define TRAINER_MAY_RUSTBORO_TRAPINCH       600
 #define TRAINER_MAXIE_MAGMA_HIDEOUT         601
 #define TRAINER_MAXIE_MT_CHIMNEY            602
 #define TRAINER_TIANA                       603
@@ -664,12 +664,12 @@
 #define TRAINER_WALLY_VR_3                  658
 #define TRAINER_WALLY_VR_4                  659
 #define TRAINER_WALLY_VR_5                  660
-#define TRAINER_BRENDAN_LILYCOVE_BUIZEL     661
-#define TRAINER_BRENDAN_LILYCOVE_SHROOMISH    662
-#define TRAINER_BRENDAN_LILYCOVE_HOUNDOUR    663
-#define TRAINER_MAY_LILYCOVE_BUIZEL         664
-#define TRAINER_MAY_LILYCOVE_SHROOMISH        665
-#define TRAINER_MAY_LILYCOVE_HOUNDOUR        666
+#define TRAINER_BRENDAN_LILYCOVE_TRAPINCH   661  // Unused
+#define TRAINER_BRENDAN_LILYCOVE_RALTS      662  // Unused
+#define TRAINER_BRENDAN_LILYCOVE_ARON       663  // Unused
+#define TRAINER_MAY_LILYCOVE_TRAPINCH       664
+#define TRAINER_MAY_LILYCOVE_RALTS          665
+#define TRAINER_MAY_LILYCOVE_ARON           666
 #define TRAINER_JONAH                       667
 #define TRAINER_HENRY                       668
 #define TRAINER_ROGER                       669
@@ -771,8 +771,8 @@
 #define TRAINER_MYLES                       765
 #define TRAINER_PAT                         766
 #define TRAINER_CRISTIN_1                   767
-#define TRAINER_MAY_RUSTBORO_SHROOMISH        768
-#define TRAINER_MAY_RUSTBORO_HOUNDOUR        769
+#define TRAINER_MAY_RUSTBORO_RALTS          768
+#define TRAINER_MAY_RUSTBORO_ARON           769
 #define TRAINER_ROXANNE_2                   770
 #define TRAINER_ROXANNE_3                   771
 #define TRAINER_ROXANNE_4                   772
@@ -856,7 +856,7 @@
 #define TRAINER_EVERETT                     850
 #define TRAINER_RED                         851
 #define TRAINER_LEAF                        852
-#define TRAINER_BRENDAN_PLACEHOLDER         853
+#define TRAINER_BRENDAN_PLACEHOLDER         853  // Unused
 #define TRAINER_MAY_PLACEHOLDER             854
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows

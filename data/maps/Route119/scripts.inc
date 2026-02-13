@@ -41,7 +41,7 @@ Route119_EventScript_RivalEncounter::
 	addobject LOCALID_ROUTE119_RIVAL_ON_BIKE
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, Route119_EventScript_PlayMayMusic
-	call_if_eq VAR_RESULT, FEMALE, Route119_EventScript_PlayBrendanMusic
+	call_if_eq VAR_RESULT, FEMALE, Route119_EventScript_PlayMayMusic
 	delay 65
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_RivalEnter1
 	call_if_eq VAR_TEMP_1, 2, Route119_EventScript_RivalEnter2
@@ -55,7 +55,7 @@ Route119_EventScript_RivalEncounter::
 	delay 30
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, Route119_EventScript_BattleMay
-	goto_if_eq VAR_RESULT, FEMALE, Route119_EventScript_BattleBrendan
+	goto_if_eq VAR_RESULT, FEMALE, Route119_EventScript_BattleMay
 	releaseall
 	end
 
@@ -63,30 +63,27 @@ Route119_EventScript_PlayMayMusic::
 	playbgm MUS_ENCOUNTER_MAY, TRUE
 	return
 
-Route119_EventScript_PlayBrendanMusic::
-	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
-	return
 
 Route119_EventScript_BattleMay::
 	msgbox Route119_Text_MayIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route119_EventScript_BattleMayTreecko
-	case 1, Route119_EventScript_BattleMayTorchic
-	case 2, Route119_EventScript_BattleMayMudkip
+	case 0, Route119_EventScript_BattleMayRalts
+	case 1, Route119_EventScript_BattleMayAron
+	case 2, Route119_EventScript_BattleMayTrapinch
 	end
 
-Route119_EventScript_BattleMayTreecko::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_SHROOMISH, Route119_Text_MayDefeat
+Route119_EventScript_BattleMayRalts::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_RALTS, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
-Route119_EventScript_BattleMayTorchic::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_HOUNDOUR, Route119_Text_MayDefeat
+Route119_EventScript_BattleMayAron::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_ARON, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
-Route119_EventScript_BattleMayMudkip::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_BUIZEL, Route119_Text_MayDefeat
+Route119_EventScript_BattleMayTrapinch::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_119_TRAPINCH, Route119_Text_MayDefeat
 	goto Route119_EventScript_DefeatedMay
 	end
 
@@ -97,35 +94,7 @@ Route119_EventScript_DefeatedMay::
 	goto Route119_EventScript_RivalExitScottArrive
 	end
 
-Route119_EventScript_BattleBrendan::
-	msgbox Route119_Text_BrendanIntro, MSGBOX_DEFAULT
-	switch VAR_STARTER_MON
-	case 0, Route119_EventScript_BattleBrendanTreecko
-	case 1, Route119_EventScript_BattleBrendanTorchic
-	case 2, Route119_EventScript_BattleBrendanMudkip
-	end
 
-Route119_EventScript_BattleBrendanTreecko::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_SHROOMISH, Route119_Text_BrendanDefeat
-	goto Route119_EventScript_DefeatedBrendan
-	end
-
-Route119_EventScript_BattleBrendanTorchic::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_HOUNDOUR, Route119_Text_BrendanDefeat
-	goto Route119_EventScript_DefeatedBrendan
-	end
-
-Route119_EventScript_BattleBrendanMudkip::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_119_BUIZEL, Route119_Text_BrendanDefeat
-	goto Route119_EventScript_DefeatedBrendan
-	end
-
-Route119_EventScript_DefeatedBrendan::
-	msgbox Route119_Text_BrendanIllGiveYouThis, MSGBOX_DEFAULT
-	call Route119_EventScript_GiveFlyHM
-	msgbox Route119_Text_BrendanExplainFly, MSGBOX_DEFAULT
-	goto Route119_EventScript_RivalExitScottArrive
-	end
 
 Route119_EventScript_GiveFlyHM::
 	giveitem ITEM_HM_FLY
@@ -507,31 +476,6 @@ Route119_Text_MayExplainFly:
 	.string "{PLAYER}{KUN}.\p"
 	.string "Well, let's meet again somewhere!$"
 
-Route119_Text_BrendanIntro:
-	.string "BRENDAN: {PLAYER}! So this is where\n"
-	.string "you've been looking for POKéMON?\p"
-	.string "Let me see how good you got.\n"
-	.string "I'll test you!\p"
-	.string "Now!\n"
-	.string "It's a battle, so battle!$"
-
-Route119_Text_BrendanDefeat:
-	.string "Hmm…\n"
-	.string "You've gotten pretty darn decent.$"
-
-Route119_Text_BrendanIllGiveYouThis:
-	.string "BRENDAN: I'd say you're good enough\n"
-	.string "to search for POKéMON anywhere.\p"
-	.string "Here, I'll give you this.\n"
-	.string "Try it out.$"
-
-Route119_Text_BrendanExplainFly:
-	.string "BRENDAN: Use FLY, and your POKéMON\n"
-	.string "instantly carries you to any town\l"
-	.string "you've already visited.\p"
-	.string "But you need the FORTREE GYM BADGE \n"
-	.string "to do that.\p"
-	.string "Anyway, I have to move along.$"
 
 Route119_Text_ScottWayToGoBeSeeingYou:
 	.string "SCOTT: Hahahah!\n"

@@ -1,4 +1,5 @@
 Route102_MapScripts::
+
 	.byte 0
 
 Route102_EventScript_LittleBoy::
@@ -73,6 +74,26 @@ Route102_EventScript_Allen::
 	msgbox Route102_Text_AllenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route102_EventScript_Meghan::
+	trainerbattle_single TRAINER_MEGHAN, Route102_Text_MeghanIntro, Route102_Text_MeghanDefeated
+	msgbox Route102_Text_MeghanPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route102_EventScript_Zach::
+	trainerbattle_single TRAINER_ZACH, Route102_Text_ZachIntro, Route102_Text_ZachDefeated
+	msgbox Route102_Text_ZachPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route102_EventScript_Chaz::
+	trainerbattle_single TRAINER_CHAZ, Route102_Text_ChazIntro, Route102_Text_ChazDefeated
+	msgbox Route102_Text_ChazPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route102_EventScript_Hikaru::
+	trainerbattle_single TRAINER_HIKARU, Route102_Text_HikaruIntro, Route102_Text_HikaruDefeated
+	msgbox Route102_Text_HikaruPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 Route102_Text_WatchMeCatchPokemon:
 	.string "WALLY: {PLAYER}…\n"
 	.string "POKéMON hide in tall grass like this,\l"
@@ -90,19 +111,22 @@ Route102_Text_LetsGoBack:
 	.string "Let's go back to the GYM!$"
 
 Route102_Text_ImNotVeryTall:
-	.string "I'm…not very tall, so I sink right\n"
-	.string "into tall grass.\p"
-	.string "The grass goes up my nose and…\n"
-	.string "Fwafwafwafwafwa…\p"
-	.string "Fwatchoo!$"
+	.string "Yo... what street even is this?\p"
+	.string "I been walkin' in circles\n"
+	.string "for like, an hour now.\p"
+	.string "This fog’s got me all turned around bro.$"
 
 Route102_Text_CatchWholeBunchOfPokemon:
-	.string "I'm going to catch a whole bunch of\n"
-	.string "POKéMON!$"
+	.string "Hey bro, you goin' in there?\p"
+	.string "The fog is thick as hell.\p"
+	.string "I heard some wild Pokémon\n"
+	.string "been actin’ real funny since\l"
+	.string "it rolled in.\p"
+	.string "Keep ya eyes peeled, a'ight?$"
 
 Route102_Text_RouteSignOldale:
 	.string "ROUTE 102\n"
-	.string "{RIGHT_ARROW} OLDALE TOWN$"
+	.string "{RIGHT_ARROW} OLD SCUMPORT$"
 
 Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"

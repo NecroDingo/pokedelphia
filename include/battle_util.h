@@ -441,4 +441,5 @@ bool32 IsAllowedToUseBag(void);
 bool32 IsAnyTargetTurnDamaged(u32 battlerAtk);
 bool32 IsMimikyuDisguised(u32 battler);
 
+u8 ChooseScaledTrainerMonLevel(void);
 #endif // GUARD_BATTLE_UTIL_H

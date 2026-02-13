@@ -15,6 +15,7 @@
 #include "party_menu.h"
 #include "pokemon.h"
 #include "international_string_util.h"
+#include "wild_encounter.h"
 #include "item.h"
 #include "util.h"
 #include "battle_scripts.h"
@@ -1010,6 +1011,39 @@ void HandleAction_ActionFinished(void)
 }
 
 // code
+
+u8 ChooseScaledTrainerMonLevel(void)
+{
+    u8 avgLevel = GetAveragePartyLevel();
+    u8 highestLevel = GetHighestPartyLevel();
+    u8 wildMin = 2, wildMax = 100;
+    u8 minLevel, maxLevel;
+    u32 levelCap = GetCurrentLevelCap();
+    u8 x = 5; // Trainers can't be more than 5 below your highest
+
+    minLevel = avgLevel > 1 ? avgLevel - 1 : wildMin;
+    if (highestLevel <= 10)
+    {
+        maxLevel = avgLevel + 0;
+        minLevel = avgLevel - 3;
+    }
+    else {
+        maxLevel = avgLevel + 3;
+    }
+    u8 minAllowed = highestLevel > x ? highestLevel - x : wildMin;
+    if (minLevel < minAllowed)
+        minLevel = minAllowed;
+    if (minLevel < wildMin)
+        minLevel = wildMin;
+    if (maxLevel > wildMax)
+        maxLevel = wildMax;
+    if (maxLevel > levelCap)
+        maxLevel = levelCap;
+    if (minLevel > maxLevel)
+        minLevel = maxLevel;
+    u8 trainerLevel = minLevel + (Random() % (maxLevel - minLevel + 1));
+    return trainerLevel;
+}
 
 ARM_FUNC NOINLINE static uq4_12_t PercentToUQ4_12(u32 percent)
 {
