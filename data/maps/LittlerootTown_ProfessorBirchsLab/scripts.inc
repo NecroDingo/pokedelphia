@@ -704,19 +704,29 @@ LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon:
 	.string "Named mine ‘Tooth Knife’ once.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
-	.string "PROF. FRANK: You wanna train?\n"
+	.string "PROF. FRANK: Alright, listen up Charlie.\p"
+	.string "This ain’t your little grandma’s\n"
+	.string "Pokémon crap anymore.\p"
+	.string "Your lead critter? Yeah, it’s gonna\n"
+	.string "follow you around now. Real close.\l"
+	.string "You can spin around, poke at it, whatever.\p"
+	.string "But hey, watch yourself.\p"
+	.string "You piss it off, it’s gonna\n"
+	.string "take a chunk outta your ass.\p"
+	.string "Anyways, you wanna go train?\n"
 	.string "Go find Margaret.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou:
 	.string "PROF. FRANK: Yeah, let Margaret show you\n"
 	.string "the ropes.\p"
-	.string "She’s got the eyes of a hawk that’s\n"
-	.string "seen war.\p"
-	.string "Silence is her language.\n"
-	.string "Violence is her dialect.\p"
-	.string "She teaches mostly through glaring, and\n"
-	.string "occasionally throwing dirt.\p"
-	.string "It’s a method.$"
+	.string "She is way up north on ROUTE 103\n"
+	.string "doing some research.\p"
+	.string "You'll have to pass through\n"
+	.string "OLD SCUMPORT too.\p"
+	.string "There's a POKéCENTER there too. Be sure\n"
+	.string "to stop in. I think you'll really enjoy\l"
+	.string "it in there Charlie! Haha$"
+
 
 LittlerootTown_ProfessorBirchsLab_Text_DontBeThatWay:
 	.string "PROF. FRANK: What, nervous?\p"
@@ -726,7 +736,7 @@ LittlerootTown_ProfessorBirchsLab_Text_DontBeThatWay:
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
 	.string "PROF. FRANK: Margaret? Probably lurking\n"
-	.string "somewhere.\p"
+	.string "somewhere. Maybe ROUTE 103?\p"
 	.string "Last I saw her, she was staring at a\n"
 	.string "tree stump giving it crazy eyes.\p"
 	.string "Head north. Or don’t. Life’s about\n"
