@@ -46,7 +46,7 @@
 #define FLAG_NUZLOCKE        0x20 // Nuzlocke Challenge flag
 #define FLAG_VS_SEEKER_ENABLE       0x21 // Enables the use of the Vs. Seeker in include/config/item.h
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
+#define FLAG_HIDE_FRANK_PETALBURG 0x23 // Hides Frank in Petalburg City - Wally's House
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag

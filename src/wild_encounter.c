@@ -30,6 +30,7 @@
 #include "constants/weather.h"
 #include "constants/pokemon.h"
 #include "nuzlocke.h"
+#include "level_scaling.h"
 
 // Global variable to track if current wild Pokemon is catchable in Nuzlocke
 static bool8 gWildPokemonIsCatchableInNuzlocke = FALSE;
@@ -489,6 +490,13 @@ u8 PickWildMonNature(void)
 void CreateWildMon(u16 species, u8 level)
 {
     bool32 checkCuteCharm = TRUE;
+
+    // Apply level scaling for wild encounters
+#if B_LEVEL_SCALING_ENABLED && B_WILD_SCALING_ENABLED
+    level = CalculateWildScaledLevel(species, level);
+    // Apply species scaling (evolution management)
+    species = CalculateWildScaledSpecies(species, level);
+#endif
 
     // Reset Nuzlocke indicator state - will be set after Pokemon is created
     gWildPokemonIsCatchableInNuzlocke = FALSE;

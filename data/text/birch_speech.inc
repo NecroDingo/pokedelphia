@@ -96,7 +96,7 @@ gText_Birch_NuzlockeChallenge::
 	.string "Makes things way more intense.\p"
 	.string "You in?$"
 
-gText_Birch_NoNuzlucke::
+gText_Birch_NoNuzlocke::
 	.string "No worries, we can skip the Nuzlocke\n"
 	.string "challenge.\p"
 	.string "You can play the game normally.\p"
@@ -111,3 +111,8 @@ gText_Birch_YesNuzlocke::
 	.string "I'm ready to take on the challenge.\p"
 	.string "Just remember, if a Pokémon\n"
 	.string "faints, it's gone for good.$"
+
+gText_Birch_Farewell::
+	.string "Alright, that's enough talk.\n"
+	.string "Time to get started!\p"
+	.string "Your adventure awaits!$"

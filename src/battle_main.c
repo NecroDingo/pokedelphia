@@ -63,6 +63,7 @@
 #include "util.h"
 #include "wild_encounter.h"
 #include "window.h"
+#include "level_scaling.h"
 #include "constants/abilities.h"
 #include "constants/battle_ai.h"
 #include "constants/battle_move_effects.h"
@@ -1884,11 +1885,18 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     }
 }
 
-u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
+u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags, u16 trainerId)
 {
     u32 personalityValue;
     s32 i;
     u8 monsCount;
+
+    // Invalidate party level cache at start of battle for level scaling
+    #if B_LEVEL_SCALING_ENABLED && B_TRAINER_SCALING_ENABLED
+    if (firstTrainer == TRUE)
+        InvalidatePartyLevelCache();
+    #endif
+
     if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
@@ -1941,7 +1949,23 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otIdType = OT_ID_PRESET;
                 fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
+            
+            // Apply level scaling
+            #if B_LEVEL_SCALING_ENABLED && B_TRAINER_SCALING_ENABLED
+            u8 scaledLevel = partyData[monIndex].lvl;
+            u16 scaledSpecies = partyData[monIndex].species;
+            const struct LevelScalingConfig *config = GetTrainerLevelScalingConfig(trainerId);
+            if (config->mode != LEVEL_SCALING_NONE)
+            {
+                // Calculate scaled level for this mon
+                scaledLevel = CalculateScaledLevel(config, partyData[monIndex].lvl);
+                // Validate species for the scaled level
+                scaledSpecies = ValidateSpeciesForLevel(partyData[monIndex].species, scaledLevel, config->manageEvolutions);
+            }
+            CreateMon(&party[i], scaledSpecies, scaledLevel, 0, TRUE, personalityValue, otIdType, fixedOtId);
+            #else
             CreateMon(&party[i], partyData[monIndex].species, partyData[monIndex].lvl, 0, TRUE, personalityValue, otIdType, fixedOtId);
+            #endif
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[monIndex]);
@@ -2040,11 +2064,11 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
         if (tempTrainer.partySize == 0)
             tempTrainer.partySize = origTrainer->partySize;
 
-        retVal = CreateNPCTrainerPartyFromTrainer(party, (const struct Trainer *)(&tempTrainer), firstTrainer, gBattleTypeFlags);
+        retVal = CreateNPCTrainerPartyFromTrainer(party, (const struct Trainer *)(&tempTrainer), firstTrainer, gBattleTypeFlags, trainerNum);
     }
     else
     {
-        retVal = CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum), firstTrainer, gBattleTypeFlags);
+        retVal = CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum), firstTrainer, gBattleTypeFlags, trainerNum);
     }
     return retVal;
 }
@@ -2055,7 +2079,7 @@ void CreateTrainerPartyForPlayer(void)
 
     ZeroPlayerPartyMons();
     gPartnerTrainerId = gSpecialVar_0x8004;
-    CreateNPCTrainerPartyFromTrainer(gPlayerParty, GetTrainerStructFromId(gSpecialVar_0x8004), TRUE, BATTLE_TYPE_TRAINER);
+    CreateNPCTrainerPartyFromTrainer(gPlayerParty, GetTrainerStructFromId(gSpecialVar_0x8004), TRUE, BATTLE_TYPE_TRAINER, gSpecialVar_0x8004);
 }
 
 void VBlankCB_Battle(void)
@@ -3697,28 +3721,28 @@ static void DoBattleIntro(void)
             if (encounterStatus == NUZLOCKE_ENCOUNTER_CATCHABLE)
             {
                 PrepareStringBattle(STRINGID_NUZLOCKE_FIRST_ENCOUNTER, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
-                gBattleStruct->introState++;
+                gBattleStruct->eventState.battleIntro++;
                 break;
             }
             else if (encounterStatus == NUZLOCKE_ENCOUNTER_DUPLICATE)
             {
                 PrepareStringBattle(STRINGID_NUZLOCKE_DUPLICATE, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
-                gBattleStruct->introState++;
+                gBattleStruct->eventState.battleIntro++;
                 break;
             }
             else if (encounterStatus == NUZLOCKE_ENCOUNTER_SHINY)
             {
                 PrepareStringBattle(STRINGID_NUZLOCKE_SHINY, GetBattlerAtPosition(B_POSITION_PLAYER_LEFT));
-                gBattleStruct->introState++;
+                gBattleStruct->eventState.battleIntro++;
                 break;
             }
         }
         // Skip to next state if not Nuzlocke or no message to show
-        gBattleStruct->introState++;
+        gBattleStruct->eventState.battleIntro++;
         break;
     case BATTLE_INTRO_STATE_WAIT_FOR_NUZLOCKE_MESSAGE:
         if (!IsBattlerMarkedForControllerExec(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
-            gBattleStruct->introState++;
+            gBattleStruct->eventState.battleIntro++;
         break;
     case BATTLE_INTRO_STATE_PRINT_PLAYER_SEND_OUT_TEXT:
         if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
