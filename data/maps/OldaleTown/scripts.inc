@@ -425,13 +425,11 @@ OldaleTown_EventScript_LadyElizabeth_Offer:
 	end
 
 OldaleTown_EventScript_LadyElizabeth_Accept:
-	msgbox OldaleTown_Text_LadyElizabethAccept, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	giveitem ITEM_BERRY_POUCH
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	waitfanfare
-	msgbox OldaleTown_Text_LadyElizabethAccept2, MSGBOX_DEFAULT
+	msgbox OldaleTown_Text_LadyElizabethAccept, MSGBOX_NPC
+	waitmessage
 	startquest QUEST_1_FIND_CHESTO
+	msgbox OldaleTown_Text_LadyElizabethAccept2, MSGBOX_NPC
+	waitmessage
 	release
 	end
 
@@ -480,8 +478,8 @@ OldaleTown_Text_LadyElizabethAccept:
 	.string "If not, I think theres an older\n"
 	.string "woman up by WAWA PARK that might have\l"
 	.string "one.\p"
-	.string "Here, I've even got an extra\n"
-	.string "Berry Pouch you can have.\p"
+	.string "Make sure to not squish them in\n"
+	.string "your bag!\p"
 	.string "Gotta keep the berries safe at all\n"
 	.string "times...\p"
 	.string "Am I right or what?!\n$"

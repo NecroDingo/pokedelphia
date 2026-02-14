@@ -200,10 +200,11 @@ static void NewGameBirchSpeech_StartFadeInTarget1OutTarget2(u8, u8);
 static void NewGameBirchSpeech_StartFadePlatformOut(u8, u8);
 static void Task_NewGameBirchSpeech_WaitForSpriteFadeInWelcome(u8);
 static void NewGameBirchSpeech_ShowDialogueWindow(u8, u8);
+static void NewGameBirchSpeech_ShowYesNoMenu(void);
+static s8 NewGameBirchSpeech_ProcessYesNoMenuInput(void);
 static void NewGameBirchSpeech_ClearWindow(u8);
 static void Task_NewGameBirchSpeech_ThisIsAPokemon(u8);
 static void Task_NewGameBirchSpeech_MainSpeech(u8);
-static void Task_NewGameBirchSpeech_YourePlayer(u8);
 static void NewGameBirchSpeech_WaitForThisIsPokemonText(struct TextPrinterTemplate *, u16);
 static void Task_NewGameBirchSpeechSub_WaitForLotad(u8);
 static void NewGameBirchSpeech_StartFadeOutTarget1InTarget2(u8, u8);
@@ -227,12 +228,23 @@ static void Task_NewGameBirchSpeech_SlidePlatformAway2(u8);
 static void Task_NewGameBirchSpeech_ReshowBirchLotad(u8);
 static void Task_NewGameBirchSpeech_WaitForSpriteFadeInAndTextPrinter(u8);
 static void Task_NewGameBirchSpeech_AreYouReady(u8);
+static void Task_NewGameBirchSpeech_WaitAfterAreYouReady(u8);
+static void Task_NewGameBirchSpeech_HaveYouPlayedPokemonBefore(u8);
+static void Task_NewGameBirchSpeech_HaveYouPlayedPokemonBeforeMenu(u8);
+static void Task_NewGameBirchSpeech_ProcessPlayedBeforeInput(u8);
+static void Task_NewGameBirchSpeech_HaventPlayedPokemon(u8);
+static void Task_NewGameBirchSpeech_WaitAfterHaventPlayed(u8);
+static void Task_NewGameBirchSpeech_HavePlayedPokemon(u8);
+static void Task_NewGameBirchSpeech_WaitAfterHavePlayedPokemon(u8);
 static void Task_NewGameBirchSpeech_NuzlockeChallenge(u8);
-static void Task_NewGameBirchSpeech_CreateNuzlockeYesNo(u8);
-static void Task_NewGameBirchSpeech_ProcessNuzlockeYesNoMenu(u8);
-static void Task_NewGameBirchSpeech_YesNuzlocke(u8);
+static void Task_NewGameBirchSpeech_NuzlockeChallengeMenu(u8);
+static void Task_NewGameBirchSpeech_ProcessNuzlockeInput(u8);
 static void Task_NewGameBirchSpeech_NoNuzlocke(u8);
-static void Task_NewGameBirchSpeech_Farewell(u8);
+static void Task_NewGameBirchSpeech_WaitAfterNoNuzlocke(u8);
+static void Task_NewGameBirchSpeech_YesNuzlocke(u8);
+static void Task_NewGameBirchSpeech_WaitAfterYesNuzlocke(u8);
+static void Task_NewGameBirchSpeech_LetsGetIntoIt(u8);
+static void Task_NewGameBirchSpeech_WaitAfterLetsGetIntoIt(u8);
 static void Task_NewGameBirchSpeech_ShrinkPlayer(u8);
 static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *);
 static void Task_NewGameBirchSpeech_WaitForPlayerShrink(u8);
@@ -476,6 +488,11 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
 static const struct MenuAction sMenuActions_Gender[] = {
     {COMPOUND_STRING("BOY"), {NULL}},
     {COMPOUND_STRING("GIRL"), {NULL}}
+};
+
+static const struct MenuAction sMenuActions_YesNo[] = {
+    {COMPOUND_STRING("YES"), {NULL}},
+    {COMPOUND_STRING("NO"), {NULL}}
 };
 
 static const u8 *const sMalePresetNames[] = {
@@ -1305,6 +1322,8 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     FreeAllSpritePalettes();
     ResetAllPicSprites();
     AddBirchSpeechObjects(taskId);
+    // Start timer early for trainer ID randomness (normally done when entering naming screen)
+    StartTimer1();
     BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
     gTasks[taskId].tBG1HOFS = 0;
     gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowBirch;
@@ -1315,6 +1334,66 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     ShowBg(0);
     ShowBg(1);
 }
+
+
+void CB2_NewGameBirchSpeech_FromNewMainMenu(void) // Combination of the Above function and another to properly load the new game frank code from a seperate menu
+{
+    u8 taskId;
+
+    ResetBgsAndClearDma3BusyFlags(0);
+    SetGpuReg(REG_OFFSET_DISPCNT, 0);
+    SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+    InitBgsFromTemplates(0, sMainMenuBgTemplates, ARRAY_COUNT(sMainMenuBgTemplates));
+    InitBgFromTemplate(&sBirchBgTemplate);
+    SetVBlankCallback(NULL);
+    SetGpuReg(REG_OFFSET_BG2CNT, 0);
+    SetGpuReg(REG_OFFSET_BG1CNT, 0);
+    SetGpuReg(REG_OFFSET_BG0CNT, 0);
+    SetGpuReg(REG_OFFSET_BG2HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG2VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+    SetGpuReg(REG_OFFSET_BG0HOFS, 0);
+    SetGpuReg(REG_OFFSET_BG0VOFS, 0);
+    DmaFill16(3, 0, VRAM, VRAM_SIZE);
+    DmaFill32(3, 0, OAM, OAM_SIZE);
+    DmaFill16(3, 0, PLTT, PLTT_SIZE);
+    ResetPaletteFade();
+    DecompressDataWithHeaderVram(sBirchSpeechShadowGfx, (void *)VRAM);
+    DecompressDataWithHeaderVram(sBirchSpeechBgMap, (void *)(BG_SCREEN_ADDR(7)));
+    LoadPalette(sBirchSpeechBgPals, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    LoadPalette(&sBirchSpeechBgGradientPal[8], BG_PLTT_ID(0) + 1, PLTT_SIZEOF(8));
+    ResetTasks();
+    taskId = CreateTask(Task_NewGameBirchSpeech_WaitToShowBirch, 0);
+    gTasks[taskId].tBG1HOFS = 0;
+    gTasks[taskId].tPlayerSpriteId = SPRITE_NONE;
+    gTasks[taskId].data[3] = 0xFF;
+    gTasks[taskId].tTimer = 0;
+    ScanlineEffect_Stop();
+    ResetSpriteData();
+    FreeAllSpritePalettes();
+    ResetAllPicSprites();
+    AddBirchSpeechObjects(taskId);
+    PlayBGM(MUS_ROUTE122);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+    SetGpuReg(REG_OFFSET_WIN0H, 0);
+    SetGpuReg(REG_OFFSET_WIN0V, 0);
+    SetGpuReg(REG_OFFSET_WININ, 0);
+    SetGpuReg(REG_OFFSET_WINOUT, 0);
+    SetGpuReg(REG_OFFSET_BLDCNT, 0);
+    SetGpuReg(REG_OFFSET_BLDALPHA, 0);
+    SetGpuReg(REG_OFFSET_BLDY, 0);
+    ShowBg(0);
+    ShowBg(1);
+    SetVBlankCallback(VBlankCB_MainMenu);
+    SetMainCallback2(CB2_MainMenu);
+    InitWindows(sNewGameBirchSpeechTextWindows);
+    LoadMainMenuWindowFrameTiles(0, 0xF3);
+    LoadMessageBoxGfx(0, BIRCH_DLG_BASE_TILE_NUM, BG_PLTT_ID(15));
+    PutWindowTilemap(0);
+    CopyWindowToVram(0, COPYWIN_FULL);
+}
+
 
 static void Task_NewGameBirchSpeech_WaitToShowBirch(u8 taskId)
 {
@@ -1383,19 +1462,19 @@ static void Task_NewGameBirchSpeech_MainSpeech(u8 taskId)
         // Skip gender and name selection, set defaults
         gSaveBlock2Ptr->playerGender = MALE;
         StringCopy(gSaveBlock2Ptr->playerName, COMPOUND_STRING("Charlie"));
-        gTasks[taskId].func = Task_NewGameBirchSpeech_YourePlayer;
+        gTasks[taskId].func = Task_NewGameBirchSpeech_HaveYouPlayedPokemonBefore;
     }
 }
 
-static void Task_NewGameBirchSpeech_YourePlayer(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        StringExpandPlaceholders(gStringVar4, gText_Birch_YourePlayer);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_AreYouReady;
-    }
-}
+// static void Task_NewGameBirchSpeech_YourePlayer(u8 taskId)
+// {
+//     if (!RunTextPrintersAndIsPrinter0Active())
+//     {
+//         StringExpandPlaceholders(gStringVar4, gText_Birch_YourePlayer);
+//         AddTextPrinterForMessage(TRUE);
+//         gTasks[taskId].func = Task_NewGameBirchSpeech_AreYouReady;
+//     }
+// }
 
 #define tState data[0]
 
@@ -1440,6 +1519,214 @@ static void Task_NewGameBirchSpeechSub_WaitForLotad(u8 taskId)
 }
 
 #undef tState
+
+// New Birch speech functions for branching system
+static void Task_NewGameBirchSpeech_HaveYouPlayedPokemonBefore(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        StringExpandPlaceholders(gStringVar4, gText_Birch_HaveYouPlayedPokemonBefore);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_HaveYouPlayedPokemonBeforeMenu;
+    }
+}
+
+static void Task_NewGameBirchSpeech_HaveYouPlayedPokemonBeforeMenu(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameBirchSpeech_ShowYesNoMenu();
+        gTasks[taskId].func = Task_NewGameBirchSpeech_ProcessPlayedBeforeInput;
+    }
+}
+
+static void Task_NewGameBirchSpeech_ProcessPlayedBeforeInput(u8 taskId)
+{
+    s8 input = NewGameBirchSpeech_ProcessYesNoMenuInput();
+    
+    switch (input)
+    {
+        case 0: // YES
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameBirchSpeech_HavePlayedPokemon;
+            break;
+        case 1: // NO
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameBirchSpeech_HaventPlayedPokemon;
+            break;
+    }
+}
+
+static void Task_NewGameBirchSpeech_HaventPlayedPokemon(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        // Ensure text printer is completely stopped
+        if (IsTextPrinterActive(0))
+            return;
+        NewGameBirchSpeech_ClearWindow(0);
+        CopyBgTilemapBufferToVram(0);
+        StringExpandPlaceholders(gStringVar4, gText_Birch_HaventPlayedPokemon);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitAfterHaventPlayed;
+    }
+}
+
+static void Task_NewGameBirchSpeech_WaitAfterHaventPlayed(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            gTasks[taskId].func = Task_NewGameBirchSpeech_AreYouReady;
+        }
+    }
+}
+
+static void Task_NewGameBirchSpeech_HavePlayedPokemon(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        // Ensure text printer is completely stopped
+        if (IsTextPrinterActive(0))
+            return;
+        NewGameBirchSpeech_ClearWindow(0);
+        CopyBgTilemapBufferToVram(0);
+        StringExpandPlaceholders(gStringVar4, gText_Birch_HavePlayedPokemon);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitAfterHavePlayedPokemon;
+    }
+}
+
+static void Task_NewGameBirchSpeech_WaitAfterHavePlayedPokemon(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            gTasks[taskId].func = Task_NewGameBirchSpeech_NuzlockeChallenge;
+        }
+    }
+}
+
+static void Task_NewGameBirchSpeech_NuzlockeChallenge(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameBirchSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Birch_NuzlockeChallenge);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_NuzlockeChallengeMenu;
+    }
+}
+
+static void Task_NewGameBirchSpeech_NuzlockeChallengeMenu(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameBirchSpeech_ShowYesNoMenu();
+        gTasks[taskId].func = Task_NewGameBirchSpeech_ProcessNuzlockeInput;
+    }
+}
+
+static void Task_NewGameBirchSpeech_ProcessNuzlockeInput(u8 taskId)
+{
+    s8 input = NewGameBirchSpeech_ProcessYesNoMenuInput();
+    
+    switch (input)
+    {
+        case 0: // YES
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameBirchSpeech_YesNuzlocke;
+            break;
+        case 1: // NO
+            PlaySE(SE_SELECT);
+            gTasks[taskId].func = Task_NewGameBirchSpeech_NoNuzlocke;
+            break;
+    }
+}
+
+static void Task_NewGameBirchSpeech_NoNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        // Ensure text printer is completely stopped
+        if (IsTextPrinterActive(0))
+            return;
+        // Clear the Nuzlocke flag
+        FlagClear(FLAG_NUZLOCKE);
+        NewGameBirchSpeech_ClearWindow(0);
+        CopyBgTilemapBufferToVram(0);
+        StringExpandPlaceholders(gStringVar4, gText_Birch_NoNuzlocke);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitAfterNoNuzlocke;
+    }
+}
+
+static void Task_NewGameBirchSpeech_YesNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        // Ensure text printer is completely stopped
+        if (IsTextPrinterActive(0))
+            return;
+        // Store the Nuzlocke choice for later (flag will be set after game initialization)
+        sNuzlockeModeSelected = TRUE;
+        NewGameBirchSpeech_ClearWindow(0);
+        CopyBgTilemapBufferToVram(0);
+        StringExpandPlaceholders(gStringVar4, gText_Birch_YesNuzlocke);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitAfterYesNuzlocke;
+    }
+}
+
+static void Task_NewGameBirchSpeech_WaitAfterYesNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            // Set the fade flag so AreYouReady will trigger the scene change
+            gTasks[taskId].tIsDoneFadingSprites = TRUE;
+            gTasks[taskId].func = Task_NewGameBirchSpeech_AreYouReady;
+        }
+    }
+}
+
+static void Task_NewGameBirchSpeech_WaitAfterNoNuzlocke(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            // Set the fade flag so AreYouReady will trigger the scene change
+            gTasks[taskId].tIsDoneFadingSprites = TRUE;
+            gTasks[taskId].func = Task_NewGameBirchSpeech_AreYouReady;
+        }
+    }
+}
+
+static void Task_NewGameBirchSpeech_LetsGetIntoIt(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        NewGameBirchSpeech_ClearWindow(0);
+        StringExpandPlaceholders(gStringVar4, gText_Birch_LetsGetIntoIt);
+        AddTextPrinterForMessage(TRUE);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitAfterLetsGetIntoIt;
+    }
+}
+
+static void Task_NewGameBirchSpeech_WaitAfterLetsGetIntoIt(u8 taskId)
+{
+    if (!RunTextPrintersAndIsPrinter0Active())
+    {
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
+        {
+            gTasks[taskId].func = Task_NewGameBirchSpeech_ShrinkPlayer;
+        }
+    }
+}
 
 
 
@@ -1641,79 +1928,26 @@ static void Task_NewGameBirchSpeech_AreYouReady(u8 taskId)
         gSprites[spriteId].invisible = FALSE;
         gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
         gTasks[taskId].tPlayerSpriteId = spriteId;
+        // Seed RNG for trainer ID generation (normally done when exiting naming screen)
+        // Timer was started much earlier, so now we have proper randomness
+        SeedRngAndSetTrainerId();
         NewGameBirchSpeech_StartFadeInTarget1OutTarget2(taskId, 2);
         NewGameBirchSpeech_StartFadePlatformOut(taskId, 1);
+        NewGameBirchSpeech_ClearWindow(0);
         StringExpandPlaceholders(gStringVar4, gText_Birch_AreYouReady);
         AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_NuzlockeChallenge;
+        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitAfterAreYouReady;
     }
 }
 
-static void Task_NewGameBirchSpeech_NuzlockeChallenge(u8 taskId)
+static void Task_NewGameBirchSpeech_WaitAfterAreYouReady(u8 taskId)
 {
-    if (gTasks[taskId].tIsDoneFadingSprites)
+    if (!RunTextPrintersAndIsPrinter0Active())
     {
-        if (!RunTextPrintersAndIsPrinter0Active())
+        if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
         {
-            NewGameBirchSpeech_ClearWindow(0);
-            StringExpandPlaceholders(gStringVar4, gText_Birch_NuzlockeChallenge);
-            AddTextPrinterForMessage(TRUE);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_CreateNuzlockeYesNo;
+            gTasks[taskId].func = Task_NewGameBirchSpeech_LetsGetIntoIt;
         }
-    }
-}
-
-static void Task_NewGameBirchSpeech_CreateNuzlockeYesNo(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        CreateYesNoMenuParameterized(2, 1, 0xF3, 0xDF, 2, 15);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_ProcessNuzlockeYesNoMenu;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ProcessNuzlockeYesNoMenu(u8 taskId)
-{
-    switch (Menu_ProcessInputNoWrapClearOnChoose())
-    {
-    case 0: // YES
-        PlaySE(SE_SELECT);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_YesNuzlocke;
-        break;
-    case 1: // NO
-    case MENU_B_PRESSED:
-        PlaySE(SE_SELECT);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_NoNuzlocke;
-        break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_YesNuzlocke(u8 taskId)
-{
-    FlagSet(FLAG_NUZLOCKE);
-    sNuzlockeModeSelected = TRUE;
-    NewGameBirchSpeech_ClearWindow(0);
-    StringExpandPlaceholders(gStringVar4, gText_Birch_YesNuzlocke);
-    AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_Farewell;
-}
-
-static void Task_NewGameBirchSpeech_NoNuzlocke(u8 taskId)
-{
-    FlagClear(FLAG_NUZLOCKE);
-    NewGameBirchSpeech_ClearWindow(0);
-    StringExpandPlaceholders(gStringVar4, gText_Birch_NoNuzlocke);
-    AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_Farewell;
-}
-
-static void Task_NewGameBirchSpeech_Farewell(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        StringExpandPlaceholders(gStringVar4, gText_Birch_Farewell);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_ShrinkPlayer;
     }
 }
 
@@ -2220,12 +2454,11 @@ static void NewGameBirchSpeech_ClearGenderWindow(u8 windowId, bool8 copyToVram)
 static void NewGameBirchSpeech_ClearWindow(u8 windowId)
 {
     u8 bgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
-    u8 maxCharWidth = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_WIDTH);
-    u8 maxCharHeight = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT);
     u8 winWidth = GetWindowAttribute(windowId, WINDOW_WIDTH);
     u8 winHeight = GetWindowAttribute(windowId, WINDOW_HEIGHT);
 
-    FillWindowPixelRect(windowId, bgColor, 0, 0, maxCharWidth * winWidth, maxCharHeight * winHeight);
+    // Clear the entire window area with background color
+    FillWindowPixelRect(windowId, bgColor, 0, 0, winWidth * 8, winHeight * 16);
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
 
@@ -2282,7 +2515,15 @@ static void Task_NewGameBirchSpeech_ReturnFromNamingScreenShowTextbox(u8 taskId)
     }
 }
 
-#undef tTimer
+static void NewGameBirchSpeech_ShowYesNoMenu(void)
+{
+    CreateYesNoMenuParameterized(2, 1, 0xF3, 0xDF, 2, 15);
+}
+
+static s8 NewGameBirchSpeech_ProcessYesNoMenuInput(void)
+{
+    return Menu_ProcessInputNoWrapClearOnChoose();
+}
 
 bool8 WasNuzlockeModeSelected(void)
 {
@@ -2293,3 +2534,5 @@ void ClearNuzlockeModeSelection(void)
 {
     sNuzlockeModeSelected = FALSE;
 }
+
+#undef tTimer

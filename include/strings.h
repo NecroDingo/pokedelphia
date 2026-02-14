@@ -267,6 +267,10 @@ extern const u8 gText_Birch_WhatsYourName[];
 extern const u8 gText_Birch_SoItsPlayer[];
 extern const u8 gText_Birch_YourePlayer[];
 extern const u8 gText_Birch_AreYouReady[];
+extern const u8 gText_Birch_HaveYouPlayedPokemonBefore[];
+extern const u8 gText_Birch_HaventPlayedPokemon[];
+extern const u8 gText_Birch_LetsGetIntoIt[];
+extern const u8 gText_Birch_HavePlayedPokemon[];
 extern const u8 gText_Birch_NuzlockeChallenge[];
 extern const u8 gText_Birch_NoNuzlocke[];
 extern const u8 gText_Birch_YesNuzlocke[];
@@ -649,6 +653,10 @@ extern const u8 gText_MoveRelearnerAccuracy[];
 extern const u8 gText_MoveRelearnerContestMovesTitle[];
 extern const u8 gText_MoveRelearnerAppeal[];
 extern const u8 gText_MoveRelearnerJam[];
+extern const u8 MoveRelearner_Text_LevelUpMoveLWR[];
+extern const u8 MoveRelearner_Text_EggMoveLWR[];
+extern const u8 MoveRelearner_Text_TMMoveLWR[];
+extern const u8 MoveRelearner_Text_TutorMoveLWR[];
 
 extern const u8 gText_Kira[];
 extern const u8 gText_Amy[];
@@ -2362,6 +2370,7 @@ extern const u8 gText_Beauty3[];
 extern const u8 gText_QuestAnnounce[];
 extern const u8 gText_QuestComplete[];
 extern const u8 gText_QuestActive[];
+extern const u8 gText_QuestUpdate[];
 
 // names
 extern const u8 gText_SideQuestName_1[];
@@ -2648,11 +2657,6 @@ extern const u8 gText_Relearn_Egg[];
 extern const u8 gText_Relearn_TM[];
 extern const u8 gText_Relearn_Tutor[];
 extern const u8 gText_Rename[]; // change nickname from summary screen
-
-extern const u8 MoveRelearner_Text_LevelUpMoveLWR[];
-extern const u8 MoveRelearner_Text_EggMoveLWR[];
-extern const u8 MoveRelearner_Text_TMMoveLWR[];
-extern const u8 MoveRelearner_Text_TutorMoveLWR[];
 
 // Switch Caught Mon into Party
 extern const u8 gText_CannotSendMonToBoxHM[];

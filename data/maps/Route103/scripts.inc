@@ -34,7 +34,6 @@ Route103_EventScript_RivalMay::
 	waitmovement 0
 	applymovement LOCALID_ROUTE103_RIVAL, Common_Movement_Delay48
 	waitmovement 0
-	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, Route103_EventScript_StartMayBattleBulbasaur
 	case 1, Route103_EventScript_StartMayBattleGible
@@ -65,7 +64,9 @@ Route103_EventScript_AfterMayBattle::
 	end
 
 Route103_EventScript_MayHealsAfterLoss::
+	msgbox Route103_Text_MayDefeated, MSGBOX_DEFAULT
 	msgbox Route103_Text_MayHealsParty, MSGBOX_DEFAULT
+	call Common_EventScript_OutOfCenterPartyHeal
 	msgbox Route103_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
 	goto Route103_EventScript_RivalExit
 	end

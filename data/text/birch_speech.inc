@@ -44,8 +44,8 @@ gText_Birch_HaveYouPlayedPokemonBefore::
 	.string "Have you played Pokémon before?$"
 
 gText_Birch_HaventPlayedPokemon::
-	.string "No worries, I got you covered.\n"	
-	.string "It's a game where you catch\l"
+	.string "No worries, I got you covered.\p"	
+	.string "It's a game where you catch\n"
 	.string "and train these little monsters.\p"
 	.string "Then you use them to battle other\n"
 	.string "people's Pokémon.\p"
@@ -54,29 +54,25 @@ gText_Birch_HaventPlayedPokemon::
 	.string "you're gonna love it!$"
 
 gText_Birch_AreYouReady::
-	.string "Oh yeah,\n"
+	.string "Alrighty then,\n"
 	.string "you're Charlie now.\p"
 	.string "Just lean into it.\n"
 	.string "The rats already know your scent.\p"
 	.string "The real Charlie couldn't make it.\n"
-	.string "Somethin' about glue fumes.\p"
-	.string "Join us.\p"
-	.string "Accept the rats.\p"
-	.string "Accept the trash.\p"
-	.string "Accept the destiny.\p"
-	.string "Let's go make some chaos.\p"
-	.string "$"
+	.string "Somethin' about glue fumes.$"
 
 gText_Birch_LetsGetIntoIt::
-	.string "Alright, let's get into it!\n"
+	.string "Let's get into it!\n"
 	.string "Go out there and make me proud,\l"
 	.string "Charlie!\p"
 	.string "And remember, rats are friends,\n"
 	.string "not food.\p"
+	.string "Join us.\p"
 	.string "Accept the rats.\p"
 	.string "Accept the trash.\p"
 	.string "Accept the destiny.\p"
-	.string "Let's go make some chaos.$"
+	.string "Let's go make some chaos\n"
+	.string "in the world of Pokédelphia!$"
 
 gText_Birch_HavePlayedPokemon::
 	.string "Awesome!\n"
