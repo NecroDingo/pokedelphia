@@ -371,7 +371,7 @@ LittlerootTown_EventScript_TownSign::
 	end
 
 LittlerootTown_EventScript_BirchsLabSign::
-	msgbox LittlerootTown_Text_ProfFranksLab, MSGBOX_SIGN
+	msgbox LittlerootTown_Text_ProfBirchsLab, MSGBOX_SIGN
 	end
 
 LittlerootTown_EventScript_BrendansHouseSign::
@@ -391,7 +391,7 @@ LittlerootTown_EventScript_MaysHouseSign::
 	end
 
 LittlerootTown_EventScript_BirchsHouseSignMale::
-	msgbox LittlerootTown_Text_ProfFranksHouse, MSGBOX_DEFAULT
+	msgbox LittlerootTown_Text_ProfBirchsHouse, MSGBOX_DEFAULT
 	return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger0::
@@ -813,13 +813,13 @@ LittlerootTown_Text_TownSign:
 	.string "“Officially condemned,\l"
 	.string "spiritually thriving.”$"
 
-LittlerootTown_Text_ProfFranksLab:
+LittlerootTown_Text_ProfBirchsLab:
 	.string "PROF. FRANK'S POKéMON LAB$"
 
 LittlerootTown_Text_PlayersHouse:
 	.string "{PLAYER}'s HOUSE$"
 
-LittlerootTown_Text_ProfFranksHouse:
+LittlerootTown_Text_ProfBirchsHouse:
 	.string "MCPOYLE HOUSE$"
 
 LittlerootTown_Text_FrankSomethingToShowYouAtLab:

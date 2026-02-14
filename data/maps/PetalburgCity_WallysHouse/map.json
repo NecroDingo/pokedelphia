@@ -43,7 +43,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_WALLYS_HOUSE_FRANK",
+      "local_id": "LOCALID_WALLYS_HOUSE_BIRCH",
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
       "x": 4,
       "y": 5,
@@ -53,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PetalburgCity_WallysHouse_EventScript_Frank",
+      "script": "PetalburgCity_WallysHouse_EventScript_Birch",
       "flag": "FLAG_HIDE_FRANK_PETALBURG"
     }
   ],

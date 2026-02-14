@@ -24,8 +24,8 @@ PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene::
 	setobjectxyperm LOCALID_WALLYS_HOUSE_WALLYS_MOM, 7, 5
 	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene_End
 	clearflag FLAG_HIDE_BIRCH_PETALBURG
-	addobject LOCALID_WALLYS_HOUSE_FRANK
-	setobjectxyperm LOCALID_WALLYS_HOUSE_FRANK, 4, 5
+	addobject LOCALID_WALLYS_HOUSE_BIRCH
+	setobjectxyperm LOCALID_WALLYS_HOUSE_BIRCH, 4, 5
 
 PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene_End::
 	return
@@ -56,7 +56,7 @@ PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 PetalburgCity_WallysHouse_EventScript_WallysDad::
 	lock
 	faceplayer
-	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysDadAfterFrank
+	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysDadAfterBirch
 	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_WallysHouse_EventScript_WallysDadQuest3
@@ -91,12 +91,12 @@ PetalburgCity_WallysHouse_EventScript_PlayedWithWally::
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_WallysDadAfterFrank::
+PetalburgCity_WallysHouse_EventScript_WallysDadAfterBirch::
 	msgbox PetalburgCity_WallysHouse_Text_WallysDadAfterFrank, MSGBOX_DEFAULT
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_WallysMomAfterFrank::
+PetalburgCity_WallysHouse_EventScript_WallysMomAfterBirch::
 	msgbox PetalburgCity_WallysHouse_Text_WallysMomAfterFrank, MSGBOX_DEFAULT
 	release
 	end
@@ -104,7 +104,7 @@ PetalburgCity_WallysHouse_EventScript_WallysMomAfterFrank::
 PetalburgCity_WallysHouse_EventScript_WallysMom::
 	lock
 	faceplayer
-	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysMomAfterFrank
+	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysMomAfterBirch
 	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_WallysHouse_EventScript_WallysMomQuest3
@@ -126,32 +126,32 @@ PetalburgCity_WallysHouse_EventScript_ReceivedHMSurf::
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_Frank::
+PetalburgCity_WallysHouse_EventScript_Birch::
 	lock
 	faceplayer
 	questmenu QUEST_MENU_CHECK_REWARD, QUEST_3_ROOT_FOSSIL
 	compare VAR_RESULT, TRUE
-	goto_if_eq PetalburgCity_WallysHouse_EventScript_FrankTurnInQuest
+	goto_if_eq PetalburgCity_WallysHouse_EventScript_BirchTurnInQuest
 	msgbox PetalburgCity_WallysHouse_Text_FrankWaiting, MSGBOX_DEFAULT
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_FrankTurnInQuest::
+PetalburgCity_WallysHouse_EventScript_BirchTurnInQuest::
 	msgbox PetalburgCity_WallysHouse_Text_FrankTurnIn, MSGBOX_DEFAULT
 	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_3_ROOT_FOSSIL
 	msgbox PetalburgCity_WallysHouse_Text_FrankLeaving, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_FACING, DIR_NORTH, PetalburgCity_WallysHouse_EventScript_MovePlayerForFrankExit
-	applymovement LOCALID_WALLYS_HOUSE_FRANK, PetalburgCity_WallysHouse_Movement_FrankLeave
+	call_if_eq VAR_FACING, DIR_NORTH, PetalburgCity_WallysHouse_EventScript_MovePlayerForBirchExit
+	applymovement LOCALID_WALLYS_HOUSE_BIRCH, PetalburgCity_WallysHouse_Movement_BirchLeave
 	waitmovement 0
 	setflag FLAG_HIDE_BIRCH_QUEST3_COMPLETE
 	setflag FLAG_HIDE_BIRCH_PETALBURG
-	removeobject LOCALID_WALLYS_HOUSE_FRANK
+	removeobject LOCALID_WALLYS_HOUSE_BIRCH
 	release
 	end
 
-PetalburgCity_WallysHouse_EventScript_MovePlayerForFrankExit::
-	applymovement LOCALID_PLAYER, PetalburgCity_WallysHouse_Movement_PlayerMoveLeftForFrank
+PetalburgCity_WallysHouse_EventScript_MovePlayerForBirchExit::
+	applymovement LOCALID_PLAYER, PetalburgCity_WallysHouse_Movement_PlayerMoveLeftForBirch
 	waitmovement 0
 	return
 
@@ -224,12 +224,12 @@ PetalburgCity_WallysHouse_Text_MatthewLeftWithoutTelling:
 	.string "and he’ll come back sound and well\l"
 	.string "one day.$"
 
-PetalburgCity_WallysHouse_Movement_FrankLeave:
+PetalburgCity_WallysHouse_Movement_BirchLeave:
 	walk_down
 	walk_down
 	step_end
 
-PetalburgCity_WallysHouse_Movement_PlayerMoveLeftForFrank:
+PetalburgCity_WallysHouse_Movement_PlayerMoveLeftForBirch:
 	face_right
 	lock_facing_direction
 	walk_fast_left
