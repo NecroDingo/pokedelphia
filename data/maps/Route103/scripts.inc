@@ -34,6 +34,9 @@ Route103_EventScript_RivalMay::
 	waitmovement 0
 	applymovement LOCALID_ROUTE103_RIVAL, Common_Movement_Delay48
 	waitmovement 0
+	setflag FLAG_TEMP_5
+	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
+	closemessage
 	switch VAR_STARTER_MON
 	case 0, Route103_EventScript_StartMayBattleBulbasaur
 	case 1, Route103_EventScript_StartMayBattleGible
@@ -42,31 +45,25 @@ Route103_EventScript_RivalMay::
 
 
 Route103_EventScript_StartMayBattleBulbasaur::
-	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
-	goto Route103_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayDefeated
+	goto Route103_EventScript_MayHeals
 	end
 
 Route103_EventScript_StartMayBattleGible::
-	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
-	goto Route103_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayDefeated
+	goto Route103_EventScript_MayHeals
 	end
 
 Route103_EventScript_StartMayBattleAron::
-	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
-	goto Route103_EventScript_AfterMayBattle
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayDefeated
+	goto Route103_EventScript_MayHeals
 	end
 
-Route103_EventScript_AfterMayBattle::
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, Route103_EventScript_MayHealsAfterLoss
-	msgbox Route103_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
-	goto Route103_EventScript_RivalExit
-	end
-
-Route103_EventScript_MayHealsAfterLoss::
-	msgbox Route103_Text_MayDefeated, MSGBOX_DEFAULT
+Route103_EventScript_MayHeals::
+	delay 40
 	msgbox Route103_Text_MayHealsParty, MSGBOX_DEFAULT
-	call Common_EventScript_OutOfCenterPartyHeal
+	special HealPlayerParty
+	callnative UpdateFollowingPokemon
 	msgbox Route103_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
 	goto Route103_EventScript_RivalExit
 	end
@@ -79,6 +76,7 @@ Route103_EventScript_RivalExit::
 	case DIR_NORTH, Route103_EventScript_RivalExitFacingNorth
 	case DIR_WEST, Route103_EventScript_RivalExitFacingEastOrWest
 	case DIR_EAST, Route103_EventScript_RivalExitFacingEastOrWest
+	waitmessage
 	end
 
 Route103_EventScript_RivalExitFacingNorth::
@@ -119,6 +117,10 @@ Route103_EventScript_RivalEnd::
 	clearflag FLAG_HIDE_OLDALE_TOWN_RIVAL
 	savebgm MUS_DUMMY
 	fadedefaultbgm
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
+	msgbox Route103_Text_BetterGoBack, MSGBOX_DEFAULT
+	clearflag FLAG_TEMP_5
 	releaseall
 	end
 
@@ -309,6 +311,9 @@ Route103_Text_MayTimeToHeadBack:
 	.string "That annoys her, visibly\p"
 	.string "She shrugs, then slowly walks away.$"
 
+Route103_Text_BetterGoBack:
+	.string "We better head back to PROF. Frank\n"
+	.string "and let him know what happened.$"
 
 Route103_Text_ShouldHaveBroughtPotion:
 	.string "Yo, my POKéMON’s runnin’ on fumes...\p"
@@ -324,4 +329,3 @@ Route103_Text_ShortcutToOldale:
 Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLD SCUMPORT$"
-

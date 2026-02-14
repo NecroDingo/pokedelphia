@@ -487,13 +487,13 @@ u8 PickWildMonNature(void)
     return Random() % NUM_NATURES;
 }
 
-void CreateWildMon(u16 species, u8 level)
+void CreateWildMon(u16 species, u8 level, u8 minLevel, u8 maxLevel)
 {
     bool32 checkCuteCharm = TRUE;
 
     // Apply level scaling for wild encounters
 #if B_LEVEL_SCALING_ENABLED && B_WILD_SCALING_ENABLED
-    level = CalculateWildScaledLevel(species, level);
+    level = CalculateWildScaledLevel(species, minLevel, maxLevel);
     // Apply species scaling (evolution management)
     species = CalculateWildScaledSpecies(species, level);
 #endif
@@ -617,7 +617,9 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum 
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level,
+                  wildMonInfo->wildPokemon[wildMonIndex].minLevel,
+                  wildMonInfo->wildPokemon[wildMonIndex].maxLevel);
     return TRUE;
 }
 
@@ -628,18 +630,22 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     UpdateChainFishingStreak();
-    CreateWildMon(wildMonSpecies, level);
+    CreateWildMon(wildMonSpecies, level,
+                  wildMonInfo->wildPokemon[wildMonIndex].minLevel,
+                  wildMonInfo->wildPokemon[wildMonIndex].maxLevel);
     return wildMonSpecies;
 }
 
 static bool8 SetUpMassOutbreakEncounter(u8 flags)
 {
     u16 i;
+    u8 level = gSaveBlock1Ptr->outbreakPokemonLevel;
 
-    if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(gSaveBlock1Ptr->outbreakPokemonLevel))
+    if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(level))
         return FALSE;
 
-    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel);
+    // Mass outbreak has fixed level, use it as both min and max
+    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, level, level, level);
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonMoveSlot(&gEnemyParty[0], gSaveBlock1Ptr->outbreakPokemonMoves[i], i);
 
@@ -1020,7 +1026,7 @@ void FishingWildEncounter(u8 rod)
         u8 level = ChooseWildMonLevel(&sWildFeebas, 0, WILD_AREA_FISHING);
 
         species = sWildFeebas.species;
-        CreateWildMon(species, level);
+        CreateWildMon(species, level, sWildFeebas.minLevel, sWildFeebas.maxLevel);
     }
     else
     {

@@ -1050,6 +1050,13 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
     case TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC:
         SetMapVarsToTrainerA();
         return EventScript_TryDoDoubleTrainerBattle;
+    case TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT:
+        SetMapVarsToTrainerA();
+        FlagSet(B_FLAG_NO_WHITEOUT);
+        return EventScript_TryDoNormalTrainerBattle;
+    case TRAINER_BATTLE_SINGLE_NO_INTRO_NO_WHITEOUT:
+        FlagSet(B_FLAG_NO_WHITEOUT);
+        return EventScript_DoNoIntroTrainerBattleNoWhiteout;
 #if FREE_MATCH_CALL == FALSE
     case TRAINER_BATTLE_REMATCH_DOUBLE:
         SetMapVarsToTrainerA();

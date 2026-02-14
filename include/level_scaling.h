@@ -92,7 +92,7 @@ const struct LevelScalingConfig *GetTrainerLevelScalingConfig(u16 trainerId);
 u8 CalculateScaledLevel(const struct LevelScalingConfig *config, u8 originalLevel);
 
 // Calculate scaled level for a wild Pokémon
-u8 CalculateWildScaledLevel(u16 species, u8 originalLevel);
+u8 CalculateWildScaledLevel(u16 species, u8 minLevel, u8 maxLevel);
 
 // Calculate scaled species for a wild Pokémon (handles evolution management)
 u16 CalculateWildScaledSpecies(u16 species, u8 scaledLevel);
@@ -114,7 +114,7 @@ void InvalidatePartyLevelCache(void);
 // Empty inline functions when system is disabled
 static inline void ApplyLevelScalingToTrainer(const struct Trainer *trainer, u16 trainerId,
                                                struct Pokemon *party, u8 partySize) { }
-static inline u8 CalculateWildScaledLevel(u16 species, u8 originalLevel) { return originalLevel; }
+static inline u8 CalculateWildScaledLevel(u16 species, u8 minLevel, u8 maxLevel) { return (minLevel + maxLevel) / 2; }
 static inline void InvalidatePartyLevelCache(void) { }
 
 #endif // B_LEVEL_SCALING_ENABLED

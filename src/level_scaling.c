@@ -562,7 +562,7 @@ u8 CalculateScaledLevel(const struct LevelScalingConfig *config, u8 originalLeve
     return (u8)adjustedLevel;
 }
 
-u8 CalculateWildScaledLevel(u16 species, u8 originalLevel)
+u8 CalculateWildScaledLevel(u16 species, u8 minLevel, u8 maxLevel)
 {
     #if B_WILD_SCALING_ENABLED
     static const struct LevelScalingConfig sWildConfig = {
@@ -575,14 +575,22 @@ u8 CalculateWildScaledLevel(u16 species, u8 originalLevel)
         .excludeFainted = B_WILD_SCALING_EXCLUDE_FAINTED,
     };
 
+    // Use the average of min and max as the base level for scaling
+    u8 originalLevel = (minLevel + maxLevel) / 2;
     u8 newLevel = CalculateScaledLevel(&sWildConfig, originalLevel);
+
+    // Hard cap: scaled level must be between the encounter table's min and max
+    if (newLevel < minLevel)
+        newLevel = minLevel;
+    if (newLevel > maxLevel)
+        newLevel = maxLevel;
 
     // Note: Species validation should happen in wild encounter code
     // as we can't modify the species from this function
 
     return newLevel;
     #else
-    return originalLevel;
+    return (minLevel + maxLevel) / 2;
     #endif
 }
 
