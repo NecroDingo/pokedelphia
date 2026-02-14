@@ -40,6 +40,19 @@ gText_Birch_MainSpeech::
 gText_Birch_YourePlayer::
 	.string "$"
 
+gText_Birch_HaveYouPlayedPokemonBefore::
+	.string "Have you played Pokémon before?$"
+
+gText_Birch_HaventPlayedPokemon::
+	.string "No worries, I got you covered.\n"	
+	.string "It's a game where you catch\l"
+	.string "and train these little monsters.\p"
+	.string "Then you use them to battle other\n"
+	.string "people's Pokémon.\p"
+	.string "It's kinda like being a pet wrestler.\p"
+	.string "It's a lot of fun, and I think\n"
+	.string "you're gonna love it!$"
+
 gText_Birch_AreYouReady::
 	.string "Oh yeah,\n"
 	.string "you're Charlie now.\p"
@@ -53,3 +66,48 @@ gText_Birch_AreYouReady::
 	.string "Accept the destiny.\p"
 	.string "Let's go make some chaos.\p"
 	.string "$"
+
+gText_Birch_LetsGetIntoIt::
+	.string "Alright, let's get into it!\n"
+	.string "Go out there and make me proud,\l"
+	.string "Charlie!\p"
+	.string "And remember, rats are friends,\n"
+	.string "not food.\p"
+	.string "Accept the rats.\p"
+	.string "Accept the trash.\p"
+	.string "Accept the destiny.\p"
+	.string "Let's go make some chaos.$"
+
+gText_Birch_HavePlayedPokemon::
+	.string "Awesome!\n"
+	.string "I'm glad you aren't new to this.\p"
+	.string "This is gonna be a little different.$"
+
+gText_Birch_NuzlockeChallenge::
+	.string "Since you're not new, I got a\n"
+	.string "question for ya.\p"
+	.string "I know of something called a\n"
+	.string "Nuzlocke challenge.\p"
+	.string "Means you can only catch the first\n"
+	.string "Pokémon you see in each area.\p"
+	.string "If it faints, it's dead to you.\p"
+	.string "You gotta release it or put it in\n"
+	.string "a box and never use it again.\p"
+	.string "Makes things way more intense.\p"
+	.string "You in?$"
+
+gText_Birch_NoNuzlucke::
+	.string "No worries, we can skip the Nuzlocke\n"
+	.string "challenge.\p"
+	.string "You can play the game normally.\p"
+	.string "If you ever want to give it a go,\n"
+	.string "you have to start a new game.$"
+
+gText_Birch_YesNuzlocke::
+	.string "Hell yeah!\n"
+	.string "This is gonna be awesome.\p"
+	.string "Was afraid I was dealing with a\n"
+	.string "little chicken there for a second.\p"
+	.string "I'm ready to take on the challenge.\p"
+	.string "Just remember, if a Pokémon\n"
+	.string "faints, it's gone for good.$"

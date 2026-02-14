@@ -43,8 +43,8 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_VS_SEEKER_ENABLE       0x20 // Enables the use of the Vs. Seeker in include/config/item.h
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
+#define FLAG_NUZLOCKE        0x20 // Nuzlocke Challenge flag
+#define FLAG_VS_SEEKER_ENABLE       0x21 // Enables the use of the Vs. Seeker in include/config/item.h
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
 #define FLAG_UNUSED_0x023    0x23 // Unused Flag
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag

@@ -36,6 +36,7 @@
 #include "naming_screen.h"
 #include "battle_setup.h"
 #include "overworld.h"
+#include "nuzlocke.h"
 #include "wild_encounter.h"
 #include "rtc.h"
 #include "party_menu.h"
@@ -71,6 +72,7 @@
 #include "follower_npc.h"
 #include "load_save.h"
 #include "test/test_runner_battle.h"
+#include "nuzlocke.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
@@ -5014,7 +5016,13 @@ static void Cmd_checkteamslost(void)
     if (NoAliveMonsForPlayer())
         gBattleOutcome |= B_OUTCOME_LOST;
     if (NoAliveMonsForOpponent())
+    {
         gBattleOutcome |= B_OUTCOME_WON;
+        
+        // Handle Nuzlocke encounter tracking when wild Pokemon faints
+        if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+            NuzlockeOnBattleEnd();
+    }
 
     // Fair switching - everyone has to switch in most at the same time, without knowing which pokemon the other trainer selected.
     // In vanilla Emerald this was only used for link battles, in expansion it's also used for regular trainer battles.
@@ -13636,6 +13644,24 @@ static void Cmd_handleballthrow(void)
         MarkBattlerForControllerExec(gBattlerAttacker);
         gBattlescriptCurrInstr = BattleScript_WallyBallThrow;
     }
+    else if (IsNuzlockeActive() && !NuzlockeCanCatchPokemon(gBattleMons[gBattlerTarget].species, 
+                                                              gBattleMons[gBattlerTarget].personality, 
+                                                              gBattleMons[gBattlerTarget].otId))
+    {
+        // Nuzlocke rules prevent catching this Pokemon
+        BtlController_EmitBallThrowAnim(gBattlerAttacker, B_COMM_TO_CONTROLLER, BALL_TRAINER_BLOCK);
+        MarkBattlerForControllerExec(gBattlerAttacker);
+        gBattlescriptCurrInstr = BattleScript_NuzlockeBallBlock;
+    }
+    else if (IsNuzlockeActive() && !NuzlockeCanCatchPokemon(gBattleMons[gBattlerTarget].species, 
+                                                           gBattleMons[gBattlerTarget].personality,
+                                                           gBattleMons[gBattlerTarget].otId))
+    {
+        // Nuzlocke prevents catching - show message and don't waste ball
+        BtlController_EmitBallThrowAnim(gBattlerAttacker, B_COMM_TO_CONTROLLER, BALL_TRAINER_BLOCK);
+        MarkBattlerForControllerExec(gBattlerAttacker);
+        gBattlescriptCurrInstr = BattleScript_NuzlockeBallBlock;
+    }
     else
     {
         u32 odds, i;
@@ -13844,6 +13870,26 @@ static void Cmd_handleballthrow(void)
             struct Pokemon *caughtMon = GetBattlerMon(gBattlerTarget);
             SetMonData(caughtMon, MON_DATA_POKEBALL, &ballId);
 
+            // Mark area as caught and encountered for Nuzlocke
+            if (FlagGet(FLAG_NUZLOCKE) && !(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+            {
+                u8 currentLocation = GetCurrentRegionMapSectionId();
+                
+                // Check if the caught Pokemon is shiny - shiny clause means it doesn't consume the encounter
+                u32 caughtPersonality = GetMonData(caughtMon, MON_DATA_PERSONALITY);
+                u32 caughtOtId = GetMonData(caughtMon, MON_DATA_OT_ID);
+                u32 shinyValue = ((caughtPersonality >> 16) ^ (caughtPersonality & 0xFFFF)) ^ ((caughtOtId >> 16) ^ (caughtOtId & 0xFFFF));
+                bool8 isShiny = (shinyValue < 8);
+                
+                if (!isShiny)
+                {
+                    // Not shiny - mark location as used
+                    HasWildPokemonBeenCaughtInLocation(currentLocation, TRUE);
+                    HasWildPokemonBeenSeenInLocation(currentLocation, TRUE);
+                }
+                // If shiny, don't mark location - shiny clause allows this without consuming encounter
+            }
+
             if (CalculatePlayerPartyCount() == PARTY_SIZE)
                 gBattleCommunication[MULTISTRING_CHOOSER] = 0;
             else
@@ -13911,6 +13957,26 @@ static void Cmd_handleballthrow(void)
                 gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
                 struct Pokemon *caughtMon = GetBattlerMon(gBattlerTarget);
                 SetMonData(caughtMon, MON_DATA_POKEBALL, &ballId);
+
+                // Mark area as caught and encountered for Nuzlocke
+                if (FlagGet(FLAG_NUZLOCKE) && !(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+                {
+                    u8 currentLocation = GetCurrentRegionMapSectionId();
+                    
+                    // Check if the caught Pokemon is shiny - shiny clause means it doesn't consume the encounter
+                    u32 caughtPersonality = GetMonData(caughtMon, MON_DATA_PERSONALITY);
+                    u32 caughtOtId = GetMonData(caughtMon, MON_DATA_OT_ID);
+                    u32 shinyValue = ((caughtPersonality >> 16) ^ (caughtPersonality & 0xFFFF)) ^ ((caughtOtId >> 16) ^ (caughtOtId & 0xFFFF));
+                    bool8 isShiny = (shinyValue < 8);
+                    
+                    if (!isShiny)
+                    {
+                        // Not shiny - mark location as used
+                        HasWildPokemonBeenCaughtInLocation(currentLocation, TRUE);
+                        HasWildPokemonBeenSeenInLocation(currentLocation, TRUE);
+                    }
+                    // If shiny, don't mark location - shiny clause allows this without consuming encounter
+                }
 
                 if (CalculatePlayerPartyCount() == PARTY_SIZE)
                     gBattleCommunication[MULTISTRING_CHOOSER] = 0;
@@ -17126,6 +17192,10 @@ void BS_SetTeleportOutcome(void)
     else
     {
         gBattleOutcome = B_OUTCOME_MON_TELEPORTED;
+        
+        // Handle Nuzlocke encounter tracking when wild Pokemon teleports
+        if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+            NuzlockeOnBattleEnd();
     }
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
