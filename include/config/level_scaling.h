@@ -26,16 +26,20 @@
 
 #define B_TRAINER_SCALING_ENABLED           TRUE
 #define B_TRAINER_SCALING_DEFAULT_MODE      LEVEL_SCALING_PARTY_AVG
-#define B_TRAINER_SCALING_LEVEL_AUGMENT     2       // Add/subtract levels from base (-127 to +127)
+#define B_TRAINER_SCALING_LEVEL_AUGMENT     +2       // Add/subtract levels from base (-127 to +127)
                                                      // Example: -2 makes trainers 2 levels lower
                                                      //          +5 makes trainers 5 levels higher
-#define B_TRAINER_SCALING_LEVEL_VARIATION   4       // Random level reduction (0 to 255)
+#define B_TRAINER_SCALING_LEVEL_VARIATION   5       // Random level reduction (0 to 255)
                                                      // Example: 3 means random(0-3) levels lower
                                                      //          Creates variety in trainer teams
 #define B_TRAINER_SCALING_MIN_LEVEL         0       // Minimum level (0 = no minimum)
 #define B_TRAINER_SCALING_MAX_LEVEL         0       // Maximum level (0 = no maximum)
-#define B_TRAINER_SCALING_MANAGE_EVOLUTIONS TRUE    // Auto-devolve Pokemon if level too low
-#define B_TRAINER_SCALING_EXCLUDE_FAINTED   FALSE   // Exclude fainted Pokemon from PARTY_* calculations
+#define B_TRAINER_SCALING_MANAGE_EVOLUTIONS TRUE    // Auto-evolve Pokemon based on level
+                                                     // 80% chance to evolve at appropriate level
+                                                     // For 3-stage lines: 90% to leave base, 70% to reach final
+                                                     // Stone/trade evolutions: Use evolution overrides for min level, 20% chance
+                                                     // Weather/time conditions: Checked for conditional evolutions
+#define B_TRAINER_SCALING_EXCLUDE_FAINTED   TRUE   // Exclude fainted Pokemon from PARTY_* calculations
 
 // ============================================================================
 // WILD POKÉMON SCALING DEFAULTS
@@ -45,22 +49,30 @@
 
 #define B_WILD_SCALING_ENABLED              TRUE
 #define B_WILD_SCALING_DEFAULT_MODE         LEVEL_SCALING_PARTY_AVG
-#define B_WILD_SCALING_LEVEL_AUGMENT        -8       // Add/subtract levels from base (-127 to +127)
+#define B_WILD_SCALING_LEVEL_AUGMENT        +2       // Add/subtract levels from base (-127 to +127)
                                                      // Example: -5 makes wild Pokémon 5 levels lower
-#define B_WILD_SCALING_LEVEL_VARIATION      4       // Random level reduction (0 to 255)
+#define B_WILD_SCALING_LEVEL_VARIATION      6       // Random level reduction (0 to 255)
                                                      // Example: 3 means random(0-3) levels lower
                                                      //          Creates variety in wild encounters
 #define B_WILD_SCALING_MIN_LEVEL            0       // Minimum level (0 = no minimum)
 #define B_WILD_SCALING_MAX_LEVEL            0       // Maximum level (0 = no maximum)
-#define B_WILD_SCALING_MANAGE_EVOLUTIONS    TRUE    // Auto-devolve wild Pokémon if level too low
-#define B_WILD_SCALING_EXCLUDE_FAINTED      FALSE    // Exclude fainted Pokémon from PARTY_* calculations
+#define B_WILD_SCALING_MANAGE_EVOLUTIONS    TRUE    // Auto-evolve wild Pokemon based on scaled level
+                                                     // 80% chance to evolve at appropriate level
+                                                     // For 3-stage lines: 90% to leave base, 70% to reach final
+                                                     // Stone/trade evolutions: Use evolution overrides for min level, 20% chance
+                                                     // Weather/time conditions: Checked for conditional evolutions
+                                                     // Rain evolutions: Only during rain weather
+                                                     // Day/night evolutions: Only at appropriate time
+#define B_WILD_SCALING_EXCLUDE_FAINTED      TRUE    // Exclude fainted Pokémon from PARTY_* calculations
 
 // ============================================================================
 // EVOLUTION OVERRIDE SYSTEM
 // ============================================================================
 // Controls whether evolution overrides (in level_scaling_evolution_overrides.h) are used
-// Overrides allow Pokemon that don't evolve via level-up to appear at specific minimum levels
-// Example: Gengar (trade evolution) can be set to appear at level 30+
+// Overrides specify minimum levels for Pokemon that evolve via non-level methods
+// Examples: Gengar (trade) requires level 30+, Raichu (stone) requires level 25+
+// The system checks these overrides and uses them as minimum level requirements
+// Combined with 20% RNG, ensures evolved forms appear at appropriate levels
 
 #define B_SCALING_USE_OVERRIDES         TRUE    // Enable evolution overrides for trade/stone/special evolutions
 

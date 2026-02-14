@@ -7,6 +7,10 @@
 #include "pokemon_storage_system.h"
 #include "constants/trainers.h"
 #include "constants/pokemon.h"
+#include "constants/weather.h"
+#include "overworld.h"
+#include "rtc.h"
+#include "field_weather.h"
 
 #if B_LEVEL_SCALING_ENABLED
 
@@ -139,88 +143,184 @@ static u8 ClampLevel(u8 level, u8 minLevel, u8 maxLevel)
 // Internal Helper Functions - Evolution Management
 // ============================================================================
 
-static u16 GetPreEvolution(u16 species)
+// Helper function to check if evolution conditions are met
+static bool8 CheckEvolutionConditions(const struct EvolutionParam *params)
 {
-    u32 i, j;
-
-    // Search all species to find what evolves into this species
-    for (i = 1; i < NUM_SPECIES; i++)
+    u32 i;
+    
+    if (params == NULL)
+        return TRUE; // No conditions means it can evolve
+    
+    RtcCalcLocalTime();
+    enum TimeOfDay timeOfDay = GetTimeOfDay();
+    u8 currentWeather = GetCurrentWeather();
+    
+    // Check all conditions - ALL must be met
+    for (i = 0; params[i].condition != CONDITIONS_END; i++)
     {
-        const struct Evolution *evolutions = GetSpeciesEvolutions(i);
-        if (evolutions == NULL)
-            continue;
-
-        for (j = 0; evolutions[j].method != EVOLUTIONS_END; j++)
+        bool8 conditionMet = FALSE;
+        
+        switch (params[i].condition)
         {
-            if (evolutions[j].targetSpecies == species)
-                return i;
+            case IF_TIME:
+                if (timeOfDay == params[i].arg1)
+                    conditionMet = TRUE;
+                break;
+                
+            case IF_NOT_TIME:
+                if (timeOfDay != params[i].arg1)
+                    conditionMet = TRUE;
+                break;
+                
+            case IF_WEATHER:
+                if (params[i].arg1 == WEATHER_RAIN)
+                {
+                    if (currentWeather == WEATHER_RAIN || currentWeather == WEATHER_RAIN_THUNDERSTORM || currentWeather == WEATHER_DOWNPOUR)
+                        conditionMet = TRUE;
+                }
+                else if (params[i].arg1 == WEATHER_FOG)
+                {
+                    if (currentWeather == WEATHER_FOG_DIAGONAL || currentWeather == WEATHER_FOG_HORIZONTAL)
+                        conditionMet = TRUE;
+                }
+                else if (currentWeather == params[i].arg1)
+                {
+                    conditionMet = TRUE;
+                }
+                break;
+                
+            default:
+                // For other conditions we can't check in wild encounters (party composition, items, etc.),
+                // we'll give a lower probability chance
+                if ((Random() % 100) < 10)
+                    conditionMet = TRUE;
+                break;
         }
+        
+        // If any condition fails, the evolution cannot happen
+        if (!conditionMet)
+            return FALSE;
     }
-
-    return SPECIES_NONE;
+    
+    return TRUE;
 }
 
-// Get the level required to evolve INTO this species (from its pre-evolution)
-static u8 GetEvolutionLevelForSpecies(u16 species)
+// Get all possible evolutions for a species that can happen at a given level
+static u32 GetPossibleEvolutions(u16 species, u8 level, u16 *outEvolutions, u32 maxEvolutions)
 {
-    u32 i, j;
-
-    // Find what evolves into this species
-    for (i = 1; i < NUM_SPECIES; i++)
+    const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+    u32 count = 0;
+    u32 i;
+    
+    if (evolutions == NULL)
+        return 0;
+    
+    for (i = 0; evolutions[i].method != EVOLUTIONS_END && count < maxEvolutions; i++)
     {
-        const struct Evolution *evolutions = GetSpeciesEvolutions(i);
-        if (evolutions == NULL)
-            continue;
-
-        for (j = 0; evolutions[j].method != EVOLUTIONS_END; j++)
+        bool8 canEvolve = FALSE;
+        u16 targetSpecies = evolutions[i].targetSpecies;
+        const struct EvolutionParam *params = evolutions[i].params;
+        
+        // Check if target species has a minimum level override
+        #if B_SCALING_USE_OVERRIDES
+        const struct EvolutionOverride *override = GetEvolutionOverride(targetSpecies);
+        u8 minimumLevel = (override != NULL) ? override->minimumLevel : 30;
+        #else
+        u8 minimumLevel = 30;
+        #endif
+        
+        // Check if this evolution can happen at this level
+        switch (evolutions[i].method)
         {
-            if (evolutions[j].targetSpecies == species)
+            case EVO_LEVEL:
+            case EVO_LEVEL_BATTLE_ONLY:
             {
-                // Check if this is a level-based evolution
-                if (evolutions[j].method == EVO_LEVEL || evolutions[j].method == EVO_LEVEL_BATTLE_ONLY)
+                // For pure level evolutions with no conditions, use the param as the level
+                // For evolutions with conditions (weather, time, etc.), check conditions and use minimum level
+                bool8 hasConditions = (params != NULL && params[0].condition != CONDITIONS_END);
+                
+                if (!hasConditions)
                 {
-                    return evolutions[j].param;
+                    // Pure level evolution (e.g., Charmander -> Charmeleon at level 16)
+                    if (level >= evolutions[i].param)
+                        canEvolve = TRUE;
+                }
+                else
+                {
+                    // Conditional evolution - check level, conditions, and apply 20% chance
+                    // This covers things like Goodra (needs rain), Espeon (needs day), etc.
+                    if (level >= minimumLevel && CheckEvolutionConditions(params) && (Random() % 100) < 20)
+                        canEvolve = TRUE;
+                }
+                break;
+            }
+            
+            case EVO_ITEM:
+            case EVO_TRADE:
+                // Trade/stone evolutions - check conditions, use override minimum level, 20% chance
+                if (level >= minimumLevel && CheckEvolutionConditions(params) && (Random() % 100) < 20)
+                    canEvolve = TRUE;
+                break;
+                
+            case EVO_BATTLE_END:
+            case EVO_SCRIPT_TRIGGER:
+            case EVO_SPIN:
+                // Special trigger evolutions - 10% chance 
+                if (level >= minimumLevel && (Random() % 100) < 10)
+                    canEvolve = TRUE;
+                break;
+        }
+        
+        if (canEvolve)
+        {
+            outEvolutions[count] = targetSpecies;
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+// Count the number of evolution stages for a species (0 = base, 1 = stage 1, 2 = stage 2)
+static u32 GetEvolutionStage(u16 species)
+{
+    u32 stage = 0;
+    u16 currentSpecies = species;
+    u32 maxIterations = 10; // Prevent infinite loops
+    
+    while (maxIterations-- > 0)
+    {
+        u32 i, j;
+        u16 preEvo = SPECIES_NONE;
+        
+        // Search all species to find what evolves into currentSpecies
+        for (i = 1; i < NUM_SPECIES; i++)
+        {
+            const struct Evolution *evolutions = GetSpeciesEvolutions(i);
+            if (evolutions == NULL)
+                continue;
+            
+            for (j = 0; evolutions[j].method != EVOLUTIONS_END; j++)
+            {
+                if (evolutions[j].targetSpecies == currentSpecies)
+                {
+                    preEvo = i;
+                    break;
                 }
             }
+            
+            if (preEvo != SPECIES_NONE)
+                break;
         }
+        
+        if (preEvo == SPECIES_NONE)
+            break; // No pre-evolution found, we're at the base
+        
+        stage++;
+        currentSpecies = preEvo;
     }
-
-    return 0; // No level-based evolution found
-}
-
-static bool8 IsSpeciesLegalAtLevel(u16 species, u8 level)
-{
-    u8 requiredLevel;
-    #if B_SCALING_USE_OVERRIDES
-    const struct EvolutionOverride *override;
-
-    // Check evolution overrides first
-    override = GetEvolutionOverride(species);
-    if (override != NULL)
-    {
-        return level >= override->minimumLevel;
-    }
-    #endif
-
-    // Check if this species is an evolved form
-    u16 preEvo = GetPreEvolution(species);
-    if (preEvo == SPECIES_NONE)
-    {
-        // This is a base form, always legal
-        return TRUE;
-    }
-
-    // This is an evolved form - check the level required to evolve into it
-    requiredLevel = GetEvolutionLevelForSpecies(species);
-    if (requiredLevel > 0 && level < requiredLevel)
-    {
-        // Level is too low for this evolution
-        return FALSE;
-    }
-
-    // Recursively check if the pre-evolution is legal at this level
-    // (handles multi-stage evolutions like Fuecoco -> Crocalor -> Skeledirge)
-    return IsSpeciesLegalAtLevel(preEvo, level);
+    
+    return stage;
 }
 
 // ============================================================================
@@ -242,36 +342,85 @@ const struct EvolutionOverride *GetEvolutionOverride(u16 species)
 
 u16 ValidateSpeciesForLevel(u16 species, u8 targetLevel, bool8 manageEvolutions)
 {
+    u16 possibleEvolutions[10]; // Should be enough for any branching evolution
+    u32 evolutionCount;
+    u32 currentStage;
+    u16 currentSpecies = species;
+    u32 maxIterations = 3; // Max 3 evolution stages (base -> stage 1 -> stage 2)
+    
     if (!manageEvolutions)
         return species;
-
-    // Check if current species is legal at this level
-    if (IsSpeciesLegalAtLevel(species, targetLevel))
-        return species;
-
-    // Need to devolve - find pre-evolution
-    u16 currentSpecies = species;
-    u16 preEvo;
-    u32 maxIterations = 10; // Prevent infinite loops
-
+    
+    // Try to evolve up to 3 times (handles 3-stage evolution lines)
     while (maxIterations-- > 0)
     {
-        preEvo = GetPreEvolution(currentSpecies);
-
-        if (preEvo == SPECIES_NONE)
+        // Get current evolution stage (0 = base, 1 = stage 1, 2 = stage 2)
+        currentStage = GetEvolutionStage(currentSpecies);
+        
+        // Get all possible evolutions at this level
+        evolutionCount = GetPossibleEvolutions(currentSpecies, targetLevel, possibleEvolutions, 10);
+        
+        if (evolutionCount == 0)
+            break; // No more evolutions possible
+        
+        // Apply probability logic based on evolution stage
+        u8 evolveChance;
+        
+        if (currentStage == 0)
         {
-            // No pre-evolution found, use current species
+            // Base form (e.g., Charmander)
+            // For 3-stage lines: 90% chance to NOT stay as base (10% stay, 90% evolve)
+            // For 2-stage lines: 80% chance to evolve
+            // Check if any evolution can evolve further
+            bool8 hasThirdStage = FALSE;
+            u32 i;
+            for (i = 0; i < evolutionCount; i++)
+            {
+                u16 tempEvolutions[10];
+                if (GetPossibleEvolutions(possibleEvolutions[i], targetLevel, tempEvolutions, 10) > 0)
+                {
+                    hasThirdStage = TRUE;
+                    break;
+                }
+            }
+            
+            evolveChance = hasThirdStage ? 90 : 80;
+        }
+        else if (currentStage == 1)
+        {
+            // Stage 1 form (e.g., Charmeleon)
+            // For 3-stage lines: 70% chance to evolve to final stage
+            // For 2-stage lines: shouldn't happen, but use 70% if it does
+            evolveChance = 70;
+        }
+        else
+        {
+            // Stage 2 or higher - don't evolve further
             break;
         }
-
-        currentSpecies = preEvo;
-
-        // Check if this pre-evolution is legal
-        if (IsSpeciesLegalAtLevel(currentSpecies, targetLevel))
-            return currentSpecies;
+        
+        // Roll to see if we evolve
+        if ((Random() % 100) < evolveChance)
+        {
+            // Select evolution
+            if (evolutionCount == 1)
+            {
+                // Only one option
+                currentSpecies = possibleEvolutions[0];
+            }
+            else
+            {
+                // Multiple options (branching evolution) - pick randomly
+                currentSpecies = possibleEvolutions[Random() % evolutionCount];
+            }
+        }
+        else
+        {
+            // Didn't evolve, stay at current species
+            break;
+        }
     }
-
-    // If we couldn't find a legal evolution, return the furthest devolved form
+    
     return currentSpecies;
 }
 
