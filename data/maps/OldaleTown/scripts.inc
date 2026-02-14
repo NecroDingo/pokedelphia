@@ -425,14 +425,13 @@ OldaleTown_EventScript_LadyElizabeth_Offer:
 	end
 
 OldaleTown_EventScript_LadyElizabeth_Accept:
-	msgbox OldaleTown_Text_LadyElizabethAccept, MSGBOX_NPC
-	waitmessage
+	msgbox OldaleTown_Text_LadyElizabethAccept, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
 	giveitem ITEM_BERRY_POUCH
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	waitfanfare
-	msgbox OldaleTown_Text_LadyElizabethAccept2, MSGBOX_NPC
-	waitmessage
-	startquest QUEST_1_FIND_CHESTO 
+	msgbox OldaleTown_Text_LadyElizabethAccept2, MSGBOX_DEFAULT
+	startquest QUEST_1_FIND_CHESTO
 	release
 	end
 
@@ -491,9 +490,9 @@ OldaleTown_Text_LadyElizabethAccept:
 OldaleTown_Text_LadyElizabethAccept2:
 	.string "I can’t deal with this nonsense much\n"
 	.string "longer.\p"
-	.string "I swear,\n"
-	.string "if I have to listen to this snoring\l"
-	.string "all night...$"
+	.string "I swear...\n"
+	.string "If I have to listen to this snoring\l"
+	.string "all night, I'm gonna flip!$"
 
 OldaleTown_Text_LadyElizabethDecline:
 	.string "Look, I’m not going back after that\n"

@@ -935,7 +935,7 @@ gText_UnusedNicknameReceivedPokemon::
 
 gText_PlayerWhitedOut::
 	.string "{PLAYER} is out of usable\n"
-	.string "POKéMON!\p{PLAYER} whited out!$"
+	.string "POKéMON!\p{PLAYER} whited out!$"	
 
 gText_FirstShouldRestoreMonsHealth::
 	.string "Of course they all died...\n"

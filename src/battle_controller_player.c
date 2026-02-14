@@ -2413,12 +2413,28 @@ static u32 CheckTargetTypeEffectiveness(u32 battler)
 static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, u32 battler)
 {
     static const u8 noIcon[] =  _("");
-    static const u8 effectiveIcon[] =  _("{CIRCLE_HOLLOW}");
-    static const u8 superEffectiveIcon[] =  _("{CIRCLE_DOT}");
-    static const u8 notVeryEffectiveIcon[] =  _("{TRIANGLE}");
-    static const u8 immuneIcon[] =  _("{BIG_MULT_X}");
+    static const u8 effectiveIcon[] =  _("");                                 // No icon for normal effectiveness
+    static const u8 superEffectiveIcon[] =  _("{COLOR 10}{UP_ARROW_2}");      // Red up arrow for super effective
+    static const u8 notVeryEffectiveIcon[] =  _("{COLOR 9}{DOWN_ARROW_2}");   // Blue down arrow for not very effective
+    static const u8 immuneIcon[] =  _("{COLOR 8}{BIG_MULT_X}");              // Different color for immune
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
     u8 *txtPtr;
+
+    // Set custom colors for effectiveness icons in palette 5
+    if (!IsBattleMoveStatus(moveInfo->moves[gMoveSelectionCursor[battler]]))
+    {
+        // Set red color for super effective (palette entry 10) - 15-bit RGB format
+        gPlttBufferUnfaded[BG_PLTT_ID(5) + 10] = 0x001F;   // Pure red (RGB15: 0, 0, 31)
+        gPlttBufferFaded[BG_PLTT_ID(5) + 10] = 0x001F;
+        
+        // Set blue color for not very effective (palette entry 9)  
+        gPlttBufferUnfaded[BG_PLTT_ID(5) + 9] = 0x7C00;    // Pure blue (RGB15: 31, 0, 0)
+        gPlttBufferFaded[BG_PLTT_ID(5) + 9] = 0x7C00;
+        
+        // Set gray color for immune (palette entry 8)
+        gPlttBufferUnfaded[BG_PLTT_ID(5) + 8] = 0x4210;    // Gray (RGB15: 16, 16, 16)
+        gPlttBufferFaded[BG_PLTT_ID(5) + 8] = 0x4210;
+    }
 
     txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfacePP);
 

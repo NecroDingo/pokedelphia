@@ -4658,6 +4658,11 @@ BattleScript_LocalBattleLostDoTrainer2WinText::
 BattleScript_LocalBattleLostEnd_::
 	end2
 
+BattleScript_LocalBattleLostPrintNoWhiteout::
+	printstring STRINGID_PLAYERWHITEOUT3
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_FrontierLinkBattleLost::
 	returnopponentmon1toball
 	waitstate

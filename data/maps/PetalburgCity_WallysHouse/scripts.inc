@@ -22,8 +22,8 @@ PetalburgCity_WallysHouse_OnTransition_End:
 PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene::
 	setobjectxyperm LOCALID_WALLYS_HOUSE_WALLYS_DAD, 4, 4
 	setobjectxyperm LOCALID_WALLYS_HOUSE_WALLYS_MOM, 7, 5
-	goto_if_set FLAG_HIDE_FRANK_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene_End
-	clearflag FLAG_HIDE_FRANK_PETALBURG
+	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene_End
+	clearflag FLAG_HIDE_BIRCH_PETALBURG
 	addobject LOCALID_WALLYS_HOUSE_FRANK
 	setobjectxyperm LOCALID_WALLYS_HOUSE_FRANK, 4, 5
 
@@ -56,7 +56,7 @@ PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 PetalburgCity_WallysHouse_EventScript_WallysDad::
 	lock
 	faceplayer
-	goto_if_set FLAG_HIDE_FRANK_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysDadAfterFrank
+	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysDadAfterFrank
 	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_WallysHouse_EventScript_WallysDadQuest3
@@ -104,7 +104,7 @@ PetalburgCity_WallysHouse_EventScript_WallysMomAfterFrank::
 PetalburgCity_WallysHouse_EventScript_WallysMom::
 	lock
 	faceplayer
-	goto_if_set FLAG_HIDE_FRANK_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysMomAfterFrank
+	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysMomAfterFrank
 	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_WallysHouse_EventScript_WallysMomQuest3
@@ -144,8 +144,8 @@ PetalburgCity_WallysHouse_EventScript_FrankTurnInQuest::
 	call_if_eq VAR_FACING, DIR_NORTH, PetalburgCity_WallysHouse_EventScript_MovePlayerForFrankExit
 	applymovement LOCALID_WALLYS_HOUSE_FRANK, PetalburgCity_WallysHouse_Movement_FrankLeave
 	waitmovement 0
-	setflag FLAG_HIDE_FRANK_QUEST3_COMPLETE
-	setflag FLAG_HIDE_FRANK_PETALBURG
+	setflag FLAG_HIDE_BIRCH_QUEST3_COMPLETE
+	setflag FLAG_HIDE_BIRCH_PETALBURG
 	removeobject LOCALID_WALLYS_HOUSE_FRANK
 	release
 	end

@@ -1232,7 +1232,7 @@ bool8 StandardWildEncounter_Debug(void)
     if (TryGenerateWildMon(gWildMonHeaders[headerId].encounterTypes[timeOfDay].landMonsInfo, WILD_AREA_LAND, 0) != TRUE)
         return FALSE;
 
-    DoStandardWildBattle_Debug();
+    BattleSetup_StartWildBattle();
     return TRUE;
 }
 

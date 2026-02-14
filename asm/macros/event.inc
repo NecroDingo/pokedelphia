@@ -790,6 +790,11 @@
 	trainerbattle TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT, LOCALID_NONE, \trainer, NULL, \lose_text, NULL, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
 	.endm
 
+	@ Starts a trainer battle with no whiteout on loss. Takes a trainer, intro text, and loss text
+	.macro trainerbattle_no_whiteout_continue trainer:req, intro_text:req, lose_text:req
+	trainerbattle TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT, LOCALID_NONE, \trainer, \intro_text, \lose_text, NULL, LOCALID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+	.endm
+
 	@ Starts a double battle with the player against two trainers
 	@ Takes two trainers and defeat text for each
 	.macro trainerbattle_two_trainers trainer_a:req, lose_text_a:req, trainer_b:req, lose_text_b:req

@@ -21,10 +21,10 @@
   ],
   "object_events": [
     {
-      "local_id": "LOCALID_LITTLEROOT_TWIN",
+      "local_id": "LOCALID_LITTLEROOT_TOWN_TWIN",
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 9,
-      "y": 5,
+      "x": 24,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -61,7 +61,7 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_LITTLEROOT_MOM",
+      "local_id": "LOCALID_LITTLEROOT_TOWN_MOM",
       "graphics_id": "OBJ_EVENT_GFX_MOM",
       "x": 5,
       "y": 8,
@@ -88,7 +88,7 @@
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK"
     },
     {
-      "local_id": "LOCALID_LITTLEROOT_RIVAL",
+      "local_id": "LOCALID_LITTLEROOT_TOWN_RIVAL",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 24,
       "y": 18,
@@ -102,7 +102,7 @@
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_RIVAL"
     },
     {
-      "local_id": "LOCALID_LITTLEROOT_BIRCH",
+      "local_id": "LOCALID_LITTLEROOT_TOWN_BIRCH",
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
       "x": 25,
       "y": 18,
@@ -114,6 +114,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_HIDE_LITTLEROOT_TOWN_BIRCH"
+    },
+    {
+      "local_id": "LOCALID_SCIENCEGUY",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 10,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_DAYNIGHT_SCIENCEGUY"
     }
   ],
   "warp_events": [
@@ -220,6 +234,24 @@
       "var": "VAR_LITTLEROOT_TOWN_STATE",
       "var_value": "3",
       "script": "LittlerootTown_EventScript_GiveRunningShoesTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "4",
+      "script": "LittlerootTown_EventScript_GoodLuck1"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 1,
+      "elevation": 0,
+      "var": "VAR_LITTLEROOT_TOWN_STATE",
+      "var_value": "4",
+      "script": "LittlerootTown_EventScript_GoodLuck2"
     }
   ],
   "bg_events": [

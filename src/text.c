@@ -1071,7 +1071,7 @@ void SetResultWithButtonPress(bool32 *result)
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
         *result = TRUE;
-        PlaySE(SE_SELECT);
+        // PlaySE(SE_SELECT); // Removed message beep sound
     }
 }
 

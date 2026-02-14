@@ -666,9 +666,9 @@
 #define FLAG_OLDALE_NURSE_INTRO_DONE                         0x265 // Oldale Nurse intro
 
 #define FLAG_EXP_SHARE_TOGGLE                                0x266 // Toggles Exp. Share on/off
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
+#define FLAG_HIDE_BIRCH_QUEST3_COMPLETE                      0x267 // Hides Frank after completing his quest in the Holy House
+#define FLAG_HIDE_BIRCH_BEFORE_QUEST_3                       0x268 // Hides Frank before starting his quest in the Holy House
+#define FLAG_HIDE_DAYNIGHT_SCIENCEGUY                        0x269 // Day/Night Science Guy flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
@@ -1626,8 +1626,8 @@
 #define FLAG_UNUSED_0x94C                           (DAILY_FLAGS_START + 0x2C) // Unused Flag
 #define FLAG_UNUSED_0x94D                           (DAILY_FLAGS_START + 0x2D) // Unused Flag
 #define FLAG_UNUSED_0x94E                           (DAILY_FLAGS_START + 0x2E) // Unused Flag
-#define FLAG_HIDE_FRANK_PETALBURG                   (DAILY_FLAGS_START + 0x2F) // Hide Frank in Petalburg
-#define FLAG_HIDE_FRANK_QUEST3_COMPLETE             (DAILY_FLAGS_START + 0x30) // Hide Frank after Quest 3 complete
+#define FLAG_HIDE_BIRCH_PETALBURG                   (DAILY_FLAGS_START + 0x2F) // Hide Frank in Petalburg
+#define FLAG_HIDE_BIRCH_QUEST3_COMPLETE_DAILY       (DAILY_FLAGS_START + 0x30) // Hide Frank after Quest 3 complete (daily)
 #define FLAG_UNUSED_0x951                           (DAILY_FLAGS_START + 0x31) // Unused Flag
 #define FLAG_UNUSED_0x952                           (DAILY_FLAGS_START + 0x32) // Unused Flag
 #define FLAG_UNUSED_0x953                           (DAILY_FLAGS_START + 0x33) // Unused Flag

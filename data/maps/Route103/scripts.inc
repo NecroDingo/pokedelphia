@@ -43,21 +43,29 @@ Route103_EventScript_RivalMay::
 
 
 Route103_EventScript_StartMayBattleBulbasaur::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayDefeated
+	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 
 Route103_EventScript_StartMayBattleGible::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayDefeated
+	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 
 Route103_EventScript_StartMayBattleAron::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayDefeated
+	trainerbattle_no_whiteout_continue TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayLetsBattle, Route103_Text_MayDefeated
 	goto Route103_EventScript_AfterMayBattle
 	end
 
 Route103_EventScript_AfterMayBattle::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, Route103_EventScript_MayHealsAfterLoss
+	msgbox Route103_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
+	goto Route103_EventScript_RivalExit
+	end
+
+Route103_EventScript_MayHealsAfterLoss::
+	msgbox Route103_Text_MayHealsParty, MSGBOX_DEFAULT
 	msgbox Route103_Text_MayTimeToHeadBack, MSGBOX_DEFAULT
 	goto Route103_EventScript_RivalExit
 	end
@@ -282,9 +290,16 @@ Route103_Text_MayLetsBattle:
 
 Route103_Text_MayDefeated:
 	.string "She looks at you and nods,\n"
-	.string "but with a 'don’t get cocky' face.\p"
 	.string "Then jots something in her notebook.\p"
-	.string "You swear she writes 'Charlie cheats'.$"
+	.string "You swear she writes 'Charlie is trash'.$"
+
+Route103_Text_MayHealsParty:
+	.string "She pulls out a small spray bottle\n"
+	.string "and walks over to your POKéMON.\p"
+	.string "Gives them a few quick spritzes.\n"
+	.string "Your POKéMON perk up immediately.\p"
+	.string "She nods approvingly and caps\n"
+	.string "the bottle with a satisfied grunt.$"
 
 Route103_Text_MayTimeToHeadBack:
 	.string "She points at you. Then at her head.\n"
