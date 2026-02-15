@@ -1064,8 +1064,7 @@ LittlerootTown_ProfessorBirchsLab_Text_EggScamTurnInGreeting:
 	.string "The clerk said what?!?\p"
 	.string "Aw crap, I guess he figured it out...\p"
 	.string "Thats fine, I've got plenty of other\n"
-	.string "tricks up my sleeve.\p"
-	.string "Here's a few dollars for your troubles$"
+	.string "tricks up my sleeve.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GoAdventure:
 	.string "Go ahead and keep that egg. I can\n"

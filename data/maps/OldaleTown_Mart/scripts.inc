@@ -134,4 +134,4 @@ OldaleTown_Mart_Text_EggScamGreeting:
 
 OldaleTown_Mart_Text_TellPlayerToSeeFrank:
 	.string "Go back to Frank and tell him about\n"
-	.string "the clerk not wanting his eggs.$"
+	.string "the clerk not wanting his egg.$"
