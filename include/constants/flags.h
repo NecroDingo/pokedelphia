@@ -46,7 +46,7 @@
 #define FLAG_NUZLOCKE        0x20 // Nuzlocke Challenge flag
 #define FLAG_VS_SEEKER_ENABLE       0x21 // Enables the use of the Vs. Seeker in include/config/item.h
 #define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_HIDE_FRANK_PETALBURG 0x23 // Hides Frank in Petalburg City - Wally's House
+#define FLAG_HIDE_PETALBURG_CITY_BIRCH 0x23 // Hides Frank in Petalburg City - Wally's House
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
@@ -666,10 +666,10 @@
 #define FLAG_OLDALE_NURSE_INTRO_DONE                         0x265 // Oldale Nurse intro
 
 #define FLAG_EXP_SHARE_TOGGLE                                0x266 // Toggles Exp. Share on/off
-#define FLAG_HIDE_BIRCH_QUEST3_COMPLETE                      0x267 // Hides Frank after completing his quest in the Holy House
-#define FLAG_HIDE_BIRCH_BEFORE_QUEST_3                       0x268 // Hides Frank before starting his quest in the Holy House
-#define FLAG_HIDE_DAYNIGHT_SCIENCEGUY                        0x269 // Day/Night Science Guy flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
+#define FLAG_HIDE_PETALBURG_CITY_BIRCH_QUEST3_COMPLETE                      0x267 // Hides Frank after completing his quest in Matthews House
+#define FLAG_HIDE_PETALBURG_CITY_BIRCH_BEFORE_QUEST_3                       0x268 // Hides Frank before starting his quest in Matthews House
+#define FLAG_HIDE_DAYNIGHT_SCIENCEGUY                        0x269 // Calls Science Guy to explain day/night cycle
+#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_ROOT_FOSSIL          0x26A // Hidden Item: Petalburg City Root Fossil
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
 #define FLAG_UNUSED_0x26C  0x26C // Unused Flag
 #define FLAG_UNUSED_0x26D  0x26D // Unused Flag
@@ -1626,8 +1626,8 @@
 #define FLAG_UNUSED_0x94C                           (DAILY_FLAGS_START + 0x2C) // Unused Flag
 #define FLAG_UNUSED_0x94D                           (DAILY_FLAGS_START + 0x2D) // Unused Flag
 #define FLAG_UNUSED_0x94E                           (DAILY_FLAGS_START + 0x2E) // Unused Flag
-#define FLAG_HIDE_BIRCH_PETALBURG                   (DAILY_FLAGS_START + 0x2F) // Hide Frank in Petalburg
-#define FLAG_HIDE_BIRCH_QUEST3_COMPLETE_DAILY       (DAILY_FLAGS_START + 0x30) // Hide Frank after Quest 3 complete (daily)
+#define FLAG_UNUSED_0x94F                           (DAILY_FLAGS_START + 0x2F) // Unused Flag
+#define FLAG_UNUSED_0x950                           (DAILY_FLAGS_START + 0x30) // Unused Flag
 #define FLAG_UNUSED_0x951                           (DAILY_FLAGS_START + 0x31) // Unused Flag
 #define FLAG_UNUSED_0x952                           (DAILY_FLAGS_START + 0x32) // Unused Flag
 #define FLAG_UNUSED_0x953                           (DAILY_FLAGS_START + 0x33) // Unused Flag

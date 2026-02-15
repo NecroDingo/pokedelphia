@@ -53,7 +53,7 @@ EventScript_DoNoIntroTrainerBattle::
 	special PlayTrainerEncounterMusic
 	dotrainerbattle
 	gotopostbattlescript
-
+	
 EventScript_DoNoIntroTrainerBattleNoWhiteout::
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	applymovement VAR_LAST_TALKED, Movement_RevealTrainer

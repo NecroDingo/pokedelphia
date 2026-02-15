@@ -1626,8 +1626,8 @@ PetalburgCity_Gym_Text_GymStatue:
 	.string "PETALBURG CITY POKéMON GYM$"
 
 PetalburgCity_Gym_Text_GymStatueCertified:
-	.string "PETALBURG CITY POKéMON GYM\p"
-	.string "NORMAN'S CERTIFIED TRAINERS:\n"
+	.string "GIANT'S REACH POKéMON GYM\p"
+	.string "JACK'S CERTIFIED BOYS & GIRLS:\n"
 	.string "{PLAYER}$"
 
 PetalburgCity_Gym_Text_NormanPreRematch:
@@ -1667,3 +1667,38 @@ PetalburgCity_Gym_Text_NormanRematchNeedTwoMons:
 	.string "Sorry, but you'll have to come back\n"
 	.string "with at least two POKéMON.$"
 
+PetalburgCity_Gym_EventScript_Quest3_HiddenItem::
+	checkflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_ROOT_FOSSIL
+	goto_if TRUE, PetalburgCity_Gym_EventScript_Quest3_NotActive
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	compare VAR_RESULT, FALSE
+	goto_if_eq PetalburgCity_Gym_EventScript_Quest3_NotStarted
+	msgbox PetalburgCity_Text_FoundRootFossil, MSGBOX_SIGN
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_ROOT_FOSSIL, 1
+	questmenu QUEST_MENU_SET_REWARD QUEST_3_ROOT_FOSSIL
+	setflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_ROOT_FOSSIL
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
+	msgbox PetalburgCity_Text_Birch_Quest3_FoundItem, MSGBOX_SIGN
+	end
+
+PetalburgCity_Gym_EventScript_Quest3_NotActive::
+	msgbox PetalburgCity_Text_Quest3_FlowersNotActive, MSGBOX_SIGN
+	end
+
+PetalburgCity_Gym_EventScript_Quest3_NotStarted::
+	end
+
+PetalburgCity_Text_FoundRootFossil:
+	.string "You search the flowers...\p"
+	.string "You found a Root Fossil!$"
+
+PetalburgCity_Text_Birch_Quest3_FoundItem:
+	.string "Better go tell Frank that we found\n"
+	.string "the hidden item!$"
+
+PetalburgCity_Text_Quest3_FlowersNotActive:
+	.string "These are just ordinary flowers.\p"
+	.string "Nothing special here.....$"

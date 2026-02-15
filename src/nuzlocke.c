@@ -125,6 +125,10 @@ static u8 GetNuzlockeLocationId(u8 currLocation)
         return MAPSEC_FIERY_PATH;
     case MAPSEC_JAGGED_PASS2:
         return MAPSEC_JAGGED_PASS;
+    
+    // Beach areas - remap to low IDs to fit in tracking variables (max 64 locations)
+    case MAPSEC_ROUTE_104_BEACH:
+        return 60;  // Use unused ID 60 for Route 104 Beach tracking
         
     // Default to the location itself if not handled above
     default:

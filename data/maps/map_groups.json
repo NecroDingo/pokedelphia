@@ -586,10 +586,7 @@
     "NavelRock_Bottom",
     "TrainerHill_Elevator"
   ],
-  "gMapGroup_IndoorRoute104Prototype": [
-    "Route104_Prototype",
-    "Route104_PrototypePrettyPetalFlowerShop"
-  ],
+  "gMapGroup_IndoorRoute104Prototype": [],
   "gMapGroup_IndoorRoute109": [
     "Route109_SeashoreHouse"
   ],

@@ -970,11 +970,12 @@ Route104_Text_LikeFillingMouthWithSeedsTakeThis:
 	.string "Seriously. Try not to choke.$"
 
 Route104_Text_TMsAreOneTimeUse:
-	.string "Heads-up: TMs vanish after one use.\p"
-	.string "Poof.\p"
-	.string "Choose wisely.\p"
-	.string "Maybe just don’t waste it on that rat\n"
-	.string "you caught.$"
+	.string "Heads-up: TMs got an update.\p"
+	.string "They used to vanish after\n"
+	.string "one use. Poof!\p"
+	.string "Now you can use the same TM\n"
+	.string "on multiple Pokémon.\p"
+	.string "Pretty neat, huh?$"
 
 Route104_Text_DontNeedThisTakeIt:
 	.string "Went nuts at the flower shop.\n"

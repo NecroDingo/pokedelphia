@@ -723,14 +723,6 @@ PetalburgCity_Movement_PlayerWalkToGym3:
 	walk_up
 	step_end
 
-PetalburgCity_EventScript_Scott0::
-	lockall
-	addobject LOCALID_PETALBURG_SCOTT
-	setvar VAR_0x8008, 0
-	setobjectxy LOCALID_PETALBURG_SCOTT, 27, 12
-	goto PetalburgCity_EventScript_Scott
-	end
-
 PetalburgCity_EventScript_Scott1::
 	lockall
 	addobject LOCALID_PETALBURG_SCOTT
@@ -780,7 +772,6 @@ PetalburgCity_EventScript_Scott::
 	delay 30
 	msgbox PetalburgCity_Text_ImLookingForTalentedTrainers, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_0x8008, 0, PetalburgCity_EventScript_ScottExit0
 	call_if_eq VAR_0x8008, 1, PetalburgCity_EventScript_ScottExit1
 	call_if_eq VAR_0x8008, 2, PetalburgCity_EventScript_ScottExit2
 	call_if_eq VAR_0x8008, 3, PetalburgCity_EventScript_ScottExit3
@@ -788,12 +779,6 @@ PetalburgCity_EventScript_Scott::
 	removeobject LOCALID_PETALBURG_SCOTT
 	releaseall
 	end
-
-PetalburgCity_EventScript_ScottExit0::
-	applymovement LOCALID_PLAYER, PetalburgCity_Movement_PlayerWatchScottExit0
-	applymovement LOCALID_PETALBURG_SCOTT, PetalburgCity_Movement_ScottExit0
-	waitmovement 0
-	return
 
 PetalburgCity_EventScript_ScottExit1::
 	applymovement LOCALID_PLAYER, PetalburgCity_Movement_PlayerWatchScottExit1
@@ -1051,3 +1036,125 @@ PetalburgCity_Text_AfterFoundNugget:
 	.string "One man's mistake is another man's\n"
 	.string "treasure.$"
 
+PetalburgCity_EventScript_Birch0::
+	lockall
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, PetalburgCity_EventScript_Birch_AlreadyActive
+	addobject LOCALID_PETALBURG_BIRCH
+	setobjectxy LOCALID_PETALBURG_BIRCH, 15, 21
+	goto PetalburgCity_EventScript_Birch_Quest3
+	end	
+
+PetalburgCity_EventScript_Birch1::
+	lockall
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	goto_if_eq VAR_RESULT, TRUE, PetalburgCity_EventScript_Birch_AlreadyActive
+	addobject LOCALID_PETALBURG_BIRCH
+	setobjectxy LOCALID_PETALBURG_BIRCH, 16, 21
+	goto PetalburgCity_EventScript_Birch_Quest3
+	end
+
+PetalburgCity_EventScript_Birch_AlreadyActive::
+	releaseall
+	end
+
+PetalburgCity_EventScript_Birch_Quest3::
+	playse SE_PIN
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+	delay 8
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_BIRCH, PetalburgCity_Movement_BirchStartWalkDown
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_PETALBURG_BIRCH, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_BIRCH, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_PETALBURG_BIRCH, PetalburgCity_Movement_BirchApproachPlayer
+	waitmovement 0
+	msgbox PetalburgCity_Text_Birch_Quest3_Start1, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	msgbox PetalburgCity_Text_Birch_Quest3_Start2, MSGBOX_DEFAULT
+	closemessage
+	delay 30
+	goto PetalburgCity_EventScript_BirchExit
+	end
+	
+	PetalburgCity_EventScript_BirchExit::
+	applymovement LOCALID_PETALBURG_BIRCH, PetalburgCity_Movement_BirchExit
+	waitmovement 0
+	removeobject LOCALID_PETALBURG_BIRCH
+	startquest QUEST_3_ROOT_FOSSIL
+	setvar VAR_PETALBURG_CITY_QUEST_3, 1
+	releaseall
+	end	
+
+PetalburgCity_Movement_BirchStartWalkDown:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PetalburgCity_Movement_BirchApproachPlayer:
+	walk_down
+	step_end	
+
+PetalburgCity_Movement_BirchExit:	
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+PetalburgCity_Text_Birch_Quest3_Start1:
+	.string "Hey-o, Charlie.\p"
+	.string "Listen, I been tailin’ you around\n"
+	.string "‘cause I wanna play a little game.\p"
+	.string "Yeah, a game.\p"
+	.string "I got a riddle for ya.\p"
+	.string "And no, it ain’t one’a those\n"
+	.string "kid crap riddles...\p"
+	.string "This one’s got stakes.\p"
+	.string "I stashed somethin’ in this town.\n"
+	.string "You find it, it’s yours.\p"
+	.string "Don’t ask me where I got it.\p"
+	.string "Alright, here we go:\p"
+	.string "A little vase with leafy hair,\n"
+	.string "got somethin’ juicy hid in there.\l"
+	.string "Don’t go screw around in the grass,\l"
+	.string "the prize sits where trainers pass.$"
+
+PetalburgCity_Text_Birch_Quest3_Start2:
+	.string "Now, I’m gonna head up to the\n"
+	.string "church house, or whatever the hell\l"
+	.string "it is.\p"
+	.string "I got some questions for the priests.\p"
+	.string "Wanna see just how much I can\n"
+	.string "do before the big man upstairs blows\l"
+	.string "a gasket.\p"
+	.string "Come see me when you find it.$"
+
+PetalburgCity_EventScript_Quest3_HiddenItem::
+	checkflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_ROOT_FOSSIL
+	goto_if TRUE, PetalburgCity_EventScript_Quest3_NotActive
+	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
+	compare VAR_RESULT, FALSE
+	goto_if_eq PetalburgCity_EventScript_Quest3_NotActive
+	msgbox PetalburgCity_Text_FoundRootFossil, MSGBOX_SIGN
+	waitmessage
+	playfanfare MUS_OBTAIN_ITEM
+	giveitem ITEM_ROOT_FOSSIL, 1
+	questmenu QUEST_MENU_SET_REWARD QUEST_3_ROOT_FOSSIL
+	setflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_ROOT_FOSSIL
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
+	msgbox PetalburgCity_Text_Birch_Quest3_FoundItem, MSGBOX_SIGN
+	end
+
+PetalburgCity_EventScript_Quest3_NotActive::
+	end

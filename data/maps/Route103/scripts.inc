@@ -34,7 +34,7 @@ Route103_EventScript_RivalMay::
 	waitmovement 0
 	applymovement LOCALID_ROUTE103_RIVAL, Common_Movement_Delay48
 	waitmovement 0
-	setflag FLAG_TEMP_5
+	setflag B_FLAG_NO_WHITEOUT
 	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
 	closemessage
 	switch VAR_STARTER_MON
@@ -120,7 +120,7 @@ Route103_EventScript_RivalEnd::
 	applymovement LOCALID_PLAYER, Common_Movement_SelfText
 	waitmovement 0
 	msgbox Route103_Text_BetterGoBack, MSGBOX_DEFAULT
-	clearflag FLAG_TEMP_5
+	clearflag B_FLAG_NO_WHITEOUT
 	releaseall
 	end
 
@@ -297,9 +297,9 @@ Route103_Text_MayDefeated:
 	.string "You swear she writes 'Charlie is trash'.$"
 
 Route103_Text_MayHealsParty:
-	.string "She pulls out a small spray bottle\n"
+	.string "She pulls out a small bottle\n"
 	.string "and walks over to your POKéMON.\p"
-	.string "Gives them a few quick spritzes.\n"
+	.string "Gives them a few quick sips.\n"
 	.string "Your POKéMON perk up immediately.\p"
 	.string "She nods approvingly and caps\n"
 	.string "the bottle with a satisfied grunt.$"

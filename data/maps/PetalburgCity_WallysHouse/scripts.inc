@@ -22,8 +22,8 @@ PetalburgCity_WallysHouse_OnTransition_End:
 PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene::
 	setobjectxyperm LOCALID_WALLYS_HOUSE_WALLYS_DAD, 4, 4
 	setobjectxyperm LOCALID_WALLYS_HOUSE_WALLYS_MOM, 7, 5
-	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene_End
-	clearflag FLAG_HIDE_BIRCH_PETALBURG
+	goto_if_set FLAG_HIDE_PETALBURG_CITY_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_SetupQuest3Scene_End
+	clearflag FLAG_HIDE_PETALBURG_CITY_BIRCH
 	addobject LOCALID_WALLYS_HOUSE_BIRCH
 	setobjectxyperm LOCALID_WALLYS_HOUSE_BIRCH, 4, 5
 
@@ -56,7 +56,7 @@ PetalburgCity_WallysHouse_EventScript_GiveHMSurf::
 PetalburgCity_WallysHouse_EventScript_WallysDad::
 	lock
 	faceplayer
-	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysDadAfterBirch
+	goto_if_set FLAG_HIDE_PETALBURG_CITY_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysDadAfterBirch
 	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_WallysHouse_EventScript_WallysDadQuest3
@@ -104,7 +104,7 @@ PetalburgCity_WallysHouse_EventScript_WallysMomAfterBirch::
 PetalburgCity_WallysHouse_EventScript_WallysMom::
 	lock
 	faceplayer
-	goto_if_set FLAG_HIDE_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysMomAfterBirch
+	goto_if_set FLAG_HIDE_PETALBURG_CITY_BIRCH_QUEST3_COMPLETE, PetalburgCity_WallysHouse_EventScript_WallysMomAfterBirch
 	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
 	compare VAR_RESULT, TRUE
 	goto_if_eq PetalburgCity_WallysHouse_EventScript_WallysMomQuest3
@@ -144,8 +144,8 @@ PetalburgCity_WallysHouse_EventScript_BirchTurnInQuest::
 	call_if_eq VAR_FACING, DIR_NORTH, PetalburgCity_WallysHouse_EventScript_MovePlayerForBirchExit
 	applymovement LOCALID_WALLYS_HOUSE_BIRCH, PetalburgCity_WallysHouse_Movement_BirchLeave
 	waitmovement 0
-	setflag FLAG_HIDE_BIRCH_QUEST3_COMPLETE
-	setflag FLAG_HIDE_BIRCH_PETALBURG
+	setflag FLAG_HIDE_PETALBURG_CITY_BIRCH_QUEST3_COMPLETE
+	setflag FLAG_HIDE_PETALBURG_CITY_BIRCH
 	removeobject LOCALID_WALLYS_HOUSE_BIRCH
 	release
 	end
@@ -275,7 +275,14 @@ PetalburgCity_WallysHouse_Text_FrankWaiting:
 	.string "Don't keep me waitin' too long.\p"
 	.string "These folks are nice enough, but\n"
 	.string "their constant prayin' is gettin'\l"
-	.string "on my nerves.$"
+	.string "on my nerves.\p"
+	.string "Here's that riddle again..\p"
+	.string "A little vase with leafy hair,\n"
+	.string "got somethin’ juicy hid in there.\l"
+	.string "Don’t go screw around in the grass,\l"
+	.string "the prize sits where trainers pass.$"
+	.string "C'mon Charlie, I thought you\n"
+	.string "would have it by now.$"
 
 PetalburgCity_WallysHouse_Text_FrankTurnIn:
 	.string "Well, well, well.\p"
