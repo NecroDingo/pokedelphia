@@ -1234,6 +1234,10 @@
     {
       "id": "MAPSEC_ROUTE_104_BEACH",
       "name": "ROUTE 104 BEACH"
+    },
+    {
+      "id": "MAPSEC_PETALBURG_WOODS_SHORTCUT",
+      "name": "SCRAPPLE HOLLOW SHORTCUT"
     }
   ]
 }

@@ -999,22 +999,30 @@ PetalburgCity_Text_WallyHouseSign:
 	.string "HOLY HOUSE$"
 
 PetalburgCity_Text_AreYouATrainer:
-	.string "Yo, hold up! Lemme guess.\p"
-	.string "Lookin’ at how you’re\n"
-	.string "dressed, you a POKéMON TRAINER or what?$"
+	.string "THE LAWYER: Excuse me sir.\p"
+	.string "You there.\p"
+	.string "Based on your attire...\n"
+	.string "I’m going to assume you’re a\l"
+	.string "POKéMON TRAINER?$"
 
 PetalburgCity_Text_WellMaybeNot:
-	.string "… … … … … …\p"
-	.string "Eh, maybe not.\p"
-	.string "Your clothes ain’t dirty enough to be\n"
-	.string "a real trainer.\p"
-	.string "You either new to this or just some kid\n"
-	.string "playin’ at it.$"
+	.string "THE LAWYER: ..... ..... .....\p"
+	.string "Hmm.\p"
+	.string "On second thought, perhaps not.\p"
+	.string "You don’t appear particularly\n"
+	.string "battle-worn.\p"
+	.string "No visible scuffs. No dust.\p"
+	.string "Either you’re new...\n"
+	.string "or you lack follow-through.$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers:
-	.string "I’m huntin’ for real talent.\p"
-	.string "Don’t waste my time if you ain’t\n"
-	.string "serious.$"
+	.string "THE LAWYER: I represent certain...\n" 
+	.string "interests.\p"
+	.string "We are currently evaluating promising\n"
+	.string "trainers for future opportunities.\p"
+	.string "If you intend to pursue this seriously,\n"
+	.string "prove it.\p"
+	.string "I do not entertain amateurs.$"
 
 PetalburgCity_Eventscript_NuggetBush::
 	checkflag FLAG_PETALBURG_CITY_CAN_SEARCH_BUSHES

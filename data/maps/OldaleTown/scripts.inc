@@ -371,7 +371,7 @@ OldaleTown_Text_PotionExplanation:
 	.string "for a while.$"
 
 OldaleTown_Text_WaitDontComeInHere:
-	.string "Yo! Yo! Back it up, bro.\n"
+	.string "REX: Yo! Yo! Back it up, bro.\n"
 	.string "You can’t roll through here.\p"
 	.string "I think I just found some rare-ass\n"
 	.string "Pokémon prints or somethin’.\p"
@@ -379,14 +379,14 @@ OldaleTown_Text_WaitDontComeInHere:
 	.string "Don’t step in it, man. I ain’t jokin’.$"
 
 OldaleTown_Text_DiscoveredFootprints:
-	.string "Aight, chill.\n"
+	.string "REX: Aight, chill.\n"
 	.string "I’m workin’ here.\p"
 	.string "Could be ancient, y’know?\n"
 	.string "Like legendary-level footprints.\p"
 	.string "This is serious business. Back it up.$"
 
 OldaleTown_Text_FinishedSketchingFootprints:
-	.string "Aight... done with the sketch.\p"
+	.string "REX: Aight... done with the sketch.\p"
 	.string "Wait...\p"
 	.string "Yo, hold up...these are my kicks?\p"
 	.string "Haha! Damn, I’m the rare Pokémon.\p"
@@ -467,7 +467,7 @@ OldaleTown_Text_GailTheSnailIntroQuest:
 	.string "That dumb Drowzee put him to sleep.\p"
 	.string "He was doing sooo good too.\p"
 	.string "Now he’s just laying there like-\n"
-	.string "*snrrrk… slrrrp…*\p"
+	.string "snrrrk… slrrrp…\p"
 	.string "It’s honestly disgusting.\p"
 	.string "Can you get me a Chesto Berry?\n"
 	.string "I do not wanna deal with this.$"
@@ -490,7 +490,7 @@ OldaleTown_Text_GailTheSnailAccept:
 OldaleTown_Text_GailTheSnailAccept2:
 	.string "GAIL THE SNAIL: Oh my god, listen\n"
 	.string "to him.\p"
-	.string "*snrrrk… slrrrp…*\p"
+	.string "snrrrk… slrrrp…\p"
 	.string "It’s like wet breathing.\p"
 	.string "I hate it.\p"
 	.string "Just hurry.$"
@@ -507,7 +507,7 @@ OldaleTown_Text_GailTheSnailActiveNoBerry:
 	.string "GAIL THE SNAIL: Um.\p"
 	.string "Still asleep.\p"
 	.string "Still gross.\p"
-	.string "*snrrrk… slrrrp…*\p"
+	.string "snrrrk… slrrrp…\p"
 	.string "Did you even try?\p"
 	.string "Are you just into me or something?\n"
 	.string "Or did you forget?\p"

@@ -194,7 +194,7 @@
     {
       "id": "LAYOUT_ROUTE104",
       "name": "Route104_Layout",
-      "width": 60,
+      "width": 66,
       "height": 90,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -4410,6 +4410,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route104Beach/border.bin",
       "blockdata_filepath": "data/layouts/Route104Beach/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS_SHORTCUT",
+      "name": "PetalburgWoodsShortcut_Layout",
+      "width": 30,
+      "height": 94,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/PetalburgWoodsShortcut/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoodsShortcut/map.bin"
     }
   ]
 }
