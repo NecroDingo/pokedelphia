@@ -957,10 +957,14 @@ Route104_Text_JumpFromLedges:
 
 Route104_Text_ImNotATrainer:
 	.string "Nope, I ain’t a Trainer.\p"
-	.string "If one stares you down, you better stare\n"
-	.string "back. It's go time!\p"
-	.string "Avoid eye contact, or you might get\n"
-	.string "dragged into a fight.$"
+	.string "If one stares you down, get ready,\n"
+	.string "It's go time!\p"
+	.string "I go around every day and search rocks\n"
+	.string "around here for items.\p"
+	.string" Sometimes I go into SCRAPPLE HOLLOW\n"
+	.string "and search bushes for items too.\p"
+	.string "I just love exploring, and idiots\n"
+	.string "leave stuff behind all the time.$"
 
 Route104_Text_LikeFillingMouthWithSeedsTakeThis:
 	.string "Ever cram seeds in your mouth and\n"

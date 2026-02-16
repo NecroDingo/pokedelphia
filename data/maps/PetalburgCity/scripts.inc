@@ -5,6 +5,7 @@ PetalburgCity_MapScripts::
 
 PetalburgCity_OnTransition:
 	setflag FLAG_VISITED_PETALBURG_CITY
+	setflag FLAG_HIDE_PETALBURG_CITY_BIRCH
 	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
 	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
 	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
@@ -87,10 +88,21 @@ PetalburgCity_EventScript_Boy::
 	closemessage
 	applymovement LOCALID_PETALBURG_BOY, Common_Movement_FaceOriginalDirection
 	waitmovement 0
+	checkflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_NUGGET
+    goto_if TRUE, PetalburgCity_EventScript_NuggetBush_End
+	checkflag FLAG_PETALBURG_CITY_CAN_SEARCH_BUSHES
+	goto_if TRUE, PetalburgCity_EventScript_NuggetBush_End
+	goto PetalburgCity_EventScript_NuggetQuestIntro
+	end
+
+PetalburgCity_EventScript_NuggetQuestIntro::
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
+	msgbox PetalburgCity_Text_NuggetQuestIntro, MSGBOX_DEFAULT
 	release
 	setflag FLAG_PETALBURG_CITY_CAN_SEARCH_BUSHES
 	end
-
+	
 PetalburgCity_EventScript_WallysMom::
 	msgbox PetalburgCity_Text_WhereIsWally, MSGBOX_NPC
 	end
@@ -329,6 +341,7 @@ PetalburgCity_EventScript_ShowGymToPlayer::
 	waitdooranim
 	applymovement LOCALID_PLAYER, PetalburgCity_Movement_WalkInGym
 	waitmovement 0
+	setvar VAR_PETALBURG_GYM_STATE, 10
 	warp MAP_PETALBURG_CITY_GYM, 4, 111
 	waitstate
 	closedoor VAR_0x8004, VAR_0x8005
@@ -955,10 +968,14 @@ PetalburgCity_Text_WaterReflection:
 	.string "Lookin’ in the water, I only see\n"
 	.string "my stupid face.\p"
 	.string "Shoulda been a grin, but nah.\p"
-	.string "Lost my damn nugget in some bush,\n"
+	.string "Lost my damn Nugget in some bush,\n"
 	.string "now I’m stuck here feelin’ like a chump.\p"
 	.string "It’s gotta be around this jawn\n"
 	.string "somewhere...$"
+
+PetalburgCity_Text_NuggetQuestIntro:
+	.string "Better search these bushes to\n"
+	.string "find that Nugget before I go!$"
 
 PetalburgCity_Text_FullPartyExplanation:
 	.string "You got six POKéMON yet?\p"
@@ -1013,6 +1030,7 @@ PetalburgCity_Eventscript_NuggetBush::
 	goto PetalburgCity_EventScript_NuggetBush_End
 
 PetalburgCity_EventScript_NuggetBush_End:
+	release
     end
 
 PetalburgCity_Text_FoundNugget:
@@ -1138,23 +1156,3 @@ PetalburgCity_Text_Birch_Quest3_Start2:
 	.string "do before the big man upstairs blows\l"
 	.string "a gasket.\p"
 	.string "Come see me when you find it.$"
-
-PetalburgCity_EventScript_Quest3_HiddenItem::
-	checkflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_ROOT_FOSSIL
-	goto_if TRUE, PetalburgCity_EventScript_Quest3_NotActive
-	questmenu QUEST_MENU_CHECK_ACTIVE, QUEST_3_ROOT_FOSSIL
-	compare VAR_RESULT, FALSE
-	goto_if_eq PetalburgCity_EventScript_Quest3_NotActive
-	msgbox PetalburgCity_Text_FoundRootFossil, MSGBOX_SIGN
-	waitmessage
-	playfanfare MUS_OBTAIN_ITEM
-	giveitem ITEM_ROOT_FOSSIL, 1
-	questmenu QUEST_MENU_SET_REWARD QUEST_3_ROOT_FOSSIL
-	setflag FLAG_HIDDEN_ITEM_PETALBURG_CITY_ROOT_FOSSIL
-	applymovement LOCALID_PLAYER, Common_Movement_SelfText
-	waitmovement 0
-	msgbox PetalburgCity_Text_Birch_Quest3_FoundItem, MSGBOX_SIGN
-	end
-
-PetalburgCity_EventScript_Quest3_NotActive::
-	end

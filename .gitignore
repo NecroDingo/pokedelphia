@@ -54,6 +54,7 @@ tools/compresSmol/compresSmol
 tools/compresSmol/compresSmolTilemap
 tools/aif2pcm/aif2pcm
 tools/wild_encounters/planning
+.github/instructions
 *.Identifier
 *.smol
 *.fastSmol
