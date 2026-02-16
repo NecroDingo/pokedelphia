@@ -410,42 +410,42 @@ OldaleTown_Text_HeyOverHere:
 	.string "Hey, you!\n"
 	.string "Over here!$"
 
-OldaleTown_EventScript_LadyElizabeth::
+OldaleTown_EventScript_GailTheSnail::
     lock
     faceplayer
-    goto_if_quest_complete QUEST_1_FIND_CHESTO, OldaleTown_EventScript_LadyElizabeth_Completed
-	goto_if_quest_active QUEST_1_FIND_CHESTO, OldaleTown_EventScript_LadyElizabeth_CheckBerry
-	goto OldaleTown_EventScript_LadyElizabeth_Offer
+    goto_if_quest_complete QUEST_1_FIND_CHESTO, OldaleTown_EventScript_GailTheSnail_Completed
+	goto_if_quest_active QUEST_1_FIND_CHESTO, OldaleTown_EventScript_GailTheSnail_CheckBerry
+	goto OldaleTown_EventScript_GailTheSnail_Offer
 
-OldaleTown_EventScript_LadyElizabeth_Offer:
-	msgbox OldaleTown_Text_LadyElizabethIntroQuest, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, OldaleTown_EventScript_LadyElizabeth_Accept
-	msgbox OldaleTown_Text_LadyElizabethDecline, MSGBOX_NPC
+OldaleTown_EventScript_GailTheSnail_Offer:
+	msgbox OldaleTown_Text_GailTheSnailIntroQuest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, OldaleTown_EventScript_GailTheSnail_Accept
+	msgbox OldaleTown_Text_GailTheSnailDecline, MSGBOX_NPC
 	release
 	end
 
-OldaleTown_EventScript_LadyElizabeth_Accept:
-	msgbox OldaleTown_Text_LadyElizabethAccept, MSGBOX_NPC
+OldaleTown_EventScript_GailTheSnail_Accept:
+	msgbox OldaleTown_Text_GailTheSnailAccept, MSGBOX_NPC
 	waitmessage
 	startquest QUEST_1_FIND_CHESTO
-	msgbox OldaleTown_Text_LadyElizabethAccept2, MSGBOX_NPC
+	msgbox OldaleTown_Text_GailTheSnailAccept2, MSGBOX_NPC
 	waitmessage
 	release
 	end
 
-OldaleTown_EventScript_LadyElizabeth_CheckBerry:
+OldaleTown_EventScript_GailTheSnail_CheckBerry:
     checkitem ITEM_CHESTO_BERRY, 1
-    goto_if_eq VAR_RESULT, TRUE, OldaleTown_EventScript_LadyElizabeth_TurnIn
-    msgbox OldaleTown_Text_LadyElizabethActiveNoBerry, MSGBOX_NPC
+    goto_if_eq VAR_RESULT, TRUE, OldaleTown_EventScript_GailTheSnail_TurnIn
+    msgbox OldaleTown_Text_GailTheSnailActiveNoBerry, MSGBOX_NPC
     release
     end	
 
-OldaleTown_EventScript_LadyElizabeth_TurnIn:
+OldaleTown_EventScript_GailTheSnail_TurnIn:
 	faceplayer
-	msgbox OldaleTown_Text_LadyElizabethTurnIn, MSGBOX_NPC
+	msgbox OldaleTown_Text_GailTheSnailTurnIn, MSGBOX_NPC
 	removeitem ITEM_CHESTO_BERRY, 1
 	completequest QUEST_1_FIND_CHESTO
-	msgbox OldaleTown_Text_LadyElizabethTurnIn2, MSGBOX_NPC
+	msgbox OldaleTown_Text_GailTheSnailTurnIn2, MSGBOX_NPC
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox OldaleTown_Text_ReceivedMoney, MSGBOX_DEFAULT
@@ -454,76 +454,91 @@ OldaleTown_EventScript_LadyElizabeth_TurnIn:
 	release
 	end
 
-OldaleTown_EventScript_LadyElizabeth_Completed:
-	msgbox OldaleTown_Text_LadyElizabethCompleted, MSGBOX_NPC
+OldaleTown_EventScript_GailTheSnail_Completed:
+	msgbox OldaleTown_Text_GailTheSnailCompleted, MSGBOX_NPC
 	release
 	end
 
-	OldaleTown_Text_LadyElizabethIntroQuest:
-	.string "LADY ELIZABETH: Yo!\n"
-	.string "You look like you can handle a\l"
-	.string "little errand for me.\p"
-	.string "My Psyduck is knocked out cold thanks\n"
-	.string "to a dumb Drowzee I was fightin'.\p"
-	.string "I need a Chesto Berry to wake him up.\n"
-	.string "Can you grab one for me?\p"
-	.string "I’m not about to let that\n"
-	.string "sleepyhead ruin my day!$"
+OldaleTown_Text_GailTheSnailIntroQuest:
+	.string "GAIL THE SNAIL: Sllrrrp-\p"
+	.string "Oh. Hey, Charlie.\p"
+	.string "You look… helpful.\p"
+	.string "My Lickitung is like, totally out.\n"
+	.string "That dumb Drowzee put him to sleep.\p"
+	.string "He was doing sooo good too.\p"
+	.string "Now he’s just laying there like-\n"
+	.string "*snrrrk… slrrrp…*\p"
+	.string "It’s honestly disgusting.\p"
+	.string "Can you get me a Chesto Berry?\n"
+	.string "I do not wanna deal with this.$"
 
-OldaleTown_Text_LadyElizabethAccept:
-	.string "Sweet!\p"
-	.string "Sometimes you'll see berry bushes\n"
-	.string "growing out of soil. Maybe we can get\l"
-	.string "lucky over on Route 102.\p"
-	.string "If not, I think theres an older\n"
-	.string "woman up by WAWA PARK that might have\l"
-	.string "one.\p"
-	.string "Be sure to put berries in the special\n"
-	.string "Berry pocket in your bag!\p"
-	.string "Gotta keep em safe at all times...\n"
-	.string "Am I right or what?!$"
+OldaleTown_Text_GailTheSnailAccept:
+	.string "GAIL THE SNAIL: Ugh, thank you.\p"
+	.string "You’re being, like, decent.\n"
+	.string "It's kinda hot...\p"
+	.string "I mean, not that I’m into you\n" 
+	.string "or anything...\l"
+	.string "Sllrrrp.\p"
+	.string "There’s berry bushes around here.\n"
+	.string "You just, like… pick them.\p"
+	.string "Or that old lady by WAWA PARK\n"
+	.string "might have one.\p"
+	.string "Just put it in your Berry pocket.\n"
+	.string "Don’t squish it. It's messy.\p"
+	.string "Sllrrrp.$"
 
+OldaleTown_Text_GailTheSnailAccept2:
+	.string "GAIL THE SNAIL: Oh my god, listen\n"
+	.string "to him.\p"
+	.string "*snrrrk… slrrrp…*\p"
+	.string "It’s like wet breathing.\p"
+	.string "I hate it.\p"
+	.string "Just hurry.$"
 
-OldaleTown_Text_LadyElizabethAccept2:
-	.string "I can’t deal with this shit much\n"
-	.string "longer.\p"
-	.string "I swear...\n"
-	.string "If I have to listen to this snoring\l"
-	.string "all night, I'm gonna flip!$"
+OldaleTown_Text_GailTheSnailDecline:
+	.string "GAIL THE SNAIL: Wow.\p"
+	.string "Okay.\p"
+	.string "So I’m just supposed to sit here\n"
+	.string "with this noise?\p"
+	.string "That’s actually so rude.\p"
+	.string "Sllrrrp.$"
 
-OldaleTown_Text_LadyElizabethDecline:
-	.string "Look, I’m not going back after that\n"
-	.string "Drowzee.\p"
-	.string "I’ve got better things to do\n"
-	.string "than play tag with a sleepy Pokémon.\p"
-	.string "I’ll owe you one.$"
+OldaleTown_Text_GailTheSnailActiveNoBerry:
+	.string "GAIL THE SNAIL: Um.\p"
+	.string "Still asleep.\p"
+	.string "Still gross.\p"
+	.string "*snrrrk… slrrrp…*\p"
+	.string "Did you even try?\p"
+	.string "Are you just into me or something?\n"
+	.string "Or did you forget?\p"
+	.string "You forget things a lot, Charlie.$"
 
-OldaleTown_Text_LadyElizabethActiveNoBerry:
-	.string "Hey, did you forget something?\n"
-	.string "I’m still waiting on that Chesto Berry!\p"
-	.string "My Psyduck is still snoozing over\n"
-	.string "there, and I can’t have him\l"
-	.string "missing out on the fun.\p"
-	.string "Hurry it up, will ya?\n"
-	.string "I can’t stand the sound of his snoring!$"
+OldaleTown_Text_GailTheSnailTurnIn:
+	.string "GAIL THE SNAIL: Wait.\p"
+	.string "Is that it?\p"
+	.string "Oh my god, finally.\p"
+	.string "Okay, wake up.\p"
+	.string "Don’t make it weird.\p"
+	.string "…Sllrrrp.$"
 
-OldaleTown_Text_LadyElizabethTurnIn:
-	.string "No way, you actually found it?\n"
-	.string "You’re a lifesaver!\p"
-	.string "Now let’s wake up my Psyduck\n"
-	.string "and get back to business.$"
+OldaleTown_Text_GailTheSnailTurnIn2:
+	.string "GAIL THE SNAIL: Here.\p"
+	.string "I have some cash.\p"
+	.string "It was in my pocket.\p"
+	.string "…Sllrrrp.\p"
+	.string "Just take it.\p"
+	.string "Don’t make it a thing.$"
 
-OldaleTown_Text_LadyElizabethTurnIn2:
-	.string "Here's a little something for you.\n"
-	.string "Thanks for your help!$"
-
-OldaleTown_Text_LadyElizabethCompleted:
-	.string "Oh, look who it is!\n"
-	.string "You really came through for me.\p"
-	.string "My Psyduck is back in action,\n"
-	.string "thanks to you! You’ve got some serious\l"
-	.string "skills.$"
+OldaleTown_Text_GailTheSnailCompleted:
+	.string "GAIL THE SNAIL: Oh hey.\p"
+	.string "Lickitung’s fine now.\p"
+	.string "He keeps licking stuff.\p"
+	.string "Which is, like… whatever.\p"
+	.string "Anyway.\p"
+	.string "Thanks again.\p"
+	.string "Sllrrrp.$"
 
 OldaleTown_Text_ReceivedMoney:
-	.string "Lady Elizabeth hands Charlie\n"
-	.string "500 dollars!$"
+	.string "GAIL THE SNAIL hands Charlie\n"
+	.string "500 dollars.\p"
+	.string "They feel slightly damp.$"

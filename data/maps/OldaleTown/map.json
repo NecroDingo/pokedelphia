@@ -41,7 +41,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_QUEST_GIVER",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OldaleTown_EventScript_LadyElizabeth",
+      "script": "OldaleTown_EventScript_GailTheSnail",
       "flag": "0",
       "quest_id": 0
     },
