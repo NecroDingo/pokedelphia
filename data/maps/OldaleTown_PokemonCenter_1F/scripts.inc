@@ -42,6 +42,10 @@ OldaleTown_PokemonCenter_EventScript_NurseIntro::
 	closemessage
 	setflag FLAG_OLDALE_NURSE_INTRO_DONE
 	setvar VAR_TEMP_0, 0
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
+	waitmovement 0
+	msgbox OldaleTown_PokemonCenter_Text_CharlieMission, MSGBOX_DEFAULT
+	closemessage
 	fadedefaultbgm
 	release
 	end
@@ -81,13 +85,35 @@ OldaleTown_PokemonCenter_Text_NurseIntro2:
 	.string "every day...\p"
 	.string "I’m just here for the POKéMON. I've\n"
 	.string "changed careers, I'm a Nurse now.\p"
-	.string "And NO!\n"
-	.string "You are NEVER getting a Pokémon\l"
-	.string "physical from me... Ever!$"
+	.string "I work hard here.\n"
+	.string "This place matters to people.\p"
+	.string "Become somebody important.\n"
+	.string "Do something that actually matters.\p"
+	.string "I’m not impressed by you, CHARLIE.\p"
+	.string "You follow me around, you start things,\n"
+	.string "you quit halfway through.\p"
+	.string "Win a badge.\n"
+	.string "Win all of them.\p"
+	.string "Become the CHAMPION of Pokedelphia.\p"
+	.string "Then maybe I’ll finally see you as\n"
+	.string "something more than a problem.\p"
+	.string "Until then, just leave me alone!$"
 
 OldaleTown_PokemonCenter_Text_NurseIntro3:
 	.string "Well, come on. I have a job to do.\n"
 	.string "Your POKéMON are more important...$"
+
+OldaleTown_PokemonCenter_Text_CharlieMission:
+	.string "You heard her, Charlie...\p"
+	.string "She wants a CHAMPION.\p"
+	.string "That’s it...\p"
+	.string "That’s the move...\p"
+	.string "Win a Badge.\p"
+	.string "Win all the Badges.\p"
+	.string "Win the League.\p"
+	.string "Become CHAMPION.\p"
+	.string "Marry the Waitress.$"
+
 
 OldaleTown_PokemonCenter_1F_EventScript_Nurse::
 	setvar VAR_0x800B, LOCALID_OLDALE_NURSE

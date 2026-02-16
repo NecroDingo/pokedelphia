@@ -101,13 +101,15 @@ Route102_Text_WatchMeCatchPokemon:
 	.string "Watch me snag one real quick.\n"
 	.string "Just gotta be calm, confident…\p"
 	.string "…Wait, whoa, oh my goodness?!\p"
-	.string "That thing’s not supposed to be here!\n"
-	.string "Is this even legal!?$"
+	.string "My first chance! Lets go!$"
+
 
 Route102_Text_WallyIDidIt:
 	.string "Matthew: I actually did it…\p"
 	.string "This is my Pokémon now!\n"
-	.string "For real! My own partner!$"
+	.string "For real! My own partner!\p"
+	.string "It looks cute and tiny now, but\n"
+	.string "I bet it'll get super strong!$"
 
 Route102_Text_LetsGoBack:
 	.string "Matthew: {PLAYER}, you’re the real MVP.\n"

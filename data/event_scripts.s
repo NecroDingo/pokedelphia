@@ -1041,7 +1041,7 @@ gText_MonsHealedShouldBuyPotions::
 	.string "Pokémon like that.\p"
 	.string "Go grab some Potions at the Mart or\n"
 	.string "something and stop being such a mess.\p"
-	.string "Now leave me alone!\n$"
+	.string "Now leave me alone!$"
 
 gText_MonsHealed::
 	.string "Your POKéMON have been healed\n"

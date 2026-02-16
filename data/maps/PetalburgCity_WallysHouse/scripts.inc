@@ -267,7 +267,7 @@ PetalburgCity_WallysHouse_Text_WallysMomQuest3:
 	.string "Charlie, I can’t…\n"
 	.string "I’m not qualified to give a yes\l"
 	.string "or no on that.\p"
-	.string "We just… pray for him.\n$"
+	.string "We just… pray for him.$"
 
 PetalburgCity_WallysHouse_Text_FrankWaiting:
 	.string "Charlie, you find that little treasure\n"
@@ -307,9 +307,12 @@ PetalburgCity_WallysHouse_Text_FrankLeaving:
 	.string "If you’re gonna stumble through it,\n"
 	.string "you better stock up on Poké Balls,\l"
 	.string "potions, whatever's available.\p"
-	.string "They say it leads up to Wawa Park.\n"
+	.string "It leads up to Wawa Park.\n"
 	.string "Nice place, good sandwiches.\p"
-	.string "Anyway, talk to ya later!\n$"
+	.string "Get some grub there. You’ll need it.\p"
+	.string "I have to look into a few things,\n"
+	.string "but I might see you up there sometime.\p"
+	.string "Talk to ya later!$"
 
 PetalburgCity_WallysHouse_Text_WallysDadAfterFrank:
 	.string "I… I can finally breathe again.\n"

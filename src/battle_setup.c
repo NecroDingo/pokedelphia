@@ -427,10 +427,10 @@ static void DoBattlePyramidTrainerHillBattle(void)
     TryUpdateGymLeaderRematchFromTrainer();
 }
 
-// Initiates battle where Wally catches Swablu
+// Initiates battle where Wally catches Impidimp
 void StartWallyTutorialBattle(void)
 {
-    CreateMaleMon(&gEnemyParty[0], SPECIES_SWABLU, 4);
+    CreateMaleMon(&gEnemyParty[0], SPECIES_IMPIDIMP, 4);
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     gBattleTypeFlags = BATTLE_TYPE_WALLY_TUTORIAL;

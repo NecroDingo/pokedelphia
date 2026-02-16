@@ -71,7 +71,7 @@ OldaleTown_Mart_PostMart_QuestCheck::
 	questmenu QUEST_MENU_CHECK_COMPLETE, QUEST_2_EGG_SCAM
 	goto_if_quest_complete QUEST_2_EGG_SCAM, OldaleTown_Mart_PostMart_HasEggNoQuest
 	questmenu QUEST_MENU_SET_REWARD QUEST_2_EGG_SCAM
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_PLAYER, Common_Movement_SelfText
 	waitmovement 0
 	msgbox OldaleTown_Mart_Text_TellPlayerToSeeFrank, MSGBOX_DEFAULT
 	waitmessage

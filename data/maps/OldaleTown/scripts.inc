@@ -478,15 +478,14 @@ OldaleTown_Text_LadyElizabethAccept:
 	.string "If not, I think theres an older\n"
 	.string "woman up by WAWA PARK that might have\l"
 	.string "one.\p"
-	.string "Make sure to not squish them in\n"
-	.string "your bag!\p"
-	.string "Gotta keep the berries safe at all\n"
-	.string "times...\p"
-	.string "Am I right or what?!\n$"
+	.string "Be sure to put berries in the special\n"
+	.string "Berry pocket in your bag!\p"
+	.string "Gotta keep em safe at all times...\n"
+	.string "Am I right or what?!$"
 
 
 OldaleTown_Text_LadyElizabethAccept2:
-	.string "I can’t deal with this nonsense much\n"
+	.string "I can’t deal with this shit much\n"
 	.string "longer.\p"
 	.string "I swear...\n"
 	.string "If I have to listen to this snoring\l"
