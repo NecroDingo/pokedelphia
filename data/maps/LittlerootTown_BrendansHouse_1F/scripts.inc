@@ -319,16 +319,19 @@ PlayersHouse_1F_Text_ItsOverWeMissedHim:
 	.string "MOM: Oh… well It's over..$"
 
 PlayersHouse_1F_Text_GoIntroduceYourselfNextDoor:
-	.string "Oh, yeah.\n"
-	.string "I heard some weirdos moved in next door\l"
-	.string "not too long ago too.\p"
-	.string "Not sure who they are.\p"
-	.string "I heard they smell like milk and\n"
-	.string "stare a lot.\p"
-	.string "Why don’t you go over and introduce\n"
-	.string "yourself?\p"
-	.string "Then, head up north to go find\n"
-	.string "FRANK!$"
+	.string "Oh right.\p"
+	.string "You should go say hi to the\n"
+	.string "people next door.\p"
+	.string "Quiet.\n"
+	.string "Pale.\n"
+	.string "Very polite.\p"
+	.string "I saw them unloading a few crates\n"
+	.string "of milk around midnight.\p"
+	.string "Anyway.\p"
+	.string "Why don’t you go introduce yourself?\p"
+	.string "It’s good to know your neighbors.\p"
+	.string "Then head north and go find FRANK.$"
+
 
 PlayersHouse_1F_Text_SeeYouHoney:
 	.string "MOM: Bye, Charlie.\n"

@@ -926,10 +926,12 @@ Route104_EventScript_Darian::
 Route104_Text_BrineyLivesInSeasideCottage:
 	.string "That shabby cottage on the shore?\n"
 	.string "That’s where Artemis lives.\p"
-	.string "Total art school dropout turned “sea whisperer.”\p"
+	.string "Total art school dropout turned\n"
+	.string "“sea whisperer.”\p"
 	.string "She says she reads tides like\n"
 	.string "tarot cards.\p"
-	.string "I don’t buy it, but she scares the gulls.$"
+	.string "I don’t buy it,\n"
+	.string "but she does scare the gulls.$"
 
 Route104_Text_WhatsItLikeAtBottomOfSea:
 	.string "What’s at the bottom of the sea, anyway?\p"

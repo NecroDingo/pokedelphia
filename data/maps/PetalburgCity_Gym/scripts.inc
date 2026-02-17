@@ -1189,7 +1189,7 @@ PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon:
 	.string "figure.$"
 
 PetalburgCity_Gym_Text_WallyIdLikeAPokemon:
-	.string "MATTHEW: Um… hey, excuse me…\p"
+	.string "Um… hey, excuse me…\p"
 	.string "I was just wondering if maybe I could…\n"
 	.string "get a POKéMON? Just a small one?\p"
 	.string "I promise I’d take good care of it.\p"
@@ -1198,7 +1198,7 @@ PetalburgCity_Gym_Text_WallyIdLikeAPokemon:
 
 PetalburgCity_Gym_Text_DadOhYoureWallyRight:
 	.string "UNCLE JACK: Hm? Who’s this little guy?\p"
-	.string ".........................\p"
+	.string "..... ..... ..... .....\p"
 	.string "Oh. Right. You’re Matthew. Yeah.\p"
 	.string "Sorry, I was… distracted. Thinking \n"
 	.string "about mentorship.$"
@@ -1296,8 +1296,8 @@ PetalburgCity_Gym_Text_ThisIsATMCase:
 PetalburgCity_Gym_Text_GoGetBadges:
 	.string "UNCLE JACK: Alright, {PLAYER}.\p"
 	.string "If you really want to be a strong\n"
-	.string "Trainer...Like me...With big hands..\p"
-	.string "You gotta head to Rustboro.\n"
+	.string "trainer...Like me...With big hands..\p"
+	.string "You gotta head to WAWA PARK.\n"
 	.string "There’s a Gym there.\p"
 	.string "Challenge the Leader. Win a Badge.\n"
 	.string "Then do it again. Over and over.\p"
@@ -1307,9 +1307,9 @@ PetalburgCity_Gym_Text_GoGetBadges:
 	.string "And when you’re strong enough…\n"
 	.string "You and me..we’ll battle.\p"
 	.string "Just the two of us.\n"
-	.string "With full consent.\p"
+	.string "..... ..... ..... .....\p"
 	.string "We can have so much fun foolin' around.\n"
-	.string "..................\l"
+	.string "..... ..... ..... .....\l"
 	.string "Just be ready.$"
 
 PetalburgCity_Gym_Text_NormanGoToRustboro:

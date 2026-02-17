@@ -62,8 +62,7 @@ gText_Birch_AreYouReady::
 	.string "Somethin' about glue fumes.$"
 
 gText_Birch_LetsGetIntoIt::
-	.string "Let's get into it!\n"
-	.string "Go out there and make me proud,\l"
+	.string "Go out there and make me proud,\n"
 	.string "Charlie!\p"
 	.string "And remember, rats are friends,\n"
 	.string "not food.\p"
