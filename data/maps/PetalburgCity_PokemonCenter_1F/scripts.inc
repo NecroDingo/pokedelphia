@@ -114,22 +114,22 @@ PetalburgCity_PokemonCenter_1F_EventScript_Woman::
 	end
 
 PetalburgCity_PokemonCenter_1F_EventScript_SayStarterTypeInfo::
-	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayBulbasaurType
-	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayGibleType
-	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayAronType
+	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayMagbyType
+	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayAxewType
+	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayRhyhornType
 	release
 	end
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayBulbasaurType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_BulbasaurIsGrassType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayMagbyType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_MagbyIsFireType, MSGBOX_DEFAULT
 	return
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayGibleType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_GibleIsDragonType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayAxewType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_AxewIsDragonType, MSGBOX_DEFAULT
 	return
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayAronType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_AronIsSteelType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayRhyhornType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_RhyhornIsRockGroundType, MSGBOX_DEFAULT
 	return
 
 PetalburgCity_PokemonCenter_1F_Text_PCStorageSystem:
@@ -154,31 +154,28 @@ PetalburgCity_PokemonCenter_1F_Text_ManyTypesOfPokemon:
 	.string "Depending on the types of POKéMON,\n"
 	.string "a battle could be easy or hard.$"
 
-PetalburgCity_PokemonCenter_1F_Text_BulbasaurIsGrassType:
-	.string "For example, your BULBASAUR is a\n"
-	.string "GRASS and POISON type.\p"
-	.string "It’s strong against WATER, ROCK, and\n"
-	.string "GROUND types.\p"
-	.string "But it’s weak to FIRE, FLYING, and\n"
-	.string "ICE-type POKéMON.$"
+PetalburgCity_PokemonCenter_1F_Text_MagbyIsFireType:
+	.string "For example, your MAGBY is a FIRE type.\p"
+	.string "It's strong against GRASS, ICE, BUG,\n"
+	.string "and STEEL types.\p"
+	.string "But it's weak to WATER, GROUND, and\n"
+	.string "ROCK-type POKéMON.$"
 
 
-PetalburgCity_PokemonCenter_1F_Text_GibleIsDragonType:
-	.string "For example, your GIBLE is a DRAGON\n"
-	.string "and GROUND type.\p"
-	.string "It’s strong against FIRE, ELECTRIC,\n"
-	.string "POISON, ROCK, and STEEL types.\p"
+PetalburgCity_PokemonCenter_1F_Text_AxewIsDragonType:
+	.string "For example, your AXEW is a DRAGON type.\p"
+	.string "It's strong against other DRAGON types.\p"
 	.string "But it’s weak to ICE, DRAGON, and\n"
 	.string "FAIRY-type POKéMON.$"
 
 
-PetalburgCity_PokemonCenter_1F_Text_AronIsSteelType:
-	.string "For example, your ARON is a STEEL and\n"
-	.string "ROCK type.\p"
-	.string "It’s strong against NORMAL, FLYING,\n"
-	.string "ROCK, BUG, STEEL, GRASS, and ICE types.\p"
-	.string "But it’s weak to FIGHTING, GROUND,\n"
-	.string "WATER, and FIRE-type POKéMON.$"
+PetalburgCity_PokemonCenter_1F_Text_RhyhornIsRockGroundType:
+	.string "For example, your RHYHORN is a ROCK\n"
+	.string "and GROUND type.\p"
+	.string "It's strong against FIRE, ELECTRIC,\n"
+	.string "POISON, ICE, FLYING, and BUG types.\p"
+	.string "But it's weak to WATER, GRASS, ICE,\n"
+	.string "FIGHTING, and STEEL-type POKéMON.$"
 
  
 

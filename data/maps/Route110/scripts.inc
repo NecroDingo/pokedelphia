@@ -397,23 +397,23 @@ Route110_EventScript_PlayMayMusic::
 Route110_EventScript_MayBattle::
 	msgbox Route110_Text_MayLetsBattle, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route110_EventScript_MayBattleBulbasaur
-	case 1, Route110_EventScript_MayBattleGible
-	case 2, Route110_EventScript_MayBattleAron
+	case 0, Route110_EventScript_MayBattleMagby
+	case 1, Route110_EventScript_MayBattleAxew
+	case 2, Route110_EventScript_MayBattleRhyhorn
 	end
 
-Route110_EventScript_MayBattleBulbasaur::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_BULBASAUR, Route110_Text_MayDefeated
+Route110_EventScript_MayBattleMagby::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_MAGBY, Route110_Text_MayDefeated
 	goto Route110_EventScript_MayDefeated
 	end
 
-Route110_EventScript_MayBattleGible::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_GIBLE, Route110_Text_MayDefeated
+Route110_EventScript_MayBattleAxew::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_AXEW, Route110_Text_MayDefeated
 	goto Route110_EventScript_MayDefeated
 	end
 
-Route110_EventScript_MayBattleAron::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_ARON, Route110_Text_MayDefeated
+Route110_EventScript_MayBattleRhyhorn::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_RHYHORN, Route110_Text_MayDefeated
 	goto Route110_EventScript_MayDefeated
 	end
 

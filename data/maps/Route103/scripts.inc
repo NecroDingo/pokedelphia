@@ -38,24 +38,24 @@ Route103_EventScript_RivalMay::
 	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
 	closemessage
 	switch VAR_STARTER_MON
-	case 0, Route103_EventScript_StartMayBattleBulbasaur
-	case 1, Route103_EventScript_StartMayBattleGible
-	case 2, Route103_EventScript_StartMayBattleAron
+	case 0, Route103_EventScript_StartMayBattleMagby
+	case 1, Route103_EventScript_StartMayBattleAxew
+	case 2, Route103_EventScript_StartMayBattleRhyhorn
 	end
 
 
-Route103_EventScript_StartMayBattleBulbasaur::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_BULBASAUR, Route103_Text_MayDefeated
+Route103_EventScript_StartMayBattleMagby::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MAGBY, Route103_Text_MayDefeated
 	goto Route103_EventScript_MayHeals
 	end
 
-Route103_EventScript_StartMayBattleGible::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_GIBLE, Route103_Text_MayDefeated
+Route103_EventScript_StartMayBattleAxew::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_AXEW, Route103_Text_MayDefeated
 	goto Route103_EventScript_MayHeals
 	end
 
-Route103_EventScript_StartMayBattleAron::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_ARON, Route103_Text_MayDefeated
+Route103_EventScript_StartMayBattleRhyhorn::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_RHYHORN, Route103_Text_MayDefeated
 	goto Route103_EventScript_MayHeals
 	end
 

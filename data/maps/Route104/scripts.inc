@@ -138,9 +138,9 @@ Route104_EventScript_MayAskToBattle::
 Route104_EventScript_BattleMay::
 	msgbox Route104_Text_MayIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route104_EventScript_BattleMayBulbasaur
-	case 1, Route104_EventScript_BattleMayGible
-	case 2, Route104_EventScript_BattleMayAron
+	case 0, Route104_EventScript_BattleMayMagby
+	case 1, Route104_EventScript_BattleMayAxew
+	case 2, Route104_EventScript_BattleMayRhyhorn
 	end
 
 Route104_EventScript_MayDefeated::
@@ -154,20 +154,20 @@ Route104_EventScript_RestoreMusic::
 	fadedefaultbgm
 	return
 
-Route104_EventScript_BattleMayBulbasaur::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_BULBASAUR, Route104_Text_MayDefeat
+Route104_EventScript_BattleMayMagby::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_MAGBY, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end
 
-Route104_EventScript_BattleMayGible::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_GIBLE, Route104_Text_MayDefeat
+Route104_EventScript_BattleMayAxew::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_AXEW, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end
 
-Route104_EventScript_BattleMayAron::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_ARON, Route104_Text_MayDefeat
+Route104_EventScript_BattleMayRhyhorn::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_RHYHORN, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end

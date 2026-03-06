@@ -9456,7 +9456,7 @@ Level: 35
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_WALLY_VR_1 ===
-Name: WALLY
+Name: MATTHEW
 Class: Rival
 Pic: Wally
 Gender: Male
@@ -9497,15 +9497,15 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Tri Attack
 - Screech
 
-Gardevoir
+Grimmsnarl
 Level: 45
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Double Team
-- Calm Mind
-- Psychic
-- Future Sight
+- Dark Pulse
+- Spirit Break
+- Play Rough
+- Thunder Wave
 
-=== TRAINER_MAY_ROUTE_103_ARON ===
+=== TRAINER_MAY_ROUTE_103_RHYHORN ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9514,11 +9514,11 @@ Music: Female
 Double Battle: No
 AI: Expert Trainer
 
-Bulbasaur
+Mime Jr.
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_ROUTE_110_ARON ===
+=== TRAINER_MAY_ROUTE_110_RHYHORN ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9535,11 +9535,11 @@ Slugma
 Level: 18
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-Bulbasaur
+Mime Jr.
 Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_ROUTE_119_ARON ===
+=== TRAINER_MAY_ROUTE_119_RHYHORN ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9556,11 +9556,11 @@ Lombre
 Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Bulbasaur
+Mime Jr.
 Level: 31
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_MAY_ROUTE_103_BULBASAUR ===
+=== TRAINER_MAY_ROUTE_103_MAGBY ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9569,11 +9569,11 @@ Music: Female
 Double Battle: No
 AI: Expert Trainer
 
-Gible
+Mime Jr.
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_ROUTE_110_BULBASAUR ===
+=== TRAINER_MAY_ROUTE_110_MAGBY ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9590,11 +9590,11 @@ Lombre
 Level: 18
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-Gible
+Mime Jr.
 Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_ROUTE_119_BULBASAUR ===
+=== TRAINER_MAY_ROUTE_119_MAGBY ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9611,11 +9611,11 @@ Lombre
 Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Gible
+Mime Jr.
 Level: 31
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_MAY_ROUTE_103_GIBLE ===
+=== TRAINER_MAY_ROUTE_103_AXEW ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9624,11 +9624,11 @@ Music: Female
 Double Battle: No
 AI: Smart Trainer
 
-Aron
+Mime Jr.
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_ROUTE_110_GIBLE ===
+=== TRAINER_MAY_ROUTE_110_AXEW ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9645,11 +9645,11 @@ Slugma
 Level: 18
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-Aron
+Mime Jr.
 Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_ROUTE_119_GIBLE ===
+=== TRAINER_MAY_ROUTE_119_AXEW ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9666,7 +9666,7 @@ Slugma
 Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-Aron
+Mime Jr.
 Level: 31
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
@@ -10755,7 +10755,7 @@ Loudred
 Level: 33
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_RUSTBORO_ARON ===
+=== TRAINER_MAY_RUSTBORO_RHYHORN ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -10768,7 +10768,7 @@ Wingull
 Level: 13
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-Bulbasaur
+Mime Jr.
 Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
@@ -11839,7 +11839,7 @@ Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_WALLY_MAUVILLE ===
-Name: WALLY
+Name: MATTHEW
 Class: Rival
 Pic: Wally
 Gender: Male
@@ -11847,12 +11847,12 @@ Music: Male
 Double Battle: No
 AI: Smart Trainer
 
-Ralts
+Impidimp
 Level: 16
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 === TRAINER_WALLY_VR_2 ===
-Name: WALLY
+Name: MATTHEW
 Class: Rival
 Pic: Wally
 Gender: Male
@@ -11893,16 +11893,16 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Tri Attack
 - Screech
 
-Gardevoir
+Grimmsnarl
 Level: 48
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Double Team
-- Calm Mind
-- Psychic
-- Future Sight
+- Dark Pulse
+- Spirit Break
+- Play Rough
+- Thunder Wave
 
 === TRAINER_WALLY_VR_3 ===
-Name: WALLY
+Name: MATTHEW
 Class: Rival
 Pic: Wally
 Gender: Male
@@ -11943,16 +11943,16 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Tri Attack
 - Screech
 
-Gardevoir
+Grimmsnarl
 Level: 51
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Double Team
-- Calm Mind
-- Psychic
-- Future Sight
+- Dark Pulse
+- Spirit Break
+- Play Rough
+- Thunder Wave
 
 === TRAINER_WALLY_VR_4 ===
-Name: WALLY
+Name: MATTHEW
 Class: Rival
 Pic: Wally
 Gender: Male
@@ -11993,16 +11993,16 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Tri Attack
 - Screech
 
-Gardevoir
+Grimmsnarl
 Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Double Team
-- Calm Mind
-- Psychic
-- Future Sight
+- Dark Pulse
+- Spirit Break
+- Play Rough
+- Thunder Wave
 
 === TRAINER_WALLY_VR_5 ===
-Name: WALLY
+Name: MATTHEW
 Class: Rival
 Pic: Wally
 Gender: Male
@@ -12043,15 +12043,15 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Tri Attack
 - Screech
 
-Gardevoir
+Grimmsnarl
 Level: 57
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Double Team
-- Calm Mind
-- Psychic
-- Future Sight
+- Dark Pulse
+- Spirit Break
+- Play Rough
+- Thunder Wave
 
-=== TRAINER_MAY_LILYCOVE_ARON ===
+=== TRAINER_MAY_LILYCOVE_RHYHORN ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -12072,11 +12072,11 @@ Pelipper
 Level: 32
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-Bulbasaur
+Mime Jr.
 Level: 34
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_MAY_LILYCOVE_BULBASAUR ===
+=== TRAINER_MAY_LILYCOVE_MAGBY ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -12097,11 +12097,11 @@ Ludicolo
 Level: 32
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-Gible
+Mime Jr.
 Level: 34
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_MAY_LILYCOVE_GIBLE ===
+=== TRAINER_MAY_LILYCOVE_AXEW ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -12122,7 +12122,7 @@ Slugma
 Level: 32
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-Aron
+Mime Jr.
 Level: 34
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
@@ -13850,7 +13850,7 @@ Vigoroth
 Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_RUSTBORO_BULBASAUR ===
+=== TRAINER_MAY_RUSTBORO_MAGBY ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -13863,11 +13863,11 @@ Lotad
 Level: 13
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-Gible
+Mime Jr.
 Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_MAY_RUSTBORO_GIBLE ===
+=== TRAINER_MAY_RUSTBORO_AXEW ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -13880,7 +13880,7 @@ Torkoal
 Level: 13
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-Aron
+Mime Jr.
 Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
