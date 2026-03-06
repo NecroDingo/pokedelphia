@@ -1075,7 +1075,7 @@ Route104_Text_BridgeConstruction:
 	.string "Shit happens...\n"
 	.string "Find another way around.$"
 
-Route104_EventScript_WorkInProgress:
+Route104_EventScript_WorkInProgress::
 	msgbox Route104_Text_WorkInProgress, MSGBOX_SIGN
 	end	
 
@@ -1087,4 +1087,4 @@ Route104_Text_WorkInProgress:
 	.string "Just looking to learn some things\n"
 	.string "and make a fun game!\p"
 	.string "Thank you for trying it out!\p"
-	.string "-Monty$"
+	.string "- Monty$"
