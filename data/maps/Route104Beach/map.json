@@ -27,7 +27,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
-      "x": 28,
+      "x": 32,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
@@ -40,7 +40,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 43,
+      "x": 47,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -53,7 +53,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 38,
+      "x": 42,
       "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
@@ -66,7 +66,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 39,
+      "x": 43,
       "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
@@ -83,7 +83,7 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 58,
+      "x": 62,
       "y": 10,
       "elevation": 3,
       "item": "ITEM_DUSK_BALL",
@@ -91,7 +91,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 58,
+      "x": 62,
       "y": 28,
       "elevation": 3,
       "item": "ITEM_REPEL",
@@ -99,7 +99,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 14,
+      "x": 18,
       "y": 0,
       "elevation": 3,
       "item": "ITEM_PEARL",
@@ -107,7 +107,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 14,
+      "x": 18,
       "y": 11,
       "elevation": 3,
       "item": "ITEM_TM32",

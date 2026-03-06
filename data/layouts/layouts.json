@@ -194,7 +194,7 @@
     {
       "id": "LAYOUT_ROUTE104",
       "name": "Route104_Layout",
-      "width": 66,
+      "width": 70,
       "height": 90,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -204,7 +204,7 @@
     {
       "id": "LAYOUT_ROUTE105",
       "name": "Route105_Layout",
-      "width": 60,
+      "width": 64,
       "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
@@ -4404,7 +4404,7 @@
     {
       "id": "LAYOUT_ROUTE104BEACH",
       "name": "Route104Beach_Layout",
-      "width": 60,
+      "width": 64,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",

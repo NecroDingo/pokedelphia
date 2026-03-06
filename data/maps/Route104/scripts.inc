@@ -243,6 +243,10 @@ Route104_EventScript_TrainerTipsDoubleBattles::
 	msgbox Route104_Text_TrainerTipsDoubleBattles, MSGBOX_SIGN
 	end
 
+Route104_EventScript_BridgeConstruction::
+	msgbox Route104_Text_BridgeConstruction, MSGBOX_SIGN
+	end	
+
 Route104_EventScript_Boy1::
 	msgbox Route104_Text_StealingPokemonFromTrainers, MSGBOX_NPC
 	end
@@ -1065,3 +1069,22 @@ Route104_Text_MayPostBattle:
 	.string "then gestures into the ocean.\p"
 	.string "What does that mean?$"
 
+Route104_Text_BridgeConstruction:
+	.string "This bridge is currently under\n"
+	.string "construction.\p"
+	.string "Shit happens...\n"
+	.string "Find another way around.$"
+
+Route104_EventScript_WorkInProgress:
+	msgbox Route104_Text_WorkInProgress, MSGBOX_SIGN
+	end	
+
+Route104_Text_WorkInProgress:
+	.string "This is the end of my progress so far!\p"
+	.string "Please let me know if anything is\n"
+	.string "messed up so I can take a look.\p"
+	.string "If you have any ideas, let me know!\p"
+	.string "Just looking to learn some things\n"
+	.string "and make a fun game!\p"
+	.string "Thank you for trying it out!\p"
+	.string "-Monty$"

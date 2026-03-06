@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_ROUTE104",
-      "offset": -24,
+      "offset": -28,
       "direction": "down"
     },
     {
@@ -179,8 +179,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 36,
-      "y": 51,
+      "x": 2,
+      "y": 55,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
