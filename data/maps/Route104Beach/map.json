@@ -40,7 +40,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 47,
+      "x": 51,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 42,
-      "y": 32,
+      "x": 49,
+      "y": 29,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 15,
@@ -66,12 +66,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 43,
-      "y": 19,
+      "x": 41,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
-      "movement_range_x": 5,
-      "movement_range_y": 5,
+      "movement_range_x": 10,
+      "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route104Beach_EventScript_Oscar",
@@ -91,16 +91,16 @@
     },
     {
       "type": "hidden_item",
-      "x": 62,
-      "y": 28,
+      "x": 48,
+      "y": 23,
       "elevation": 3,
       "item": "ITEM_REPEL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_REPEL"
     },
     {
       "type": "hidden_item",
-      "x": 18,
-      "y": 0,
+      "x": 23,
+      "y": 17,
       "elevation": 3,
       "item": "ITEM_PEARL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_PEARL"
@@ -108,7 +108,7 @@
     {
       "type": "hidden_item",
       "x": 18,
-      "y": 11,
+      "y": 0,
       "elevation": 3,
       "item": "ITEM_TM32",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_BEACH_TM_DOUBLE_TEAM"

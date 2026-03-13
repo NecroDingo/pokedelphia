@@ -145,7 +145,7 @@ PetalburgWoods_EventScript_BagFull::
 	end
 
 PetalburgWoods_EventScript_DevonResearcherFinish::
-	msgbox PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro, MSGBOX_DEFAULT
+	msgbox PetalburgWoods_Text_TeamAquaAfterSomethingInWawaPark, MSGBOX_DEFAULT
 	applymovement LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE, PetalburgWoods_Movement_DevonResearcherStartExit
 	waitmovement 0
 	msgbox PetalburgWoods_Text_ICantBeWastingTime, MSGBOX_DEFAULT
@@ -484,24 +484,25 @@ PetalburgWoods_Text_YouveGotSomeNerve:
 	.string "THE JERSEY MIKE BOYS.\p"
 	.string "I'd run it back, but I’m fresh outta\n"
 	.string "POKéMON...\p"
-	.string "Whatever. We’re hittin’ RUSTBORO next.\p"
+	.string "Whatever. We’re hittin’ WAWA PARK next.\p"
 	.string "Count ya blessings, kid.$"
 
 PetalburgWoods_Text_ThatWasAwfullyClose:
-	.string "Sheesh...\n"
+	.string "Sheeesh...\n"
 	.string "That was way too close!\p"
 	.string "Thanks, or that meathead would've\n"
 	.string "jacked my important papers.\p"
 	.string "Here, take this GREAT BALL. Least\n"
 	.string "I can do.$"
 
-PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro:
-	.string "Didn't that JERSEY MIKE goon say\n"
+PetalburgWoods_Text_TeamAquaAfterSomethingInWawaPark:
+	.string "Wait a sec...\p"
+	.string "Did that JERSEY MIKE goon say\n"
 	.string "they’re plannin’ somethin' in\l"
-	.string "RUSTBORO?$"
+	.string "WAWA PARK?$"
 
 PetalburgWoods_Text_ICantBeWastingTime:
-	.string "Crap! This is bad!\n"
+	.string "SHIT! This is bad!\n"
 	.string "No time to waste!$"
 
 PetalburgWoods_Text_YoureLoadedWithItems:

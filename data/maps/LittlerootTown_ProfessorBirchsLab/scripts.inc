@@ -744,8 +744,8 @@ LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou:
 	.string "doing some research.\p"
 	.string "You'll have to pass through\n"
 	.string "OLD SCUMPORT too.\p"
-	.string "There's a POKéCENTER there too. Be sure\n"
-	.string "to stop in. I think you'll really enjoy\l"
+	.string "There's a POKéCENTER there. Be sure to\n"
+	.string "stop in. I think you'll really enjoy\l"
 	.string "it in there Charlie! Haha$"
 
 

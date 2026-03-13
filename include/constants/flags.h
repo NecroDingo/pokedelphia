@@ -1185,7 +1185,7 @@
 #define FLAG_ITEM_ROUTE_102_X_ACCURACY                              0x465 // Added Route 102 X Accuracy
 #define FLAG_ITEM_ROUTE_102_ETHER                                   0x466 // Added Route 102 Ether
 #define FLAG_ITEM_ROUTE_102_DUSK_BALL                               0x467 // Added Route 102 Dusk Ball
-#define FLAG_UNUSED_0x468                                           0x468 // Unused Flag
+#define FLAG_ITEM_ROUTE_103_FULL_HEAL                               0x468 // Added Route 103 Full Heal
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
