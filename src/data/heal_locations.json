@@ -47,8 +47,8 @@
     {
       "id": "HEAL_LOCATION_RUSTBORO_CITY",
       "map": "MAP_RUSTBORO_CITY",
-      "x": 16,
-      "y": 39,
+      "x": 19,
+      "y": 57,
       "respawn_map": "MAP_RUSTBORO_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_RUSTBORO_NURSE"
     },
@@ -192,6 +192,14 @@
       "map": "MAP_PETALBURG_WOODS",
       "x": 26,
       "y": 77
+    },
+    {
+      "id": "HEAL_LOCATION_RUSTBORO_CITY",
+      "map": "MAP_RUSTBORO_CITY_OG",
+      "x": 16,
+      "y": 39,
+      "respawn_map": "MAP_RUSTBORO_CITY_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_RUSTBORO_NURSE"
     }
   ]
 }
