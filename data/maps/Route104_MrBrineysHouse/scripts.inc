@@ -110,7 +110,7 @@ Route104_MrBrineysHouse_Text_ItsYouLetsSailToDewford:
 	.string "Skylar had big dreams, and an even\n"
 	.string "bigger relationship with the wind.\p"
 	.string "Anyway, you need a ride?\p"
-	.string "....... ....... ....... .......\p"
+	.string "…… …… …… ……\p"
 	.string "A LETTER to DEWFORD and a package for SLATEPORT?\p"
 	.string "I love a multi-stop voyage. It’s like a\n"
 	.string "progressive dinner, but saltier.\p"

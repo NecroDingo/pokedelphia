@@ -101,7 +101,7 @@ OldaleTown_Mart_EventScript_Boy::
 
 OldaleTown_Mart_Text_PokeBallsAreSoldOut:
 	.string "Can you believe this? They're out\n"
-	.string "of Poké Balls... Outrageous!\p"
+	.string "of Poké Balls… Outrageous!\p"
 	.string "What kind of operation are they\n"
 	.string "runnin' here?$"
 
@@ -121,13 +121,13 @@ OldaleTown_Mart_Text_RestoreHPWithPotion:
 
 OldaleTown_Mart_Text_EggScamGreeting:
 	.string "Yo.\p"
-	.string "..... ..... ..... .....\p"
-	.string "Aww shit...\n"
+	.string "… … … …\p"
+	.string "Aww shit…\n"
 	.string "You here for the Professor, huh?\p"
-	.string "..... ..... ..... .....\p"
+	.string "… … … …\p"
 	.string "Tell that low-life piece of garbage\n"
 	.string "to take those janky eggs and shove ’em\l"
-	.string "where the sun don’t shine...\l"
+	.string "where the sun don’t shine…\l"
 	.string "capisce?\p"
 	.string "Now you gonna buy somethin’ or you\n"
 	.string "just here to make a scene?$"

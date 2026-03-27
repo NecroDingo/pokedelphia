@@ -1169,7 +1169,7 @@ PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon:
 	.string "UNCLE JACK: Oh, hey there, sport.\p"
 	.string "Wow… look at you.\n"
 	.string "You made it all the way here on your own.\l"
-	.string "That’s... really impressive.\p"
+	.string "That’s… really impressive.\p"
 	.string "No adult supervision or anything?\n"
 	.string "You're totally unsupervised?\p"
 	.string "That's cool. Totally cool.\p"
@@ -1183,9 +1183,9 @@ PetalburgCity_Gym_Text_DadYoureHereWithYourPokemon:
 	.string "We should… hang out sometime. Just us.\n"
 	.string "No pressure.\p"
 	.string "You know I’ve always wanted to be a part\n"
-	.string "of your journey....\p"
-	.string "I’d love to...guide you. Like a mentor.\n"
-	.string "Or like a... strong, supportive adult\l"
+	.string "of your journey…\p"
+	.string "I’d love to…guide you. Like a mentor.\n"
+	.string "Or like a… strong, supportive adult\l"
 	.string "figure.$"
 
 PetalburgCity_Gym_Text_WallyIdLikeAPokemon:
@@ -1198,7 +1198,7 @@ PetalburgCity_Gym_Text_WallyIdLikeAPokemon:
 
 PetalburgCity_Gym_Text_DadOhYoureWallyRight:
 	.string "UNCLE JACK: Hm? Who’s this little guy?\p"
-	.string "..... ..... ..... .....\p"
+	.string "… … … …\p"
 	.string "Oh. Right. You’re Matthew. Yeah.\p"
 	.string "Sorry, I was… distracted. Thinking \n"
 	.string "about mentorship.$"
@@ -1283,7 +1283,7 @@ PetalburgCity_Gym_Text_GreatJobCharlie:
 	.string "I wish I could've seen you two\n"
 	.string "out there in the woods.\p"
 	.string "Two boys out catching pokemon, on a\n"
-	.string "hot day, getting ......\p"
+	.string "hot day, getting ……\p"
 	.string "Nevermind about that, here's a\n"
 	.string "little gift for my new trainer!$"
 
@@ -1296,7 +1296,7 @@ PetalburgCity_Gym_Text_ThisIsATMCase:
 PetalburgCity_Gym_Text_GoGetBadges:
 	.string "UNCLE JACK: Alright, {PLAYER}.\p"
 	.string "If you really want to be a strong\n"
-	.string "trainer...Like me...With big hands..\p"
+	.string "trainer…Like me…With big hands..\p"
 	.string "You gotta head to WAWA PARK.\n"
 	.string "There’s a Gym there.\p"
 	.string "Challenge the Leader. Win a Badge.\n"
@@ -1307,9 +1307,9 @@ PetalburgCity_Gym_Text_GoGetBadges:
 	.string "And when you’re strong enough…\n"
 	.string "You and me..we’ll battle.\p"
 	.string "Just the two of us.\n"
-	.string "..... ..... ..... .....\p"
+	.string "… … … …\p"
 	.string "We can have so much fun foolin' around.\n"
-	.string "..... ..... ..... .....\l"
+	.string "… … … …\l"
 	.string "Just be ready.$"
 
 PetalburgCity_Gym_Text_NormanGoToRustboro:
@@ -1339,7 +1339,7 @@ PetalburgCity_Gym_Text_YouHaveGottenStronger:
 	.string "I can smell it on you.\l"
 	.string "That effort. That grit.\p"
 	.string "You’re growing up so fast…\p"
-	.string "You remind me of myself...\n"
+	.string "You remind me of myself…\n"
 	.string "But hotter. Stronger. More dangerous.$"
 
 PetalburgCity_Gym_Text_NormanIntro:
@@ -1350,8 +1350,8 @@ PetalburgCity_Gym_Text_NormanIntro:
 	.string "You don’t know how long I’ve waited to\n"
 	.string "go toe-to-toe with you.\p"
 	.string "Like this. Just us. No distractions.\n"
-	.string "Just fists and fury and ...\p"
-	.string "Sorry... I just… missed you, man.\n"
+	.string "Just fists and fury and …\p"
+	.string "Sorry… I just… missed you, man.\n"
 	.string "Let’s make this count.$"
 
 PetalburgCity_Gym_Text_NormanDefeat:
@@ -1361,7 +1361,7 @@ PetalburgCity_Gym_Text_NormanDefeat:
 	.string "I’m not even mad. Actually, I think…\n"
 	.string "I’m proud.\p"
 	.string "Also weirdly excited. Maybe too excited.\n"
-	.string "When did my shorts get so tight...$"
+	.string "When did my shorts get so tight…$"
 
 PetalburgCity_Gym_Text_ReceivedBalanceBadge:
 	.string "{PLAYER} received the BALANCE BADGE\n"
@@ -1383,7 +1383,7 @@ PetalburgCity_Gym_Text_ExplainFacade:
 	.string "Nasty little move.\p"
 	.string "Gets meaner if your POKéMON’s all\n"
 	.string "banged up, poisoned, paralyzed,\l"
-	.string "tied down... You get the picture.\p"
+	.string "tied down… You get the picture.\p"
 	.string "Real metaphor for life, huh? Pain makes\n"
 	.string "you stronger. You might be able to turn\l"
 	.string "a bad situation into an advantage.$"
@@ -1716,7 +1716,7 @@ PetalburgCity_Gym_EventScript_Quest3_NotStarted::
 	end
 
 PetalburgCity_Text_FoundRootFossil:
-	.string "You search the flowers...\p"
+	.string "You search the flowers…\p"
 	.string "You found a Root Fossil!$"
 
 PetalburgCity_Text_Birch_Quest3_FoundItem:
@@ -1725,4 +1725,4 @@ PetalburgCity_Text_Birch_Quest3_FoundItem:
 
 PetalburgCity_Text_Quest3_FlowersNotActive:
 	.string "These are just ordinary flowers.\p"
-	.string "Nothing special here.....$"
+	.string "Nothing special here…$"

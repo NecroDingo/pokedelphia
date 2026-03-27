@@ -332,6 +332,8 @@ gSpecials::
 	def_special StartGroudonKyogreBattle
 	def_special BattleSetup_StartLegendaryBattle
 	def_special StartRegiBattle
+	def_special Script_StartDrowzeeBattle
+	def_special Script_StartTrubbishBattle
 	def_special SetTrainerFacingDirection
 	def_special DoSealedChamberShakingEffect_Short
 	def_special FoundBlackGlasses

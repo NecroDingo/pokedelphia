@@ -4,6 +4,7 @@ gText_Birch_Welcome::
 	.string "Got the papers off some guy in a\n"
 	.string "Waffle House parking lot.\l"
 	.string "Long story.\p"
+	.string "Anyway…\n"
 	.string "This here's the world of Pokémon.\p"
 	.string "Some people train 'em, some people\n"
 	.string "battle 'em.\p"
@@ -15,7 +16,7 @@ gText_Birch_Pokemon::
 	.string "$"
 
 gText_Birch_MainSpeech::
-	.string "Now this...this is a rat.\n"
+	.string "Now this…this is a rat.\n"
 	.string "A damn special one, too.\p"
 	.string "You're gonna love this.\n"
 	.string "Charlie loves rats, big rat guy!\p"

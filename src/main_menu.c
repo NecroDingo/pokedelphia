@@ -2522,6 +2522,16 @@ static void NewGameBirchSpeech_ShowYesNoMenu(void)
 
 static s8 NewGameBirchSpeech_ProcessYesNoMenuInput(void)
 {
+    if (JOY_NEW(B_BUTTON))
+    {
+        // Move cursor to NO without selecting; require A to confirm
+        if (Menu_GetCursorPos() != 1)
+        {
+            PlaySE(SE_SELECT);
+            Menu_MoveCursorNoWrapAround(1);
+        }
+        return MENU_NOTHING_CHOSEN;
+    }
     return Menu_ProcessInputNoWrapClearOnChoose();
 }
 

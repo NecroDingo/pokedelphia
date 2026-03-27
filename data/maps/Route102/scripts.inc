@@ -117,7 +117,7 @@ Route102_Text_LetsGoBack:
 	.string "Let’s head back to the Gym!$"
 
 Route102_Text_ImNotVeryTall:
-	.string "Yo... what street even is this?\p"
+	.string "Yo… what street even is this?\p"
 	.string "I been walkin' in circles\n"
 	.string "for like, an hour now.\p"
 	.string "I'm all turned around bro.$"

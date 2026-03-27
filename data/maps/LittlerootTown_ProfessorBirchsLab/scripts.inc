@@ -769,7 +769,7 @@ LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex:
 	.string "She once stared down a Tauros\n"
 	.string "into submission.\p"
 	.string "Here, take this POKéDEX.\n"
-	.string "It’s not booby-trapped...$"
+	.string "It’s not booby-trapped…$"
 
 LittlerootTown_ProfessorBirchsLab_Text_ReceivedPokedex:
 	.string "{PLAYER} received the POKéDEX!$"
@@ -1073,9 +1073,9 @@ LittlerootTown_ProfessorBirchsLab_EventScript_CharlieEggToPC::
 	end
 
 LittlerootTown_ProfessorBirchsLab_Text_EggScamTurnInGreeting:
-	.string "..... ..... ..... .....\p"
+	.string "… … … …\p"
 	.string "The clerk said what?!?\p"
-	.string "Aw crap, I guess he figured it out...\p"
+	.string "Aw crap, I guess he figured it out…\p"
 	.string "Thats fine, I've got plenty of other\n"
 	.string "tricks up my sleeve.$"
 

@@ -285,8 +285,8 @@ LittlerootTown_BrendansHouse_1F_Movement_BrendanGoUpstairs2:
 
 PlayersHouse_1F_Text_IsntItNiceInHere:
 	.string "MOM: See, Charlie?\n"
-	.string "The floor only smells a little like pee.\p"
-	.string "That’s nice, right?$"
+	.string "It only smells a like mold a little.\p"
+	.string "That’s ok, right?$"
 
 PlayersHouse_1F_Text_MoversPokemonGoSetClock:
 	.string "The mover’s POKéMON did all the work.\n"

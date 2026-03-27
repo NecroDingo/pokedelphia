@@ -569,6 +569,16 @@ static const struct SubQuest sSubQuests2[QUEST_2_SUB_COUNT] =
 #define side_quest(n, d, dd, m, s, st, sq, ns) {.name = n, .desc = d, .donedesc = dd, .map = m, .sprite = s, .spritetype = st, .subquests = sq, .numSubquests = ns}
 static const struct SideQuest sSideQuests[QUEST_COUNT] =
 {
+	side_quest(
+	      gText_SideQuestName_Waitress,
+	      gText_SideQuestDesc_Waitress,
+	      gText_SideQuestDoneDesc_Waitress,
+	      gText_SideQuestMap_Waitress,
+	      OBJ_EVENT_GFX_NURSE,
+	      OBJECT,
+	      NULL,
+	      0
+	),
 	// side_quest(
 	//       gText_SideQuestName_2,
 	//       gText_SideQuestDesc_2,
@@ -1541,7 +1551,7 @@ static u8 CountNumberListRows()
 	switch (mode)
 	{
 		case SORT_DEFAULT:
-			return QUEST_COUNT + 1;
+			return CountUnlockedQuests() + 1;
 		case SORT_INACTIVE:
 			return CountInactiveQuests() + 1;
 		case SORT_ACTIVE:
@@ -1616,9 +1626,24 @@ u8 GenerateList(bool8 isFiltered)
 	{
 		selectedQuestId = *(sortedQuestList + countQuest);
 
-		if (isFiltered && !QuestMenu_GetSetQuestState(selectedQuestId, mode))
-		{
+		// Never show quests that haven't been found/unlocked yet
+		if (!QuestMenu_GetSetQuestState(selectedQuestId, FLAG_GET_UNLOCKED))
 			continue;
+
+		if (isFiltered)
+		{
+			if (mode == SORT_INACTIVE)
+			{
+				// "Inactive" = unlocked/found but not yet active, rewarded, or complete
+				if (QuestMenu_GetSetQuestState(selectedQuestId, FLAG_GET_ACTIVE)
+				    || QuestMenu_GetSetQuestState(selectedQuestId, FLAG_GET_REWARD)
+				    || QuestMenu_GetSetQuestState(selectedQuestId, FLAG_GET_COMPLETED))
+					continue;
+			}
+			else if (!QuestMenu_GetSetQuestState(selectedQuestId, mode))
+			{
+				continue;
+			}
 		}
 
 		PopulateEmptyRow(selectedQuestId);
@@ -1803,7 +1828,11 @@ u8 CountInactiveQuests(void)
 
 	for (i = 0; i < QUEST_COUNT; i++)
 	{
-		if (QuestMenu_GetSetQuestState(i, FLAG_GET_INACTIVE))
+		// Count quests that are unlocked/found but not yet active, rewarded, or complete
+		if (QuestMenu_GetSetQuestState(i, FLAG_GET_UNLOCKED)
+		    && !QuestMenu_GetSetQuestState(i, FLAG_GET_ACTIVE)
+		    && !QuestMenu_GetSetQuestState(i, FLAG_GET_REWARD)
+		    && !QuestMenu_GetSetQuestState(i, FLAG_GET_COMPLETED))
 		{
 			q++;
 		}

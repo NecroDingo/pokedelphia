@@ -1030,7 +1030,7 @@ gText_PlayerWhitedOut::
 	.string "POKéMON!\p{PLAYER} whited out!$"	
 
 gText_FirstShouldRestoreMonsHealth::
-	.string "Of course they all died...\n"
+	.string "Of course they all died…\n"
 	.string "Looks like a skill issue to me.\p"
 	.string "Yes, I'll heal them,\n"
 	.string "just don't get used to this, okay?$"
@@ -1301,5 +1301,3 @@ EventScript_VsSeekerChargingDone::
 	.include "data/scripts/apricorn_tree.inc"
 
 	.include "data/maps/PetalburgWoodsShortcut/scripts.inc"
-
-	.include "data/maps/RustboroCity_OG/scripts.inc"

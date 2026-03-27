@@ -44,8 +44,12 @@ OldaleTown_PokemonCenter_EventScript_NurseIntro::
 	setvar VAR_TEMP_0, 0
 	applymovement LOCALID_PLAYER, Common_Movement_SelfText
 	waitmovement 0
+	delay 45
 	msgbox OldaleTown_PokemonCenter_Text_CharlieMission, MSGBOX_DEFAULT
 	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_HeartEmoji
+	waitmovement 0
+	startquest QUEST_0_WAITRESS_CHAMPION
 	fadedefaultbgm
 	release
 	end
@@ -54,8 +58,8 @@ OldaleTown_PokemonCenter_1F_SkipNurseIntro:
 	end	
 
 OldaleTown_PokemonCenter_Text_NurseIntro1:
-	.string "......\n"
-	.string "Oh my god. No...\p"
+	.string "……\n"
+	.string "Oh my god. No…\p"
 	.string "Charlie? Are you serious right now?$"
 
 OldaleTown_PokemonCenter_EventScript_NurseIntroMovement:
@@ -76,13 +80,13 @@ OldaleTown_PokemonCenter_Text_NurseIntro2:
 	.string "This is harassment!\n"
 	.string "I moved to a whole new region to get\l"
 	.string "away from you.\p"
-	.string "...... ...... ......\p"
+	.string "…… …… ……\p"
 	.string "WAITRESS: No.. Don’t say anything.\n"
-	.string "I know what you’re gonna say...\p"
+	.string "I know what you’re gonna say…\p"
 	.string "This is what you do, this is exactly it.\p"
 	.string "You 'accidentally' run into me, then\n"
 	.string "suddenly you’re in my POKéCENTER\l"
-	.string "every day...\p"
+	.string "every day…\p"
 	.string "I’m just here for the POKéMON. I've\n"
 	.string "changed careers, I'm a Nurse now.\p"
 	.string "I work hard here.\n"
@@ -101,13 +105,13 @@ OldaleTown_PokemonCenter_Text_NurseIntro2:
 
 OldaleTown_PokemonCenter_Text_NurseIntro3:
 	.string "Well, come on. I have a job to do.\n"
-	.string "Your POKéMON are more important...$"
+	.string "Your POKéMON are more important…$"
 
 OldaleTown_PokemonCenter_Text_CharlieMission:
-	.string "You heard her, Charlie...\p"
+	.string "You heard her, Charlie…\p"
 	.string "She wants a CHAMPION.\p"
-	.string "That’s it...\p"
-	.string "That’s the move...\p"
+	.string "That’s it…\p"
+	.string "That’s the move…\p"
 	.string "Win a Badge.\p"
 	.string "Win all the Badges.\p"
 	.string "Win the League.\p"

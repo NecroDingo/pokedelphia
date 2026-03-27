@@ -20,30 +20,33 @@
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROUTE104",
-      "dest_warp_id": "6"
+      "dest_warp_id": "8"
     },
     {
       "x": 15,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_ROUTE104",
-      "dest_warp_id": "7"
-    },
-    {
-      "x": 12,
-      "y": 82,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE104",
-      "dest_warp_id": "8"
+      "dest_warp_id": "9"
     },
     {
       "x": 13,
       "y": 82,
       "elevation": 0,
       "dest_map": "MAP_ROUTE104",
-      "dest_warp_id": "9"
+      "dest_warp_id": "10"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 81,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PetalburgWoodsShortcut_EventScript_TrubbishTrigger"
+    }
+  ],
   "bg_events": []
 }

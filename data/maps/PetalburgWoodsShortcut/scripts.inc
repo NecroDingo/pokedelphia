@@ -1,2 +1,9 @@
 PetalburgWoodsShortcut_MapScripts::
 	.byte 0
+
+PetalburgWoodsShortcut_EventScript_TrubbishTrigger::
+	goto_if_set FLAG_ROUTE104_TRUBBISH_READY, PetalburgWoodsShortcut_EventScript_TrubbishTriggerEnd
+	goto_if_set FLAG_HIDE_ROUTE104_TRUBBISH, PetalburgWoodsShortcut_EventScript_TrubbishTriggerEnd
+	setflag FLAG_ROUTE104_TRUBBISH_READY
+PetalburgWoodsShortcut_EventScript_TrubbishTriggerEnd::
+	end

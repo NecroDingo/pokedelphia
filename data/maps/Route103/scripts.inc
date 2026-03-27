@@ -38,24 +38,24 @@ Route103_EventScript_RivalMay::
 	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
 	closemessage
 	switch VAR_STARTER_MON
-	case 0, Route103_EventScript_StartMayBattleMagby
-	case 1, Route103_EventScript_StartMayBattleAxew
-	case 2, Route103_EventScript_StartMayBattleRhyhorn
+	case 0, Route103_EventScript_StartMayBattleBagon
+	case 1, Route103_EventScript_StartMayBattleDratini
+	case 2, Route103_EventScript_StartMayBattleTrapinch
 	end
 
 
-Route103_EventScript_StartMayBattleMagby::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MAGBY, Route103_Text_MayDefeated
+Route103_EventScript_StartMayBattleBagon::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_BAGON, Route103_Text_MayDefeated
 	goto Route103_EventScript_MayHeals
 	end
 
-Route103_EventScript_StartMayBattleAxew::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_AXEW, Route103_Text_MayDefeated
+Route103_EventScript_StartMayBattleDratini::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_DRATINI, Route103_Text_MayDefeated
 	goto Route103_EventScript_MayHeals
 	end
 
-Route103_EventScript_StartMayBattleRhyhorn::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_RHYHORN, Route103_Text_MayDefeated
+Route103_EventScript_StartMayBattleTrapinch::
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TRAPINCH, Route103_Text_MayDefeated
 	goto Route103_EventScript_MayHeals
 	end
 
@@ -287,7 +287,7 @@ Route103_Text_MayLetsBattle:
 	.string "like she's ready to scrap.\p"
 	.string "She reaches into her pocket,\n"
 	.string "pulls out a half-eaten granola bar,\l"
-	.string "stares at it...\l"
+	.string "stares at it…\l"
 	.string "then throws it over her shoulder.\p"
 	.string "Battle time!$"
 
@@ -316,7 +316,7 @@ Route103_Text_BetterGoBack:
 	.string "and let him know what happened.$"
 
 Route103_Text_ShouldHaveBroughtPotion:
-	.string "Yo, my POKéMON’s runnin’ on fumes...\p"
+	.string "Yo, my POKéMON’s runnin’ on fumes…\p"
 	.string "Shoulda copped a POTION at the\n"
 	.string "corner store.\p"
 	.string "Now I’m out here lookin’ dumb.$"

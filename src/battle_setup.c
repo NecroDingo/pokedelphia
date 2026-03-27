@@ -565,6 +565,58 @@ void StartRegiBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
+void Script_StartDrowzeeBattle(void)
+{
+    u8 i, count = 0, total = 0, avgLevel, level;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_HAS_SPECIES))
+        {
+            total += GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            count++;
+        }
+    }
+    avgLevel = (count > 0) ? (total / count) : 5;
+    level = avgLevel + 1 + (Random() % 5);
+    if (level > 100)
+        level = 100;
+    CreateScriptedWildMon(SPECIES_DROWZEE, level, (Random() % 5) == 0 ? FIRST_BERRY_INDEX + (Random() % (ITEM_MARANGA_BERRY - FIRST_BERRY_INDEX + 1)) : ITEM_NONE);
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = 0;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
+}
+
+void Script_StartTrubbishBattle(void)
+{
+    u8 i, count = 0, total = 0, avgLevel, level;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_HAS_SPECIES))
+        {
+            total += GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            count++;
+        }
+    }
+    avgLevel = (count > 0) ? (total / count) : 5;
+    level = avgLevel + 0 + (Random() % 4);
+    if (level > 100)
+        level = 100;
+    CreateScriptedWildMon(SPECIES_TRUBBISH, level, (Random() % 5) == 0 ? FIRST_BERRY_INDEX + (Random() % (ITEM_MARANGA_BERRY - FIRST_BERRY_INDEX + 1)) : ITEM_NONE);
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = 0;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
+}
+
 static void DowngradeBadPoison(void)
 {
     u8 i;

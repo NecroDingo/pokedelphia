@@ -363,7 +363,7 @@ OldaleTown_Text_ThisIsAPokemonMart:
 	.string "you know, all you need out here.\p"
 	.string "Here, I've got free samples.\p"
 	.string "Don’t you even ask any questions.\n"
-	.string "They fell off the truck...$"
+	.string "They fell off the truck…$"
 
 OldaleTown_Text_PotionExplanation:
 	.string "POTIONS got that magic juice.\p"
@@ -386,9 +386,9 @@ OldaleTown_Text_DiscoveredFootprints:
 	.string "This is serious business. Back it up.$"
 
 OldaleTown_Text_FinishedSketchingFootprints:
-	.string "REX: Aight... done with the sketch.\p"
-	.string "Wait...\p"
-	.string "Yo, hold up...these are my kicks?\p"
+	.string "REX: Aight… done with the sketch.\p"
+	.string "Wait…\p"
+	.string "Yo, hold up…these are my kicks?\p"
 	.string "Haha! Damn, I’m the rare Pokémon.\p"
 	.string "Tell the streets: I’m a freakin’ legend.$"
 
@@ -451,6 +451,8 @@ OldaleTown_EventScript_GailTheSnail_TurnIn:
 	msgbox OldaleTown_Text_ReceivedMoney, MSGBOX_DEFAULT
 	addmoney 500
 	waitmessage
+	msgbox OldaleTown_Text_GailTheSnailDrowzeeInfo, MSGBOX_NPC
+	waitmessage
 	release
 	end
 
@@ -461,23 +463,27 @@ OldaleTown_EventScript_GailTheSnail_Completed:
 
 OldaleTown_Text_GailTheSnailIntroQuest:
 	.string "GAIL THE SNAIL: Sllrrrp-\p"
-	.string "Oh. Hey, Charlie.\p"
-	.string "You look… helpful.\p"
-	.string "My Lickitung is like, totally out.\n"
-	.string "That dumb Drowzee put him to sleep.\p"
-	.string "He was doing sooo good too.\p"
-	.string "Now he’s just laying there like-\n"
-	.string "snrrrk… slrrrp…\p"
-	.string "It’s honestly disgusting.\p"
-	.string "Can you get me a Chesto Berry?\n"
-	.string "I do not wanna deal with this.$"
+	.string "Oh. Charlie.\p"
+	.string "You look like you're not doing\n"
+	.string "anything important.\p"
+	.string "My Lickitung is knocked out.\p"
+	.string "Some Drowzee just… put him\n"
+	.string "to sleep. Just like that.\p"
+	.string "And now he's sitting there going\n"
+	.string "snrrrk… slrrrp… snrrrk…\p"
+	.string "Which is ironic because that's\n"
+	.string "what everyone says I sound like.\p"
+	.string "It's different when it's him.\n"
+	.string "It's disgusting.\p"
+	.string "Go get me a Chesto Berry?\n"
+	.string "I can't be around this right now.$"
 
 OldaleTown_Text_GailTheSnailAccept:
 	.string "GAIL THE SNAIL: Ugh, thank you.\p"
 	.string "You’re being, like, decent.\n"
-	.string "It's kinda hot...\p"
+	.string "It's kinda hot…\p"
 	.string "I mean, not that I’m into you\n" 
-	.string "or anything...\l"
+	.string "or anything…\l"
 	.string "Sllrrrp.\p"
 	.string "There’s berry bushes around here.\n"
 	.string "You just, like… pick them.\p"
@@ -488,9 +494,9 @@ OldaleTown_Text_GailTheSnailAccept:
 	.string "Sllrrrp.$"
 
 OldaleTown_Text_GailTheSnailAccept2:
-	.string "GAIL THE SNAIL: Oh my god, listen\n"
-	.string "to him.\p"
+	.string "GAIL THE SNAIL: You hear that?\p"
 	.string "snrrrk… slrrrp…\p"
+	.string "It hasn't stopped.\p"
 	.string "It’s like wet breathing.\p"
 	.string "I hate it.\p"
 	.string "Just hurry.$"
@@ -500,7 +506,7 @@ OldaleTown_Text_GailTheSnailDecline:
 	.string "Okay.\p"
 	.string "So I’m just supposed to sit here\n"
 	.string "with this noise?\p"
-	.string "That’s actually so rude.\p"
+	.string "That’s actually so freakin' rude.\p"
 	.string "Sllrrrp.$"
 
 OldaleTown_Text_GailTheSnailActiveNoBerry:
@@ -509,36 +515,55 @@ OldaleTown_Text_GailTheSnailActiveNoBerry:
 	.string "Still gross.\p"
 	.string "snrrrk… slrrrp…\p"
 	.string "Did you even try?\p"
-	.string "Are you just into me or something?\n"
-	.string "Or did you forget?\p"
-	.string "You forget things a lot, Charlie.$"
+	.string "Are you just too into me or\n"
+	.string "something? Or did you forget?\p"
+	.string "You're such an idiot, Charlie.$"
 
 OldaleTown_Text_GailTheSnailTurnIn:
 	.string "GAIL THE SNAIL: Wait.\p"
 	.string "Is that it?\p"
 	.string "Oh my god, finally.\p"
-	.string "Okay, wake up.\p"
-	.string "Don’t make it weird.\p"
+	.string "Okay, wake up stupid Lickitung.\p"
+	.string "We're done here.\p"
 	.string "…Sllrrrp.$"
 
 OldaleTown_Text_GailTheSnailTurnIn2:
 	.string "GAIL THE SNAIL: Here.\p"
-	.string "I have some cash.\p"
-	.string "It was in my pocket.\p"
+	.string "I had some money.\n"
+	.string "In my sock…\p"
 	.string "…Sllrrrp.\p"
 	.string "Just take it.\p"
 	.string "Don’t make it a thing.$"
 
+OldaleTown_Text_GailTheSnailDrowzeeInfo:
+	.string "GAIL THE SNAIL: Oh, and that Drowzee?\p"
+	.string "I want you to deal with it.\p"
+	.string "Not for me. For the area.\n"
+	.string "snrrrk… slrrrp…\p"
+	.string "It's a menace.\p"
+	.string "They hang out in SCRAPPLE HOLLOW.\n"
+	.string "When you walk in, go left.\p"
+	.string "There's like a little pocket\n"
+	.string "down there. That's where they are.\p"
+	.string "They're territorial so only one\n"
+	.string "comes out at a time.\p"
+	.string "Probably once a day.\n"
+	.string "There's a whole family though.\p"
+	.string "A whole stupid family.\p"
+	.string "snrrrk… slrrrp…\p"
+	.string "Just deal with it.$"
+
 OldaleTown_Text_GailTheSnailCompleted:
 	.string "GAIL THE SNAIL: Oh hey.\p"
 	.string "Lickitung’s fine now.\p"
-	.string "He keeps licking stuff.\p"
-	.string "Which is, like… whatever.\p"
-	.string "Anyway.\p"
+	.string "He's licking everything again.\p"
+	.string "The wall. My arm. The ground.\p"
+	.string "I don't stop him anymore.\p"
+	.string "What's the point.\p"
 	.string "Thanks again.\p"
 	.string "Sllrrrp.$"
 
 OldaleTown_Text_ReceivedMoney:
 	.string "GAIL THE SNAIL hands Charlie\n"
-	.string "500 dollars.\p"
+	.string "500 dollars from her sock…\p"
 	.string "They feel slightly damp.$"

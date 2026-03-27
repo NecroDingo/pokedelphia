@@ -1,10 +1,38 @@
 PetalburgWoods_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_StartNurse_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, PetalburgWoods_OnResume
+	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	.byte 0
 
-PetalburgWoods_StartNurse_OnTransition::
-	setrespawn HEAL_LOCATION_PETALBURG_WOODS
+PetalburgWoods_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, PetalburgWoods_EventScript_TryRemoveDrowzee
 	end
+
+PetalburgWoods_EventScript_TryRemoveDrowzee::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, PetalburgWoods_EventScript_DrowzeeResumeCheckWon
+	setflag FLAG_DAILY_DROWZEE_DEFEATED
+	removeobject VAR_LAST_TALKED
+	return
+
+PetalburgWoods_EventScript_DrowzeeResumeCheckWon::
+	goto_if_ne VAR_RESULT, B_OUTCOME_WON, Common_EventScript_NopReturn
+	setflag FLAG_DAILY_DROWZEE_DEFEATED
+	return
+
+PetalburgWoods_OnTransition:
+	setrespawn HEAL_LOCATION_PETALBURG_WOODS
+	call PetalburgWoods_EventScript_UpdateDrowzeeVisibility
+	end
+
+PetalburgWoods_EventScript_UpdateDrowzeeVisibility::
+	setflag FLAG_HIDE_PETALBURG_WOODS_DROWZEE
+	goto_if_quest_complete QUEST_1_FIND_CHESTO, PetalburgWoods_EventScript_DrowzeeQuestDone
+	return
+
+PetalburgWoods_EventScript_DrowzeeQuestDone::
+	goto_if_set FLAG_DAILY_DROWZEE_DEFEATED, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_PETALBURG_WOODS_DROWZEE
+	return
 
 PetalburgWoods_EventScript_NurseWaitressHeal::
 	lock
@@ -42,7 +70,7 @@ PetalburgWoods_Text_PayingMe:
 
 PetalburgWoods_Text_WhyAreYouTalking:
 	.string "WAITRESS: Wow, seriously? Why are you\n"
-	.string "even talking to me...$"
+	.string "even talking to me…$"
 
 
 
@@ -480,15 +508,15 @@ PetalburgWoods_Text_YoureKiddingMe:
 	.string "What?! You ain't playin' around!$"
 
 PetalburgWoods_Text_YouveGotSomeNerve:
-	.string "Tch... You got guts, messin' with\n"
+	.string "Tch… You got guts, messin' with\n"
 	.string "THE JERSEY MIKE BOYS.\p"
 	.string "I'd run it back, but I’m fresh outta\n"
-	.string "POKéMON...\p"
+	.string "POKéMON…\p"
 	.string "Whatever. We’re hittin’ WAWA PARK next.\p"
 	.string "Count ya blessings, kid.$"
 
 PetalburgWoods_Text_ThatWasAwfullyClose:
-	.string "Sheeesh...\n"
+	.string "Sheeesh…\n"
 	.string "That was way too close!\p"
 	.string "Thanks, or that meathead would've\n"
 	.string "jacked my important papers.\p"
@@ -496,7 +524,7 @@ PetalburgWoods_Text_ThatWasAwfullyClose:
 	.string "I can do.$"
 
 PetalburgWoods_Text_TeamAquaAfterSomethingInWawaPark:
-	.string "Wait a sec...\p"
+	.string "Wait a sec…\p"
 	.string "Did that JERSEY MIKE goon say\n"
 	.string "they’re plannin’ somethin' in\l"
 	.string "WAWA PARK?$"
@@ -598,7 +626,7 @@ PetalburgWoods_Text_StayOutOfTallGrass:
 	.string "Like, why am I payin’ top dollar for\n"
 	.string "that?\p"
 	.string "Nah, I’m stayin’ right here where it's\n"
-	.string "safe. Got enough problems already...$"
+	.string "safe. Got enough problems already…$"
 
 PetalburgWoods_Text_HiddenItemsExplanation:
 	.string "Yo, listen.\n"
@@ -649,3 +677,31 @@ PetalburgWoods_Text_Advantages:
 PetalburgWoods_Text_GotPunked:
 	.string "“Ha, You got Punk'd” is carved out\n"
 	.string "over the old message.$"
+
+PetalburgWoods_EventScript_Drowzee::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_DROWZEE, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special Script_StartDrowzeeBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, PetalburgWoods_EventScript_DrowzeeDefeated
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PetalburgWoods_EventScript_DrowzeeCaught
+	release
+	end
+
+PetalburgWoods_EventScript_DrowzeeDefeated::
+	setflag FLAG_DAILY_DROWZEE_DEFEATED
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+PetalburgWoods_EventScript_DrowzeeCaught::
+	setflag FLAG_DAILY_DROWZEE_DEFEATED
+	goto Common_EventScript_RemoveStaticPokemon
+	end
+

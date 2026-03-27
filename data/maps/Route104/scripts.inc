@@ -16,7 +16,15 @@ Route104_OnTransition:
 	call Common_EventScript_SetupRivalGfxId
 	call Route104_EventScript_TrySetRivalPos
 	call Route104_EventScript_ShowOrHideWhiteHerbFlorist
+	call Route104_EventScript_MaybeRepositionTrashKid
 	end
+
+Route104_EventScript_MaybeRepositionTrashKid::
+	goto_if_unset FLAG_ROUTE104_TRUBBISH_READY, Route104_EventScript_MaybeRepositionTrashKidEnd
+	setobjectxyperm LOCALID_ROUTE104_TRASH_KID, 66, 61
+	setobjectxyperm LOCALID_ROUTE104_CATERPIE, 49, 36
+Route104_EventScript_MaybeRepositionTrashKidEnd::
+	return
 
 Route104_EventScript_ShowOrHideWhiteHerbFlorist::
 	goto_if_unset FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_EventScript_HideWhiteHerbFlorist
@@ -138,9 +146,9 @@ Route104_EventScript_MayAskToBattle::
 Route104_EventScript_BattleMay::
 	msgbox Route104_Text_MayIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
-	case 0, Route104_EventScript_BattleMayMagby
-	case 1, Route104_EventScript_BattleMayAxew
-	case 2, Route104_EventScript_BattleMayRhyhorn
+	case 0, Route104_EventScript_BattleMayBagon
+	case 1, Route104_EventScript_BattleMayDratini
+	case 2, Route104_EventScript_BattleMayTrapinch
 	end
 
 Route104_EventScript_MayDefeated::
@@ -154,20 +162,20 @@ Route104_EventScript_RestoreMusic::
 	fadedefaultbgm
 	return
 
-Route104_EventScript_BattleMayMagby::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_MAGBY, Route104_Text_MayDefeat
+Route104_EventScript_BattleMayBagon::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_BAGON, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end
 
-Route104_EventScript_BattleMayAxew::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_AXEW, Route104_Text_MayDefeat
+Route104_EventScript_BattleMayDratini::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_DRATINI, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end
 
-Route104_EventScript_BattleMayRhyhorn::
-	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_RHYHORN, Route104_Text_MayDefeat
+Route104_EventScript_BattleMayTrapinch::
+	trainerbattle_no_intro TRAINER_MAY_RUSTBORO_TRAPINCH, Route104_Text_MayDefeat
 	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
 	goto Route104_EventScript_MayDefeated
 	end
@@ -252,7 +260,7 @@ Route104_EventScript_Boy1::
 	end
 
 Route104_EventScript_Woman::
-	msgbox Route104_Text_JumpFromLedges, MSGBOX_NPC
+	msgbox Route104_Text_WalkRoute, MSGBOX_NPC
 	end
 
 Route104_EventScript_Boy2::
@@ -942,8 +950,8 @@ Route104_Text_WhatsItLikeAtBottomOfSea:
 	.string "Maybe lost paintings?\n"
 	.string "A rusted trumpet?\l"
 	.string "I dunno.\p"
-	.string "Artemis talks to it...like it's\n"
-	.string "listening.... Creepy.$"
+	.string "Artemis talks to it…like it's\n"
+	.string "listening… Creepy.$"
 
 Route104_Text_StealingPokemonFromTrainers:
 	.string "You think you can snatch another\n"
@@ -952,14 +960,11 @@ Route104_Text_StealingPokemonFromTrainers:
 	.string "Stick to wild ones, they don’t\n"
 	.string "press charges.$"
 
-Route104_Text_JumpFromLedges:
-	.string "Those big ledges? Totally jumpable.\p"
-	.string "They look high, but they’re safe.\n"
-	.string "Just hop down, no biggie.\p"
-	.string "If you see one with less tall grass\n"
-	.string "around the edge, that’s your best shot.\p"
-	.string "We all do it. Just aim low.\n"
-	.string "No one’s even broken a leg...yet.$"
+Route104_Text_WalkRoute:
+	.string "I walk this road every single day.\p"
+	.string "Same rocks. Same trees.\n"
+	.string "Different Pokémon, though.\p"
+	.string "That part keeps it interesting.$"
 
 Route104_Text_ImNotATrainer:
 	.string "Nope, I ain’t a Trainer.\p"
@@ -1072,7 +1077,7 @@ Route104_Text_MayPostBattle:
 Route104_Text_BridgeConstruction:
 	.string "This bridge is currently under\n"
 	.string "construction.\p"
-	.string "Shit happens...\n"
+	.string "Shit happens…\n"
 	.string "Find another way around.$"
 
 Route104_EventScript_WorkInProgress::
@@ -1088,3 +1093,104 @@ Route104_Text_WorkInProgress:
 	.string "and make a fun game!\p"
 	.string "Thank you for trying it out!\p"
 	.string "- Monty$"
+
+Route104_EventScript_RouteSignShortcut::
+	msgbox Route104_Text_RouteSignShortcut, MSGBOX_SIGN
+	end
+
+Route104_Text_RouteSignShortcut:
+	.string "Scrapple Shortcut$"
+
+Route104_EventScript_Trubbish::
+	lock
+	faceplayer
+	goto_if_set FLAG_ROUTE104_TRUBBISH_READY, Route104_EventScript_TrubbishBattle
+	release
+	end
+
+Route104_EventScript_TrubbishBattle::
+	waitse
+	playmoncry SPECIES_TRUBBISH, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special Script_StartTrubbishBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route104_EventScript_TrubbishDefeated
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Route104_EventScript_TrubbishDefeated
+	release
+	end
+
+Route104_EventScript_TrubbishDefeated::
+	setflag FLAG_HIDE_ROUTE104_TRUBBISH
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+Route104_EventScript_Caterpie::
+	lock
+	goto_if_set FLAG_HIDE_ROUTE104_TRUBBISH, Route104_EventScript_CaterpieGone
+	waitse
+	playmoncry SPECIES_CATERPIE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	msgbox Route104_Text_CaterpieFighting, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_CaterpieGone::
+	release
+	end
+
+Route104_Text_CaterpieFighting:
+	.string "Caterpie is throwing itself at the\n"
+	.string "trash heap with everything it's got!\p"
+	.string "String Shot flies everywhere…\n"
+	.string "The pile barely budges.$"
+
+Route104_EventScript_TrashKid::
+	lock
+	goto_if_set FLAG_ROUTE104_TRUBBISH_READY, Route104_EventScript_TrashKidAfter
+	goto_if_eq VAR_TEMP_0, 1, Route104_EventScript_TrashKidStringShot
+	goto_if_eq VAR_TEMP_0, 2, Route104_EventScript_TrashKidTackle
+	msgbox Route104_Text_TrashKidBefore, MSGBOX_DEFAULT
+	setvar VAR_TEMP_0, 1
+	release
+	end
+
+Route104_EventScript_TrashKidStringShot::
+	msgbox Route104_Text_TrashKidStringShot, MSGBOX_DEFAULT
+	setvar VAR_TEMP_0, 2
+	release
+	end
+
+Route104_EventScript_TrashKidTackle::
+	msgbox Route104_Text_TrashKidTackle, MSGBOX_DEFAULT
+	setvar VAR_TEMP_0, 1
+	release
+	end
+
+Route104_EventScript_TrashKidAfter::
+	msgbox Route104_Text_TrashKidAfter, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_Text_TrashKidBefore:
+	.string "I'm gonna get past this stupid pile\n"
+	.string "of trash. Just you watch!$"
+
+Route104_Text_TrashKidStringShot:
+	.string "Caterpie! Use String Shot!$"
+
+Route104_Text_TrashKidTackle:
+	.string "Caterpie! Use Tackle!$"
+
+Route104_Text_TrashKidAfter:
+	.string "…I lost to a damn pile of trash.\n"
+	.string "Couldn't even beat it.\p"
+	.string "My Caterpie ran off somewhere.\n"
+	.string "Can't say I blame him.$"

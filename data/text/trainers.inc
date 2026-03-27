@@ -12,7 +12,7 @@ Route102_Text_CalvinDefeated:
 	.string "I lost?\p"
 	.string "Nah, this is rigged.\p"
 	.string "My Pokémon were just takin'\n"
-	.string "a nap or somethin...$"
+	.string "a nap or somethin…$"
 
 Route102_Text_CalvinPostBattle:
 	.string "Yo, if you’re this good,\n"
@@ -105,13 +105,13 @@ Route102_Text_TianaPostBattle:
 	.string "They told me you'd be here.$"
 
 Route102_Text_MeghanDefeated:
-	.string "The shadows….\n"
+	.string "The shadows…\n"
 	.string "they got in your head too, huh?$"
 
 Route102_Text_MeghanPostBattle:
 	.string "You feel that?\p"
-	.string "Like... the shadows are breathin’\n"
-	.string "on your neck or somethin’...$"
+	.string "Like… the shadows are breathin’\n"
+	.string "on your neck or somethin’…$"
 
 	Route102_Text_ZachIntro:
 	.string "Ayo! My bugs LOVE this place.\n"
@@ -126,11 +126,11 @@ Route102_Text_ZachPostBattle:
 
 	Route102_Text_HikaruIntro:
 	.string "I train in all kinds’a places.\n"
-	.string "The woods, rivers, bars...\n"
+	.string "The woods, rivers, bars…\n"
 	.string "doesn’t matter to me.$"
 
 Route102_Text_HikaruDefeated:
-	.string "Damn... you got hands like you\n"
+	.string "Damn… you got hands like you\n"
 	.string "grew up fightin’ in alleyways.$"
 
 Route102_Text_HikaruPostBattle:
@@ -143,7 +143,7 @@ Route102_Text_HikaruPostBattle:
 	.string "Let's get this over with, aight?$"
 
 Route102_Text_ChazDefeated:
-	.string "Psh... whatever...$"
+	.string "Psh… whatever…$"
 
 Route102_Text_ChazPostBattle:
 	.string "If I lose my Gucci belt out here,\n"
@@ -344,7 +344,7 @@ Route104_Text_GinaNotEnoughMons:
 	.string "come back when you ain’t solo.$"
 
 Route104_Text_MiaIntro:
-	.string "MIA: We’re twins...double trouble.\p"
+	.string "MIA: We’re twins…double trouble.\p"
 	.string "We battle POKéMON together!$"
 
 Route104_Text_MiaDefeat:
@@ -390,7 +390,7 @@ Route104_Text_BillyDefeat:
 	.string "bro.$"
 
 Route104_Text_BillyPostBattle:
-	.string "Listen... SCRAPPLE HOLLOW?\n"
+	.string "Listen… SCRAPPLE HOLLOW?\n"
 	.string "It’s like every tree’s got an\l"
 	.string "identical twin.\p"
 	.string "You think you’re makin’ progress,\n"
@@ -400,15 +400,18 @@ Route104_Text_BillyPostBattle:
 
 Route104_Text_HaleyIntro:
 	.string "HALEY: Should I… shouldn’t I…?\n"
-	.string "Eh, screw it...let’s battle!$"
+	.string "Eh, screw it…let’s battle!$"
 
 Route104_Text_HaleyDefeat:
-	.string "HALEY: Ugh, should’ve trusted my gut...\n"
-	.string "bad call.$"
+	.string "HALEY: Alright, you beat me…\n"
+	.string "I'll tell you.$"
 
 Route104_Text_HaleyPostBattle:
-	.string "HALEY: Let someone else make your choices\n"
-	.string "and you’ll regret it, every time.$"
+	.string "HALEY: There's a shortcut behind\n"
+	.string "me that takes you down through\l"
+	.string "SCRAPPLE HOLLOW.\p"
+	.string "DON'T tell anyone I told you though\p"
+	.string "My rep is on the line!$"
 
 Route104_Text_HaleyRegister1:
 	.string "HALEY: You’re strong… should I add you\n"
@@ -432,7 +435,7 @@ Route104_Text_HaleyPostRematch:
 
 Route104_Text_WinstonIntro:
 	.string "WINSTON: Oh, sure, I’ll battle.\p"
-	.string "I’m loaded, pal...money’s not an issue.$"
+	.string "I’m loaded, pal…money’s not an issue.$"
 
 Route104_Text_WinstonDefeat:
 	.string "WINSTON: What the hell?\n"
@@ -450,14 +453,14 @@ Route104_Text_WinstonRegister1:
 	.string "Perfect!\p"
 	.string "I’ll register you right now.\p"
 	.string "Have to keep tabs on your enemies when\n"
-	.string "you’re this rich...$"
+	.string "you’re this rich…$"
 
 Route104_Text_WinstonRegister2:
 	.string "WINSTON: Ah, you got a POKéNAV now?\n"
 	.string "Perfect!\p"
 	.string "I’ll register you right now.\p"
 	.string "Have to keep tabs on your enemies when\n"
-	.string "you’re this rich...$"
+	.string "you’re this rich…$"
 
 Route104_Text_WinstonRematchIntro:
 	.string "WINSTON: After you smoked me last time,\n"
@@ -505,7 +508,7 @@ Route104_Text_CindyRematchIntro:
 	.string "Fate says we battle.$"
 
 Route104_Text_CindyRematchDefeat:
-	.string "Oh man...\n"
+	.string "Oh man…\n"
 	.string "Welp, I gave it my all.$"
 
 Route104_Text_CindyPostRematch:
@@ -514,12 +517,12 @@ Route104_Text_CindyPostRematch:
 
 Route104_Text_DarianIntro:
 	.string "Hooked somethin’ mean-looking!\p"
-	.string "It’s got that special glow...\n"
+	.string "It’s got that special glow…\n"
 	.string "Bet it’s tough as nails!$"
 
 Route104_Text_DarianDefeat:
-	.string "The fuck dude...\n"
-	.string "...seriously?!$"
+	.string "The fuck dude…\n"
+	.string "…seriously?!$"
 
 Route104_Text_DarianPostBattle:
 	.string "These POKéMON are fraud dude.$"
@@ -4944,11 +4947,10 @@ Route104Beach_Text_OscarIntro:
 Route104Beach_Text_OscarDefeat:
 	.string "Agh!\p"
 	.string "Snuffed out like my Fourth of July\n"
-	.string "dreams...$"
+	.string "dreams…$"
 
 Route104Beach_Text_OscarPostBattle:
 	.string "You ever roasted a Magikarp over an\n"
 	.string "open flame?\p"
 	.string "No?\n"
 	.string "Don’t.$"
-

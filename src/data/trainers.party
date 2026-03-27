@@ -9505,7 +9505,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Play Rough
 - Thunder Wave
 
-=== TRAINER_MAY_ROUTE_103_RHYHORN ===
+=== TRAINER_MAY_ROUTE_103_TRAPINCH ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9518,7 +9518,7 @@ Mime Jr.
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_ROUTE_110_RHYHORN ===
+=== TRAINER_MAY_ROUTE_110_TRAPINCH ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9539,7 +9539,7 @@ Mime Jr.
 Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_ROUTE_119_RHYHORN ===
+=== TRAINER_MAY_ROUTE_119_TRAPINCH ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9560,7 +9560,7 @@ Mime Jr.
 Level: 31
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_MAY_ROUTE_103_MAGBY ===
+=== TRAINER_MAY_ROUTE_103_BAGON ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9573,7 +9573,7 @@ Mime Jr.
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_ROUTE_110_MAGBY ===
+=== TRAINER_MAY_ROUTE_110_BAGON ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9594,7 +9594,7 @@ Mime Jr.
 Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_ROUTE_119_MAGBY ===
+=== TRAINER_MAY_ROUTE_119_BAGON ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9615,7 +9615,7 @@ Mime Jr.
 Level: 31
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_MAY_ROUTE_103_AXEW ===
+=== TRAINER_MAY_ROUTE_103_DRATINI ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9628,7 +9628,7 @@ Mime Jr.
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_ROUTE_110_AXEW ===
+=== TRAINER_MAY_ROUTE_110_DRATINI ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -9649,7 +9649,7 @@ Mime Jr.
 Level: 20
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_ROUTE_119_AXEW ===
+=== TRAINER_MAY_ROUTE_119_DRATINI ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -10755,7 +10755,7 @@ Loudred
 Level: 33
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MAY_RUSTBORO_RHYHORN ===
+=== TRAINER_MAY_RUSTBORO_TRAPINCH ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -12051,7 +12051,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Play Rough
 - Thunder Wave
 
-=== TRAINER_MAY_LILYCOVE_RHYHORN ===
+=== TRAINER_MAY_LILYCOVE_TRAPINCH ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -12076,7 +12076,7 @@ Mime Jr.
 Level: 34
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_MAY_LILYCOVE_MAGBY ===
+=== TRAINER_MAY_LILYCOVE_BAGON ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -12101,7 +12101,7 @@ Mime Jr.
 Level: 34
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_MAY_LILYCOVE_AXEW ===
+=== TRAINER_MAY_LILYCOVE_DRATINI ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -13850,7 +13850,7 @@ Vigoroth
 Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MAY_RUSTBORO_MAGBY ===
+=== TRAINER_MAY_RUSTBORO_BAGON ===
 Name: MARGARET
 Class: Rival
 Pic: May
@@ -13867,7 +13867,7 @@ Mime Jr.
 Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_MAY_RUSTBORO_AXEW ===
+=== TRAINER_MAY_RUSTBORO_DRATINI ===
 Name: MARGARET
 Class: Rival
 Pic: May

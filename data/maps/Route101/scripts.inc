@@ -265,7 +265,7 @@ Route101_Text_HelpMe:
 	.string "AH! It’s biting me! This rat is wild!$"
 
 Route101_Text_PleaseHelp:
-	.string "Hey! You! Rat-lover!\n"
+	.string "Hey! Charlie! Rat-lover!\n"
 	.string "Get over here and do something!\p"
 	.string "In my BAG! Grab a POKé BALL\n"
 	.string "before it gets my throat!$"

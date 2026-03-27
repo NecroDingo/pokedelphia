@@ -6,7 +6,7 @@ gText_WouldYouLikeToRestYourPkmn::
 gText_IllTakeYourPkmn::
 	.string "WAITRESS: Fine. Hand them over.\p"
 	.string "And seriously, stop staring at me like\n"
-	.string "that...$"
+	.string "that…$"
 
 gText_RestoredPkmnToFullHealth::
 	.string "WAITRESS: There. They’re better.\p"
@@ -22,7 +22,7 @@ gText_WelcomeCutShort::
 	.string "What do you even do to them?$"
 
 gText_NoticesGoldCard::
-	.string "WAITRESS: Ugh..Hey Char...\p"
+	.string "WAITRESS: Ugh..Hey Char…\p"
 	.string "Whoa… wait.\n"
 	.string "Is that a… is that a Gold Card?\p"
 	.string "It’s… actually kinda impressive,\n"
@@ -54,4 +54,4 @@ gText_ThankYouForWaiting::
 gText_WeHopeToSeeYouAgain2::
 	.string "WAITRESS: You’re gonna come back in\n"
 	.string "like 10 minutes, huh?\p"
-	.string "Great...$"
+	.string "Great…$"

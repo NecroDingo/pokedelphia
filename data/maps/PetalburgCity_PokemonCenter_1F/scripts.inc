@@ -72,7 +72,7 @@ PetalburgCity_PokemonCenter_Text_NurseIntro2:
 	.string "damn town now. I got a promotion.\p"
 	.string "If you think I’m gonna fall for your\n"
 	.string "weird little obsession? Get real.\p"
-	.string "..... ....... ...... ........\p"
+	.string "… … … … …\p"
 	.string "Do you think this is some kind of game?\p"
 	.string "Shit… I gotta keep it professional.\p"
 	.string "Trust me, I’m way too broke to lose\n"
@@ -86,7 +86,7 @@ PetalburgCity_PokemonCenter_Text_NurseIntro2:
 
 PetalburgCity_PokemonCenter_Text_NurseIntro3:
 	.string "WAITRESS: Well, what are you waiting\n"
-	.string "for? Give me your POKéMON...$"
+	.string "for? Give me your POKéMON…$"
 
 PetalburgCity_PokemonCenter_1F_EventScript_Nurse::
 	setvar VAR_0x800B, LOCALID_PETALBURG_NURSE
@@ -114,22 +114,22 @@ PetalburgCity_PokemonCenter_1F_EventScript_Woman::
 	end
 
 PetalburgCity_PokemonCenter_1F_EventScript_SayStarterTypeInfo::
-	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayMagbyType
-	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayAxewType
-	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayRhyhornType
+	call_if_eq VAR_STARTER_MON, 0, PetalburgCity_PokemonCenter_1F_EventScript_SayBagonType
+	call_if_eq VAR_STARTER_MON, 1, PetalburgCity_PokemonCenter_1F_EventScript_SayDratiniType
+	call_if_eq VAR_STARTER_MON, 2, PetalburgCity_PokemonCenter_1F_EventScript_SayTrapinchType
 	release
 	end
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayMagbyType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_MagbyIsFireType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayBagonType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_BagonIsDragonType, MSGBOX_DEFAULT
 	return
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayAxewType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_AxewIsDragonType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayDratiniType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_DratiniIsDragonType, MSGBOX_DEFAULT
 	return
 
-PetalburgCity_PokemonCenter_1F_EventScript_SayRhyhornType::
-	msgbox PetalburgCity_PokemonCenter_1F_Text_RhyhornIsRockGroundType, MSGBOX_DEFAULT
+PetalburgCity_PokemonCenter_1F_EventScript_SayTrapinchType::
+	msgbox PetalburgCity_PokemonCenter_1F_Text_TrapinchIsGroundType, MSGBOX_DEFAULT
 	return
 
 PetalburgCity_PokemonCenter_1F_Text_PCStorageSystem:
@@ -145,7 +145,7 @@ PetalburgCity_PokemonCenter_1F_Text_OranBerryRegainedHP:
 	.string "I wonder if I can teach a thing or\n"
 	.string "two about berries to this hot Nurse.\p"
 	.string "Maybe she can teach me a thing or two\n"
-	.string "about Nursing...$"
+	.string "about Nursing…$"
 
 PetalburgCity_PokemonCenter_1F_Text_ManyTypesOfPokemon:
 	.string "There are many types of POKéMON.\p"
@@ -154,28 +154,31 @@ PetalburgCity_PokemonCenter_1F_Text_ManyTypesOfPokemon:
 	.string "Depending on the types of POKéMON,\n"
 	.string "a battle could be easy or hard.$"
 
-PetalburgCity_PokemonCenter_1F_Text_MagbyIsFireType:
-	.string "For example, your MAGBY is a FIRE type.\p"
-	.string "It's strong against GRASS, ICE, BUG,\n"
-	.string "and STEEL types.\p"
-	.string "But it's weak to WATER, GROUND, and\n"
-	.string "ROCK-type POKéMON.$"
-
-
-PetalburgCity_PokemonCenter_1F_Text_AxewIsDragonType:
-	.string "For example, your AXEW is a DRAGON type.\p"
-	.string "It's strong against other DRAGON types.\p"
-	.string "But it’s weak to ICE, DRAGON, and\n"
+PetalburgCity_PokemonCenter_1F_Text_BagonIsDragonType:
+	.string "For example, your BAGON is a DRAGON\n" 
+	.string "type.\p"
+	.string "It's strong against other DRAGON\n"
+	.string "types.\p"
+	.string "But it's weak to ICE, DRAGON, and\n"
 	.string "FAIRY-type POKéMON.$"
 
 
-PetalburgCity_PokemonCenter_1F_Text_RhyhornIsRockGroundType:
-	.string "For example, your RHYHORN is a ROCK\n"
-	.string "and GROUND type.\p"
+PetalburgCity_PokemonCenter_1F_Text_DratiniIsDragonType:
+	.string "For example, your DRATINI is a DRAGON\n"
+	.string "type.\p"
+	.string "It's strong against other DRAGON\n"
+	.string "types.\p"
+	.string "But it's weak to ICE, DRAGON, and\n"
+	.string "FAIRY-type POKéMON.$"
+
+
+PetalburgCity_PokemonCenter_1F_Text_TrapinchIsGroundType:
+	.string "For example, your TRAPINCH is a GROUND\n"
+	.string "type.\p"
 	.string "It's strong against FIRE, ELECTRIC,\n"
-	.string "POISON, ICE, FLYING, and BUG types.\p"
-	.string "But it's weak to WATER, GRASS, ICE,\n"
-	.string "FIGHTING, and STEEL-type POKéMON.$"
+	.string "POISON, ROCK, and STEEL types.\p"
+	.string "But it's weak to WATER, GRASS, and\n"
+	.string "ICE-type POKéMON.$"
 
  
 

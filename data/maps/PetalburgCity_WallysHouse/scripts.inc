@@ -215,7 +215,7 @@ PetalburgCity_WallysHouse_Text_WallyWasReallyHappy:
 
 PetalburgCity_WallysHouse_Text_MatthewLeftWithoutTelling:
 	.string "I ask you to keep this between us,\n"
-	.string "please...\p"
+	.string "please…\p"
 	.string "Matthew left Verdanturf Town without\n"
 	.string "lettin' anyone know.\p"
 	.string "He’s frail, sure, but he’s got a will\n"

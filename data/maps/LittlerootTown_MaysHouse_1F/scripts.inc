@@ -318,15 +318,13 @@ LittlerootTown_MaysHouse_1F_Movement_MayGoUpstairs2:
 
 RivalsHouse_1F_Text_OhYoureTheNewNeighbor:
 	.string "…\p"
-	.string "We were expecting you.\p"
-	.string "… … … … … … … … …\p"
+	.string "We were expecting you\n"
 	.string "Charlie.\p"
+	.string "… … … … …\p"
 	.string "You smell like outside.\p"
-	.string "You moved in next door.\p"
-	.string "We noticed.\p"
-	.string "Margaret is upstairs.\p"
-	.string "She does not speak.\p"
-	.string "She observes.$"
+	.string "I think Margaret is upstairs.\p"
+	.string "She does not speak.\n"
+	.string "She just observes.$"
 
 RivalsHouse_1F_Text_LikeChildLikeFather:
 	.string "Margaret is different.\p"
@@ -357,11 +355,11 @@ RivalsHouse_1F_Text_ShouldGoHomeEverySoOften:
 	.string "Very highly.$"
 
 RivalsHouse_1F_Text_MayWhoAreYou:
-	.string "...\p"
+	.string "…\p"
 	.string "Margaret is standing in the middle\n"
 	.string "of the room.\p"
 	.string "She is staring at you.\p"
-	.string "..... ..... ..... .....\p"
+	.string "… … … …\p"
 	.string "She does not blink.\p"
 	.string "Her lips move slightly.\n"
 	.string "Like she’s tasting the air.\p"
@@ -390,8 +388,8 @@ RivalsHouse_1F_Text_BrendanWhoAreYou:
 	.string "Some other time, okay?$"
 
 RivalsHouse_1F_Text_DoYouHavePokemon:
-	.string "… … … … … … … …\p"
+	.string "… … … … …\p"
 	.string "I want to be just like my sister\n"
 	.string "when I grow up!\p"
 	.string "She smiles and licks her lips\n"
-	.string "… … … … … … … …$"
+	.string "… … … … …$"

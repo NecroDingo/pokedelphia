@@ -954,7 +954,7 @@ PetalburgCity_Text_ThisIsGymSign:
 	.string "you need to go for a great fight!$"
 
 PetalburgCity_Text_ThisIsYourUncle:
-	.string "..................\p"
+	.string "………………\p"
 	.string "Oh, this is your Uncle's GYM?\n"
 	.string "Head on inside!$"
 
@@ -971,7 +971,7 @@ PetalburgCity_Text_WaterReflection:
 	.string "Lost my damn Nugget in some bush,\n"
 	.string "now I’m stuck here feelin’ like a chump.\p"
 	.string "It’s gotta be around this jawn\n"
-	.string "somewhere...$"
+	.string "somewhere…$"
 
 PetalburgCity_Text_NuggetQuestIntro:
 	.string "Better search these bushes to\n"
@@ -1001,22 +1001,22 @@ PetalburgCity_Text_WallyHouseSign:
 PetalburgCity_Text_AreYouATrainer:
 	.string "THE LAWYER: Excuse me sir.\p"
 	.string "You there.\p"
-	.string "Based on your attire...\n"
+	.string "Based on your attire…\n"
 	.string "I’m going to assume you’re a\l"
 	.string "POKéMON TRAINER?$"
 
 PetalburgCity_Text_WellMaybeNot:
-	.string "THE LAWYER: ..... ..... .....\p"
+	.string "THE LAWYER: … … …\p"
 	.string "Hmm.\p"
 	.string "On second thought, perhaps not.\p"
 	.string "You don’t appear particularly\n"
 	.string "battle-worn.\p"
 	.string "No visible scuffs. No dust.\p"
-	.string "Either you’re new...\n"
+	.string "Either you’re new…\n"
 	.string "or you lack follow-through.$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers:
-	.string "THE LAWYER: I represent certain...\n" 
+	.string "THE LAWYER: I represent certain…\n" 
 	.string "interests.\p"
 	.string "We are currently evaluating promising\n"
 	.string "trainers for future opportunities.\p"
@@ -1042,7 +1042,7 @@ PetalburgCity_EventScript_NuggetBush_End:
     end
 
 PetalburgCity_Text_FoundNugget:
-	.string "You search the bush...\p"
+	.string "You search the bush…\p"
     .string "You found a Nugget!$"
 
 PetalburgCity_EventScript_EmptyBush::
@@ -1055,8 +1055,8 @@ PetalburgCity_EventScript_EmptyBush_End:
     end
 
 PetalburgCity_Text_EmptyBush:
-	.string "You search the bush...\p"
-	.string "No Nugget here...$"
+	.string "You search the bush…\p"
+	.string "No Nugget here…$"
 
 PetalburgCity_Text_AfterFoundNugget:
 	.string "One man's mistake is another man's\n"
@@ -1144,7 +1144,7 @@ PetalburgCity_Text_Birch_Quest3_Start1:
 	.string "Yeah, a game.\p"
 	.string "I got a riddle for ya.\p"
 	.string "And no, it ain’t one’a those\n"
-	.string "kid crap riddles...\p"
+	.string "kid crap riddles…\p"
 	.string "This one’s got stakes.\p"
 	.string "I stashed somethin’ in this town.\n"
 	.string "You find it, it’s yours.\p"
