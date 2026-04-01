@@ -51,7 +51,6 @@ extern u8 gChainFishingDexNavStreak;
 
 void DisableWildEncounters(bool8 disabled);
 void InvalidateWildHeaderCache(void);
-u8 PickWildMonNature(void);
 bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior);
 bool8 SweetScentWildEncounter(void);
 bool8 DoesCurrentMapHaveFishingMons(void);

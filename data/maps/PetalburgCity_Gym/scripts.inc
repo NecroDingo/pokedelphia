@@ -128,6 +128,7 @@ PetalburgCity_Gym_Movement_PlayerWalkToNorman:
 	step_end
 
 PetalburgCity_Gym_EventScript_Norman::
+	vsseeker_rematchid TRAINER_NORMAN_1
 	lock
 	switch VAR_PETALBURG_GYM_STATE
 	case 2, PetalburgCity_Gym_EventScript_NormanNoBadges

@@ -298,7 +298,7 @@ PlayersHouse_2F_Text_Notebook:
 
 Common_Text_LookCloserAtMap:
 	.string "{PLAYER} took a closer look at the map.\n"
-	.string "There’s a weird stain on Trashburg.$"
+	.string "There's a weird stain on Trashburg.$"
 
 PlayersHouse_2F_Text_ItsAGameCube:
 	.string "It’s a Nintendo GameCube.\p"
